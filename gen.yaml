@@ -11,5 +11,5 @@ generation:
 typescript:
   version: 1.0.0
   author: Defacto
-  maxMethodParams: 0
+  maxMethodParams: 4
   packageName: defacto
