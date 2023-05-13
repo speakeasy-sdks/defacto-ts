@@ -39,14 +39,15 @@ export class Testing {
    * Warning: these invoices and their IBANs will not work in production.
    *
    */
-  async getSandboxBusinessGenerator(
-    req: operations.GetSandboxBusinessGeneratorRequest,
+  async generateBusiness(
+    country?: operations.GenerateBusinessCountryEnum,
+    isBorrower?: boolean,
     config?: AxiosRequestConfig
-  ): Promise<operations.GetSandboxBusinessGeneratorResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetSandboxBusinessGeneratorRequest(req);
-    }
-
+  ): Promise<operations.GenerateBusinessResponse> {
+    const req = new operations.GenerateBusinessRequest({
+      country: country,
+      isBorrower: isBorrower,
+    });
     const baseURL: string = this._serverURL;
     const url: string =
       baseURL.replace(/\/$/, "") + "/sandbox/business-generator";
@@ -68,8 +69,8 @@ export class Testing {
       throw new Error(`status code not found in response: ${httpRes}`);
     }
 
-    const res: operations.GetSandboxBusinessGeneratorResponse =
-      new operations.GetSandboxBusinessGeneratorResponse({
+    const res: operations.GenerateBusinessResponse =
+      new operations.GenerateBusinessResponse({
         statusCode: httpRes.status,
         contentType: contentType,
         rawResponse: httpRes,
@@ -100,14 +101,15 @@ export class Testing {
    * Warning: these IBANs will not work in production.
    *
    */
-  async getSandboxIbanGenerator(
-    req: operations.GetSandboxIbanGeneratorRequest,
+  async generateIban(
+    country?: operations.GenerateIbanCountryEnum,
+    scenario?: operations.GenerateIbanScenarioEnum,
     config?: AxiosRequestConfig
-  ): Promise<operations.GetSandboxIbanGeneratorResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetSandboxIbanGeneratorRequest(req);
-    }
-
+  ): Promise<operations.GenerateIbanResponse> {
+    const req = new operations.GenerateIbanRequest({
+      country: country,
+      scenario: scenario,
+    });
     const baseURL: string = this._serverURL;
     const url: string = baseURL.replace(/\/$/, "") + "/sandbox/iban-generator";
 
@@ -128,8 +130,86 @@ export class Testing {
       throw new Error(`status code not found in response: ${httpRes}`);
     }
 
-    const res: operations.GetSandboxIbanGeneratorResponse =
-      new operations.GetSandboxIbanGeneratorResponse({
+    const res: operations.GenerateIbanResponse =
+      new operations.GenerateIbanResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 201:
+        if (utils.matchContentType(contentType, `*/*`)) {
+          const resBody: string = JSON.stringify(httpRes?.data, null, 0);
+          const out: Uint8Array = new Uint8Array(resBody.length);
+          for (let i = 0; i < resBody.length; i++)
+            out[i] = resBody.charCodeAt(i);
+          res.body = out;
+        }
+        break;
+    }
+
+    return res;
+  }
+
+  /**
+   *
+   * !!! The documentation website is not able to display the full response of this endpoint. The use of the curl command is recommended. !!!
+   *
+   * Generate a fake invoice that will produce a given scenario on the sandbox, for example a rejected loan.
+   * The generation will not add the invoice to the list of your invoices. You must do this via API.
+   * To achieve this, you can copy the invoice_creation_payload into the payload of the invoice creation API.
+   * If you want to test another scenario on a given business, create another fake invoice.
+   * For more information on the scenarios of the sandbox, please refer to the Testing your integration section.
+   * Warning: these invoices and their IBANs will not work in production.
+   *
+   */
+  async generateInvoice(
+    req: shared.GenerateInvoiceRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.GenerateInvoiceResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new shared.GenerateInvoiceRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string =
+      baseURL.replace(/\/$/, "") + "/sandbox/invoice-generator";
+
+    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+    try {
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "request",
+        "json"
+      );
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        throw new Error(`Error serializing request body, cause: ${e.message}`);
+      }
+    }
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    const headers = { ...reqBodyHeaders, ...config?.headers };
+
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
+      url: url,
+      method: "post",
+      headers: headers,
+      data: reqBody,
+      ...config,
+    });
+
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
+
+    const res: operations.GenerateInvoiceResponse =
+      new operations.GenerateInvoiceResponse({
         statusCode: httpRes.status,
         contentType: contentType,
         rawResponse: httpRes,
@@ -197,10 +277,10 @@ export class Testing {
    * (2) when the business is on the invoice to finance but is not the borrower.
    *
    */
-  async postSandboxBusinessEligible(
+  async setBusinessEligible(
     req: shared.BusinessEligibileParams,
     config?: AxiosRequestConfig
-  ): Promise<operations.PostSandboxBusinessEligibleResponse> {
+  ): Promise<operations.SetBusinessEligibleResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
       req = new shared.BusinessEligibileParams(req);
     }
@@ -242,92 +322,14 @@ export class Testing {
       throw new Error(`status code not found in response: ${httpRes}`);
     }
 
-    const res: operations.PostSandboxBusinessEligibleResponse =
-      new operations.PostSandboxBusinessEligibleResponse({
+    const res: operations.SetBusinessEligibleResponse =
+      new operations.SetBusinessEligibleResponse({
         statusCode: httpRes.status,
         contentType: contentType,
         rawResponse: httpRes,
       });
     switch (true) {
       case httpRes?.status == 204:
-        if (utils.matchContentType(contentType, `*/*`)) {
-          const resBody: string = JSON.stringify(httpRes?.data, null, 0);
-          const out: Uint8Array = new Uint8Array(resBody.length);
-          for (let i = 0; i < resBody.length; i++)
-            out[i] = resBody.charCodeAt(i);
-          res.body = out;
-        }
-        break;
-    }
-
-    return res;
-  }
-
-  /**
-   *
-   * !!! The documentation website is not able to display the full response of this endpoint. The use of the curl command is recommended. !!!
-   *
-   * Generate a fake invoice that will produce a given scenario on the sandbox, for example a rejected loan.
-   * The generation will not add the invoice to the list of your invoices. You must do this via API.
-   * To achieve this, you can copy the invoice_creation_payload into the payload of the invoice creation API.
-   * If you want to test another scenario on a given business, create another fake invoice.
-   * For more information on the scenarios of the sandbox, please refer to the Testing your integration section.
-   * Warning: these invoices and their IBANs will not work in production.
-   *
-   */
-  async postSandboxInvoiceGenerator(
-    req: shared.GenerateInvoiceRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.PostSandboxInvoiceGeneratorResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new shared.GenerateInvoiceRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string =
-      baseURL.replace(/\/$/, "") + "/sandbox/invoice-generator";
-
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-        req,
-        "request",
-        "json"
-      );
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...reqBodyHeaders, ...config?.headers };
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url,
-      method: "post",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.PostSandboxInvoiceGeneratorResponse =
-      new operations.PostSandboxInvoiceGeneratorResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 201:
         if (utils.matchContentType(contentType, `*/*`)) {
           const resBody: string = JSON.stringify(httpRes?.data, null, 0);
           const out: Uint8Array = new Uint8Array(resBody.length);

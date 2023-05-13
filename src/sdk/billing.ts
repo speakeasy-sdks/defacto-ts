@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 export class Billing {
@@ -95,13 +96,14 @@ export class Billing {
    *
    */
   async sendBill(
-    req: operations.SendBillRequest,
+    billId: string,
+    apiBillSentByPartnerRequest?: shared.APIBillSentByPartnerRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.SendBillResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.SendBillRequest(req);
-    }
-
+    const req = new operations.SendBillRequest({
+      billId: billId,
+      apiBillSentByPartnerRequest: apiBillSentByPartnerRequest,
+    });
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(baseURL, "/bill/{bill_id}/sent", req);
 

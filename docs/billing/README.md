@@ -84,14 +84,13 @@ const sdk = new Defacto({
   },
 });
 
-sdk.billing.sendBill({
-  apiBillSentByPartnerRequest: {
-    sentOn: new Date("2021-02-02T01:24:52.629Z"),
-    toEmailAddresses: [
-      "Golda_Kassulke@yahoo.com",
-    ],
-  },
-  billId: "molestiae",
+sdk.billing.sendBill("deleniti", {
+  sentOn: new Date("2022-04-23T13:35:30.978Z"),
+  toEmailAddresses: [
+    "Henry.Mosciski@yahoo.com",
+    "Janice_Gutkowski28@gmail.com",
+    "Geraldine.Mosciski87@gmail.com",
+  ],
 }).then((res: SendBillResponse) => {
   if (res.statusCode == 200) {
     // handle response

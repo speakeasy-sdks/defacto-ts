@@ -54,11 +54,10 @@ const sdk = new Defacto({
 
 sdk.webhook.create({
   eventTypes: [
-    CreateWebhookEventTypesEnum.LoanCANCELED,
-    CreateWebhookEventTypesEnum.LoanDECLINED,
+    CreateWebhookEventTypesEnum.CreditLinePOOLAMOUNTUPDATED,
   ],
-  name: "Donald MacGyver",
-  toUrl: "beatae",
+  name: "Darin Jakubowski",
+  toUrl: "minus",
 }).then((res: CreateWebhookResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -82,9 +81,7 @@ const sdk = new Defacto({
   },
 });
 
-sdk.webhook.delete({
-  webhookId: "voluptatum",
-}).then((res: DeleteWebhookResponse) => {
+sdk.webhook.delete("nemo").then((res: DeleteWebhookResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -145,17 +142,12 @@ const sdk = new Defacto({
   },
 });
 
-sdk.webhook.update({
-  createWebhook: {
-    eventTypes: [
-      CreateWebhookEventTypesEnum.CreditLimitUPDATED,
-      CreateWebhookEventTypesEnum.PaymentINTRANSIT,
-      CreateWebhookEventTypesEnum.PaymentINSTRUCTED,
-    ],
-    name: "Donald Williamson MD",
-    toUrl: "pariatur",
-  },
-  webhookId: "debitis",
+sdk.webhook.update("asperiores", {
+  eventTypes: [
+    CreateWebhookEventTypesEnum.LoanDECLINED,
+  ],
+  name: "Desiree Leannon",
+  toUrl: "nam",
 }).then((res: UpdateWebhookResponse) => {
   if (res.statusCode == 200) {
     // handle response

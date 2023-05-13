@@ -32,13 +32,12 @@ export class Onboarding {
   }
 
   async deactivateBorrower(
-    req: operations.DeactivateBorrowerRequest,
+    borrowerId: string,
     config?: AxiosRequestConfig
   ): Promise<operations.DeactivateBorrowerResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.DeactivateBorrowerRequest(req);
-    }
-
+    const req = new operations.DeactivateBorrowerRequest({
+      borrowerId: borrowerId,
+    });
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(
       baseURL,
@@ -151,13 +150,18 @@ export class Onboarding {
    * List all your borrowers
    */
   async listBorrowers(
-    req: operations.ListBorrowersRequest,
+    borrowerId?: string[],
+    borrowerIdentifier?: string,
+    cursor?: string,
+    pageSize?: number,
     config?: AxiosRequestConfig
   ): Promise<operations.ListBorrowersResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.ListBorrowersRequest(req);
-    }
-
+    const req = new operations.ListBorrowersRequest({
+      borrowerId: borrowerId,
+      borrowerIdentifier: borrowerIdentifier,
+      cursor: cursor,
+      pageSize: pageSize,
+    });
     const baseURL: string = this._serverURL;
     const url: string = baseURL.replace(/\/$/, "") + "/borrowers";
 
@@ -203,13 +207,14 @@ export class Onboarding {
    * Register the date a new borrower accepted our T&Cs
    */
   async signBorrower(
-    req: operations.SignBorrowerRequest,
+    borrowerId: string,
+    signedInput?: shared.SignedInput,
     config?: AxiosRequestConfig
   ): Promise<operations.SignBorrowerResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.SignBorrowerRequest(req);
-    }
-
+    const req = new operations.SignBorrowerRequest({
+      borrowerId: borrowerId,
+      signedInput: signedInput,
+    });
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(
       baseURL,

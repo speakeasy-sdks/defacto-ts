@@ -7,13 +7,13 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class UpdateLoanRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  patchLoan?: shared.PatchLoan;
-
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=loan_id",
   })
   loanId: string;
+
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  patchLoan?: shared.PatchLoan;
 }
 
 export class UpdateLoanResponse extends SpeakeasyBase {

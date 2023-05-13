@@ -35,13 +35,12 @@ export class Loan {
    * Use this function to cancel a loan proposal. Available for LoanStatus.TO_VALIDATE,LoanStatus.VALIDATED and LoanStatus.SCHEDULED loans.
    */
   async cancel(
-    req: operations.CancelLoanRequest,
+    loanId: string,
     config?: AxiosRequestConfig
   ): Promise<operations.CancelLoanResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.CancelLoanRequest(req);
-    }
-
+    const req = new operations.CancelLoanRequest({
+      loanId: loanId,
+    });
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(
       baseURL,
@@ -89,13 +88,12 @@ export class Loan {
    * Get a loan by id
    */
   async get(
-    req: operations.GetLoanRequest,
+    loanId: string,
     config?: AxiosRequestConfig
   ): Promise<operations.GetLoanResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetLoanRequest(req);
-    }
-
+    const req = new operations.GetLoanRequest({
+      loanId: loanId,
+    });
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(baseURL, "/loan/{loan_id}", req);
 
@@ -138,13 +136,12 @@ export class Loan {
    * Get the activity log of a loan.
    */
   async getEvents(
-    req: operations.GetLoanEventsRequest,
+    loanId: string,
     config?: AxiosRequestConfig
   ): Promise<operations.GetLoanEventsResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetLoanEventsRequest(req);
-    }
-
+    const req = new operations.GetLoanEventsRequest({
+      loanId: loanId,
+    });
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(
       baseURL,
@@ -323,13 +320,14 @@ export class Loan {
    *
    */
   async update(
-    req: operations.UpdateLoanRequest,
+    loanId: string,
+    patchLoan?: shared.PatchLoan,
     config?: AxiosRequestConfig
   ): Promise<operations.UpdateLoanResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.UpdateLoanRequest(req);
-    }
-
+    const req = new operations.UpdateLoanRequest({
+      loanId: loanId,
+      patchLoan: patchLoan,
+    });
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(baseURL, "/loan/{loan_id}", req);
 
@@ -391,13 +389,12 @@ export class Loan {
    * Use this function to accept a loan proposal. Available for LoanStatus.TO_VALIDATE loans only.
    */
   async validate(
-    req: operations.ValidateLoanRequest,
+    loanId: string,
     config?: AxiosRequestConfig
   ): Promise<operations.ValidateLoanResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.ValidateLoanRequest(req);
-    }
-
+    const req = new operations.ValidateLoanRequest({
+      loanId: loanId,
+    });
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(
       baseURL,

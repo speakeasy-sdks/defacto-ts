@@ -110,13 +110,12 @@ export class Webhook {
    * Delete a webhook subscription.
    */
   async delete(
-    req: operations.DeleteWebhookRequest,
+    webhookId: string,
     config?: AxiosRequestConfig
   ): Promise<operations.DeleteWebhookResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.DeleteWebhookRequest(req);
-    }
-
+    const req = new operations.DeleteWebhookRequest({
+      webhookId: webhookId,
+    });
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(
       baseURL,
@@ -223,13 +222,14 @@ export class Webhook {
    *
    */
   async update(
-    req: operations.UpdateWebhookRequest,
+    webhookId: string,
+    createWebhook?: shared.CreateWebhook,
     config?: AxiosRequestConfig
   ): Promise<operations.UpdateWebhookResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.UpdateWebhookRequest(req);
-    }
-
+    const req = new operations.UpdateWebhookRequest({
+      webhookId: webhookId,
+      createWebhook: createWebhook,
+    });
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(
       baseURL,

@@ -7,13 +7,13 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class SendBillRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  apiBillSentByPartnerRequest?: shared.APIBillSentByPartnerRequest;
-
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=bill_id",
   })
   billId: string;
+
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  apiBillSentByPartnerRequest?: shared.APIBillSentByPartnerRequest;
 }
 
 export class SendBillResponse extends SpeakeasyBase {

@@ -7,13 +7,13 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class UpdateWebhookRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  createWebhook?: shared.CreateWebhook;
-
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=webhook_id",
   })
   webhookId: string;
+
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  createWebhook?: shared.CreateWebhook;
 }
 
 export class UpdateWebhookResponse extends SpeakeasyBase {
