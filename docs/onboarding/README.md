@@ -21,9 +21,7 @@ const sdk = new Defacto({
   },
 });
 
-sdk.onboarding.deactivateBorrower({
-  borrowerId: "repellendus",
-}).then((res: DeactivateBorrowerResponse) => {
+sdk.onboarding.deactivateBorrower("debitis").then((res: DeactivateBorrowerResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -47,92 +45,93 @@ const sdk = new Defacto({
 });
 
 sdk.onboarding.enrollBorrower({
-  accountNumber: "delectus",
+  accountNumber: "neque",
   address: {
-    addressLine1: "voluptates",
-    addressLine2: "perferendis",
-    city: "Predovicport",
-    country: "Slovenia",
-    postalCode: "56307-9054",
-    state: "asperiores",
+    addressLine1: "dolorum",
+    addressLine2: "nostrum",
+    city: "Padbergstad",
+    country: "Tanzania",
+    postalCode: "51280",
+    state: "culpa",
   },
   directors: [
     {
       address: {
-        addressLine1: "suscipit",
-        addressLine2: "quidem",
-        city: "Boca Raton",
-        country: "Kiribati",
-        postalCode: "84568",
-        state: "officiis",
+        addressLine1: "magnam",
+        addressLine2: "consequatur",
+        city: "Gagetown",
+        country: "Malawi",
+        postalCode: "93054-1043",
+        state: "saepe",
       },
-      birthDate: new RFCDate("2021-02-22"),
+      birthDate: new RFCDate("2022-12-25"),
       birthPlace: {
-        city: "East Gunnar",
-        country: "Wallis and Futuna",
+        city: "Fort Cornelius",
+        country: "Papua New Guinea",
       },
-      businessEmail: "Savanah.Mueller@yahoo.com",
-      businessPhoneNumber: "repudiandae",
-      firstName: "Karen",
-      lastName: "Littel",
-      nationality: "sunt",
-      title: "Dr.",
-    },
-    {
-      address: {
-        addressLine1: "dolorum",
-        addressLine2: "repellendus",
-        city: "Fort Alphonso",
-        country: "Turks and Caicos Islands",
-        postalCode: "01133",
-        state: "velit",
-      },
-      birthDate: new RFCDate("2021-04-24"),
-      birthPlace: {
-        city: "Fort Carole",
-        country: "Moldova",
-      },
-      businessEmail: "Laverne90@hotmail.com",
-      businessPhoneNumber: "occaecati",
-      firstName: "Carolanne",
-      lastName: "Considine",
-      nationality: "id",
+      businessEmail: "Baby69@gmail.com",
+      businessPhoneNumber: "atque",
+      firstName: "Margarett",
+      lastName: "Reilly",
+      nationality: "tenetur",
       title: "Mrs.",
     },
     {
       address: {
-        addressLine1: "reprehenderit",
-        addressLine2: "error",
-        city: "West Maurineside",
-        country: "Ecuador",
-        postalCode: "04050-4917",
-        state: "iure",
+        addressLine1: "alias",
+        addressLine2: "amet",
+        city: "Klockostead",
+        country: "Virgin Islands, British",
+        postalCode: "89906-6486",
+        state: "praesentium",
       },
-      birthDate: new RFCDate("2022-06-09"),
+      birthDate: new RFCDate("2022-05-02"),
       birthPlace: {
-        city: "Raustad",
-        country: "Macedonia",
+        city: "Port Tevinland",
+        country: "Mali",
       },
-      businessEmail: "Emmett36@gmail.com",
-      businessPhoneNumber: "perspiciatis",
-      firstName: "Janie",
-      lastName: "O'Conner",
-      nationality: "voluptas",
-      title: "Mr.",
+      businessEmail: "Yvette_Leannon@yahoo.com",
+      businessPhoneNumber: "maxime",
+      firstName: "Aubrey",
+      lastName: "Koepp",
+      nationality: "amet",
+      title: "Dr.",
+    },
+    {
+      address: {
+        addressLine1: "ea",
+        addressLine2: "atque",
+        city: "Torphyside",
+        country: "Tanzania",
+        postalCode: "31495-8653",
+        state: "repudiandae",
+      },
+      birthDate: new RFCDate("2021-12-01"),
+      birthPlace: {
+        city: "Fort Marinahaven",
+        country: "Finland",
+      },
+      businessEmail: "Alphonso3@hotmail.com",
+      businessPhoneNumber: "beatae",
+      firstName: "Chandler",
+      lastName: "Halvorson",
+      nationality: "laboriosam",
+      title: "Mrs.",
     },
   ],
-  identifier: "maiores",
-  identifierType: APIPostBorrowerIdentifierTypeEnum.LessThanNilGreaterThan,
-  legalForm: "dolores",
+  identifier: "a",
+  identifierType: APIPostBorrowerIdentifierTypeEnum.Bsn,
+  legalForm: "magnam",
   metadata: {
-    "minima": "dolore",
-    "dolorum": "nesciunt",
-    "quae": "recusandae",
+    "consequuntur": "occaecati",
+    "officiis": "perspiciatis",
+    "in": "adipisci",
+    "eveniet": "occaecati",
   },
-  name: "Calvin Kreiger",
-  preferredLanguage: "culpa",
-  signedAt: new Date("2022-02-09T21:52:52.867Z"),
-  vatNumber: "laudantium",
+  name: "Beverly Olson",
+  preferredLanguage: "error",
+  signedAt: new Date("2022-08-22T02:57:43.536Z"),
+  vatNumber: "quidem",
   waitForReady: false,
 }).then((res: EnrollBorrowerResponse) => {
   if (res.statusCode == 200) {
@@ -157,15 +156,12 @@ const sdk = new Defacto({
   },
 });
 
-sdk.onboarding.listBorrowers({
-  borrowerId: [
-    "5e7956f9-251a-45a9-9a66-0ff57bfaad4f",
-    "9efc1b45-12c1-4032-a48d-c2f615199ebf",
-  ],
-  borrowerIdentifier: "illum",
-  cursor: "eaque",
-  pageSize: 935833,
-}).then((res: ListBorrowersResponse) => {
+sdk.onboarding.listBorrowers([
+  "3e060807-e2b6-4e3a-b884-5f0597a60ff2",
+  "a54a31e9-4764-4a3e-865e-7956f9251a5a",
+  "9da660ff-57bf-4aad-8f9e-fc1b4512c103",
+  "2648dc2f-6151-499e-bfd0-e9fe6c632ca3",
+], "animi", "necessitatibus", 862063).then((res: ListBorrowersResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -188,12 +184,9 @@ const sdk = new Defacto({
   },
 });
 
-sdk.onboarding.signBorrower({
-  signedInput: {
-    signedAt: new Date("2021-01-13T02:22:20.450Z"),
-    waitForReady: false,
-  },
-  borrowerId: "debitis",
+sdk.onboarding.signBorrower("consequatur", {
+  signedAt: new Date("2022-11-29T01:33:31.768Z"),
+  waitForReady: false,
 }).then((res: SignBorrowerResponse) => {
   if (res.statusCode == 200) {
     // handle response

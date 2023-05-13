@@ -107,13 +107,12 @@ export class Invoice {
    * Delete an invoice by id
    */
   async delete(
-    req: operations.DeleteInvoiceRequest,
+    invoiceId: string,
     config?: AxiosRequestConfig
   ): Promise<operations.DeleteInvoiceResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.DeleteInvoiceRequest(req);
-    }
-
+    const req = new operations.DeleteInvoiceRequest({
+      invoiceId: invoiceId,
+    });
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(
       baseURL,
@@ -161,13 +160,12 @@ export class Invoice {
    * Get an invoice by id
    */
   async get(
-    req: operations.GetInvoiceRequest,
+    invoiceId: string,
     config?: AxiosRequestConfig
   ): Promise<operations.GetInvoiceResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetInvoiceRequest(req);
-    }
-
+    const req = new operations.GetInvoiceRequest({
+      invoiceId: invoiceId,
+    });
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(
       baseURL,
@@ -270,13 +268,14 @@ export class Invoice {
    *
    */
   async submit(
-    req: operations.SubmitInvoiceRequest,
+    invoiceId: string,
+    apiPatchInvoice?: shared.APIPatchInvoice,
     config?: AxiosRequestConfig
   ): Promise<operations.SubmitInvoiceResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.SubmitInvoiceRequest(req);
-    }
-
+    const req = new operations.SubmitInvoiceRequest({
+      invoiceId: invoiceId,
+      apiPatchInvoice: apiPatchInvoice,
+    });
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(
       baseURL,
@@ -342,13 +341,14 @@ export class Invoice {
    * Updates an invoice (with status TO_SUBMIT or TO_EDIT only)
    */
   async update(
-    req: operations.UpdateInvoiceRequest,
+    invoiceId: string,
+    apiPatchInvoice?: shared.APIPatchInvoice,
     config?: AxiosRequestConfig
   ): Promise<operations.UpdateInvoiceResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.UpdateInvoiceRequest(req);
-    }
-
+    const req = new operations.UpdateInvoiceRequest({
+      invoiceId: invoiceId,
+      apiPatchInvoice: apiPatchInvoice,
+    });
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(
       baseURL,
@@ -414,13 +414,14 @@ export class Invoice {
    * Create an invoice entity from the PDF of an invoice. Send the file within a formData. The endpoint will automatically extract the invoice information and create an invoice entity from them.
    */
   async upload(
-    req: operations.UploadInvoicesRequest,
+    buyer?: string,
+    seller?: string,
     config?: AxiosRequestConfig
   ): Promise<operations.UploadInvoicesResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.UploadInvoicesRequest(req);
-    }
-
+    const req = new operations.UploadInvoicesRequest({
+      buyer: buyer,
+      seller: seller,
+    });
     const baseURL: string = this._serverURL;
     const url: string = baseURL.replace(/\/$/, "") + "/invoices/upload";
 

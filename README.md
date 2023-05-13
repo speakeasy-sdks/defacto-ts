@@ -169,13 +169,13 @@ This operation is not available when the loan is in another status.
 
 ### [testing](docs/testing/README.md)
 
-* [getSandboxBusinessGenerator](docs/testing/README.md#getsandboxbusinessgenerator) - 
+* [generateBusiness](docs/testing/README.md#generatebusiness) - 
 Generate a fake business for you to use in your test.
 Important, this endpoint does not create the business but simply return the payload.
 Call `/borrowers` to register this business and generate loan for it
 Warning: these invoices and their IBANs will not work in production.
 
-* [getSandboxIbanGenerator](docs/testing/README.md#getsandboxibangenerator) - 
+* [generateIban](docs/testing/README.md#generateiban) - 
 Generate a new IBAN that will produce a given scenario on the sandbox, for example a rejected loan.
 Each IBAN can be used as the account of a single counterparty or borrower (a buyer or seller of yours).
 So, if you want to test the API for several of your counterparties, you will have to generate several of them.
@@ -184,16 +184,7 @@ Also, if you want to test another scenario on a given business, create a new IBA
 For more information on the scenarios of the sandbox, please refer to the Testing Multiple Scenarios & Errors section.
 Warning: these IBANs will not work in production.
 
-* [hello](docs/testing/README.md#hello) - Make a first call to this endpoint to test your connection to Defacto API with your API Key
-* [postSandboxBusinessEligible](docs/testing/README.md#postsandboxbusinesseligible) - 
-This endpoint enables you to configure the eligibility of a business.
-Pass NOT_ELIGIBLE to make a business non-eligible.
-Then, you'll be able to test how the Defacto API behaves when requesting a loan for a non-eligible business.
-You can test multiple scenarios:
-(1) when the business is the borrower or
-(2) when the business is on the invoice to finance but is not the borrower.
-
-* [postSandboxInvoiceGenerator](docs/testing/README.md#postsandboxinvoicegenerator) - 
+* [generateInvoice](docs/testing/README.md#generateinvoice) - 
 !!! The documentation website is not able to display the full response of this endpoint. The use of the curl command is recommended. !!!
 
 Generate a fake invoice that will produce a given scenario on the sandbox, for example a rejected loan.
@@ -202,6 +193,15 @@ To achieve this, you can copy the invoice_creation_payload into the payload of t
 If you want to test another scenario on a given business, create another fake invoice.
 For more information on the scenarios of the sandbox, please refer to the Testing your integration section.
 Warning: these invoices and their IBANs will not work in production.
+
+* [hello](docs/testing/README.md#hello) - Make a first call to this endpoint to test your connection to Defacto API with your API Key
+* [setBusinessEligible](docs/testing/README.md#setbusinesseligible) - 
+This endpoint enables you to configure the eligibility of a business.
+Pass NOT_ELIGIBLE to make a business non-eligible.
+Then, you'll be able to test how the Defacto API behaves when requesting a loan for a non-eligible business.
+You can test multiple scenarios:
+(1) when the business is the borrower or
+(2) when the business is on the invoice to finance but is not the borrower.
 
 
 ### [webhook](docs/webhook/README.md)

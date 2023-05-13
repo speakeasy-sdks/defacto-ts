@@ -54,8 +54,8 @@ export class Defacto {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "1.0.0";
-  private _genVersion = "2.26.4";
+  private _sdkVersion = "1.1.0";
+  private _genVersion = "2.27.0";
   private _globals: any;
 
   constructor(props?: SDKProps) {

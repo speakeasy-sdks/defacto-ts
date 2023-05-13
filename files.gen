@@ -57,11 +57,11 @@ src/sdk/models/operations/enrollborrower.ts
 src/sdk/models/operations/listborrowers.ts
 src/sdk/models/operations/signborrower.ts
 src/sdk/models/operations/listpayments.ts
-src/sdk/models/operations/getsandboxbusinessgenerator.ts
-src/sdk/models/operations/getsandboxibangenerator.ts
+src/sdk/models/operations/generatebusiness.ts
+src/sdk/models/operations/generateiban.ts
+src/sdk/models/operations/generateinvoice.ts
 src/sdk/models/operations/hello.ts
-src/sdk/models/operations/postsandboxbusinesseligible.ts
-src/sdk/models/operations/postsandboxinvoicegenerator.ts
+src/sdk/models/operations/setbusinesseligible.ts
 src/sdk/models/operations/createwebhook.ts
 src/sdk/models/operations/deletewebhook.ts
 src/sdk/models/operations/listwebhooks.ts
@@ -112,9 +112,9 @@ src/sdk/models/shared/typedapipage.ts
 src/sdk/models/shared/signedinput.ts
 src/sdk/models/shared/typedapipage4.ts
 src/sdk/models/shared/generateibanresponse.ts
-src/sdk/models/shared/businesseligibileparams.ts
 src/sdk/models/shared/generatedinvoice.ts
 src/sdk/models/shared/generateinvoicerequest.ts
+src/sdk/models/shared/businesseligibileparams.ts
 src/sdk/models/shared/webhook.ts
 src/sdk/models/shared/createwebhook.ts
 src/sdk/models/shared/typedapipage6.ts

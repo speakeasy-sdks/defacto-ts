@@ -47,41 +47,42 @@ const sdk = new Defacto({
 
 sdk.invoice.create({
   buyer: {
-    identifier: "repellendus",
-    identifierType: APIDraftableInvoiceCreationBuyerIdentifierTypeEnum.BelgiumRegistrationNumber,
-    name: "Alexander Prosacco",
-    vatNumber: "quae",
+    identifier: "magni",
+    identifierType: APIDraftableInvoiceCreationBuyerIdentifierTypeEnum.Cif,
+    name: "Marion Reichert DDS",
+    vatNumber: "soluta",
   },
   currency: APIDraftableInvoiceCreationCurrencyEnum.Gbp,
-  document: "odio",
-  dueAt: new Date("2021-01-17T10:17:06.805Z"),
-  invoiceNumber: "quisquam",
+  document: "et",
+  dueAt: new Date("2022-05-07T21:24:02.842Z"),
+  invoiceNumber: "veritatis",
   isDraft: false,
-  issuedAt: new Date("2021-03-07T21:49:29.078Z"),
+  issuedAt: new Date("2021-11-23T21:35:15.992Z"),
   metadata: {
-    "ipsum": "delectus",
-    "voluptate": "consectetur",
+    "cupiditate": "aperiam",
+    "delectus": "dolorem",
+    "dolore": "labore",
   },
-  netAmount: 878870,
+  netAmount: 240829,
   seller: {
-    identifier: "tenetur",
-    identifierType: APIDraftableInvoiceCreationSellerIdentifierTypeEnum.Cif,
-    name: "Kelvin Schmidt",
-    vatNumber: "facilis",
+    identifier: "dolorum",
+    identifierType: APIDraftableInvoiceCreationSellerIdentifierTypeEnum.Siren,
+    name: "Margaret Luettgen MD",
+    vatNumber: "repellendus",
   },
-  taxAmount: 874288,
+  taxAmount: 785153,
   toAccount: {
     accountHolder: {
-      identifier: "ducimus",
+      identifier: "doloribus",
       identifierType: APIDraftableInvoiceCreationToAccountAccountHolderIdentifierTypeEnum.Name,
     },
-    accountNumber: "quibusdam",
-    accountNumberType: APIDraftableInvoiceCreationToAccountAccountNumberTypeEnum.InternalId,
-    bankIdentifier: "sequi",
-    bankIdentifierType: APIDraftableInvoiceCreationToAccountBankIdentifierTypeEnum.RoutingNumber,
+    accountNumber: "facilis",
+    accountNumberType: APIDraftableInvoiceCreationToAccountAccountNumberTypeEnum.AccountNumber,
+    bankIdentifier: "qui",
+    bankIdentifierType: APIDraftableInvoiceCreationToAccountBankIdentifierTypeEnum.Bic,
   },
-  toPayAmount: 773326,
-  totalAmount: 13236,
+  toPayAmount: 512393,
+  totalAmount: 485628,
 }).then((res: CreateInvoiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -105,9 +106,7 @@ const sdk = new Defacto({
   },
 });
 
-sdk.invoice.delete({
-  invoiceId: "voluptatibus",
-}).then((res: DeleteInvoiceResponse) => {
+sdk.invoice.delete("occaecati").then((res: DeleteInvoiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -130,9 +129,7 @@ const sdk = new Defacto({
   },
 });
 
-sdk.invoice.get({
-  invoiceId: "exercitationem",
-}).then((res: GetInvoiceResponse) => {
+sdk.invoice.get("voluptatibus").then((res: GetInvoiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -157,25 +154,26 @@ const sdk = new Defacto({
 
 sdk.invoice.list({
   buyer: [
-    "fugit",
-    "porro",
-    "maiores",
-    "doloribus",
+    "vero",
+    "omnis",
+    "quis",
+    "ipsum",
   ],
-  cursor: "iusto",
+  cursor: "delectus",
   invoiceId: [
-    "70a45626-d436-4813-b16d-9f5fce6c5561",
-    "46c3e250-fb00-48c4-ae14-1aac366c8dd6",
-    "b1442907-4747-478a-bbd4-66d28c10ab3c",
-    "dca42519-04e5-423c-be0b-c7178e4796f2",
+    "3ef7fbc7-abd7-44dd-b9c0-f5d2cff7c70a",
+    "45626d43-6813-4f16-99f5-fce6c556146c",
   ],
-  pageSize: 645570,
+  pageSize: 232234,
   seller: [
-    "accusantium",
-    "porro",
+    "aspernatur",
+    "minima",
+    "eaque",
+    "a",
   ],
   status: [
-    ListInvoicesStatusEnum.ToEdit,
+    ListInvoicesStatusEnum.ToSubmit,
+    ListInvoicesStatusEnum.ToSubmit,
     ListInvoicesStatusEnum.ToEdit,
   ],
 }).then((res: ListInvoicesResponse) => {
@@ -212,43 +210,43 @@ const sdk = new Defacto({
   },
 });
 
-sdk.invoice.submit({
-  apiPatchInvoice: {
-    buyer: {
-      identifier: "consequuntur",
-      identifierType: APIPatchInvoiceBuyerIdentifierTypeEnum.Kvk,
-      name: "Lee O'Conner",
-      vatNumber: "explicabo",
-    },
-    currency: APIPatchInvoiceCurrencyEnum.Eur,
-    dueAt: new Date("2022-11-08T08:09:29.073Z"),
-    invoiceNumber: "sapiente",
-    issuedAt: new Date("2022-10-24T16:43:59.350Z"),
-    metadata: {
-      "saepe": "occaecati",
-    },
-    netAmount: 543806,
-    seller: {
-      identifier: "et",
-      identifierType: APIPatchInvoiceSellerIdentifierTypeEnum.Cif,
-      name: "Sheldon Boehm",
-      vatNumber: "nam",
-    },
-    taxAmount: 877131,
-    toAccount: {
-      accountHolder: {
-        identifier: "aliquid",
-        identifierType: APIPatchInvoiceToAccountAccountHolderIdentifierTypeEnum.Siren,
-      },
-      accountNumber: "saepe",
-      accountNumberType: APIPatchInvoiceToAccountAccountNumberTypeEnum.AccountNumber,
-      bankIdentifier: "harum",
-      bankIdentifierType: APIPatchInvoiceToAccountBankIdentifierTypeEnum.RoutingNumber,
-    },
-    toPayAmount: 699622,
-    totalAmount: 580197,
+sdk.invoice.submit("impedit", {
+  buyer: {
+    identifier: "aliquam",
+    identifierType: APIPatchInvoiceBuyerIdentifierTypeEnum.Siren,
+    name: "Miss Dennis Friesen",
+    vatNumber: "placeat",
   },
-  invoiceId: "minima",
+  currency: APIPatchInvoiceCurrencyEnum.Eur,
+  dueAt: new Date("2022-07-31T12:04:26.954Z"),
+  invoiceNumber: "nobis",
+  issuedAt: new Date("2021-05-05T09:22:07.208Z"),
+  metadata: {
+    "voluptas": "libero",
+    "quasi": "tempora",
+    "numquam": "explicabo",
+    "provident": "ipsa",
+  },
+  netAmount: 476477,
+  seller: {
+    identifier: "magnam",
+    identifierType: APIPatchInvoiceSellerIdentifierTypeEnum.Cif,
+    name: "Joy Klocko",
+    vatNumber: "reprehenderit",
+  },
+  taxAmount: 695626,
+  toAccount: {
+    accountHolder: {
+      identifier: "fugiat",
+      identifierType: APIPatchInvoiceToAccountAccountHolderIdentifierTypeEnum.Name,
+    },
+    accountNumber: "eum",
+    accountNumberType: APIPatchInvoiceToAccountAccountNumberTypeEnum.AccountNumber,
+    bankIdentifier: "assumenda",
+    bankIdentifierType: APIPatchInvoiceToAccountBankIdentifierTypeEnum.Bic,
+  },
+  toPayAmount: 509342,
+  totalAmount: 788546,
 }).then((res: SubmitInvoiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -280,45 +278,41 @@ const sdk = new Defacto({
   },
 });
 
-sdk.invoice.update({
-  apiPatchInvoice: {
-    buyer: {
-      identifier: "distinctio",
-      identifierType: APIPatchInvoiceBuyerIdentifierTypeEnum.BelgiumRegistrationNumber,
-      name: "Kristi Renner",
-      vatNumber: "consequuntur",
-    },
-    currency: APIPatchInvoiceCurrencyEnum.Eur,
-    dueAt: new Date("2022-01-28T10:14:21.975Z"),
-    invoiceNumber: "sapiente",
-    issuedAt: new Date("2022-07-17T18:42:13.476Z"),
-    metadata: {
-      "provident": "a",
-      "nulla": "quas",
-      "esse": "quasi",
-    },
-    netAmount: 951875,
-    seller: {
-      identifier: "error",
-      identifierType: APIPatchInvoiceSellerIdentifierTypeEnum.Kvk,
-      name: "Rufus Crona",
-      vatNumber: "facere",
-    },
-    taxAmount: 85001,
-    toAccount: {
-      accountHolder: {
-        identifier: "consequuntur",
-        identifierType: APIPatchInvoiceToAccountAccountHolderIdentifierTypeEnum.Siren,
-      },
-      accountNumber: "similique",
-      accountNumberType: APIPatchInvoiceToAccountAccountNumberTypeEnum.AccountNumber,
-      bankIdentifier: "aliquid",
-      bankIdentifierType: APIPatchInvoiceToAccountBankIdentifierTypeEnum.Name,
-    },
-    toPayAmount: 62713,
-    totalAmount: 936747,
+sdk.invoice.update("veritatis", {
+  buyer: {
+    identifier: "ipsa",
+    identifierType: APIPatchInvoiceBuyerIdentifierTypeEnum.Bsn,
+    name: "Luis Satterfield",
+    vatNumber: "fuga",
   },
-  invoiceId: "vel",
+  currency: APIPatchInvoiceCurrencyEnum.Eur,
+  dueAt: new Date("2022-08-17T13:23:48.206Z"),
+  invoiceNumber: "ab",
+  issuedAt: new Date("2022-12-24T22:15:46.522Z"),
+  metadata: {
+    "debitis": "ipsam",
+    "aspernatur": "sequi",
+  },
+  netAmount: 779192,
+  seller: {
+    identifier: "esse",
+    identifierType: APIPatchInvoiceSellerIdentifierTypeEnum.LessThanNilGreaterThan,
+    name: "Lola Schmidt IV",
+    vatNumber: "totam",
+  },
+  taxAmount: 882710,
+  toAccount: {
+    accountHolder: {
+      identifier: "aliquam",
+      identifierType: APIPatchInvoiceToAccountAccountHolderIdentifierTypeEnum.Cif,
+    },
+    accountNumber: "occaecati",
+    accountNumberType: APIPatchInvoiceToAccountAccountNumberTypeEnum.AccountNumber,
+    bankIdentifier: "sapiente",
+    bankIdentifierType: APIPatchInvoiceToAccountBankIdentifierTypeEnum.Bic,
+  },
+  toPayAmount: 645570,
+  totalAmount: 475289,
 }).then((res: UpdateInvoiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -342,10 +336,7 @@ const sdk = new Defacto({
   },
 });
 
-sdk.invoice.upload({
-  buyer: "in",
-  seller: "eius",
-}).then((res: UploadInvoicesResponse) => {
+sdk.invoice.upload("accusantium", "porro").then((res: UploadInvoicesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

@@ -35,13 +35,14 @@ export class Eligibility {
    * Get credit line
    */
   async getCreditLine(
-    req: operations.GetCreditLineRequest,
+    creditLineId: string,
+    at?: Date,
     config?: AxiosRequestConfig
   ): Promise<operations.GetCreditLineResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetCreditLineRequest(req);
-    }
-
+    const req = new operations.GetCreditLineRequest({
+      creditLineId: creditLineId,
+      at: at,
+    });
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(
       baseURL,
@@ -136,13 +137,18 @@ export class Eligibility {
    * List all the credit lines that have been opened for your company. By default, this includes all credit lines that have been created for borrowers you registered, as well as the credit line associated with your account.
    */
   async listCreditLines(
-    req: operations.ListCreditLinesRequest,
+    borrower?: string[],
+    cursor?: string,
+    id?: string[],
+    pageSize?: number,
     config?: AxiosRequestConfig
   ): Promise<operations.ListCreditLinesResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.ListCreditLinesRequest(req);
-    }
-
+    const req = new operations.ListCreditLinesRequest({
+      borrower: borrower,
+      cursor: cursor,
+      id: id,
+      pageSize: pageSize,
+    });
     const baseURL: string = this._serverURL;
     const url: string = baseURL.replace(/\/$/, "") + "/credit_lines";
 

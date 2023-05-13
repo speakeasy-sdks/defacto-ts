@@ -26,30 +26,36 @@ const sdk = new Defacto({
 });
 
 sdk.payment.list({
-  cursor: "aliquid",
-  fromAccountId: "porro",
-  fromDate: new Date("2022-10-15T18:57:46.028Z"),
-  id: "2ca3aed0-1179-4963-92fd-e04771778ff6",
+  cursor: "ducimus",
+  fromAccountId: "natus",
+  fromDate: new Date("2022-03-27T19:38:57.457Z"),
+  id: "312fde04-7717-478f-b61d-017476360a15",
   isReconciled: false,
   loanId: [
-    "fugiat",
+    "expedita",
+    "aliquid",
+    "officia",
+    "suscipit",
   ],
-  pageSize: 39650,
+  pageSize: 399161,
   paymentMethod: [
     ListPaymentsPaymentMethodEnum.Sct,
   ],
   paymentType: [
-    ListPaymentsPaymentTypeEnum.Extra,
-    ListPaymentsPaymentTypeEnum.Extra,
+    ListPaymentsPaymentTypeEnum.Returned,
+    ListPaymentsPaymentTypeEnum.RevenueShare,
   ],
   references: [
-    "aliquid",
+    "error",
   ],
   status: [
+    ListPaymentsStatusEnum.Paid,
     ListPaymentsStatusEnum.Instructed,
+    ListPaymentsStatusEnum.Instructed,
+    ListPaymentsStatusEnum.InTransit,
   ],
-  toAccountId: "sunt",
-  toDate: new Date("2022-02-22T06:49:26.369Z"),
+  toAccountId: "ad",
+  toDate: new Date("2022-05-15T03:49:32.304Z"),
 }).then((res: ListPaymentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
