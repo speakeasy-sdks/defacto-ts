@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
-export enum LoanApiEventEntityTypeEnum {
+export enum LoanApiEventEntityType {
   Business = "business",
   Account = "account",
   Loan = "loan",
@@ -23,7 +23,7 @@ export enum LoanApiEventEntityTypeEnum {
   RevenueShare = "revenue_share",
 }
 
-export enum LoanApiEventStatusEnum {
+export enum LoanApiEventStatus {
   Submitted = "SUBMITTED",
   ToValidate = "TO_VALIDATE",
   Declined = "DECLINED",
@@ -41,13 +41,13 @@ export enum LoanApiEventStatusEnum {
 
 export class LoanApiEvent extends SpeakeasyBase {
   @SpeakeasyMetadata()
-  entityType: LoanApiEventEntityTypeEnum;
+  entityType: LoanApiEventEntityType;
 
   @SpeakeasyMetadata()
   payload?: Record<string, any>;
 
   @SpeakeasyMetadata()
-  status: LoanApiEventStatusEnum;
+  status: LoanApiEventStatus;
 
   @SpeakeasyMetadata()
   timestamp?: Date;

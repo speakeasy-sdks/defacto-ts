@@ -29,7 +29,7 @@ export class APIBorrowerAddress extends SpeakeasyBase {
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum APIBorrowerIdentifierTypeEnum {
+export enum APIBorrowerIdentifierType {
   Siret = "siret",
   Siren = "siren",
   VatNumber = "vat_number",
@@ -44,7 +44,7 @@ export enum APIBorrowerIdentifierTypeEnum {
   LessThanNilGreaterThan = "<nil>",
 }
 
-export enum APIBorrowerStatusEnum {
+export enum APIBorrowerStatus {
   ToSign = "TO_SIGN",
   Signed = "SIGNED",
   SddSetup = "SDD_SETUP",
@@ -89,7 +89,7 @@ export class APIBorrower extends SpeakeasyBase {
    * Type of legal business identifier of the business, such as the SIRET in France.
    */
   @SpeakeasyMetadata()
-  identifierType?: APIBorrowerIdentifierTypeEnum;
+  identifierType?: APIBorrowerIdentifierType;
 
   /**
    * Legal form of the business.
@@ -116,7 +116,7 @@ export class APIBorrower extends SpeakeasyBase {
   signedAt?: Date;
 
   @SpeakeasyMetadata()
-  status?: APIBorrowerStatusEnum;
+  status?: APIBorrowerStatus;
 
   /**
    * The VAT number of the business, if European

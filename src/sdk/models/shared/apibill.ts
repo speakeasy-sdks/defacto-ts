@@ -9,7 +9,7 @@ import { PaymentApi } from "./paymentapi";
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum APIBillInvoiceBuyerIdentifierTypeEnum {
+export enum APIBillInvoiceBuyerIdentifierType {
   Siret = "siret",
   Siren = "siren",
   VatNumber = "vat_number",
@@ -41,7 +41,7 @@ export class APIBillInvoiceBuyer extends SpeakeasyBase {
    * Type of legal business identifier of the business, such as the SIRET in France.
    */
   @SpeakeasyMetadata()
-  identifierType?: APIBillInvoiceBuyerIdentifierTypeEnum;
+  identifierType?: APIBillInvoiceBuyerIdentifierType;
 
   /**
    * Legal name of the business.
@@ -59,7 +59,7 @@ export class APIBillInvoiceBuyer extends SpeakeasyBase {
 /**
  * Currency of the invoice. Use ISO 4217 currency code.
  */
-export enum APIBillInvoiceCurrencyEnum {
+export enum APIBillInvoiceCurrency {
   Eur = "EUR",
   Gbp = "GBP",
 }
@@ -67,7 +67,7 @@ export enum APIBillInvoiceCurrencyEnum {
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum APIBillInvoiceSellerIdentifierTypeEnum {
+export enum APIBillInvoiceSellerIdentifierType {
   Siret = "siret",
   Siren = "siren",
   VatNumber = "vat_number",
@@ -99,7 +99,7 @@ export class APIBillInvoiceSeller extends SpeakeasyBase {
    * Type of legal business identifier of the business, such as the SIRET in France.
    */
   @SpeakeasyMetadata()
-  identifierType?: APIBillInvoiceSellerIdentifierTypeEnum;
+  identifierType?: APIBillInvoiceSellerIdentifierType;
 
   /**
    * Legal name of the business.
@@ -117,7 +117,7 @@ export class APIBillInvoiceSeller extends SpeakeasyBase {
 /**
  * TO_SUBMIT, SUBMITTED, TO_EDIT or VERIFIED TO_SUBMIT: the invoice is a draft, you can correct it and submit it when correct SUBMITTED: the invoice has been submitted and Defacto is verifying it TO_EDIT: the invoice has not been validated by Defacto. It should be edited before you can submit it again VERIFIED: the invoice has been verified by Defacto. A loan can now be requested for the invoice.
  */
-export enum APIBillInvoiceStatusEnum {
+export enum APIBillInvoiceStatus {
   ToSubmit = "TO_SUBMIT",
   Submitted = "SUBMITTED",
   ToEdit = "TO_EDIT",
@@ -128,7 +128,7 @@ export enum APIBillInvoiceStatusEnum {
 /**
  * The type of account number (e.g. IBAN).
  */
-export enum APIBillInvoiceToAccountDetailsAccountNumberTypeEnum {
+export enum APIBillInvoiceToAccountDetailsAccountNumberType {
   Iban = "iban",
   AccountNumber = "account_number",
   InternalId = "internal_id",
@@ -137,7 +137,7 @@ export enum APIBillInvoiceToAccountDetailsAccountNumberTypeEnum {
 /**
  * The type of bank identifier (e.g. BIC).
  */
-export enum APIBillInvoiceToAccountDetailsBankIdentifierTypeEnum {
+export enum APIBillInvoiceToAccountDetailsBankIdentifierType {
   Bic = "bic",
   RoutingNumber = "routing_number",
   Name = "name",
@@ -154,7 +154,7 @@ export class APIBillInvoiceToAccountDetails extends SpeakeasyBase {
    * The type of account number (e.g. IBAN).
    */
   @SpeakeasyMetadata()
-  accountNumberType: APIBillInvoiceToAccountDetailsAccountNumberTypeEnum;
+  accountNumberType: APIBillInvoiceToAccountDetailsAccountNumberType;
 
   /**
    * The identifier of the bank.
@@ -166,7 +166,7 @@ export class APIBillInvoiceToAccountDetails extends SpeakeasyBase {
    * The type of bank identifier (e.g. BIC).
    */
   @SpeakeasyMetadata()
-  bankIdentifierType: APIBillInvoiceToAccountDetailsBankIdentifierTypeEnum;
+  bankIdentifierType: APIBillInvoiceToAccountDetailsBankIdentifierType;
 }
 
 export class APIBillInvoice extends SpeakeasyBase {
@@ -177,7 +177,7 @@ export class APIBillInvoice extends SpeakeasyBase {
    * Currency of the invoice. Use ISO 4217 currency code.
    */
   @SpeakeasyMetadata()
-  currency?: APIBillInvoiceCurrencyEnum;
+  currency?: APIBillInvoiceCurrency;
 
   @SpeakeasyMetadata()
   documentUrl?: string;
@@ -225,7 +225,7 @@ export class APIBillInvoice extends SpeakeasyBase {
    * TO_SUBMIT, SUBMITTED, TO_EDIT or VERIFIED TO_SUBMIT: the invoice is a draft, you can correct it and submit it when correct SUBMITTED: the invoice has been submitted and Defacto is verifying it TO_EDIT: the invoice has not been validated by Defacto. It should be edited before you can submit it again VERIFIED: the invoice has been verified by Defacto. A loan can now be requested for the invoice.
    */
   @SpeakeasyMetadata()
-  status?: APIBillInvoiceStatusEnum;
+  status?: APIBillInvoiceStatus;
 
   /**
    * Amount of tax, in cents
@@ -249,7 +249,7 @@ export class APIBillInvoice extends SpeakeasyBase {
   totalAmount?: number;
 }
 
-export enum APIBillStatusEnum {
+export enum APIBillStatus {
   Generated = "GENERATED",
   Validated = "VALIDATED",
   SentToPayer = "SENT_TO_PAYER",
@@ -296,5 +296,5 @@ export class APIBill extends SpeakeasyBase {
   startDate: Date;
 
   @SpeakeasyMetadata()
-  status: APIBillStatusEnum;
+  status: APIBillStatus;
 }

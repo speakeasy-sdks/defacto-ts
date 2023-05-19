@@ -5,13 +5,13 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 
-export enum ListPaymentsPaymentMethodEnum {
+export enum ListPaymentsPaymentMethod {
   DirectDebit = "DIRECT_DEBIT",
   Sct = "SCT",
   P2P = "P2P",
 }
 
-export enum ListPaymentsPaymentTypeEnum {
+export enum ListPaymentsPaymentType {
   LoanPayment = "LOAN_PAYMENT",
   RepaymentNominal = "REPAYMENT_NOMINAL",
   RepaymentFees = "REPAYMENT_FEES",
@@ -27,7 +27,7 @@ export enum ListPaymentsPaymentTypeEnum {
   PaymentProviderFees = "PAYMENT_PROVIDER_FEES",
 }
 
-export enum ListPaymentsStatusEnum {
+export enum ListPaymentsStatus {
   Proposed = "PROPOSED",
   Scheduled = "SCHEDULED",
   Canceled = "CANCELED",
@@ -74,12 +74,12 @@ export class ListPaymentsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=payment_method",
   })
-  paymentMethod?: ListPaymentsPaymentMethodEnum[];
+  paymentMethod?: ListPaymentsPaymentMethod[];
 
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=payment_type",
   })
-  paymentType?: ListPaymentsPaymentTypeEnum[];
+  paymentType?: ListPaymentsPaymentType[];
 
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=references",
@@ -89,7 +89,7 @@ export class ListPaymentsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=status",
   })
-  status?: ListPaymentsStatusEnum[];
+  status?: ListPaymentsStatus[];
 
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=to_account_id",

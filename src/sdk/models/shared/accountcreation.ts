@@ -8,7 +8,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum AccountCreationAccountHolderIdentifierTypeEnum {
+export enum AccountCreationAccountHolderIdentifierType {
   Siret = "siret",
   Siren = "siren",
   VatNumber = "vat_number",
@@ -39,13 +39,13 @@ export class AccountCreationAccountHolder extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "identifier_type" })
-  identifierType?: AccountCreationAccountHolderIdentifierTypeEnum;
+  identifierType?: AccountCreationAccountHolderIdentifierType;
 }
 
 /**
  * The type of account number (e.g. IBAN).
  */
-export enum AccountCreationAccountNumberTypeEnum {
+export enum AccountCreationAccountNumberType {
   Iban = "iban",
   AccountNumber = "account_number",
   InternalId = "internal_id",
@@ -54,7 +54,7 @@ export enum AccountCreationAccountNumberTypeEnum {
 /**
  * The type of bank identifier (e.g. BIC).
  */
-export enum AccountCreationBankIdentifierTypeEnum {
+export enum AccountCreationBankIdentifierType {
   Bic = "bic",
   RoutingNumber = "routing_number",
   Name = "name",
@@ -81,7 +81,7 @@ export class AccountCreation extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "account_number_type" })
-  accountNumberType?: AccountCreationAccountNumberTypeEnum;
+  accountNumberType?: AccountCreationAccountNumberType;
 
   /**
    * The identifier of the bank.
@@ -95,5 +95,5 @@ export class AccountCreation extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "bank_identifier_type" })
-  bankIdentifierType?: AccountCreationBankIdentifierTypeEnum;
+  bankIdentifierType?: AccountCreationBankIdentifierType;
 }

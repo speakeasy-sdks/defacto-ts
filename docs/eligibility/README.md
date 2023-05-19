@@ -106,7 +106,7 @@ Ask for the eligibility of a borrower.
 ```typescript
 import { Defacto } from "defacto";
 import { RequestElligibilityBorrowerResponse } from "defacto/dist/sdk/models/operations";
-import { APIBorrowerEligibilityIdentifierTypeEnum } from "defacto/dist/sdk/models/shared";
+import { APIBorrowerEligibilityIdentifierType } from "defacto/dist/sdk/models/shared";
 
 const sdk = new Defacto({
   security: {
@@ -116,7 +116,7 @@ const sdk = new Defacto({
 
 sdk.eligibility.requestElligibilityBorrower({
   identifier: "pariatur",
-  identifierType: APIBorrowerEligibilityIdentifierTypeEnum.HrNummer,
+  identifierType: APIBorrowerEligibilityIdentifierType.HrNummer,
 }).then((res: RequestElligibilityBorrowerResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -135,7 +135,7 @@ Ask for the eligibility of a buyer.
 ```typescript
 import { Defacto } from "defacto";
 import { RequestElligibilityBuyerResponse } from "defacto/dist/sdk/models/operations";
-import { APIBorrowerEligibilityIdentifierTypeEnum } from "defacto/dist/sdk/models/shared";
+import { APIBorrowerEligibilityIdentifierType } from "defacto/dist/sdk/models/shared";
 
 const sdk = new Defacto({
   security: {
@@ -145,7 +145,7 @@ const sdk = new Defacto({
 
 sdk.eligibility.requestElligibilityBuyer({
   identifier: "dicta",
-  identifierType: APIBorrowerEligibilityIdentifierTypeEnum.HrNummer,
+  identifierType: APIBorrowerEligibilityIdentifierType.HrNummer,
 }).then((res: RequestElligibilityBuyerResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -162,10 +162,7 @@ Ask for the eligibility of a quote.
 ```typescript
 import { Defacto } from "defacto";
 import { RequestElligibilityQuoteResponse } from "defacto/dist/sdk/models/operations";
-import {
-  APIQuoteEligibilityBorrowerIdentifierTypeEnum,
-  BusinessIdentifierIdentifierTypeEnum,
-} from "defacto/dist/sdk/models/shared";
+import { APIQuoteEligibilityBorrowerIdentifierType, BusinessIdentifierIdentifierType } from "defacto/dist/sdk/models/shared";
 
 const sdk = new Defacto({
   security: {
@@ -177,16 +174,16 @@ sdk.eligibility.requestElligibilityQuote({
   amount: 517379,
   borrower: {
     identifier: "incidunt",
-    identifierType: APIQuoteEligibilityBorrowerIdentifierTypeEnum.Siren,
+    identifierType: APIQuoteEligibilityBorrowerIdentifierType.Siren,
   },
   buyer: {
     identifier: "dolores",
-    identifierType: BusinessIdentifierIdentifierTypeEnum.HrNummer,
+    identifierType: BusinessIdentifierIdentifierType.HrNummer,
   },
   endDate: new Date("2022-03-17T21:02:01.759Z"),
   seller: {
     identifier: "quam",
-    identifierType: BusinessIdentifierIdentifierTypeEnum.Kvk,
+    identifierType: BusinessIdentifierIdentifierType.Kvk,
   },
   startDate: new Date("2022-06-14T07:24:20.121Z"),
 }).then((res: RequestElligibilityQuoteResponse) => {
@@ -207,7 +204,7 @@ Ask for the eligibility of a seller.
 ```typescript
 import { Defacto } from "defacto";
 import { RequestElligibilitySellerResponse } from "defacto/dist/sdk/models/operations";
-import { APIBorrowerEligibilityIdentifierTypeEnum } from "defacto/dist/sdk/models/shared";
+import { APIBorrowerEligibilityIdentifierType } from "defacto/dist/sdk/models/shared";
 
 const sdk = new Defacto({
   security: {
@@ -217,7 +214,7 @@ const sdk = new Defacto({
 
 sdk.eligibility.requestElligibilitySeller({
   identifier: "neque",
-  identifierType: APIBorrowerEligibilityIdentifierTypeEnum.Siren,
+  identifierType: APIBorrowerEligibilityIdentifierType.Siren,
 }).then((res: RequestElligibilitySellerResponse) => {
   if (res.statusCode == 200) {
     // handle response

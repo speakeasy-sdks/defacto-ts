@@ -8,7 +8,7 @@ import { Expose, Transform, Type } from "class-transformer";
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum PatchLoanLoanToAccountHolderIdentifierTypeEnum {
+export enum PatchLoanLoanToAccountHolderIdentifierType {
   Siret = "siret",
   Siren = "siren",
   VatNumber = "vat_number",
@@ -39,13 +39,13 @@ export class PatchLoanLoanToAccountHolder extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "identifier_type" })
-  identifierType?: PatchLoanLoanToAccountHolderIdentifierTypeEnum;
+  identifierType?: PatchLoanLoanToAccountHolderIdentifierType;
 }
 
 /**
  * The type of account number (e.g. IBAN).
  */
-export enum PatchLoanLoanToAccountNumberTypeEnum {
+export enum PatchLoanLoanToAccountNumberType {
   Iban = "iban",
   AccountNumber = "account_number",
   InternalId = "internal_id",
@@ -54,7 +54,7 @@ export enum PatchLoanLoanToAccountNumberTypeEnum {
 /**
  * The type of bank identifier (e.g. BIC).
  */
-export enum PatchLoanLoanToBankIdentifierTypeEnum {
+export enum PatchLoanLoanToBankIdentifierType {
   Bic = "bic",
   RoutingNumber = "routing_number",
   Name = "name",
@@ -84,7 +84,7 @@ export class PatchLoanLoanTo extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "account_number_type" })
-  accountNumberType?: PatchLoanLoanToAccountNumberTypeEnum;
+  accountNumberType?: PatchLoanLoanToAccountNumberType;
 
   /**
    * The identifier of the bank.
@@ -98,7 +98,7 @@ export class PatchLoanLoanTo extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "bank_identifier_type" })
-  bankIdentifierType?: PatchLoanLoanToBankIdentifierTypeEnum;
+  bankIdentifierType?: PatchLoanLoanToBankIdentifierType;
 }
 
 export class PatchLoan extends SpeakeasyBase {

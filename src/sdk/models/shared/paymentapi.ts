@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { PaymentRelationApi } from "./paymentrelationapi";
 
-export enum PaymentApiCurrencyEnum {
+export enum PaymentApiCurrency {
   Eur = "EUR",
   Gbp = "GBP",
 }
@@ -13,7 +13,7 @@ export enum PaymentApiCurrencyEnum {
 /**
  * The type of account number (e.g. IBAN).
  */
-export enum PaymentApiFromAccountDetailsAccountNumberTypeEnum {
+export enum PaymentApiFromAccountDetailsAccountNumberType {
   Iban = "iban",
   AccountNumber = "account_number",
   InternalId = "internal_id",
@@ -22,7 +22,7 @@ export enum PaymentApiFromAccountDetailsAccountNumberTypeEnum {
 /**
  * The type of bank identifier (e.g. BIC).
  */
-export enum PaymentApiFromAccountDetailsBankIdentifierTypeEnum {
+export enum PaymentApiFromAccountDetailsBankIdentifierType {
   Bic = "bic",
   RoutingNumber = "routing_number",
   Name = "name",
@@ -39,7 +39,7 @@ export class PaymentApiFromAccountDetails extends SpeakeasyBase {
    * The type of account number (e.g. IBAN).
    */
   @SpeakeasyMetadata()
-  accountNumberType: PaymentApiFromAccountDetailsAccountNumberTypeEnum;
+  accountNumberType: PaymentApiFromAccountDetailsAccountNumberType;
 
   /**
    * The identifier of the bank.
@@ -51,17 +51,17 @@ export class PaymentApiFromAccountDetails extends SpeakeasyBase {
    * The type of bank identifier (e.g. BIC).
    */
   @SpeakeasyMetadata()
-  bankIdentifierType: PaymentApiFromAccountDetailsBankIdentifierTypeEnum;
+  bankIdentifierType: PaymentApiFromAccountDetailsBankIdentifierType;
 }
 
-export enum PaymentApiPaymentMethodEnum {
+export enum PaymentApiPaymentMethod {
   DirectDebit = "DIRECT_DEBIT",
   Sct = "SCT",
   P2P = "P2P",
   LessThanNilGreaterThan = "<nil>",
 }
 
-export enum PaymentApiPaymentTypeEnum {
+export enum PaymentApiPaymentType {
   LoanPayment = "LOAN_PAYMENT",
   RepaymentNominal = "REPAYMENT_NOMINAL",
   RepaymentFees = "REPAYMENT_FEES",
@@ -78,7 +78,7 @@ export enum PaymentApiPaymentTypeEnum {
   LessThanNilGreaterThan = "<nil>",
 }
 
-export enum PaymentApiProviderNameEnum {
+export enum PaymentApiProviderName {
   Swan = "SWAN",
   Sandbox = "SANDBOX",
   Lemonway = "LEMONWAY",
@@ -87,7 +87,7 @@ export enum PaymentApiProviderNameEnum {
 
 export class PaymentApiProvider extends SpeakeasyBase {
   @SpeakeasyMetadata()
-  name: PaymentApiProviderNameEnum;
+  name: PaymentApiProviderName;
 
   @SpeakeasyMetadata()
   originalId?: string;
@@ -96,7 +96,7 @@ export class PaymentApiProvider extends SpeakeasyBase {
   paymentId?: string;
 }
 
-export enum PaymentApiStatusEnum {
+export enum PaymentApiStatus {
   Proposed = "PROPOSED",
   Scheduled = "SCHEDULED",
   Canceled = "CANCELED",
@@ -109,7 +109,7 @@ export enum PaymentApiStatusEnum {
 /**
  * The type of account number (e.g. IBAN).
  */
-export enum PaymentApiToAccountDetailsAccountNumberTypeEnum {
+export enum PaymentApiToAccountDetailsAccountNumberType {
   Iban = "iban",
   AccountNumber = "account_number",
   InternalId = "internal_id",
@@ -118,7 +118,7 @@ export enum PaymentApiToAccountDetailsAccountNumberTypeEnum {
 /**
  * The type of bank identifier (e.g. BIC).
  */
-export enum PaymentApiToAccountDetailsBankIdentifierTypeEnum {
+export enum PaymentApiToAccountDetailsBankIdentifierType {
   Bic = "bic",
   RoutingNumber = "routing_number",
   Name = "name",
@@ -135,7 +135,7 @@ export class PaymentApiToAccountDetails extends SpeakeasyBase {
    * The type of account number (e.g. IBAN).
    */
   @SpeakeasyMetadata()
-  accountNumberType: PaymentApiToAccountDetailsAccountNumberTypeEnum;
+  accountNumberType: PaymentApiToAccountDetailsAccountNumberType;
 
   /**
    * The identifier of the bank.
@@ -147,7 +147,7 @@ export class PaymentApiToAccountDetails extends SpeakeasyBase {
    * The type of bank identifier (e.g. BIC).
    */
   @SpeakeasyMetadata()
-  bankIdentifierType: PaymentApiToAccountDetailsBankIdentifierTypeEnum;
+  bankIdentifierType: PaymentApiToAccountDetailsBankIdentifierType;
 }
 
 export class PaymentApi extends SpeakeasyBase {
@@ -155,7 +155,7 @@ export class PaymentApi extends SpeakeasyBase {
   amount: number;
 
   @SpeakeasyMetadata()
-  currency?: PaymentApiCurrencyEnum;
+  currency?: PaymentApiCurrency;
 
   @SpeakeasyMetadata()
   failureReason?: string;
@@ -176,10 +176,10 @@ export class PaymentApi extends SpeakeasyBase {
   paidAt?: Date;
 
   @SpeakeasyMetadata()
-  paymentMethod?: PaymentApiPaymentMethodEnum;
+  paymentMethod?: PaymentApiPaymentMethod;
 
   @SpeakeasyMetadata()
-  paymentType?: PaymentApiPaymentTypeEnum;
+  paymentType?: PaymentApiPaymentType;
 
   @SpeakeasyMetadata()
   provider?: PaymentApiProvider;
@@ -191,7 +191,7 @@ export class PaymentApi extends SpeakeasyBase {
   scheduledAt?: Date;
 
   @SpeakeasyMetadata()
-  status: PaymentApiStatusEnum;
+  status: PaymentApiStatus;
 
   @SpeakeasyMetadata()
   toAccountDetails?: PaymentApiToAccountDetails;

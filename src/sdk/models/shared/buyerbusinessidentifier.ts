@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-export enum BuyerBusinessIdentifierIdentifierTypeEnum {
+export enum BuyerBusinessIdentifierIdentifierType {
   Siret = "siret",
   Siren = "siren",
   VatNumber = "vat_number",
@@ -26,5 +26,5 @@ export class BuyerBusinessIdentifier extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "identifier_type" })
-  identifierType: BuyerBusinessIdentifierIdentifierTypeEnum;
+  identifierType: BuyerBusinessIdentifierIdentifierType;
 }

@@ -23,7 +23,7 @@ List your fees invoices (i.e: your Defacto bill) for the loans you performed on 
 
 ```typescript
 import { Defacto } from "defacto";
-import { ListBillsResponse, ListBillsStatusEnum } from "defacto/dist/sdk/models/operations";
+import { ListBillsResponse, ListBillsStatus } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
@@ -47,9 +47,9 @@ sdk.billing.listBills({
   pageSize: 881736,
   startDate: new Date("2020-12-03T16:16:10.882Z"),
   status: [
-    ListBillsStatusEnum.ToPay,
-    ListBillsStatusEnum.ToPay,
-    ListBillsStatusEnum.ToPay,
+    ListBillsStatus.ToPay,
+    ListBillsStatus.ToPay,
+    ListBillsStatus.ToPay,
   ],
 }).then((res: ListBillsResponse) => {
   if (res.statusCode == 200) {

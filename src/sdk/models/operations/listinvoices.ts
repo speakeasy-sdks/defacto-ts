@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 
-export enum ListInvoicesStatusEnum {
+export enum ListInvoicesStatus {
   ToSubmit = "TO_SUBMIT",
   Submitted = "SUBMITTED",
   ToEdit = "TO_EDIT",
@@ -49,7 +49,7 @@ export class ListInvoicesRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=status",
   })
-  status?: ListInvoicesStatusEnum[];
+  status?: ListInvoicesStatus[];
 }
 
 export class ListInvoicesResponse extends SpeakeasyBase {

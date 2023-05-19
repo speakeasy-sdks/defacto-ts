@@ -99,7 +99,7 @@ List loans
 
 ```typescript
 import { Defacto } from "defacto";
-import { ListLoansLoanTypeEnum, ListLoansResponse, ListLoansStatusEnum } from "defacto/dist/sdk/models/operations";
+import { ListLoansLoanType, ListLoansResponse, ListLoansStatus } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
@@ -120,14 +120,14 @@ sdk.loan.list({
     "21aa6f1e-674b-4db0-8f15-756082d68ea1",
   ],
   loanType: [
-    ListLoansLoanTypeEnum.WalletFinancing,
-    ListLoansLoanTypeEnum.InvoiceBasedFinancing,
-    ListLoansLoanTypeEnum.WalletFinancing,
+    ListLoansLoanType.WalletFinancing,
+    ListLoansLoanType.InvoiceBasedFinancing,
+    ListLoansLoanType.WalletFinancing,
   ],
   pageSize: 92027,
   status: [
-    ListLoansStatusEnum.Submitted,
-    ListLoansStatusEnum.Canceled,
+    ListLoansStatus.Submitted,
+    ListLoansStatus.Canceled,
   ],
   toPayAtFrom: new Date("2022-10-08T01:09:40.281Z"),
   toPayAtTo: new Date("2022-05-21T17:17:20.623Z"),
@@ -156,17 +156,17 @@ Request a new loan. You can request a loan for only one invoice. At the moment, 
 import { Defacto } from "defacto";
 import { RequestLoanResponse } from "defacto/dist/sdk/models/operations";
 import {
-  AccountCreationAccountHolderIdentifierTypeEnum,
-  AccountCreationAccountNumberTypeEnum,
-  AccountCreationBankIdentifierTypeEnum,
-  APIPostLoanBorrowerIdentifierTypeEnum,
-  APIPostLoanCurrencyEnum,
-  APIPostLoanLoanTypeEnum,
-  APIRequiredInvoiceCreationCurrencyEnum,
-  APIRequiredInvoiceCreationToAccountAccountHolderIdentifierTypeEnum,
-  APIRequiredInvoiceCreationToAccountAccountNumberTypeEnum,
-  APIRequiredInvoiceCreationToAccountBankIdentifierTypeEnum,
-  CounterpartyCreationIdentifierTypeEnum,
+  AccountCreationAccountHolderIdentifierType,
+  AccountCreationAccountNumberType,
+  AccountCreationBankIdentifierType,
+  APIPostLoanBorrowerIdentifierType,
+  APIPostLoanCurrency,
+  APIPostLoanLoanType,
+  APIRequiredInvoiceCreationCurrency,
+  APIRequiredInvoiceCreationToAccountAccountHolderIdentifierType,
+  APIRequiredInvoiceCreationToAccountAccountNumberType,
+  APIRequiredInvoiceCreationToAccountBankIdentifierType,
+  CounterpartyCreationIdentifierType,
 } from "defacto/dist/sdk/models/shared";
 
 const sdk = new Defacto({
@@ -180,9 +180,9 @@ sdk.loan.request({
   autoValidate: false,
   borrower: {
     identifier: "mollitia",
-    identifierType: APIPostLoanBorrowerIdentifierTypeEnum.Siret,
+    identifierType: APIPostLoanBorrowerIdentifierType.Siret,
   },
-  currency: APIPostLoanCurrencyEnum.Gbp,
+  currency: APIPostLoanCurrency.Gbp,
   invoiceIds: [
     "0394c260-71f9-43f5-b064-2dac7af515cc",
     "413aa63a-ae8d-4678-a4db-b675fd5e60b3",
@@ -191,11 +191,11 @@ sdk.loan.request({
     {
       buyer: {
         identifier: "exercitationem",
-        identifierType: CounterpartyCreationIdentifierTypeEnum.LessThanNilGreaterThan,
+        identifierType: CounterpartyCreationIdentifierType.LessThanNilGreaterThan,
         name: "Jesus Yost",
         vatNumber: "quidem",
       },
-      currency: APIRequiredInvoiceCreationCurrencyEnum.Gbp,
+      currency: APIRequiredInvoiceCreationCurrency.Gbp,
       document: "necessitatibus",
       dueAt: new Date("2022-11-17T19:30:54.837Z"),
       invoiceNumber: "asperiores",
@@ -206,7 +206,7 @@ sdk.loan.request({
       netAmount: 950953,
       seller: {
         identifier: "debitis",
-        identifierType: CounterpartyCreationIdentifierTypeEnum.VatNumber,
+        identifierType: CounterpartyCreationIdentifierType.VatNumber,
         name: "Dr. Maryann Howe",
         vatNumber: "vitae",
       },
@@ -214,12 +214,12 @@ sdk.loan.request({
       toAccount: {
         accountHolder: {
           identifier: "similique",
-          identifierType: APIRequiredInvoiceCreationToAccountAccountHolderIdentifierTypeEnum.Name,
+          identifierType: APIRequiredInvoiceCreationToAccountAccountHolderIdentifierType.Name,
         },
         accountNumber: "aspernatur",
-        accountNumberType: APIRequiredInvoiceCreationToAccountAccountNumberTypeEnum.AccountNumber,
+        accountNumberType: APIRequiredInvoiceCreationToAccountAccountNumberType.AccountNumber,
         bankIdentifier: "voluptas",
-        bankIdentifierType: APIRequiredInvoiceCreationToAccountBankIdentifierTypeEnum.RoutingNumber,
+        bankIdentifierType: APIRequiredInvoiceCreationToAccountBankIdentifierType.RoutingNumber,
       },
       toPayAmount: 324405,
       totalAmount: 748789,
@@ -227,11 +227,11 @@ sdk.loan.request({
     {
       buyer: {
         identifier: "dolorum",
-        identifierType: CounterpartyCreationIdentifierTypeEnum.VatNumber,
+        identifierType: CounterpartyCreationIdentifierType.VatNumber,
         name: "Ernest Labadie",
         vatNumber: "aliquam",
       },
-      currency: APIRequiredInvoiceCreationCurrencyEnum.Gbp,
+      currency: APIRequiredInvoiceCreationCurrency.Gbp,
       document: "temporibus",
       dueAt: new Date("2022-10-06T05:22:53.091Z"),
       invoiceNumber: "cum",
@@ -245,7 +245,7 @@ sdk.loan.request({
       netAmount: 24619,
       seller: {
         identifier: "rerum",
-        identifierType: CounterpartyCreationIdentifierTypeEnum.Siren,
+        identifierType: CounterpartyCreationIdentifierType.Siren,
         name: "Benjamin Ziemann",
         vatNumber: "expedita",
       },
@@ -253,12 +253,12 @@ sdk.loan.request({
       toAccount: {
         accountHolder: {
           identifier: "iste",
-          identifierType: APIRequiredInvoiceCreationToAccountAccountHolderIdentifierTypeEnum.Name,
+          identifierType: APIRequiredInvoiceCreationToAccountAccountHolderIdentifierType.Name,
         },
         accountNumber: "laborum",
-        accountNumberType: APIRequiredInvoiceCreationToAccountAccountNumberTypeEnum.Iban,
+        accountNumberType: APIRequiredInvoiceCreationToAccountAccountNumberType.Iban,
         bankIdentifier: "in",
-        bankIdentifierType: APIRequiredInvoiceCreationToAccountBankIdentifierTypeEnum.RoutingNumber,
+        bankIdentifierType: APIRequiredInvoiceCreationToAccountBankIdentifierType.RoutingNumber,
       },
       toPayAmount: 696077,
       totalAmount: 131289,
@@ -267,17 +267,17 @@ sdk.loan.request({
   loanTo: {
     accountHolder: {
       identifier: "voluptas",
-      identifierType: AccountCreationAccountHolderIdentifierTypeEnum.Bsn,
+      identifierType: AccountCreationAccountHolderIdentifierType.Bsn,
     },
     accountNumber: "architecto",
-    accountNumberType: AccountCreationAccountNumberTypeEnum.AccountNumber,
+    accountNumberType: AccountCreationAccountNumberType.AccountNumber,
     bankIdentifier: "sapiente",
-    bankIdentifierType: AccountCreationBankIdentifierTypeEnum.Name,
+    bankIdentifierType: AccountCreationBankIdentifierType.Name,
   },
   loanToReferences: [
     "reiciendis",
   ],
-  loanType: APIPostLoanLoanTypeEnum.InvoiceBasedFinancing,
+  loanType: APIPostLoanLoanType.InvoiceBasedFinancing,
   metadata: {
     "maiores": "incidunt",
     "sed": "provident",
@@ -317,9 +317,9 @@ This operation is not available when the loan is in another status.
 import { Defacto } from "defacto";
 import { UpdateLoanResponse } from "defacto/dist/sdk/models/operations";
 import {
-  PatchLoanLoanToAccountHolderIdentifierTypeEnum,
-  PatchLoanLoanToAccountNumberTypeEnum,
-  PatchLoanLoanToBankIdentifierTypeEnum,
+  PatchLoanLoanToAccountHolderIdentifierType,
+  PatchLoanLoanToAccountNumberType,
+  PatchLoanLoanToBankIdentifierType,
 } from "defacto/dist/sdk/models/shared";
 
 const sdk = new Defacto({
@@ -334,12 +334,12 @@ sdk.loan.update("quaerat", {
   loanTo: {
     accountHolder: {
       identifier: "debitis",
-      identifierType: PatchLoanLoanToAccountHolderIdentifierTypeEnum.Kvk,
+      identifierType: PatchLoanLoanToAccountHolderIdentifierType.Kvk,
     },
     accountNumber: "sit",
-    accountNumberType: PatchLoanLoanToAccountNumberTypeEnum.InternalId,
+    accountNumberType: PatchLoanLoanToAccountNumberType.InternalId,
     bankIdentifier: "error",
-    bankIdentifierType: PatchLoanLoanToBankIdentifierTypeEnum.RoutingNumber,
+    bankIdentifierType: PatchLoanLoanToBankIdentifierType.RoutingNumber,
   },
   loanToReferences: [
     "recusandae",

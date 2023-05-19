@@ -35,7 +35,7 @@ export class APIPostBorrowerAddress extends SpeakeasyBase {
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum APIPostBorrowerIdentifierTypeEnum {
+export enum APIPostBorrowerIdentifierType {
   Siret = "siret",
   Siren = "siren",
   VatNumber = "vat_number",
@@ -79,7 +79,7 @@ export class APIPostBorrower extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "identifier_type" })
-  identifierType?: APIPostBorrowerIdentifierTypeEnum;
+  identifierType?: APIPostBorrowerIdentifierType;
 
   /**
    * Legal form of the business.

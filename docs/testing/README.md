@@ -50,7 +50,7 @@ Warning: these invoices and their IBANs will not work in production.
 
 ```typescript
 import { Defacto } from "defacto";
-import { GenerateBusinessCountryEnum, GenerateBusinessResponse } from "defacto/dist/sdk/models/operations";
+import { GenerateBusinessCountry, GenerateBusinessResponse } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
@@ -58,7 +58,7 @@ const sdk = new Defacto({
   },
 });
 
-sdk.testing.generateBusiness(GenerateBusinessCountryEnum.Fra, false).then((res: GenerateBusinessResponse) => {
+sdk.testing.generateBusiness(GenerateBusinessCountry.Fra, false).then((res: GenerateBusinessResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -81,7 +81,7 @@ Warning: these IBANs will not work in production.
 
 ```typescript
 import { Defacto } from "defacto";
-import { GenerateIbanCountryEnum, GenerateIbanResponse, GenerateIbanScenarioEnum } from "defacto/dist/sdk/models/operations";
+import { GenerateIbanCountry, GenerateIbanResponse, GenerateIbanScenario } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
@@ -89,7 +89,7 @@ const sdk = new Defacto({
   },
 });
 
-sdk.testing.generateIban(GenerateIbanCountryEnum.Bel, GenerateIbanScenarioEnum.SuccessOneDayLater).then((res: GenerateIbanResponse) => {
+sdk.testing.generateIban(GenerateIbanCountry.Bel, GenerateIbanScenario.SuccessOneDayLater).then((res: GenerateIbanResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -115,10 +115,10 @@ Warning: these invoices and their IBANs will not work in production.
 import { Defacto } from "defacto";
 import { GenerateInvoiceResponse } from "defacto/dist/sdk/models/operations";
 import {
-  GenerateInvoiceRequestBuyerIdentifierTypeEnum,
-  GenerateInvoiceRequestCountryEnum,
-  GenerateInvoiceRequestScenarioEnum,
-  GenerateInvoiceRequestSellerIdentifierTypeEnum,
+  GenerateInvoiceRequestBuyerIdentifierType,
+  GenerateInvoiceRequestCountry,
+  GenerateInvoiceRequestScenario,
+  GenerateInvoiceRequestSellerIdentifierType,
 } from "defacto/dist/sdk/models/shared";
 
 const sdk = new Defacto({
@@ -130,15 +130,15 @@ const sdk = new Defacto({
 sdk.testing.generateInvoice({
   buyer: {
     identifier: "quo",
-    identifierType: GenerateInvoiceRequestBuyerIdentifierTypeEnum.Nif,
+    identifierType: GenerateInvoiceRequestBuyerIdentifierType.Nif,
     name: "Ms. Geraldine Ratke",
     vatNumber: "aliquid",
   },
-  country: GenerateInvoiceRequestCountryEnum.Fra,
-  scenario: GenerateInvoiceRequestScenarioEnum.Reject,
+  country: GenerateInvoiceRequestCountry.Fra,
+  scenario: GenerateInvoiceRequestScenario.Reject,
   seller: {
     identifier: "omnis",
-    identifierType: GenerateInvoiceRequestSellerIdentifierTypeEnum.Siren,
+    identifierType: GenerateInvoiceRequestSellerIdentifierType.Siren,
     name: "Dr. Rex Nicolas",
     vatNumber: "architecto",
   },
@@ -188,7 +188,7 @@ You can test multiple scenarios:
 ```typescript
 import { Defacto } from "defacto";
 import { SetBusinessEligibleResponse } from "defacto/dist/sdk/models/operations";
-import { BusinessEligibileParamsScenarioEnum, BusinessIdentifierIdentifierTypeEnum } from "defacto/dist/sdk/models/shared";
+import { BusinessEligibileParamsScenario, BusinessIdentifierIdentifierType } from "defacto/dist/sdk/models/shared";
 
 const sdk = new Defacto({
   security: {
@@ -199,9 +199,9 @@ const sdk = new Defacto({
 sdk.testing.setBusinessEligible({
   businessIdentifier: {
     identifier: "fuga",
-    identifierType: BusinessIdentifierIdentifierTypeEnum.Steuernummer,
+    identifierType: BusinessIdentifierIdentifierType.Steuernummer,
   },
-  scenario: BusinessEligibileParamsScenarioEnum.NotEligible,
+  scenario: BusinessEligibileParamsScenario.NotEligible,
 }).then((res: SetBusinessEligibleResponse) => {
   if (res.statusCode == 200) {
     // handle response

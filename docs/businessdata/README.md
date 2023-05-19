@@ -35,7 +35,7 @@ This endpoint doesn't support updates on data already uploaded.
 ```typescript
 import { Defacto } from "defacto";
 import { UploadAccountsResponse } from "defacto/dist/sdk/models/operations";
-import { APIPartnerBusinessAccountsIdentifierTypeEnum } from "defacto/dist/sdk/models/shared";
+import { APIPartnerBusinessAccountsIdentifierType } from "defacto/dist/sdk/models/shared";
 
 const sdk = new Defacto({
   security: {
@@ -52,7 +52,7 @@ sdk.businessData.uploadAccounts({
     },
   ],
   identifier: "quibusdam",
-  identifierType: APIPartnerBusinessAccountsIdentifierTypeEnum.Siren,
+  identifierType: APIPartnerBusinessAccountsIdentifierType.Siren,
 }).then((res: UploadAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -75,12 +75,12 @@ This endpoint doesn't support updates on data already uploaded.
 import { Defacto } from "defacto";
 import { UploadInvoicesBusinessResponse } from "defacto/dist/sdk/models/operations";
 import {
-  APIPartnerBusinessInvoiceCurrencyEnum,
-  APIPartnerBusinessInvoiceDirectionEnum,
-  APIPartnerBusinessInvoicePaymentMethodEnum,
-  APIPartnerBusinessInvoicesIdentifierTypeEnum,
-  BuyerBusinessIdentifierIdentifierTypeEnum,
-  SellerBusinessIdentifierIdentifierTypeEnum,
+  APIPartnerBusinessInvoiceCurrency,
+  APIPartnerBusinessInvoiceDirection,
+  APIPartnerBusinessInvoicePaymentMethod,
+  APIPartnerBusinessInvoicesIdentifierType,
+  BuyerBusinessIdentifierIdentifierType,
+  SellerBusinessIdentifierIdentifierType,
 } from "defacto/dist/sdk/models/shared";
 
 const sdk = new Defacto({
@@ -91,26 +91,26 @@ const sdk = new Defacto({
 
 sdk.businessData.uploadInvoices({
   identifier: "saepe",
-  identifierType: APIPartnerBusinessInvoicesIdentifierTypeEnum.BelgiumRegistrationNumber,
+  identifierType: APIPartnerBusinessInvoicesIdentifierType.BelgiumRegistrationNumber,
   invoices: [
     {
       buyer: {
         identifier: "consequuntur",
-        identifierType: BuyerBusinessIdentifierIdentifierTypeEnum.Cif,
+        identifierType: BuyerBusinessIdentifierIdentifierType.Cif,
       },
-      currency: APIPartnerBusinessInvoiceCurrencyEnum.Gbp,
-      direction: APIPartnerBusinessInvoiceDirectionEnum.Customer,
+      currency: APIPartnerBusinessInvoiceCurrency.Gbp,
+      direction: APIPartnerBusinessInvoiceDirection.Customer,
       dueAt: new Date("2022-03-22T15:30:46.869Z"),
       firstPaymentAt: new Date("2020-05-28T21:33:10.895Z"),
       invoiceNumber: "maxime",
       issuedAt: new Date("2022-06-07T06:40:38.496Z"),
       lastPaymentAt: new Date("2022-08-05T09:04:26.932Z"),
       netAmount: 33222,
-      paymentMethod: APIPartnerBusinessInvoicePaymentMethodEnum.Other,
+      paymentMethod: APIPartnerBusinessInvoicePaymentMethod.Other,
       saltId: "maiores",
       seller: {
         identifier: "quidem",
-        identifierType: SellerBusinessIdentifierIdentifierTypeEnum.Nif,
+        identifierType: SellerBusinessIdentifierIdentifierType.Nif,
       },
       taxAmount: 453543,
       toPayAmount: 420075,
@@ -139,11 +139,11 @@ This endpoint doesn't support updates on data already uploaded.
 import { Defacto } from "defacto";
 import { UploadTransactionsResponse } from "defacto/dist/sdk/models/operations";
 import {
-  APIPartnerAccountTransactionCurrencyEnum,
-  APIPartnerAccountTransactionOperationTypeEnum,
-  APIPartnerAccountTransactionSideEnum,
-  APIPartnerAccountTransactionsIdentifierTypeEnum,
-  APIPartnerAccountTransactionStatusEnum,
+  APIPartnerAccountTransactionCurrency,
+  APIPartnerAccountTransactionOperationType,
+  APIPartnerAccountTransactionSide,
+  APIPartnerAccountTransactionsIdentifierType,
+  APIPartnerAccountTransactionStatus,
 } from "defacto/dist/sdk/models/shared";
 
 const sdk = new Defacto({
@@ -155,7 +155,7 @@ const sdk = new Defacto({
 sdk.businessData.uploadTransactions({
   endDate: new Date("2022-02-18T18:29:26.833Z"),
   identifier: "nemo",
-  identifierType: APIPartnerAccountTransactionsIdentifierTypeEnum.Steuernummer,
+  identifierType: APIPartnerAccountTransactionsIdentifierType.Steuernummer,
   startDate: new Date("2022-02-22T15:09:45.631Z"),
   transactions: [
     {
@@ -164,13 +164,13 @@ sdk.businessData.uploadTransactions({
       at: new Date("2022-01-21T09:28:40.593Z"),
       category: "libero",
       counterpartyName: "nobis",
-      currency: APIPartnerAccountTransactionCurrencyEnum.Eur,
-      operationType: APIPartnerAccountTransactionOperationTypeEnum.DirectDebit,
+      currency: APIPartnerAccountTransactionCurrency.Eur,
+      operationType: APIPartnerAccountTransactionOperationType.DirectDebit,
       reference: "totam",
       saltId: "dignissimos",
       settledBalance: 54338,
-      side: APIPartnerAccountTransactionSideEnum.Credit,
-      status: APIPartnerAccountTransactionStatusEnum.Pending,
+      side: APIPartnerAccountTransactionSide.Credit,
+      status: APIPartnerAccountTransactionStatus.Pending,
     },
   ],
 }).then((res: UploadTransactionsResponse) => {

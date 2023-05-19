@@ -31,12 +31,12 @@ Create an invoice.
 import { Defacto } from "defacto";
 import { CreateInvoiceResponse } from "defacto/dist/sdk/models/operations";
 import {
-  APIDraftableInvoiceCreationBuyerIdentifierTypeEnum,
-  APIDraftableInvoiceCreationCurrencyEnum,
-  APIDraftableInvoiceCreationSellerIdentifierTypeEnum,
-  APIDraftableInvoiceCreationToAccountAccountHolderIdentifierTypeEnum,
-  APIDraftableInvoiceCreationToAccountAccountNumberTypeEnum,
-  APIDraftableInvoiceCreationToAccountBankIdentifierTypeEnum,
+  APIDraftableInvoiceCreationBuyerIdentifierType,
+  APIDraftableInvoiceCreationCurrency,
+  APIDraftableInvoiceCreationSellerIdentifierType,
+  APIDraftableInvoiceCreationToAccountAccountHolderIdentifierType,
+  APIDraftableInvoiceCreationToAccountAccountNumberType,
+  APIDraftableInvoiceCreationToAccountBankIdentifierType,
 } from "defacto/dist/sdk/models/shared";
 
 const sdk = new Defacto({
@@ -48,11 +48,11 @@ const sdk = new Defacto({
 sdk.invoice.create({
   buyer: {
     identifier: "magni",
-    identifierType: APIDraftableInvoiceCreationBuyerIdentifierTypeEnum.Cif,
+    identifierType: APIDraftableInvoiceCreationBuyerIdentifierType.Cif,
     name: "Marion Reichert DDS",
     vatNumber: "soluta",
   },
-  currency: APIDraftableInvoiceCreationCurrencyEnum.Gbp,
+  currency: APIDraftableInvoiceCreationCurrency.Gbp,
   document: "et",
   dueAt: new Date("2022-05-07T21:24:02.842Z"),
   invoiceNumber: "veritatis",
@@ -66,7 +66,7 @@ sdk.invoice.create({
   netAmount: 240829,
   seller: {
     identifier: "dolorum",
-    identifierType: APIDraftableInvoiceCreationSellerIdentifierTypeEnum.Siren,
+    identifierType: APIDraftableInvoiceCreationSellerIdentifierType.Siren,
     name: "Margaret Luettgen MD",
     vatNumber: "repellendus",
   },
@@ -74,12 +74,12 @@ sdk.invoice.create({
   toAccount: {
     accountHolder: {
       identifier: "doloribus",
-      identifierType: APIDraftableInvoiceCreationToAccountAccountHolderIdentifierTypeEnum.Name,
+      identifierType: APIDraftableInvoiceCreationToAccountAccountHolderIdentifierType.Name,
     },
     accountNumber: "facilis",
-    accountNumberType: APIDraftableInvoiceCreationToAccountAccountNumberTypeEnum.AccountNumber,
+    accountNumberType: APIDraftableInvoiceCreationToAccountAccountNumberType.AccountNumber,
     bankIdentifier: "qui",
-    bankIdentifierType: APIDraftableInvoiceCreationToAccountBankIdentifierTypeEnum.Bic,
+    bankIdentifierType: APIDraftableInvoiceCreationToAccountBankIdentifierType.Bic,
   },
   toPayAmount: 512393,
   totalAmount: 485628,
@@ -144,7 +144,7 @@ Get your invoices
 
 ```typescript
 import { Defacto } from "defacto";
-import { ListInvoicesResponse, ListInvoicesStatusEnum } from "defacto/dist/sdk/models/operations";
+import { ListInvoicesResponse, ListInvoicesStatus } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
@@ -172,9 +172,9 @@ sdk.invoice.list({
     "a",
   ],
   status: [
-    ListInvoicesStatusEnum.ToSubmit,
-    ListInvoicesStatusEnum.ToSubmit,
-    ListInvoicesStatusEnum.ToEdit,
+    ListInvoicesStatus.ToSubmit,
+    ListInvoicesStatus.ToSubmit,
+    ListInvoicesStatus.ToEdit,
   ],
 }).then((res: ListInvoicesResponse) => {
   if (res.statusCode == 200) {
@@ -196,12 +196,12 @@ If some data is missing prior to validating the invoice, a 422 error will be ret
 import { Defacto } from "defacto";
 import { SubmitInvoiceResponse } from "defacto/dist/sdk/models/operations";
 import {
-  APIPatchInvoiceBuyerIdentifierTypeEnum,
-  APIPatchInvoiceCurrencyEnum,
-  APIPatchInvoiceSellerIdentifierTypeEnum,
-  APIPatchInvoiceToAccountAccountHolderIdentifierTypeEnum,
-  APIPatchInvoiceToAccountAccountNumberTypeEnum,
-  APIPatchInvoiceToAccountBankIdentifierTypeEnum,
+  APIPatchInvoiceBuyerIdentifierType,
+  APIPatchInvoiceCurrency,
+  APIPatchInvoiceSellerIdentifierType,
+  APIPatchInvoiceToAccountAccountHolderIdentifierType,
+  APIPatchInvoiceToAccountAccountNumberType,
+  APIPatchInvoiceToAccountBankIdentifierType,
 } from "defacto/dist/sdk/models/shared";
 
 const sdk = new Defacto({
@@ -213,11 +213,11 @@ const sdk = new Defacto({
 sdk.invoice.submit("impedit", {
   buyer: {
     identifier: "aliquam",
-    identifierType: APIPatchInvoiceBuyerIdentifierTypeEnum.Siren,
+    identifierType: APIPatchInvoiceBuyerIdentifierType.Siren,
     name: "Miss Dennis Friesen",
     vatNumber: "placeat",
   },
-  currency: APIPatchInvoiceCurrencyEnum.Eur,
+  currency: APIPatchInvoiceCurrency.Eur,
   dueAt: new Date("2022-07-31T12:04:26.954Z"),
   invoiceNumber: "nobis",
   issuedAt: new Date("2021-05-05T09:22:07.208Z"),
@@ -230,7 +230,7 @@ sdk.invoice.submit("impedit", {
   netAmount: 476477,
   seller: {
     identifier: "magnam",
-    identifierType: APIPatchInvoiceSellerIdentifierTypeEnum.Cif,
+    identifierType: APIPatchInvoiceSellerIdentifierType.Cif,
     name: "Joy Klocko",
     vatNumber: "reprehenderit",
   },
@@ -238,12 +238,12 @@ sdk.invoice.submit("impedit", {
   toAccount: {
     accountHolder: {
       identifier: "fugiat",
-      identifierType: APIPatchInvoiceToAccountAccountHolderIdentifierTypeEnum.Name,
+      identifierType: APIPatchInvoiceToAccountAccountHolderIdentifierType.Name,
     },
     accountNumber: "eum",
-    accountNumberType: APIPatchInvoiceToAccountAccountNumberTypeEnum.AccountNumber,
+    accountNumberType: APIPatchInvoiceToAccountAccountNumberType.AccountNumber,
     bankIdentifier: "assumenda",
-    bankIdentifierType: APIPatchInvoiceToAccountBankIdentifierTypeEnum.Bic,
+    bankIdentifierType: APIPatchInvoiceToAccountBankIdentifierType.Bic,
   },
   toPayAmount: 509342,
   totalAmount: 788546,
@@ -264,12 +264,12 @@ Updates an invoice (with status TO_SUBMIT or TO_EDIT only)
 import { Defacto } from "defacto";
 import { UpdateInvoiceResponse } from "defacto/dist/sdk/models/operations";
 import {
-  APIPatchInvoiceBuyerIdentifierTypeEnum,
-  APIPatchInvoiceCurrencyEnum,
-  APIPatchInvoiceSellerIdentifierTypeEnum,
-  APIPatchInvoiceToAccountAccountHolderIdentifierTypeEnum,
-  APIPatchInvoiceToAccountAccountNumberTypeEnum,
-  APIPatchInvoiceToAccountBankIdentifierTypeEnum,
+  APIPatchInvoiceBuyerIdentifierType,
+  APIPatchInvoiceCurrency,
+  APIPatchInvoiceSellerIdentifierType,
+  APIPatchInvoiceToAccountAccountHolderIdentifierType,
+  APIPatchInvoiceToAccountAccountNumberType,
+  APIPatchInvoiceToAccountBankIdentifierType,
 } from "defacto/dist/sdk/models/shared";
 
 const sdk = new Defacto({
@@ -281,11 +281,11 @@ const sdk = new Defacto({
 sdk.invoice.update("veritatis", {
   buyer: {
     identifier: "ipsa",
-    identifierType: APIPatchInvoiceBuyerIdentifierTypeEnum.Bsn,
+    identifierType: APIPatchInvoiceBuyerIdentifierType.Bsn,
     name: "Luis Satterfield",
     vatNumber: "fuga",
   },
-  currency: APIPatchInvoiceCurrencyEnum.Eur,
+  currency: APIPatchInvoiceCurrency.Eur,
   dueAt: new Date("2022-08-17T13:23:48.206Z"),
   invoiceNumber: "ab",
   issuedAt: new Date("2022-12-24T22:15:46.522Z"),
@@ -296,7 +296,7 @@ sdk.invoice.update("veritatis", {
   netAmount: 779192,
   seller: {
     identifier: "esse",
-    identifierType: APIPatchInvoiceSellerIdentifierTypeEnum.LessThanNilGreaterThan,
+    identifierType: APIPatchInvoiceSellerIdentifierType.LessThanNilGreaterThan,
     name: "Lola Schmidt IV",
     vatNumber: "totam",
   },
@@ -304,12 +304,12 @@ sdk.invoice.update("veritatis", {
   toAccount: {
     accountHolder: {
       identifier: "aliquam",
-      identifierType: APIPatchInvoiceToAccountAccountHolderIdentifierTypeEnum.Cif,
+      identifierType: APIPatchInvoiceToAccountAccountHolderIdentifierType.Cif,
     },
     accountNumber: "occaecati",
-    accountNumberType: APIPatchInvoiceToAccountAccountNumberTypeEnum.AccountNumber,
+    accountNumberType: APIPatchInvoiceToAccountAccountNumberType.AccountNumber,
     bankIdentifier: "sapiente",
-    bankIdentifierType: APIPatchInvoiceToAccountBankIdentifierTypeEnum.Bic,
+    bankIdentifierType: APIPatchInvoiceToAccountBankIdentifierType.Bic,
   },
   toPayAmount: 645570,
   totalAmount: 475289,

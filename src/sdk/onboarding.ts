@@ -48,6 +48,7 @@ export class Onboarding {
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const headers = { ...config?.headers };
+    headers["Accept"] = "*/*";
     headers[
       "user-agent"
     ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
@@ -115,6 +116,7 @@ export class Onboarding {
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
+    headers["Accept"] = "*/*";
     headers[
       "user-agent"
     ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
@@ -178,6 +180,7 @@ export class Onboarding {
 
     const headers = { ...config?.headers };
     const queryParams: string = utils.serializeQueryParams(req);
+    headers["Accept"] = "*/*";
     headers[
       "user-agent"
     ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
@@ -253,6 +256,7 @@ export class Onboarding {
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
+    headers["Accept"] = "*/*";
     headers[
       "user-agent"
     ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;

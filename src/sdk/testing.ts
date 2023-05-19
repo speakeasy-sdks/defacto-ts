@@ -40,7 +40,7 @@ export class Testing {
    *
    */
   async generateBusiness(
-    country?: operations.GenerateBusinessCountryEnum,
+    country?: operations.GenerateBusinessCountry,
     isBorrower?: boolean,
     config?: AxiosRequestConfig
   ): Promise<operations.GenerateBusinessResponse> {
@@ -56,6 +56,7 @@ export class Testing {
 
     const headers = { ...config?.headers };
     const queryParams: string = utils.serializeQueryParams(req);
+    headers["Accept"] = "*/*";
     headers[
       "user-agent"
     ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
@@ -107,8 +108,8 @@ export class Testing {
    *
    */
   async generateIban(
-    country?: operations.GenerateIbanCountryEnum,
-    scenario?: operations.GenerateIbanScenarioEnum,
+    country?: operations.GenerateIbanCountry,
+    scenario?: operations.GenerateIbanScenario,
     config?: AxiosRequestConfig
   ): Promise<operations.GenerateIbanResponse> {
     const req = new operations.GenerateIbanRequest({
@@ -122,6 +123,7 @@ export class Testing {
 
     const headers = { ...config?.headers };
     const queryParams: string = utils.serializeQueryParams(req);
+    headers["Accept"] = "*/*";
     headers[
       "user-agent"
     ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
@@ -202,6 +204,7 @@ export class Testing {
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
+    headers["Accept"] = "*/*";
     headers[
       "user-agent"
     ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
@@ -252,6 +255,7 @@ export class Testing {
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const headers = { ...config?.headers };
+    headers["Accept"] = "text/plain";
     headers[
       "user-agent"
     ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
@@ -325,6 +329,7 @@ export class Testing {
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
+    headers["Accept"] = "*/*";
     headers[
       "user-agent"
     ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;

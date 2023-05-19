@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
-export enum WebhookEventTypesEnum {
+export enum WebhookEventTypes {
   CreditLinePOOLAMOUNTUPDATED = "CreditLine.POOL_AMOUNT_UPDATED",
   CreditLineCREATED = "CreditLine.CREATED",
   CreditLimitUPDATED = "CreditLimit.UPDATED",
@@ -34,7 +34,7 @@ export enum WebhookEventTypesEnum {
 
 export class Webhook extends SpeakeasyBase {
   @SpeakeasyMetadata()
-  eventTypes: WebhookEventTypesEnum[];
+  eventTypes: WebhookEventTypes[];
 
   @SpeakeasyMetadata()
   id?: any;

@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { APIPartnerBusinessInvoice } from "./apipartnerbusinessinvoice";
 import { Expose, Type } from "class-transformer";
 
-export enum APIPartnerBusinessInvoicesIdentifierTypeEnum {
+export enum APIPartnerBusinessInvoicesIdentifierType {
   Siret = "siret",
   Siren = "siren",
   VatNumber = "vat_number",
@@ -27,7 +27,7 @@ export class APIPartnerBusinessInvoices extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "identifier_type" })
-  identifierType: APIPartnerBusinessInvoicesIdentifierTypeEnum;
+  identifierType: APIPartnerBusinessInvoicesIdentifierType;
 
   /**
    * List of invoices of the business.

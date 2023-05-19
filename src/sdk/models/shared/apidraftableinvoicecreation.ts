@@ -8,7 +8,7 @@ import { Expose, Transform, Type } from "class-transformer";
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum APIDraftableInvoiceCreationBuyerIdentifierTypeEnum {
+export enum APIDraftableInvoiceCreationBuyerIdentifierType {
   Siret = "siret",
   Siren = "siren",
   VatNumber = "vat_number",
@@ -36,7 +36,7 @@ export class APIDraftableInvoiceCreationBuyer extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "identifier_type" })
-  identifierType?: APIDraftableInvoiceCreationBuyerIdentifierTypeEnum;
+  identifierType?: APIDraftableInvoiceCreationBuyerIdentifierType;
 
   /**
    * Legal name of the business.
@@ -56,7 +56,7 @@ export class APIDraftableInvoiceCreationBuyer extends SpeakeasyBase {
 /**
  * Currency of the invoice. Use ISO 4217 currency code.
  */
-export enum APIDraftableInvoiceCreationCurrencyEnum {
+export enum APIDraftableInvoiceCreationCurrency {
   Eur = "EUR",
   Gbp = "GBP",
 }
@@ -64,7 +64,7 @@ export enum APIDraftableInvoiceCreationCurrencyEnum {
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum APIDraftableInvoiceCreationSellerIdentifierTypeEnum {
+export enum APIDraftableInvoiceCreationSellerIdentifierType {
   Siret = "siret",
   Siren = "siren",
   VatNumber = "vat_number",
@@ -92,7 +92,7 @@ export class APIDraftableInvoiceCreationSeller extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "identifier_type" })
-  identifierType?: APIDraftableInvoiceCreationSellerIdentifierTypeEnum;
+  identifierType?: APIDraftableInvoiceCreationSellerIdentifierType;
 
   /**
    * Legal name of the business.
@@ -112,7 +112,7 @@ export class APIDraftableInvoiceCreationSeller extends SpeakeasyBase {
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum APIDraftableInvoiceCreationToAccountAccountHolderIdentifierTypeEnum {
+export enum APIDraftableInvoiceCreationToAccountAccountHolderIdentifierType {
   Siret = "siret",
   Siren = "siren",
   VatNumber = "vat_number",
@@ -143,13 +143,13 @@ export class APIDraftableInvoiceCreationToAccountAccountHolder extends Speakeasy
    */
   @SpeakeasyMetadata()
   @Expose({ name: "identifier_type" })
-  identifierType?: APIDraftableInvoiceCreationToAccountAccountHolderIdentifierTypeEnum;
+  identifierType?: APIDraftableInvoiceCreationToAccountAccountHolderIdentifierType;
 }
 
 /**
  * The type of account number (e.g. IBAN).
  */
-export enum APIDraftableInvoiceCreationToAccountAccountNumberTypeEnum {
+export enum APIDraftableInvoiceCreationToAccountAccountNumberType {
   Iban = "iban",
   AccountNumber = "account_number",
   InternalId = "internal_id",
@@ -158,7 +158,7 @@ export enum APIDraftableInvoiceCreationToAccountAccountNumberTypeEnum {
 /**
  * The type of bank identifier (e.g. BIC).
  */
-export enum APIDraftableInvoiceCreationToAccountBankIdentifierTypeEnum {
+export enum APIDraftableInvoiceCreationToAccountBankIdentifierType {
   Bic = "bic",
   RoutingNumber = "routing_number",
   Name = "name",
@@ -188,7 +188,7 @@ export class APIDraftableInvoiceCreationToAccount extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "account_number_type" })
-  accountNumberType?: APIDraftableInvoiceCreationToAccountAccountNumberTypeEnum;
+  accountNumberType?: APIDraftableInvoiceCreationToAccountAccountNumberType;
 
   /**
    * The identifier of the bank.
@@ -202,7 +202,7 @@ export class APIDraftableInvoiceCreationToAccount extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "bank_identifier_type" })
-  bankIdentifierType?: APIDraftableInvoiceCreationToAccountBankIdentifierTypeEnum;
+  bankIdentifierType?: APIDraftableInvoiceCreationToAccountBankIdentifierType;
 }
 
 export class APIDraftableInvoiceCreation extends SpeakeasyBase {
@@ -216,7 +216,7 @@ export class APIDraftableInvoiceCreation extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "currency" })
-  currency?: APIDraftableInvoiceCreationCurrencyEnum;
+  currency?: APIDraftableInvoiceCreationCurrency;
 
   /**
    * PDF binary (format base64 string)

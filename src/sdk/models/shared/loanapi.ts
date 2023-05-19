@@ -28,7 +28,7 @@ export class LoanAPIBorrowerAddress extends SpeakeasyBase {
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum LoanAPIBorrowerIdentifierTypeEnum {
+export enum LoanAPIBorrowerIdentifierType {
   Siret = "siret",
   Siren = "siren",
   VatNumber = "vat_number",
@@ -63,7 +63,7 @@ export class LoanAPIBorrower extends SpeakeasyBase {
    * Type of legal business identifier of the business, such as the SIRET in France.
    */
   @SpeakeasyMetadata()
-  identifierType?: LoanAPIBorrowerIdentifierTypeEnum;
+  identifierType?: LoanAPIBorrowerIdentifierType;
 
   /**
    * Legal form of the business.
@@ -99,7 +99,7 @@ export class LoanAPIBorrower extends SpeakeasyBase {
 /**
  * ISO 4217 currency code.
  */
-export enum LoanAPICurrencyEnum {
+export enum LoanAPICurrency {
   Eur = "EUR",
   Gbp = "GBP",
 }
@@ -127,7 +127,7 @@ export class LoanAPIGuarantorAddress extends SpeakeasyBase {
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum LoanAPIGuarantorIdentifierTypeEnum {
+export enum LoanAPIGuarantorIdentifierType {
   Siret = "siret",
   Siren = "siren",
   VatNumber = "vat_number",
@@ -162,7 +162,7 @@ export class LoanAPIGuarantor extends SpeakeasyBase {
    * Type of legal business identifier of the business, such as the SIRET in France.
    */
   @SpeakeasyMetadata()
-  identifierType?: LoanAPIGuarantorIdentifierTypeEnum;
+  identifierType?: LoanAPIGuarantorIdentifierType;
 
   /**
    * Legal form of the business.
@@ -198,7 +198,7 @@ export class LoanAPIGuarantor extends SpeakeasyBase {
 /**
  * The type of account number (e.g. IBAN).
  */
-export enum LoanAPILoanFromAccountNumberTypeEnum {
+export enum LoanAPILoanFromAccountNumberType {
   Iban = "iban",
   AccountNumber = "account_number",
   InternalId = "internal_id",
@@ -207,7 +207,7 @@ export enum LoanAPILoanFromAccountNumberTypeEnum {
 /**
  * The type of bank identifier (e.g. BIC).
  */
-export enum LoanAPILoanFromBankIdentifierTypeEnum {
+export enum LoanAPILoanFromBankIdentifierType {
   Bic = "bic",
   RoutingNumber = "routing_number",
   Name = "name",
@@ -227,7 +227,7 @@ export class LoanAPILoanFrom extends SpeakeasyBase {
    * The type of account number (e.g. IBAN).
    */
   @SpeakeasyMetadata()
-  accountNumberType: LoanAPILoanFromAccountNumberTypeEnum;
+  accountNumberType: LoanAPILoanFromAccountNumberType;
 
   /**
    * The identifier of the bank.
@@ -239,13 +239,13 @@ export class LoanAPILoanFrom extends SpeakeasyBase {
    * The type of bank identifier (e.g. BIC).
    */
   @SpeakeasyMetadata()
-  bankIdentifierType: LoanAPILoanFromBankIdentifierTypeEnum;
+  bankIdentifierType: LoanAPILoanFromBankIdentifierType;
 }
 
 /**
  * The type of account number (e.g. IBAN).
  */
-export enum LoanAPILoanToAccountNumberTypeEnum {
+export enum LoanAPILoanToAccountNumberType {
   Iban = "iban",
   AccountNumber = "account_number",
   InternalId = "internal_id",
@@ -254,7 +254,7 @@ export enum LoanAPILoanToAccountNumberTypeEnum {
 /**
  * The type of bank identifier (e.g. BIC).
  */
-export enum LoanAPILoanToBankIdentifierTypeEnum {
+export enum LoanAPILoanToBankIdentifierType {
   Bic = "bic",
   RoutingNumber = "routing_number",
   Name = "name",
@@ -274,7 +274,7 @@ export class LoanAPILoanTo extends SpeakeasyBase {
    * The type of account number (e.g. IBAN).
    */
   @SpeakeasyMetadata()
-  accountNumberType: LoanAPILoanToAccountNumberTypeEnum;
+  accountNumberType: LoanAPILoanToAccountNumberType;
 
   /**
    * The identifier of the bank.
@@ -286,10 +286,10 @@ export class LoanAPILoanTo extends SpeakeasyBase {
    * The type of bank identifier (e.g. BIC).
    */
   @SpeakeasyMetadata()
-  bankIdentifierType: LoanAPILoanToBankIdentifierTypeEnum;
+  bankIdentifierType: LoanAPILoanToBankIdentifierType;
 }
 
-export enum LoanAPILoanTypeEnum {
+export enum LoanAPILoanType {
   InvoiceBasedFinancing = "INVOICE_BASED_FINANCING",
   WalletFinancing = "WALLET_FINANCING",
 }
@@ -297,7 +297,7 @@ export enum LoanAPILoanTypeEnum {
 /**
  * The type of account number (e.g. IBAN).
  */
-export enum LoanAPIRepaymentFromAccountNumberTypeEnum {
+export enum LoanAPIRepaymentFromAccountNumberType {
   Iban = "iban",
   AccountNumber = "account_number",
   InternalId = "internal_id",
@@ -306,7 +306,7 @@ export enum LoanAPIRepaymentFromAccountNumberTypeEnum {
 /**
  * The type of bank identifier (e.g. BIC).
  */
-export enum LoanAPIRepaymentFromBankIdentifierTypeEnum {
+export enum LoanAPIRepaymentFromBankIdentifierType {
   Bic = "bic",
   RoutingNumber = "routing_number",
   Name = "name",
@@ -326,7 +326,7 @@ export class LoanAPIRepaymentFrom extends SpeakeasyBase {
    * The type of account number (e.g. IBAN).
    */
   @SpeakeasyMetadata()
-  accountNumberType: LoanAPIRepaymentFromAccountNumberTypeEnum;
+  accountNumberType: LoanAPIRepaymentFromAccountNumberType;
 
   /**
    * The identifier of the bank.
@@ -338,10 +338,10 @@ export class LoanAPIRepaymentFrom extends SpeakeasyBase {
    * The type of bank identifier (e.g. BIC).
    */
   @SpeakeasyMetadata()
-  bankIdentifierType: LoanAPIRepaymentFromBankIdentifierTypeEnum;
+  bankIdentifierType: LoanAPIRepaymentFromBankIdentifierType;
 }
 
-export enum LoanAPIRepaymentMethodEnum {
+export enum LoanAPIRepaymentMethod {
   DirectDebit = "DIRECT_DEBIT",
   Sct = "SCT",
   P2P = "P2P",
@@ -351,7 +351,7 @@ export enum LoanAPIRepaymentMethodEnum {
 /**
  * The type of account number (e.g. IBAN).
  */
-export enum LoanAPIRepaymentToAccountNumberTypeEnum {
+export enum LoanAPIRepaymentToAccountNumberType {
   Iban = "iban",
   AccountNumber = "account_number",
   InternalId = "internal_id",
@@ -360,7 +360,7 @@ export enum LoanAPIRepaymentToAccountNumberTypeEnum {
 /**
  * The type of bank identifier (e.g. BIC).
  */
-export enum LoanAPIRepaymentToBankIdentifierTypeEnum {
+export enum LoanAPIRepaymentToBankIdentifierType {
   Bic = "bic",
   RoutingNumber = "routing_number",
   Name = "name",
@@ -380,7 +380,7 @@ export class LoanAPIRepaymentTo extends SpeakeasyBase {
    * The type of account number (e.g. IBAN).
    */
   @SpeakeasyMetadata()
-  accountNumberType: LoanAPIRepaymentToAccountNumberTypeEnum;
+  accountNumberType: LoanAPIRepaymentToAccountNumberType;
 
   /**
    * The identifier of the bank.
@@ -392,10 +392,10 @@ export class LoanAPIRepaymentTo extends SpeakeasyBase {
    * The type of bank identifier (e.g. BIC).
    */
   @SpeakeasyMetadata()
-  bankIdentifierType: LoanAPIRepaymentToBankIdentifierTypeEnum;
+  bankIdentifierType: LoanAPIRepaymentToBankIdentifierType;
 }
 
-export enum LoanAPIStatusEnum {
+export enum LoanAPIStatus {
   Submitted = "SUBMITTED",
   ToValidate = "TO_VALIDATE",
   Declined = "DECLINED",
@@ -443,7 +443,7 @@ export class LoanAPI extends SpeakeasyBase {
    * ISO 4217 currency code.
    */
   @SpeakeasyMetadata()
-  currency: LoanAPICurrencyEnum;
+  currency: LoanAPICurrency;
 
   @SpeakeasyMetadata()
   denialReason?: string;
@@ -506,7 +506,7 @@ export class LoanAPI extends SpeakeasyBase {
   loanToReferences?: string[];
 
   @SpeakeasyMetadata()
-  loanType: LoanAPILoanTypeEnum;
+  loanType: LoanAPILoanType;
 
   @SpeakeasyMetadata()
   metadata?: Record<string, any>;
@@ -536,7 +536,7 @@ export class LoanAPI extends SpeakeasyBase {
   repaymentFromReferences?: string[];
 
   @SpeakeasyMetadata()
-  repaymentMethod?: LoanAPIRepaymentMethodEnum;
+  repaymentMethod?: LoanAPIRepaymentMethod;
 
   /**
    * Bank account to send the loan repayment to
@@ -551,7 +551,7 @@ export class LoanAPI extends SpeakeasyBase {
   repaymentToReferences?: string[];
 
   @SpeakeasyMetadata()
-  status?: LoanAPIStatusEnum;
+  status?: LoanAPIStatus;
 
   @SpeakeasyMetadata()
   submittedAt: Date;

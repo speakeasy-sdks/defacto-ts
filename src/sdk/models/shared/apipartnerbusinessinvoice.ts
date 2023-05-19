@@ -10,7 +10,7 @@ import { Expose, Transform, Type } from "class-transformer";
 /**
  * Currency of the invoice. Use ISO 4217 currency code.
  */
-export enum APIPartnerBusinessInvoiceCurrencyEnum {
+export enum APIPartnerBusinessInvoiceCurrency {
   Eur = "EUR",
   Gbp = "GBP",
 }
@@ -18,7 +18,7 @@ export enum APIPartnerBusinessInvoiceCurrencyEnum {
 /**
  * Is the invoice a 'receivable' or a 'payable'.Depecrated: 'customer' or 'supplier' if the business is the customer or the supplier on the invoice ?
  */
-export enum APIPartnerBusinessInvoiceDirectionEnum {
+export enum APIPartnerBusinessInvoiceDirection {
   Customer = "customer",
   Supplier = "supplier",
   Receivable = "receivable",
@@ -28,7 +28,7 @@ export enum APIPartnerBusinessInvoiceDirectionEnum {
 /**
  * Expected payment method that will be used to pay this invoice.
  */
-export enum APIPartnerBusinessInvoicePaymentMethodEnum {
+export enum APIPartnerBusinessInvoicePaymentMethod {
   Other = "other",
   Card = "card",
   DirectDebit = "direct_debit",
@@ -51,14 +51,14 @@ export class APIPartnerBusinessInvoice extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "currency" })
-  currency?: APIPartnerBusinessInvoiceCurrencyEnum;
+  currency?: APIPartnerBusinessInvoiceCurrency;
 
   /**
    * Is the invoice a 'receivable' or a 'payable'.Depecrated: 'customer' or 'supplier' if the business is the customer or the supplier on the invoice ?
    */
   @SpeakeasyMetadata()
   @Expose({ name: "direction" })
-  direction: APIPartnerBusinessInvoiceDirectionEnum;
+  direction: APIPartnerBusinessInvoiceDirection;
 
   /**
    * Expected date when this invoice will be fully paid.
@@ -111,7 +111,7 @@ export class APIPartnerBusinessInvoice extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "payment_method" })
-  paymentMethod?: APIPartnerBusinessInvoicePaymentMethodEnum;
+  paymentMethod?: APIPartnerBusinessInvoicePaymentMethod;
 
   /**
    * Unique invoice identifier.

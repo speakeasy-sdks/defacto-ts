@@ -8,7 +8,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum GenerateInvoiceRequestBuyerIdentifierTypeEnum {
+export enum GenerateInvoiceRequestBuyerIdentifierType {
   Siret = "siret",
   Siren = "siren",
   VatNumber = "vat_number",
@@ -36,7 +36,7 @@ export class GenerateInvoiceRequestBuyer extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "identifier_type" })
-  identifierType?: GenerateInvoiceRequestBuyerIdentifierTypeEnum;
+  identifierType?: GenerateInvoiceRequestBuyerIdentifierType;
 
   /**
    * Legal name of the business.
@@ -53,7 +53,7 @@ export class GenerateInvoiceRequestBuyer extends SpeakeasyBase {
   vatNumber?: string;
 }
 
-export enum GenerateInvoiceRequestCountryEnum {
+export enum GenerateInvoiceRequestCountry {
   Fra = "FRA",
   Esp = "ESP",
   Nld = "NLD",
@@ -61,7 +61,7 @@ export enum GenerateInvoiceRequestCountryEnum {
   Bel = "BEL",
 }
 
-export enum GenerateInvoiceRequestScenarioEnum {
+export enum GenerateInvoiceRequestScenario {
   Success = "SUCCESS",
   SuccessOneDayLater = "SUCCESS_ONE_DAY_LATER",
   Reject = "REJECT",
@@ -71,7 +71,7 @@ export enum GenerateInvoiceRequestScenarioEnum {
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum GenerateInvoiceRequestSellerIdentifierTypeEnum {
+export enum GenerateInvoiceRequestSellerIdentifierType {
   Siret = "siret",
   Siren = "siren",
   VatNumber = "vat_number",
@@ -99,7 +99,7 @@ export class GenerateInvoiceRequestSeller extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "identifier_type" })
-  identifierType?: GenerateInvoiceRequestSellerIdentifierTypeEnum;
+  identifierType?: GenerateInvoiceRequestSellerIdentifierType;
 
   /**
    * Legal name of the business.
@@ -124,11 +124,11 @@ export class GenerateInvoiceRequest extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "country" })
-  country?: GenerateInvoiceRequestCountryEnum;
+  country?: GenerateInvoiceRequestCountry;
 
   @SpeakeasyMetadata()
   @Expose({ name: "scenario" })
-  scenario?: GenerateInvoiceRequestScenarioEnum;
+  scenario?: GenerateInvoiceRequestScenario;
 
   @SpeakeasyMetadata()
   @Expose({ name: "seller" })

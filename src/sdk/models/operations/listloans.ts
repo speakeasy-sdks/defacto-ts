@@ -5,12 +5,12 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 
-export enum ListLoansLoanTypeEnum {
+export enum ListLoansLoanType {
   InvoiceBasedFinancing = "INVOICE_BASED_FINANCING",
   WalletFinancing = "WALLET_FINANCING",
 }
 
-export enum ListLoansStatusEnum {
+export enum ListLoansStatus {
   Submitted = "SUBMITTED",
   ToValidate = "TO_VALIDATE",
   Declined = "DECLINED",
@@ -62,7 +62,7 @@ export class ListLoansRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=loan_type",
   })
-  loanType?: ListLoansLoanTypeEnum[];
+  loanType?: ListLoansLoanType[];
 
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=page_size",
@@ -75,7 +75,7 @@ export class ListLoansRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=status",
   })
-  status?: ListLoansStatusEnum[];
+  status?: ListLoansStatus[];
 
   /**
    * Returns loans where pay_at field is greater or equal to this date.

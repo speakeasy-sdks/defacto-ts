@@ -27,7 +27,7 @@ export class LightBusinessAddress extends SpeakeasyBase {
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum LightBusinessIdentifierTypeEnum {
+export enum LightBusinessIdentifierType {
   Siret = "siret",
   Siren = "siren",
   VatNumber = "vat_number",
@@ -59,7 +59,7 @@ export class LightBusiness extends SpeakeasyBase {
    * Type of legal business identifier of the business, such as the SIRET in France.
    */
   @SpeakeasyMetadata()
-  identifierType?: LightBusinessIdentifierTypeEnum;
+  identifierType?: LightBusinessIdentifierType;
 
   /**
    * Legal form of the business.

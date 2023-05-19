@@ -10,7 +10,7 @@ import { Expose, Transform, Type } from "class-transformer";
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum APIPostLoanBorrowerIdentifierTypeEnum {
+export enum APIPostLoanBorrowerIdentifierType {
   Siret = "siret",
   Siren = "siren",
   VatNumber = "vat_number",
@@ -41,13 +41,13 @@ export class APIPostLoanBorrower extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "identifier_type" })
-  identifierType?: APIPostLoanBorrowerIdentifierTypeEnum;
+  identifierType?: APIPostLoanBorrowerIdentifierType;
 }
 
 /**
  * ISO 4217 currency code.
  */
-export enum APIPostLoanCurrencyEnum {
+export enum APIPostLoanCurrency {
   Eur = "EUR",
   Gbp = "GBP",
 }
@@ -55,7 +55,7 @@ export enum APIPostLoanCurrencyEnum {
 /**
  * Type of loan to request. For example, INVOICE_BASED_FINANCING to finance invoices. Depending on the value of this field, another field with a name matching this value may be to complete. For example, for INVOICE_BASED_FINANCING either invoice_ids or invoices should be set.For WALLET_FINANCING, no specific field needs to be set.
  */
-export enum APIPostLoanLoanTypeEnum {
+export enum APIPostLoanLoanType {
   InvoiceBasedFinancing = "INVOICE_BASED_FINANCING",
   WalletFinancing = "WALLET_FINANCING",
 }
@@ -88,7 +88,7 @@ export class APIPostLoan extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "currency" })
-  currency?: APIPostLoanCurrencyEnum;
+  currency?: APIPostLoanCurrency;
 
   /**
    * Invoices already uploaded that the loan should finance
@@ -125,7 +125,7 @@ export class APIPostLoan extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "loan_type" })
-  loanType?: APIPostLoanLoanTypeEnum;
+  loanType?: APIPostLoanLoanType;
 
   /**
    * This object is yours, it enables you to add custom data.

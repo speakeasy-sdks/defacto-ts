@@ -8,7 +8,7 @@ import { Expose, Transform } from "class-transformer";
 /**
  * Transaction currency
  */
-export enum APIPartnerAccountTransactionCurrencyEnum {
+export enum APIPartnerAccountTransactionCurrency {
   Eur = "EUR",
   Gbp = "GBP",
 }
@@ -16,7 +16,7 @@ export enum APIPartnerAccountTransactionCurrencyEnum {
 /**
  * Source or payment method of this transaction
  */
-export enum APIPartnerAccountTransactionOperationTypeEnum {
+export enum APIPartnerAccountTransactionOperationType {
   Income = "income",
   Transfer = "transfer",
   Card = "card",
@@ -31,13 +31,13 @@ export enum APIPartnerAccountTransactionOperationTypeEnum {
 /**
  * Is the transaction a debit or a credit operation.
  */
-export enum APIPartnerAccountTransactionSideEnum {
+export enum APIPartnerAccountTransactionSide {
   Debit = "debit",
   Credit = "credit",
   LessThanNilGreaterThan = "<nil>",
 }
 
-export enum APIPartnerAccountTransactionStatusEnum {
+export enum APIPartnerAccountTransactionStatus {
   Pending = "pending",
   Completed = "completed",
   Declined = "declined",
@@ -86,14 +86,14 @@ export class APIPartnerAccountTransaction extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "currency" })
-  currency?: APIPartnerAccountTransactionCurrencyEnum;
+  currency?: APIPartnerAccountTransactionCurrency;
 
   /**
    * Source or payment method of this transaction
    */
   @SpeakeasyMetadata()
   @Expose({ name: "operation_type" })
-  operationType?: APIPartnerAccountTransactionOperationTypeEnum;
+  operationType?: APIPartnerAccountTransactionOperationType;
 
   /**
    * Bank reference for the transaction
@@ -121,9 +121,9 @@ export class APIPartnerAccountTransaction extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "side" })
-  side?: APIPartnerAccountTransactionSideEnum;
+  side?: APIPartnerAccountTransactionSide;
 
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status?: APIPartnerAccountTransactionStatusEnum;
+  status?: APIPartnerAccountTransactionStatus;
 }

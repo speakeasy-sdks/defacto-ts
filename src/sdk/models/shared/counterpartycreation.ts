@@ -8,7 +8,7 @@ import { Expose } from "class-transformer";
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum CounterpartyCreationIdentifierTypeEnum {
+export enum CounterpartyCreationIdentifierType {
   Siret = "siret",
   Siren = "siren",
   VatNumber = "vat_number",
@@ -36,7 +36,7 @@ export class CounterpartyCreation extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "identifier_type" })
-  identifierType?: CounterpartyCreationIdentifierTypeEnum;
+  identifierType?: CounterpartyCreationIdentifierType;
 
   /**
    * Legal name of the business.

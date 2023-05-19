@@ -9,7 +9,7 @@ import { Expose, Transform, Type } from "class-transformer";
 /**
  * Currency of the invoice. Use ISO 4217 currency code.
  */
-export enum APIRequiredInvoiceCreationCurrencyEnum {
+export enum APIRequiredInvoiceCreationCurrency {
   Eur = "EUR",
   Gbp = "GBP",
 }
@@ -17,7 +17,7 @@ export enum APIRequiredInvoiceCreationCurrencyEnum {
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum APIRequiredInvoiceCreationToAccountAccountHolderIdentifierTypeEnum {
+export enum APIRequiredInvoiceCreationToAccountAccountHolderIdentifierType {
   Siret = "siret",
   Siren = "siren",
   VatNumber = "vat_number",
@@ -48,13 +48,13 @@ export class APIRequiredInvoiceCreationToAccountAccountHolder extends SpeakeasyB
    */
   @SpeakeasyMetadata()
   @Expose({ name: "identifier_type" })
-  identifierType?: APIRequiredInvoiceCreationToAccountAccountHolderIdentifierTypeEnum;
+  identifierType?: APIRequiredInvoiceCreationToAccountAccountHolderIdentifierType;
 }
 
 /**
  * The type of account number (e.g. IBAN).
  */
-export enum APIRequiredInvoiceCreationToAccountAccountNumberTypeEnum {
+export enum APIRequiredInvoiceCreationToAccountAccountNumberType {
   Iban = "iban",
   AccountNumber = "account_number",
   InternalId = "internal_id",
@@ -63,7 +63,7 @@ export enum APIRequiredInvoiceCreationToAccountAccountNumberTypeEnum {
 /**
  * The type of bank identifier (e.g. BIC).
  */
-export enum APIRequiredInvoiceCreationToAccountBankIdentifierTypeEnum {
+export enum APIRequiredInvoiceCreationToAccountBankIdentifierType {
   Bic = "bic",
   RoutingNumber = "routing_number",
   Name = "name",
@@ -93,7 +93,7 @@ export class APIRequiredInvoiceCreationToAccount extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "account_number_type" })
-  accountNumberType?: APIRequiredInvoiceCreationToAccountAccountNumberTypeEnum;
+  accountNumberType?: APIRequiredInvoiceCreationToAccountAccountNumberType;
 
   /**
    * The identifier of the bank.
@@ -107,7 +107,7 @@ export class APIRequiredInvoiceCreationToAccount extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "bank_identifier_type" })
-  bankIdentifierType?: APIRequiredInvoiceCreationToAccountBankIdentifierTypeEnum;
+  bankIdentifierType?: APIRequiredInvoiceCreationToAccountBankIdentifierType;
 }
 
 export class APIRequiredInvoiceCreation extends SpeakeasyBase {
@@ -121,7 +121,7 @@ export class APIRequiredInvoiceCreation extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "currency" })
-  currency?: APIRequiredInvoiceCreationCurrencyEnum;
+  currency?: APIRequiredInvoiceCreationCurrency;
 
   /**
    * PDF binary (format base64 string)

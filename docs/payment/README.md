@@ -13,10 +13,10 @@ Get payments related to loans
 ```typescript
 import { Defacto } from "defacto";
 import {
-  ListPaymentsPaymentMethodEnum,
-  ListPaymentsPaymentTypeEnum,
+  ListPaymentsPaymentMethod,
+  ListPaymentsPaymentType,
   ListPaymentsResponse,
-  ListPaymentsStatusEnum,
+  ListPaymentsStatus,
 } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
@@ -39,20 +39,20 @@ sdk.payment.list({
   ],
   pageSize: 399161,
   paymentMethod: [
-    ListPaymentsPaymentMethodEnum.Sct,
+    ListPaymentsPaymentMethod.Sct,
   ],
   paymentType: [
-    ListPaymentsPaymentTypeEnum.Returned,
-    ListPaymentsPaymentTypeEnum.RevenueShare,
+    ListPaymentsPaymentType.Returned,
+    ListPaymentsPaymentType.RevenueShare,
   ],
   references: [
     "error",
   ],
   status: [
-    ListPaymentsStatusEnum.Paid,
-    ListPaymentsStatusEnum.Instructed,
-    ListPaymentsStatusEnum.Instructed,
-    ListPaymentsStatusEnum.InTransit,
+    ListPaymentsStatus.Paid,
+    ListPaymentsStatus.Instructed,
+    ListPaymentsStatus.Instructed,
+    ListPaymentsStatus.InTransit,
   ],
   toAccountId: "ad",
   toDate: new Date("2022-05-15T03:49:32.304Z"),

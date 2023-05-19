@@ -44,7 +44,7 @@ For more information on webhooks such as how to secure them, you can refer to ou
 ```typescript
 import { Defacto } from "defacto";
 import { CreateWebhookResponse } from "defacto/dist/sdk/models/operations";
-import { CreateWebhookEventTypesEnum } from "defacto/dist/sdk/models/shared";
+import { CreateWebhookEventTypes } from "defacto/dist/sdk/models/shared";
 
 const sdk = new Defacto({
   security: {
@@ -54,7 +54,7 @@ const sdk = new Defacto({
 
 sdk.webhook.create({
   eventTypes: [
-    CreateWebhookEventTypesEnum.CreditLinePOOLAMOUNTUPDATED,
+    CreateWebhookEventTypes.CreditLinePOOLAMOUNTUPDATED,
   ],
   name: "Darin Jakubowski",
   toUrl: "minus",
@@ -134,7 +134,7 @@ For more information on webhooks such as how to secure them, you can refer to ou
 ```typescript
 import { Defacto } from "defacto";
 import { UpdateWebhookResponse } from "defacto/dist/sdk/models/operations";
-import { CreateWebhookEventTypesEnum } from "defacto/dist/sdk/models/shared";
+import { CreateWebhookEventTypes } from "defacto/dist/sdk/models/shared";
 
 const sdk = new Defacto({
   security: {
@@ -144,7 +144,7 @@ const sdk = new Defacto({
 
 sdk.webhook.update("asperiores", {
   eventTypes: [
-    CreateWebhookEventTypesEnum.LoanDECLINED,
+    CreateWebhookEventTypes.LoanDECLINED,
   ],
   name: "Desiree Leannon",
   toUrl: "nam",

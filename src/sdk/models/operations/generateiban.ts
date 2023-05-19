@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 
-export enum GenerateIbanCountryEnum {
+export enum GenerateIbanCountry {
   Fra = "FRA",
   Esp = "ESP",
   Nld = "NLD",
@@ -13,7 +13,7 @@ export enum GenerateIbanCountryEnum {
   Bel = "BEL",
 }
 
-export enum GenerateIbanScenarioEnum {
+export enum GenerateIbanScenario {
   Success = "SUCCESS",
   SuccessOneDayLater = "SUCCESS_ONE_DAY_LATER",
   Reject = "REJECT",
@@ -24,12 +24,12 @@ export class GenerateIbanRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=country",
   })
-  country?: GenerateIbanCountryEnum;
+  country?: GenerateIbanCountry;
 
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=scenario",
   })
-  scenario?: GenerateIbanScenarioEnum;
+  scenario?: GenerateIbanScenario;
 }
 
 export class GenerateIbanResponse extends SpeakeasyBase {

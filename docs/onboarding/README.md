@@ -35,7 +35,7 @@ sdk.onboarding.deactivateBorrower("debitis").then((res: DeactivateBorrowerRespon
 ```typescript
 import { Defacto } from "defacto";
 import { EnrollBorrowerResponse } from "defacto/dist/sdk/models/operations";
-import { APIPostBorrowerIdentifierTypeEnum } from "defacto/dist/sdk/models/shared";
+import { APIPostBorrowerIdentifierType } from "defacto/dist/sdk/models/shared";
 import { RFCDate } from "defacto/dist/sdk/types";
 
 const sdk = new Defacto({
@@ -120,7 +120,7 @@ sdk.onboarding.enrollBorrower({
     },
   ],
   identifier: "a",
-  identifierType: APIPostBorrowerIdentifierTypeEnum.Bsn,
+  identifierType: APIPostBorrowerIdentifierType.Bsn,
   legalForm: "magnam",
   metadata: {
     "consequuntur": "occaecati",

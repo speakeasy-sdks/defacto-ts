@@ -9,7 +9,7 @@ import { Expose, Transform, Type } from "class-transformer";
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum APIPartnerAccountTransactionsIdentifierTypeEnum {
+export enum APIPartnerAccountTransactionsIdentifierType {
   Siret = "siret",
   Siren = "siren",
   VatNumber = "vat_number",
@@ -44,7 +44,7 @@ export class APIPartnerAccountTransactions extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "identifier_type" })
-  identifierType: APIPartnerAccountTransactionsIdentifierTypeEnum;
+  identifierType: APIPartnerAccountTransactionsIdentifierType;
 
   /**
    * Start date of the financials you're sending.

@@ -8,7 +8,7 @@ import { Expose } from "class-transformer";
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum APIBorrowerEligibilityIdentifierTypeEnum {
+export enum APIBorrowerEligibilityIdentifierType {
   Siret = "siret",
   Siren = "siren",
   VatNumber = "vat_number",
@@ -36,5 +36,5 @@ export class APIBorrowerEligibility extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "identifier_type" })
-  identifierType?: APIBorrowerEligibilityIdentifierTypeEnum;
+  identifierType?: APIBorrowerEligibilityIdentifierType;
 }
