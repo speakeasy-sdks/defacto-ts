@@ -5,499 +5,499 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 export enum APITenantCreditLineCurrency {
-  Eur = "EUR",
-  Gbp = "GBP",
+    Eur = "EUR",
+    Gbp = "GBP",
 }
 
 export class APITenantCreditLineDefaultBorrowerAddress extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  addressLine1?: string;
+    @SpeakeasyMetadata()
+    addressLine1?: string;
 
-  @SpeakeasyMetadata()
-  addressLine2?: string;
+    @SpeakeasyMetadata()
+    addressLine2?: string;
 
-  @SpeakeasyMetadata()
-  city?: string;
+    @SpeakeasyMetadata()
+    city?: string;
 
-  @SpeakeasyMetadata()
-  country?: string;
+    @SpeakeasyMetadata()
+    country?: string;
 
-  @SpeakeasyMetadata()
-  postalCode?: string;
+    @SpeakeasyMetadata()
+    postalCode?: string;
 
-  @SpeakeasyMetadata()
-  state?: string;
+    @SpeakeasyMetadata()
+    state?: string;
 }
 
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
 export enum APITenantCreditLineDefaultBorrowerIdentifierType {
-  Siret = "siret",
-  Siren = "siren",
-  VatNumber = "vat_number",
-  Name = "name",
-  Nif = "nif",
-  Cif = "cif",
-  Kvk = "kvk",
-  Bsn = "bsn",
-  HrNummer = "hr_nummer",
-  BelgiumRegistrationNumber = "belgium_registration_number",
-  Steuernummer = "steuernummer",
-  LessThanNilGreaterThan = "<nil>",
+    Siret = "siret",
+    Siren = "siren",
+    VatNumber = "vat_number",
+    Name = "name",
+    Nif = "nif",
+    Cif = "cif",
+    Kvk = "kvk",
+    Bsn = "bsn",
+    HrNummer = "hr_nummer",
+    BelgiumRegistrationNumber = "belgium_registration_number",
+    Steuernummer = "steuernummer",
+    LessThanNilGreaterThan = "<nil>",
 }
 
 export class APITenantCreditLineDefaultBorrower extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  address?: APITenantCreditLineDefaultBorrowerAddress;
+    @SpeakeasyMetadata()
+    address?: APITenantCreditLineDefaultBorrowerAddress;
 
-  @SpeakeasyMetadata()
-  id?: any;
+    @SpeakeasyMetadata()
+    id?: any;
 
-  /**
-   * Legal identifier of the business, such as its SIRET in France.
-   */
-  @SpeakeasyMetadata()
-  identifier: string;
+    /**
+     * Legal identifier of the business, such as its SIRET in France.
+     */
+    @SpeakeasyMetadata()
+    identifier: string;
 
-  /**
-   * Type of legal business identifier of the business, such as the SIRET in France.
-   */
-  @SpeakeasyMetadata()
-  identifierType?: APITenantCreditLineDefaultBorrowerIdentifierType;
+    /**
+     * Type of legal business identifier of the business, such as the SIRET in France.
+     */
+    @SpeakeasyMetadata()
+    identifierType?: APITenantCreditLineDefaultBorrowerIdentifierType;
 
-  /**
-   * Legal form of the business.
-   */
-  @SpeakeasyMetadata()
-  legalForm?: string;
+    /**
+     * Legal form of the business.
+     */
+    @SpeakeasyMetadata()
+    legalForm?: string;
 
-  /**
-   * Legal name of the business.
-   */
-  @SpeakeasyMetadata()
-  name?: string;
+    /**
+     * Legal name of the business.
+     */
+    @SpeakeasyMetadata()
+    name?: string;
 
-  /**
-   * Name of the national organization where the business is registered. For example the RCS of Paris in France
-   */
-  @SpeakeasyMetadata()
-  registrationBody?: string;
+    /**
+     * Name of the national organization where the business is registered. For example the RCS of Paris in France
+     */
+    @SpeakeasyMetadata()
+    registrationBody?: string;
 
-  /**
-   * The part of the capital of a company that comes from the issue of shares, in cents.
-   */
-  @SpeakeasyMetadata()
-  shareCapital?: number;
+    /**
+     * The part of the capital of a company that comes from the issue of shares, in cents.
+     */
+    @SpeakeasyMetadata()
+    shareCapital?: number;
 
-  /**
-   * The VAT number of the business, if European
-   */
-  @SpeakeasyMetadata()
-  vatNumber?: string;
+    /**
+     * The VAT number of the business, if European
+     */
+    @SpeakeasyMetadata()
+    vatNumber?: string;
 }
 
 export enum APITenantCreditLineDefaultBorrowerStrategy {
-  Buyer = "BUYER",
-  Seller = "SELLER",
-  LessThanNilGreaterThan = "<nil>",
+    Buyer = "BUYER",
+    Seller = "SELLER",
+    LessThanNilGreaterThan = "<nil>",
 }
 
 export class APITenantCreditLineDefaultGuarantorAddress extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  addressLine1?: string;
+    @SpeakeasyMetadata()
+    addressLine1?: string;
 
-  @SpeakeasyMetadata()
-  addressLine2?: string;
+    @SpeakeasyMetadata()
+    addressLine2?: string;
 
-  @SpeakeasyMetadata()
-  city?: string;
+    @SpeakeasyMetadata()
+    city?: string;
 
-  @SpeakeasyMetadata()
-  country?: string;
+    @SpeakeasyMetadata()
+    country?: string;
 
-  @SpeakeasyMetadata()
-  postalCode?: string;
+    @SpeakeasyMetadata()
+    postalCode?: string;
 
-  @SpeakeasyMetadata()
-  state?: string;
+    @SpeakeasyMetadata()
+    state?: string;
 }
 
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
 export enum APITenantCreditLineDefaultGuarantorIdentifierType {
-  Siret = "siret",
-  Siren = "siren",
-  VatNumber = "vat_number",
-  Name = "name",
-  Nif = "nif",
-  Cif = "cif",
-  Kvk = "kvk",
-  Bsn = "bsn",
-  HrNummer = "hr_nummer",
-  BelgiumRegistrationNumber = "belgium_registration_number",
-  Steuernummer = "steuernummer",
-  LessThanNilGreaterThan = "<nil>",
+    Siret = "siret",
+    Siren = "siren",
+    VatNumber = "vat_number",
+    Name = "name",
+    Nif = "nif",
+    Cif = "cif",
+    Kvk = "kvk",
+    Bsn = "bsn",
+    HrNummer = "hr_nummer",
+    BelgiumRegistrationNumber = "belgium_registration_number",
+    Steuernummer = "steuernummer",
+    LessThanNilGreaterThan = "<nil>",
 }
 
 export class APITenantCreditLineDefaultGuarantor extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  address?: APITenantCreditLineDefaultGuarantorAddress;
+    @SpeakeasyMetadata()
+    address?: APITenantCreditLineDefaultGuarantorAddress;
 
-  @SpeakeasyMetadata()
-  id?: any;
+    @SpeakeasyMetadata()
+    id?: any;
 
-  /**
-   * Legal identifier of the business, such as its SIRET in France.
-   */
-  @SpeakeasyMetadata()
-  identifier: string;
+    /**
+     * Legal identifier of the business, such as its SIRET in France.
+     */
+    @SpeakeasyMetadata()
+    identifier: string;
 
-  /**
-   * Type of legal business identifier of the business, such as the SIRET in France.
-   */
-  @SpeakeasyMetadata()
-  identifierType?: APITenantCreditLineDefaultGuarantorIdentifierType;
+    /**
+     * Type of legal business identifier of the business, such as the SIRET in France.
+     */
+    @SpeakeasyMetadata()
+    identifierType?: APITenantCreditLineDefaultGuarantorIdentifierType;
 
-  /**
-   * Legal form of the business.
-   */
-  @SpeakeasyMetadata()
-  legalForm?: string;
+    /**
+     * Legal form of the business.
+     */
+    @SpeakeasyMetadata()
+    legalForm?: string;
 
-  /**
-   * Legal name of the business.
-   */
-  @SpeakeasyMetadata()
-  name?: string;
+    /**
+     * Legal name of the business.
+     */
+    @SpeakeasyMetadata()
+    name?: string;
 
-  /**
-   * Name of the national organization where the business is registered. For example the RCS of Paris in France
-   */
-  @SpeakeasyMetadata()
-  registrationBody?: string;
+    /**
+     * Name of the national organization where the business is registered. For example the RCS of Paris in France
+     */
+    @SpeakeasyMetadata()
+    registrationBody?: string;
 
-  /**
-   * The part of the capital of a company that comes from the issue of shares, in cents.
-   */
-  @SpeakeasyMetadata()
-  shareCapital?: number;
+    /**
+     * The part of the capital of a company that comes from the issue of shares, in cents.
+     */
+    @SpeakeasyMetadata()
+    shareCapital?: number;
 
-  /**
-   * The VAT number of the business, if European
-   */
-  @SpeakeasyMetadata()
-  vatNumber?: string;
+    /**
+     * The VAT number of the business, if European
+     */
+    @SpeakeasyMetadata()
+    vatNumber?: string;
 }
 
 /**
  * The type of account number (e.g. IBAN).
  */
 export enum APITenantCreditLineDefaultLoanFromAccountNumberType {
-  Iban = "iban",
-  AccountNumber = "account_number",
-  InternalId = "internal_id",
+    Iban = "iban",
+    AccountNumber = "account_number",
+    InternalId = "internal_id",
 }
 
 /**
  * The type of bank identifier (e.g. BIC).
  */
 export enum APITenantCreditLineDefaultLoanFromBankIdentifierType {
-  Bic = "bic",
-  RoutingNumber = "routing_number",
-  Name = "name",
+    Bic = "bic",
+    RoutingNumber = "routing_number",
+    Name = "name",
 }
 
 export class APITenantCreditLineDefaultLoanFrom extends SpeakeasyBase {
-  /**
-   * The account identifier. Only IBANs are supported at the moment.
-   */
-  @SpeakeasyMetadata()
-  accountNumber: string;
+    /**
+     * The account identifier. Only IBANs are supported at the moment.
+     */
+    @SpeakeasyMetadata()
+    accountNumber: string;
 
-  /**
-   * The type of account number (e.g. IBAN).
-   */
-  @SpeakeasyMetadata()
-  accountNumberType: APITenantCreditLineDefaultLoanFromAccountNumberType;
+    /**
+     * The type of account number (e.g. IBAN).
+     */
+    @SpeakeasyMetadata()
+    accountNumberType: APITenantCreditLineDefaultLoanFromAccountNumberType;
 
-  /**
-   * The identifier of the bank.
-   */
-  @SpeakeasyMetadata()
-  bankIdentifier: string;
+    /**
+     * The identifier of the bank.
+     */
+    @SpeakeasyMetadata()
+    bankIdentifier: string;
 
-  /**
-   * The type of bank identifier (e.g. BIC).
-   */
-  @SpeakeasyMetadata()
-  bankIdentifierType: APITenantCreditLineDefaultLoanFromBankIdentifierType;
+    /**
+     * The type of bank identifier (e.g. BIC).
+     */
+    @SpeakeasyMetadata()
+    bankIdentifierType: APITenantCreditLineDefaultLoanFromBankIdentifierType;
 }
 
 /**
  * The type of account number (e.g. IBAN).
  */
 export enum APITenantCreditLineDefaultRepaymentFromAccountNumberType {
-  Iban = "iban",
-  AccountNumber = "account_number",
-  InternalId = "internal_id",
+    Iban = "iban",
+    AccountNumber = "account_number",
+    InternalId = "internal_id",
 }
 
 /**
  * The type of bank identifier (e.g. BIC).
  */
 export enum APITenantCreditLineDefaultRepaymentFromBankIdentifierType {
-  Bic = "bic",
-  RoutingNumber = "routing_number",
-  Name = "name",
+    Bic = "bic",
+    RoutingNumber = "routing_number",
+    Name = "name",
 }
 
 export class APITenantCreditLineDefaultRepaymentFrom extends SpeakeasyBase {
-  /**
-   * The account identifier. Only IBANs are supported at the moment.
-   */
-  @SpeakeasyMetadata()
-  accountNumber: string;
+    /**
+     * The account identifier. Only IBANs are supported at the moment.
+     */
+    @SpeakeasyMetadata()
+    accountNumber: string;
 
-  /**
-   * The type of account number (e.g. IBAN).
-   */
-  @SpeakeasyMetadata()
-  accountNumberType: APITenantCreditLineDefaultRepaymentFromAccountNumberType;
+    /**
+     * The type of account number (e.g. IBAN).
+     */
+    @SpeakeasyMetadata()
+    accountNumberType: APITenantCreditLineDefaultRepaymentFromAccountNumberType;
 
-  /**
-   * The identifier of the bank.
-   */
-  @SpeakeasyMetadata()
-  bankIdentifier: string;
+    /**
+     * The identifier of the bank.
+     */
+    @SpeakeasyMetadata()
+    bankIdentifier: string;
 
-  /**
-   * The type of bank identifier (e.g. BIC).
-   */
-  @SpeakeasyMetadata()
-  bankIdentifierType: APITenantCreditLineDefaultRepaymentFromBankIdentifierType;
+    /**
+     * The type of bank identifier (e.g. BIC).
+     */
+    @SpeakeasyMetadata()
+    bankIdentifierType: APITenantCreditLineDefaultRepaymentFromBankIdentifierType;
 }
 
 export enum APITenantCreditLineDefaultRepaymentMethod {
-  DirectDebit = "DIRECT_DEBIT",
-  Sct = "SCT",
-  P2P = "P2P",
+    DirectDebit = "DIRECT_DEBIT",
+    Sct = "SCT",
+    P2P = "P2P",
 }
 
 /**
  * The type of account number (e.g. IBAN).
  */
 export enum APITenantCreditLineDefaultRepaymentToAccountNumberType {
-  Iban = "iban",
-  AccountNumber = "account_number",
-  InternalId = "internal_id",
+    Iban = "iban",
+    AccountNumber = "account_number",
+    InternalId = "internal_id",
 }
 
 /**
  * The type of bank identifier (e.g. BIC).
  */
 export enum APITenantCreditLineDefaultRepaymentToBankIdentifierType {
-  Bic = "bic",
-  RoutingNumber = "routing_number",
-  Name = "name",
+    Bic = "bic",
+    RoutingNumber = "routing_number",
+    Name = "name",
 }
 
 export class APITenantCreditLineDefaultRepaymentTo extends SpeakeasyBase {
-  /**
-   * The account identifier. Only IBANs are supported at the moment.
-   */
-  @SpeakeasyMetadata()
-  accountNumber: string;
+    /**
+     * The account identifier. Only IBANs are supported at the moment.
+     */
+    @SpeakeasyMetadata()
+    accountNumber: string;
 
-  /**
-   * The type of account number (e.g. IBAN).
-   */
-  @SpeakeasyMetadata()
-  accountNumberType: APITenantCreditLineDefaultRepaymentToAccountNumberType;
+    /**
+     * The type of account number (e.g. IBAN).
+     */
+    @SpeakeasyMetadata()
+    accountNumberType: APITenantCreditLineDefaultRepaymentToAccountNumberType;
 
-  /**
-   * The identifier of the bank.
-   */
-  @SpeakeasyMetadata()
-  bankIdentifier: string;
+    /**
+     * The identifier of the bank.
+     */
+    @SpeakeasyMetadata()
+    bankIdentifier: string;
 
-  /**
-   * The type of bank identifier (e.g. BIC).
-   */
-  @SpeakeasyMetadata()
-  bankIdentifierType: APITenantCreditLineDefaultRepaymentToBankIdentifierType;
+    /**
+     * The type of bank identifier (e.g. BIC).
+     */
+    @SpeakeasyMetadata()
+    bankIdentifierType: APITenantCreditLineDefaultRepaymentToBankIdentifierType;
 }
 
 export enum APITenantCreditLineDistribution {
-  Direct = "DIRECT",
-  Partner = "PARTNER",
+    Direct = "DIRECT",
+    Partner = "PARTNER",
 }
 
 export class APITenantCreditLineFeesPayerAddress extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  addressLine1?: string;
+    @SpeakeasyMetadata()
+    addressLine1?: string;
 
-  @SpeakeasyMetadata()
-  addressLine2?: string;
+    @SpeakeasyMetadata()
+    addressLine2?: string;
 
-  @SpeakeasyMetadata()
-  city?: string;
+    @SpeakeasyMetadata()
+    city?: string;
 
-  @SpeakeasyMetadata()
-  country?: string;
+    @SpeakeasyMetadata()
+    country?: string;
 
-  @SpeakeasyMetadata()
-  postalCode?: string;
+    @SpeakeasyMetadata()
+    postalCode?: string;
 
-  @SpeakeasyMetadata()
-  state?: string;
+    @SpeakeasyMetadata()
+    state?: string;
 }
 
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
 export enum APITenantCreditLineFeesPayerIdentifierType {
-  Siret = "siret",
-  Siren = "siren",
-  VatNumber = "vat_number",
-  Name = "name",
-  Nif = "nif",
-  Cif = "cif",
-  Kvk = "kvk",
-  Bsn = "bsn",
-  HrNummer = "hr_nummer",
-  BelgiumRegistrationNumber = "belgium_registration_number",
-  Steuernummer = "steuernummer",
-  LessThanNilGreaterThan = "<nil>",
+    Siret = "siret",
+    Siren = "siren",
+    VatNumber = "vat_number",
+    Name = "name",
+    Nif = "nif",
+    Cif = "cif",
+    Kvk = "kvk",
+    Bsn = "bsn",
+    HrNummer = "hr_nummer",
+    BelgiumRegistrationNumber = "belgium_registration_number",
+    Steuernummer = "steuernummer",
+    LessThanNilGreaterThan = "<nil>",
 }
 
 export class APITenantCreditLineFeesPayer extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  address?: APITenantCreditLineFeesPayerAddress;
+    @SpeakeasyMetadata()
+    address?: APITenantCreditLineFeesPayerAddress;
 
-  @SpeakeasyMetadata()
-  id?: any;
+    @SpeakeasyMetadata()
+    id?: any;
 
-  /**
-   * Legal identifier of the business, such as its SIRET in France.
-   */
-  @SpeakeasyMetadata()
-  identifier: string;
+    /**
+     * Legal identifier of the business, such as its SIRET in France.
+     */
+    @SpeakeasyMetadata()
+    identifier: string;
 
-  /**
-   * Type of legal business identifier of the business, such as the SIRET in France.
-   */
-  @SpeakeasyMetadata()
-  identifierType?: APITenantCreditLineFeesPayerIdentifierType;
+    /**
+     * Type of legal business identifier of the business, such as the SIRET in France.
+     */
+    @SpeakeasyMetadata()
+    identifierType?: APITenantCreditLineFeesPayerIdentifierType;
 
-  /**
-   * Legal form of the business.
-   */
-  @SpeakeasyMetadata()
-  legalForm?: string;
+    /**
+     * Legal form of the business.
+     */
+    @SpeakeasyMetadata()
+    legalForm?: string;
 
-  /**
-   * Legal name of the business.
-   */
-  @SpeakeasyMetadata()
-  name?: string;
+    /**
+     * Legal name of the business.
+     */
+    @SpeakeasyMetadata()
+    name?: string;
 
-  /**
-   * Name of the national organization where the business is registered. For example the RCS of Paris in France
-   */
-  @SpeakeasyMetadata()
-  registrationBody?: string;
+    /**
+     * Name of the national organization where the business is registered. For example the RCS of Paris in France
+     */
+    @SpeakeasyMetadata()
+    registrationBody?: string;
 
-  /**
-   * The part of the capital of a company that comes from the issue of shares, in cents.
-   */
-  @SpeakeasyMetadata()
-  shareCapital?: number;
+    /**
+     * The part of the capital of a company that comes from the issue of shares, in cents.
+     */
+    @SpeakeasyMetadata()
+    shareCapital?: number;
 
-  /**
-   * The VAT number of the business, if European
-   */
-  @SpeakeasyMetadata()
-  vatNumber?: string;
+    /**
+     * The VAT number of the business, if European
+     */
+    @SpeakeasyMetadata()
+    vatNumber?: string;
 }
 
 export class APITenantCreditLine extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  amountToRepay?: number;
+    @SpeakeasyMetadata()
+    amountToRepay?: number;
 
-  /**
-   * Remaining amount that can be loaned.
-   */
-  @SpeakeasyMetadata()
-  balanceAvailable?: number;
+    /**
+     * Remaining amount that can be loaned.
+     */
+    @SpeakeasyMetadata()
+    balanceAvailable?: number;
 
-  @SpeakeasyMetadata()
-  balancePending?: number;
+    @SpeakeasyMetadata()
+    balancePending?: number;
 
-  @SpeakeasyMetadata()
-  comingUpMonthlyFees?: number;
+    @SpeakeasyMetadata()
+    comingUpMonthlyFees?: number;
 
-  @SpeakeasyMetadata()
-  contractNumber?: string;
+    @SpeakeasyMetadata()
+    contractNumber?: string;
 
-  @SpeakeasyMetadata()
-  currency?: APITenantCreditLineCurrency;
+    @SpeakeasyMetadata()
+    currency?: APITenantCreditLineCurrency;
 
-  @SpeakeasyMetadata()
-  defaultBorrower?: APITenantCreditLineDefaultBorrower;
+    @SpeakeasyMetadata()
+    defaultBorrower?: APITenantCreditLineDefaultBorrower;
 
-  @SpeakeasyMetadata()
-  defaultBorrowerStrategy?: APITenantCreditLineDefaultBorrowerStrategy;
+    @SpeakeasyMetadata()
+    defaultBorrowerStrategy?: APITenantCreditLineDefaultBorrowerStrategy;
 
-  @SpeakeasyMetadata()
-  defaultGuarantor?: APITenantCreditLineDefaultGuarantor;
+    @SpeakeasyMetadata()
+    defaultGuarantor?: APITenantCreditLineDefaultGuarantor;
 
-  @SpeakeasyMetadata()
-  defaultLoanFrom?: APITenantCreditLineDefaultLoanFrom;
+    @SpeakeasyMetadata()
+    defaultLoanFrom?: APITenantCreditLineDefaultLoanFrom;
 
-  @SpeakeasyMetadata()
-  defaultRepaymentFrom?: APITenantCreditLineDefaultRepaymentFrom;
+    @SpeakeasyMetadata()
+    defaultRepaymentFrom?: APITenantCreditLineDefaultRepaymentFrom;
 
-  @SpeakeasyMetadata()
-  defaultRepaymentMethod?: APITenantCreditLineDefaultRepaymentMethod;
+    @SpeakeasyMetadata()
+    defaultRepaymentMethod?: APITenantCreditLineDefaultRepaymentMethod;
 
-  @SpeakeasyMetadata()
-  defaultRepaymentTo?: APITenantCreditLineDefaultRepaymentTo;
+    @SpeakeasyMetadata()
+    defaultRepaymentTo?: APITenantCreditLineDefaultRepaymentTo;
 
-  @SpeakeasyMetadata()
-  distribution: APITenantCreditLineDistribution;
+    @SpeakeasyMetadata()
+    distribution: APITenantCreditLineDistribution;
 
-  @SpeakeasyMetadata()
-  endDate?: Date;
+    @SpeakeasyMetadata()
+    endDate?: Date;
 
-  @SpeakeasyMetadata()
-  feesDailyRate?: number;
+    @SpeakeasyMetadata()
+    feesDailyRate?: number;
 
-  @SpeakeasyMetadata()
-  feesInterestDailyRate: number;
+    @SpeakeasyMetadata()
+    feesInterestDailyRate: number;
 
-  @SpeakeasyMetadata()
-  feesOperatingDailyRate: number;
+    @SpeakeasyMetadata()
+    feesOperatingDailyRate: number;
 
-  @SpeakeasyMetadata()
-  feesPayer?: APITenantCreditLineFeesPayer;
+    @SpeakeasyMetadata()
+    feesPayer?: APITenantCreditLineFeesPayer;
 
-  @SpeakeasyMetadata()
-  id?: any;
+    @SpeakeasyMetadata()
+    id?: any;
 
-  /**
-   * Maximum amount that can be loaned.
-   */
-  @SpeakeasyMetadata()
-  poolAmount?: number;
+    /**
+     * Maximum amount that can be loaned.
+     */
+    @SpeakeasyMetadata()
+    poolAmount?: number;
 
-  @SpeakeasyMetadata()
-  signedAt?: Date;
+    @SpeakeasyMetadata()
+    signedAt?: Date;
 
-  @SpeakeasyMetadata()
-  startDate: Date;
+    @SpeakeasyMetadata()
+    startDate: Date;
 
-  @SpeakeasyMetadata()
-  vat?: number;
+    @SpeakeasyMetadata()
+    vat?: number;
 }

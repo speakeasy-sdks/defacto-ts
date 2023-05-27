@@ -6,9 +6,9 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { LoanPaymentApi } from "./loanpaymentapi";
 
 export class PaymentRelationApi extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  invoices?: string[];
+    @SpeakeasyMetadata()
+    invoices?: string[];
 
-  @SpeakeasyMetadata({ elemType: LoanPaymentApi })
-  loans?: LoanPaymentApi[];
+    @SpeakeasyMetadata({ elemType: LoanPaymentApi })
+    loans?: LoanPaymentApi[];
 }

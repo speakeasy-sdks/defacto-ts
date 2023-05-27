@@ -6,41 +6,35 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 
 export class ListCreditLinesRequest extends SpeakeasyBase {
-  /**
-   * Search by borrower company number (e.g. SIREN or NIF)
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=borrower",
-  })
-  borrower?: string[];
+    /**
+     * Search by borrower company number (e.g. SIREN or NIF)
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=borrower" })
+    borrower?: string[];
 
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=cursor",
-  })
-  cursor?: string;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=cursor" })
+    cursor?: string;
 
-  /**
-   * UUID(s) of the credit line(s).
-   */
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=id" })
-  id?: string[];
+    /**
+     * UUID(s) of the credit line(s).
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=id" })
+    id?: string[];
 
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=page_size",
-  })
-  pageSize?: number;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page_size" })
+    pageSize?: number;
 }
 
 export class ListCreditLinesResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  body?: Uint8Array;
+    @SpeakeasyMetadata()
+    body?: Uint8Array;
 
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

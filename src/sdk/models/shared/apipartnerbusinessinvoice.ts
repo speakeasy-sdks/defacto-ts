@@ -11,141 +11,141 @@ import { Expose, Transform, Type } from "class-transformer";
  * Currency of the invoice. Use ISO 4217 currency code.
  */
 export enum APIPartnerBusinessInvoiceCurrency {
-  Eur = "EUR",
-  Gbp = "GBP",
+    Eur = "EUR",
+    Gbp = "GBP",
 }
 
 /**
  * Is the invoice a 'receivable' or a 'payable'.Depecrated: 'customer' or 'supplier' if the business is the customer or the supplier on the invoice ?
  */
 export enum APIPartnerBusinessInvoiceDirection {
-  Customer = "customer",
-  Supplier = "supplier",
-  Receivable = "receivable",
-  Payable = "payable",
+    Customer = "customer",
+    Supplier = "supplier",
+    Receivable = "receivable",
+    Payable = "payable",
 }
 
 /**
  * Expected payment method that will be used to pay this invoice.
  */
 export enum APIPartnerBusinessInvoicePaymentMethod {
-  Other = "other",
-  Card = "card",
-  DirectDebit = "direct_debit",
-  Cheque = "cheque",
-  WireTransfer = "wire_transfer",
-  LessThanNilGreaterThan = "<nil>",
+    Other = "other",
+    Card = "card",
+    DirectDebit = "direct_debit",
+    Cheque = "cheque",
+    WireTransfer = "wire_transfer",
+    LessThanNilGreaterThan = "<nil>",
 }
 
 export class APIPartnerBusinessInvoice extends SpeakeasyBase {
-  /**
-   * Name or business identifier of the buyer (the billed business)
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "buyer" })
-  @Type(() => BuyerBusinessIdentifier)
-  buyer: BuyerBusinessIdentifier;
+    /**
+     * Name or business identifier of the buyer (the billed business)
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "buyer" })
+    @Type(() => BuyerBusinessIdentifier)
+    buyer: BuyerBusinessIdentifier;
 
-  /**
-   * Currency of the invoice. Use ISO 4217 currency code.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "currency" })
-  currency?: APIPartnerBusinessInvoiceCurrency;
+    /**
+     * Currency of the invoice. Use ISO 4217 currency code.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "currency" })
+    currency?: APIPartnerBusinessInvoiceCurrency;
 
-  /**
-   * Is the invoice a 'receivable' or a 'payable'.Depecrated: 'customer' or 'supplier' if the business is the customer or the supplier on the invoice ?
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "direction" })
-  direction: APIPartnerBusinessInvoiceDirection;
+    /**
+     * Is the invoice a 'receivable' or a 'payable'.Depecrated: 'customer' or 'supplier' if the business is the customer or the supplier on the invoice ?
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "direction" })
+    direction: APIPartnerBusinessInvoiceDirection;
 
-  /**
-   * Expected date when this invoice will be fully paid.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "due_at" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  dueAt: Date;
+    /**
+     * Expected date when this invoice will be fully paid.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "due_at" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    dueAt: Date;
 
-  /**
-   * Earliest payment date this invoice already received.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "first_payment_at" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  firstPaymentAt?: Date;
+    /**
+     * Earliest payment date this invoice already received.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "first_payment_at" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    firstPaymentAt?: Date;
 
-  /**
-   * Invoice number as displayed on the invoice
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "invoice_number" })
-  invoiceNumber: string;
+    /**
+     * Invoice number as displayed on the invoice
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "invoice_number" })
+    invoiceNumber: string;
 
-  /**
-   * Invoice creation date displayed on the invoice.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "issued_at" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  issuedAt: Date;
+    /**
+     * Invoice creation date displayed on the invoice.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "issued_at" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    issuedAt: Date;
 
-  /**
-   * Latest payment date this invoice already received.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "last_payment_at" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  lastPaymentAt?: Date;
+    /**
+     * Latest payment date this invoice already received.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "last_payment_at" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    lastPaymentAt?: Date;
 
-  /**
-   * Amount before tax, in cents
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "net_amount" })
-  netAmount: number;
+    /**
+     * Amount before tax, in cents
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "net_amount" })
+    netAmount: number;
 
-  /**
-   * Expected payment method that will be used to pay this invoice.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "payment_method" })
-  paymentMethod?: APIPartnerBusinessInvoicePaymentMethod;
+    /**
+     * Expected payment method that will be used to pay this invoice.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "payment_method" })
+    paymentMethod?: APIPartnerBusinessInvoicePaymentMethod;
 
-  /**
-   * Unique invoice identifier.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "salt_id" })
-  saltId?: string;
+    /**
+     * Unique invoice identifier.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "salt_id" })
+    saltId?: string;
 
-  /**
-   * Name or business identifier of the seller (the business who bills). Must be a normalized identifier (not a name).
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "seller" })
-  @Type(() => SellerBusinessIdentifier)
-  seller: SellerBusinessIdentifier;
+    /**
+     * Name or business identifier of the seller (the business who bills). Must be a normalized identifier (not a name).
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "seller" })
+    @Type(() => SellerBusinessIdentifier)
+    seller: SellerBusinessIdentifier;
 
-  /**
-   * Amount of tax, in cents
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "tax_amount" })
-  taxAmount?: number;
+    /**
+     * Amount of tax, in cents
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "tax_amount" })
+    taxAmount?: number;
 
-  /**
-   * Remaining amount due by buyer to seller, in cents. Set at 0 for fully paid invoices.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "to_pay_amount" })
-  toPayAmount?: number;
+    /**
+     * Remaining amount due by buyer to seller, in cents. Set at 0 for fully paid invoices.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "to_pay_amount" })
+    toPayAmount?: number;
 
-  /**
-   * Sum of net amount and tax amount, in cents
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "total_amount" })
-  totalAmount?: number;
+    /**
+     * Sum of net amount and tax amount, in cents
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "total_amount" })
+    totalAmount?: number;
 }

@@ -6,21 +6,21 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { EligibilityDenialReason } from "./eligibilitydenialreason";
 
 export class EligibilityResponse extends SpeakeasyBase {
-  /**
-   * Say if the eligibility check accepted the request or not.
-   */
-  @SpeakeasyMetadata()
-  isEligible: boolean;
+    /**
+     * Say if the eligibility check accepted the request or not.
+     */
+    @SpeakeasyMetadata()
+    isEligible: boolean;
 
-  /**
-   * Maximum amount that can be lent, in cents.
-   */
-  @SpeakeasyMetadata()
-  maxAmount?: number;
+    /**
+     * Maximum amount that can be lent, in cents.
+     */
+    @SpeakeasyMetadata()
+    maxAmount?: number;
 
-  /**
-   * Maximum amount that can be lent, in cents.
-   */
-  @SpeakeasyMetadata({ elemType: EligibilityDenialReason })
-  reasons?: EligibilityDenialReason[];
+    /**
+     * Maximum amount that can be lent, in cents.
+     */
+    @SpeakeasyMetadata({ elemType: EligibilityDenialReason })
+    reasons?: EligibilityDenialReason[];
 }

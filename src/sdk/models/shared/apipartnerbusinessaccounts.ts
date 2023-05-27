@@ -7,33 +7,33 @@ import { APIPartnerBusinessAccount } from "./apipartnerbusinessaccount";
 import { Expose, Type } from "class-transformer";
 
 export enum APIPartnerBusinessAccountsIdentifierType {
-  Siret = "siret",
-  Siren = "siren",
-  VatNumber = "vat_number",
-  Name = "name",
-  Nif = "nif",
-  Cif = "cif",
-  Kvk = "kvk",
-  Bsn = "bsn",
-  HrNummer = "hr_nummer",
-  BelgiumRegistrationNumber = "belgium_registration_number",
-  Steuernummer = "steuernummer",
+    Siret = "siret",
+    Siren = "siren",
+    VatNumber = "vat_number",
+    Name = "name",
+    Nif = "nif",
+    Cif = "cif",
+    Kvk = "kvk",
+    Bsn = "bsn",
+    HrNummer = "hr_nummer",
+    BelgiumRegistrationNumber = "belgium_registration_number",
+    Steuernummer = "steuernummer",
 }
 
 export class APIPartnerBusinessAccounts extends SpeakeasyBase {
-  /**
-   * List of accounts balances of the business.
-   */
-  @SpeakeasyMetadata({ elemType: APIPartnerBusinessAccount })
-  @Expose({ name: "accounts" })
-  @Type(() => APIPartnerBusinessAccount)
-  accounts?: APIPartnerBusinessAccount[];
+    /**
+     * List of accounts balances of the business.
+     */
+    @SpeakeasyMetadata({ elemType: APIPartnerBusinessAccount })
+    @Expose({ name: "accounts" })
+    @Type(() => APIPartnerBusinessAccount)
+    accounts?: APIPartnerBusinessAccount[];
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "identifier" })
-  identifier: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "identifier" })
+    identifier: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "identifier_type" })
-  identifierType: APIPartnerBusinessAccountsIdentifierType;
+    @SpeakeasyMetadata()
+    @Expose({ name: "identifier_type" })
+    identifierType: APIPartnerBusinessAccountsIdentifierType;
 }

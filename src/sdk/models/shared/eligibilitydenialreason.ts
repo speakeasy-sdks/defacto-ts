@@ -8,42 +8,42 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
  * Unique code identifying the reason of a denial. Can be used to display an error message to your users.
  */
 export enum EligibilityDenialReasonCode {
-  NoReason = "NO_REASON",
-  MaxAmountExceeded = "MAX_AMOUNT_EXCEEDED",
-  BusinessNotRegistered = "BUSINESS_NOT_REGISTERED",
-  BusinessNotEligible = "BUSINESS_NOT_ELIGIBLE",
-  BusinessNotDiffusible = "BUSINESS_NOT_DIFFUSIBLE",
-  BusinessRadiated = "BUSINESS_RADIATED",
-  BusinessLegalFormNotEligible = "BUSINESS_LEGAL_FORM_NOT_ELIGIBLE",
-  BusinessInsolvencyProcedureExists = "BUSINESS_INSOLVENCY_PROCEDURE_EXISTS",
-  BusinessInsolvencyProcedureUnknownStatus = "BUSINESS_INSOLVENCY_PROCEDURE_UNKNOWN_STATUS",
-  BusinessNotRegisteredToRcs = "BUSINESS_NOT_REGISTERED_TO_RCS",
-  BusinessUnknown = "BUSINESS_UNKNOWN",
-  TooLong = "TOO_LONG",
-  IncoherentDate = "INCOHERENT_DATE",
-  ExceededPartnerCreditLine = "EXCEEDED PARTNER CREDIT LINE",
-  QontoIntegrationUserDoesNotHave6MonthsOfHistory = "QONTO_INTEGRATION_USER_DOES_NOT_HAVE_6_MONTHS_OF_HISTORY",
-  QontoIntegrationGermanUserDoesNotHave4MonthsOfHistory = "QONTO_INTEGRATION_GERMAN_USER_DOES_NOT_HAVE_4_MONTHS_OF_HISTORY",
-  UserDoesNotMeetMinimumRequirementForCreditLine = "USER_DOES_NOT_MEET_MINIMUM_REQUIREMENT_FOR_CREDIT_LINE",
-  QontoIntegrationUserDoesNotMeetMinimumRequirementForCreditLine = "QONTO_INTEGRATION_USER_DOES_NOT_MEET_MINIMUM_REQUIREMENT_FOR_CREDIT_LINE",
+    NoReason = "NO_REASON",
+    MaxAmountExceeded = "MAX_AMOUNT_EXCEEDED",
+    BusinessNotRegistered = "BUSINESS_NOT_REGISTERED",
+    BusinessNotEligible = "BUSINESS_NOT_ELIGIBLE",
+    BusinessNotDiffusible = "BUSINESS_NOT_DIFFUSIBLE",
+    BusinessRadiated = "BUSINESS_RADIATED",
+    BusinessLegalFormNotEligible = "BUSINESS_LEGAL_FORM_NOT_ELIGIBLE",
+    BusinessInsolvencyProcedureExists = "BUSINESS_INSOLVENCY_PROCEDURE_EXISTS",
+    BusinessInsolvencyProcedureUnknownStatus = "BUSINESS_INSOLVENCY_PROCEDURE_UNKNOWN_STATUS",
+    BusinessNotRegisteredToRcs = "BUSINESS_NOT_REGISTERED_TO_RCS",
+    BusinessUnknown = "BUSINESS_UNKNOWN",
+    TooLong = "TOO_LONG",
+    IncoherentDate = "INCOHERENT_DATE",
+    ExceededPartnerCreditLine = "EXCEEDED PARTNER CREDIT LINE",
+    QontoIntegrationUserDoesNotHave6MonthsOfHistory = "QONTO_INTEGRATION_USER_DOES_NOT_HAVE_6_MONTHS_OF_HISTORY",
+    QontoIntegrationGermanUserDoesNotHave4MonthsOfHistory = "QONTO_INTEGRATION_GERMAN_USER_DOES_NOT_HAVE_4_MONTHS_OF_HISTORY",
+    UserDoesNotMeetMinimumRequirementForCreditLine = "USER_DOES_NOT_MEET_MINIMUM_REQUIREMENT_FOR_CREDIT_LINE",
+    QontoIntegrationUserDoesNotMeetMinimumRequirementForCreditLine = "QONTO_INTEGRATION_USER_DOES_NOT_MEET_MINIMUM_REQUIREMENT_FOR_CREDIT_LINE",
 }
 
 export class EligibilityDenialReason extends SpeakeasyBase {
-  /**
-   * Unique code identifying the reason of a denial. Can be used to display an error message to your users.
-   */
-  @SpeakeasyMetadata()
-  code: EligibilityDenialReasonCode;
+    /**
+     * Unique code identifying the reason of a denial. Can be used to display an error message to your users.
+     */
+    @SpeakeasyMetadata()
+    code: EligibilityDenialReasonCode;
 
-  /**
-   * A human readable description of the denial reason, in english. Mainly returned for debug purpose.
-   */
-  @SpeakeasyMetadata()
-  description?: string;
+    /**
+     * A human readable description of the denial reason, in english. Mainly returned for debug purpose.
+     */
+    @SpeakeasyMetadata()
+    description?: string;
 
-  /**
-   * Name of the input data which value lead to the denial. For example: 'seller' if the request was refused for a reason linked to the seller.
-   */
-  @SpeakeasyMetadata()
-  input: string;
+    /**
+     * Name of the input data which value lead to the denial. For example: 'seller' if the request was refused for a reason linked to the seller.
+     */
+    @SpeakeasyMetadata()
+    input: string;
 }
