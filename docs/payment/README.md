@@ -21,7 +21,7 @@ import {
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 

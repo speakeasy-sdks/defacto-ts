@@ -28,7 +28,7 @@ import { GetCreditLineResponse } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 
@@ -51,7 +51,7 @@ import { ListCreditLineResponse } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 
@@ -74,7 +74,7 @@ import { ListCreditLinesResponse } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 
@@ -110,7 +110,7 @@ import { APIBorrowerEligibilityIdentifierType } from "defacto/dist/sdk/models/sh
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 
@@ -139,7 +139,7 @@ import { APIBorrowerEligibilityIdentifierType } from "defacto/dist/sdk/models/sh
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 
@@ -166,7 +166,7 @@ import { APIQuoteEligibilityBorrowerIdentifierType, BusinessIdentifierIdentifier
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 
@@ -208,7 +208,7 @@ import { APIBorrowerEligibilityIdentifierType } from "defacto/dist/sdk/models/sh
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 

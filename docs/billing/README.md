@@ -27,7 +27,7 @@ import { ListBillsResponse, ListBillsStatus } from "defacto/dist/sdk/models/oper
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 
@@ -80,7 +80,7 @@ import { SendBillResponse } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 

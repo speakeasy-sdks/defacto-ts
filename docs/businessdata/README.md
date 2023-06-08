@@ -39,7 +39,7 @@ import { APIPartnerBusinessAccountsIdentifierType } from "defacto/dist/sdk/model
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 
@@ -85,7 +85,7 @@ import {
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 
@@ -148,7 +148,7 @@ import {
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 

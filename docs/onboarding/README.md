@@ -17,7 +17,7 @@ import { DeactivateBorrowerResponse } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 
@@ -40,7 +40,7 @@ import { RFCDate } from "defacto/dist/sdk/types";
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 
@@ -152,7 +152,7 @@ import { ListBorrowersResponse } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 
@@ -180,7 +180,7 @@ import { SignBorrowerResponse } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 

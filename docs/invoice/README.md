@@ -41,7 +41,7 @@ import {
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 
@@ -102,7 +102,7 @@ import { DeleteInvoiceResponse } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 
@@ -125,7 +125,7 @@ import { GetInvoiceResponse } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 
@@ -148,7 +148,7 @@ import { ListInvoicesResponse, ListInvoicesStatus } from "defacto/dist/sdk/model
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 
@@ -206,7 +206,7 @@ import {
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 
@@ -274,7 +274,7 @@ import {
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 
@@ -332,7 +332,7 @@ import { UploadInvoicesResponse } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 

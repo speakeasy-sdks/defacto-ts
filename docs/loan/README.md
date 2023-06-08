@@ -34,7 +34,7 @@ import { CancelLoanResponse } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 
@@ -57,7 +57,7 @@ import { GetLoanResponse } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 
@@ -80,7 +80,7 @@ import { GetLoanEventsResponse } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 
@@ -103,7 +103,7 @@ import { ListLoansLoanType, ListLoansResponse, ListLoansStatus } from "defacto/d
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 
@@ -171,7 +171,7 @@ import {
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 
@@ -324,7 +324,7 @@ import {
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 
@@ -378,7 +378,7 @@ import { ValidateLoanResponse } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 

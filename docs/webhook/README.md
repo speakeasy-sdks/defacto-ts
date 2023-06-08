@@ -48,7 +48,7 @@ import { CreateWebhookEventTypes } from "defacto/dist/sdk/models/shared";
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 
@@ -77,7 +77,7 @@ import { DeleteWebhookResponse } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 
@@ -107,7 +107,7 @@ import { ListWebhooksResponse } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 
@@ -138,7 +138,7 @@ import { CreateWebhookEventTypes } from "defacto/dist/sdk/models/shared";
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 

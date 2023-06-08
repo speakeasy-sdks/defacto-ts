@@ -54,7 +54,7 @@ import { GenerateBusinessCountry, GenerateBusinessResponse } from "defacto/dist/
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 
@@ -85,7 +85,7 @@ import { GenerateIbanCountry, GenerateIbanResponse, GenerateIbanScenario } from 
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 
@@ -123,7 +123,7 @@ import {
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 
@@ -161,7 +161,7 @@ import { HelloResponse } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 
@@ -192,7 +192,7 @@ import { BusinessEligibileParamsScenario, BusinessIdentifierIdentifierType } fro
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 
