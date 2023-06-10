@@ -1,0 +1,13 @@
+# LoanAPIRepaymentTo
+
+Bank account to send the loan repayment to
+
+
+## Fields
+
+| Field                                                                                               | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `accountNumber`                                                                                     | *string*                                                                                            | :heavy_check_mark:                                                                                  | The account identifier. Only IBANs are supported at the moment.                                     |
+| `accountNumberType`                                                                                 | [LoanAPIRepaymentToAccountNumberType](../../models/shared/loanapirepaymenttoaccountnumbertype.md)   | :heavy_check_mark:                                                                                  | The type of account number (e.g. IBAN).                                                             |
+| `bankIdentifier`                                                                                    | *string*                                                                                            | :heavy_check_mark:                                                                                  | The identifier of the bank.                                                                         |
+| `bankIdentifierType`                                                                                | [LoanAPIRepaymentToBankIdentifierType](../../models/shared/loanapirepaymenttobankidentifiertype.md) | :heavy_check_mark:                                                                                  | The type of bank identifier (e.g. BIC).                                                             |
