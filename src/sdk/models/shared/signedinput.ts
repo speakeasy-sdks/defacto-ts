@@ -6,18 +6,18 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Transform } from "class-transformer";
 
 export class SignedInput extends SpeakeasyBase {
-  /**
-   * datetime of the borrower's signature. Usually time the borrower clicked on our T&Cs checkbox
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "signed_at" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  signedAt: Date;
+    /**
+     * datetime of the borrower's signature. Usually time the borrower clicked on our T&Cs checkbox
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "signed_at" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    signedAt: Date;
 
-  /**
-   * Wait for the borrower to be ready to request a first loan.Many actions have to run in the background (KYC, scoring, contract generation and so on).We recommend you to subscribe to the CreditLine.CREATED webhook in order to be notified in real time when the credit line is available.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "wait_for_ready" })
-  waitForReady?: boolean;
+    /**
+     * Wait for the borrower to be ready to request a first loan.Many actions have to run in the background (KYC, scoring, contract generation and so on).We recommend you to subscribe to the CreditLine.CREATED webhook in order to be notified in real time when the credit line is available.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "wait_for_ready" })
+    waitForReady?: boolean;
 }

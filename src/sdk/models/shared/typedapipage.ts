@@ -6,15 +6,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { APIBorrower } from "./apiborrower";
 
 export class TypedApiPage extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  count: number;
+    @SpeakeasyMetadata()
+    count: number;
 
-  @SpeakeasyMetadata({ elemType: APIBorrower })
-  data?: APIBorrower[];
+    @SpeakeasyMetadata({ elemType: APIBorrower })
+    data?: APIBorrower[];
 
-  @SpeakeasyMetadata()
-  nextPage?: string;
+    @SpeakeasyMetadata()
+    nextPage?: string;
 
-  @SpeakeasyMetadata()
-  pageSize: number;
+    @SpeakeasyMetadata()
+    pageSize: number;
 }

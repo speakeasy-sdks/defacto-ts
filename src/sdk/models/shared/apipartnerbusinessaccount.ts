@@ -6,25 +6,25 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Transform } from "class-transformer";
 
 export class APIPartnerBusinessAccount extends SpeakeasyBase {
-  /**
-   * Balance of the bank account.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "amount" })
-  amount: number;
+    /**
+     * Balance of the bank account.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "amount" })
+    amount: number;
 
-  /**
-   * Unique bank account identifier.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * Unique bank account identifier.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  /**
-   * Date of last balance update.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "last_updated_at" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  lastUpdatedAt: Date;
+    /**
+     * Date of last balance update.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "last_updated_at" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    lastUpdatedAt: Date;
 }

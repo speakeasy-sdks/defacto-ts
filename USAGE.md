@@ -1,11 +1,11 @@
 <!-- Start SDK Example Usage -->
 ```typescript
 import { Defacto } from "defacto";
-import { ListBillsResponse, ListBillsStatusEnum } from "defacto/dist/sdk/models/operations";
+import { ListBillsResponse, ListBillsStatus } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
-    bearer: "YOUR_API_KEY_HERE",
+    bearer: "",
   },
 });
 
@@ -23,8 +23,8 @@ sdk.billing.listBills({
   pageSize: 325047,
   startDate: new Date("2022-12-03T22:47:10.600Z"),
   status: [
-    ListBillsStatusEnum.ToPay,
-    ListBillsStatusEnum.Paid,
+    ListBillsStatus.ToPay,
+    ListBillsStatus.Paid,
   ],
 }).then((res: ListBillsResponse) => {
   if (res.statusCode == 200) {

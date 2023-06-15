@@ -5,44 +5,44 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-export enum CreateWebhookEventTypesEnum {
-  CreditLinePOOLAMOUNTUPDATED = "CreditLine.POOL_AMOUNT_UPDATED",
-  CreditLineCREATED = "CreditLine.CREATED",
-  CreditLimitUPDATED = "CreditLimit.UPDATED",
-  LoanSUBMITTED = "Loan.SUBMITTED",
-  LoanVALIDATED = "Loan.VALIDATED",
-  LoanSCHEDULED = "Loan.SCHEDULED",
-  LoanINITIATED = "Loan.INITIATED",
-  LoanCANCELED = "Loan.CANCELED",
-  LoanDECLINED = "Loan.DECLINED",
-  LoanTOREPAY = "Loan.TO_REPAY",
-  LoanTOREPAYFEES = "Loan.TO_REPAY_FEES",
-  LoanOVERDUE = "Loan.OVERDUE",
-  LoanISSUEDETECTED = "Loan.ISSUE_DETECTED",
-  LoanCLOSED = "Loan.CLOSED",
-  LoanDELETED = "Loan.DELETED",
-  PaymentSCHEDULED = "Payment.SCHEDULED",
-  PaymentINSTRUCTED = "Payment.INSTRUCTED",
-  PaymentINTRANSIT = "Payment.IN_TRANSIT",
-  PaymentPAID = "Payment.PAID",
-  PaymentCANCELED = "Payment.CANCELED",
-  PaymentFAILED = "Payment.FAILED",
-  InvoiceSUBMITTED = "Invoice.SUBMITTED",
-  InvoiceTOEDIT = "Invoice.TO_EDIT",
-  InvoiceVERIFIED = "Invoice.VERIFIED",
-  InvoiceDELETED = "Invoice.DELETED",
+export enum CreateWebhookEventTypes {
+    CreditLinePOOLAMOUNTUPDATED = "CreditLine.POOL_AMOUNT_UPDATED",
+    CreditLineCREATED = "CreditLine.CREATED",
+    CreditLimitUPDATED = "CreditLimit.UPDATED",
+    LoanSUBMITTED = "Loan.SUBMITTED",
+    LoanVALIDATED = "Loan.VALIDATED",
+    LoanSCHEDULED = "Loan.SCHEDULED",
+    LoanINITIATED = "Loan.INITIATED",
+    LoanCANCELED = "Loan.CANCELED",
+    LoanDECLINED = "Loan.DECLINED",
+    LoanTOREPAY = "Loan.TO_REPAY",
+    LoanTOREPAYFEES = "Loan.TO_REPAY_FEES",
+    LoanOVERDUE = "Loan.OVERDUE",
+    LoanISSUEDETECTED = "Loan.ISSUE_DETECTED",
+    LoanCLOSED = "Loan.CLOSED",
+    LoanDELETED = "Loan.DELETED",
+    PaymentSCHEDULED = "Payment.SCHEDULED",
+    PaymentINSTRUCTED = "Payment.INSTRUCTED",
+    PaymentINTRANSIT = "Payment.IN_TRANSIT",
+    PaymentPAID = "Payment.PAID",
+    PaymentCANCELED = "Payment.CANCELED",
+    PaymentFAILED = "Payment.FAILED",
+    InvoiceSUBMITTED = "Invoice.SUBMITTED",
+    InvoiceTOEDIT = "Invoice.TO_EDIT",
+    InvoiceVERIFIED = "Invoice.VERIFIED",
+    InvoiceDELETED = "Invoice.DELETED",
 }
 
 export class CreateWebhook extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "event_types" })
-  eventTypes: CreateWebhookEventTypesEnum[];
+    @SpeakeasyMetadata()
+    @Expose({ name: "event_types" })
+    eventTypes: CreateWebhookEventTypes[];
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "to_url" })
-  toUrl: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "to_url" })
+    toUrl: string;
 }

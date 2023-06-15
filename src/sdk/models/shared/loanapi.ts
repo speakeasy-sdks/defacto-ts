@@ -6,568 +6,568 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { LightBusiness } from "./lightbusiness";
 
 export class LoanAPIBorrowerAddress extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  addressLine1?: string;
+    @SpeakeasyMetadata()
+    addressLine1?: string;
 
-  @SpeakeasyMetadata()
-  addressLine2?: string;
+    @SpeakeasyMetadata()
+    addressLine2?: string;
 
-  @SpeakeasyMetadata()
-  city?: string;
+    @SpeakeasyMetadata()
+    city?: string;
 
-  @SpeakeasyMetadata()
-  country?: string;
+    @SpeakeasyMetadata()
+    country?: string;
 
-  @SpeakeasyMetadata()
-  postalCode?: string;
+    @SpeakeasyMetadata()
+    postalCode?: string;
 
-  @SpeakeasyMetadata()
-  state?: string;
+    @SpeakeasyMetadata()
+    state?: string;
 }
 
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum LoanAPIBorrowerIdentifierTypeEnum {
-  Siret = "siret",
-  Siren = "siren",
-  VatNumber = "vat_number",
-  Name = "name",
-  Nif = "nif",
-  Cif = "cif",
-  Kvk = "kvk",
-  Bsn = "bsn",
-  HrNummer = "hr_nummer",
-  BelgiumRegistrationNumber = "belgium_registration_number",
-  Steuernummer = "steuernummer",
-  LessThanNilGreaterThan = "<nil>",
+export enum LoanAPIBorrowerIdentifierType {
+    Siret = "siret",
+    Siren = "siren",
+    VatNumber = "vat_number",
+    Name = "name",
+    Nif = "nif",
+    Cif = "cif",
+    Kvk = "kvk",
+    Bsn = "bsn",
+    HrNummer = "hr_nummer",
+    BelgiumRegistrationNumber = "belgium_registration_number",
+    Steuernummer = "steuernummer",
+    LessThanNilGreaterThan = "<nil>",
 }
 
 /**
  * Entity legally contracting the loan
  */
 export class LoanAPIBorrower extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  address?: LoanAPIBorrowerAddress;
+    @SpeakeasyMetadata()
+    address?: LoanAPIBorrowerAddress;
 
-  @SpeakeasyMetadata()
-  id?: any;
+    @SpeakeasyMetadata()
+    id?: any;
 
-  /**
-   * Legal identifier of the business, such as its SIRET in France.
-   */
-  @SpeakeasyMetadata()
-  identifier: string;
+    /**
+     * Legal identifier of the business, such as its SIRET in France.
+     */
+    @SpeakeasyMetadata()
+    identifier: string;
 
-  /**
-   * Type of legal business identifier of the business, such as the SIRET in France.
-   */
-  @SpeakeasyMetadata()
-  identifierType?: LoanAPIBorrowerIdentifierTypeEnum;
+    /**
+     * Type of legal business identifier of the business, such as the SIRET in France.
+     */
+    @SpeakeasyMetadata()
+    identifierType?: LoanAPIBorrowerIdentifierType;
 
-  /**
-   * Legal form of the business.
-   */
-  @SpeakeasyMetadata()
-  legalForm?: string;
+    /**
+     * Legal form of the business.
+     */
+    @SpeakeasyMetadata()
+    legalForm?: string;
 
-  /**
-   * Legal name of the business.
-   */
-  @SpeakeasyMetadata()
-  name?: string;
+    /**
+     * Legal name of the business.
+     */
+    @SpeakeasyMetadata()
+    name?: string;
 
-  /**
-   * Name of the national organization where the business is registered. For example the RCS of Paris in France
-   */
-  @SpeakeasyMetadata()
-  registrationBody?: string;
+    /**
+     * Name of the national organization where the business is registered. For example the RCS of Paris in France
+     */
+    @SpeakeasyMetadata()
+    registrationBody?: string;
 
-  /**
-   * The part of the capital of a company that comes from the issue of shares, in cents.
-   */
-  @SpeakeasyMetadata()
-  shareCapital?: number;
+    /**
+     * The part of the capital of a company that comes from the issue of shares, in cents.
+     */
+    @SpeakeasyMetadata()
+    shareCapital?: number;
 
-  /**
-   * The VAT number of the business, if European
-   */
-  @SpeakeasyMetadata()
-  vatNumber?: string;
+    /**
+     * The VAT number of the business, if European
+     */
+    @SpeakeasyMetadata()
+    vatNumber?: string;
 }
 
 /**
  * ISO 4217 currency code.
  */
-export enum LoanAPICurrencyEnum {
-  Eur = "EUR",
-  Gbp = "GBP",
+export enum LoanAPICurrency {
+    Eur = "EUR",
+    Gbp = "GBP",
 }
 
 export class LoanAPIGuarantorAddress extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  addressLine1?: string;
+    @SpeakeasyMetadata()
+    addressLine1?: string;
 
-  @SpeakeasyMetadata()
-  addressLine2?: string;
+    @SpeakeasyMetadata()
+    addressLine2?: string;
 
-  @SpeakeasyMetadata()
-  city?: string;
+    @SpeakeasyMetadata()
+    city?: string;
 
-  @SpeakeasyMetadata()
-  country?: string;
+    @SpeakeasyMetadata()
+    country?: string;
 
-  @SpeakeasyMetadata()
-  postalCode?: string;
+    @SpeakeasyMetadata()
+    postalCode?: string;
 
-  @SpeakeasyMetadata()
-  state?: string;
+    @SpeakeasyMetadata()
+    state?: string;
 }
 
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum LoanAPIGuarantorIdentifierTypeEnum {
-  Siret = "siret",
-  Siren = "siren",
-  VatNumber = "vat_number",
-  Name = "name",
-  Nif = "nif",
-  Cif = "cif",
-  Kvk = "kvk",
-  Bsn = "bsn",
-  HrNummer = "hr_nummer",
-  BelgiumRegistrationNumber = "belgium_registration_number",
-  Steuernummer = "steuernummer",
-  LessThanNilGreaterThan = "<nil>",
+export enum LoanAPIGuarantorIdentifierType {
+    Siret = "siret",
+    Siren = "siren",
+    VatNumber = "vat_number",
+    Name = "name",
+    Nif = "nif",
+    Cif = "cif",
+    Kvk = "kvk",
+    Bsn = "bsn",
+    HrNummer = "hr_nummer",
+    BelgiumRegistrationNumber = "belgium_registration_number",
+    Steuernummer = "steuernummer",
+    LessThanNilGreaterThan = "<nil>",
 }
 
 /**
  * Entity legally responsible to payback the loan
  */
 export class LoanAPIGuarantor extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  address?: LoanAPIGuarantorAddress;
+    @SpeakeasyMetadata()
+    address?: LoanAPIGuarantorAddress;
 
-  @SpeakeasyMetadata()
-  id?: any;
+    @SpeakeasyMetadata()
+    id?: any;
 
-  /**
-   * Legal identifier of the business, such as its SIRET in France.
-   */
-  @SpeakeasyMetadata()
-  identifier: string;
+    /**
+     * Legal identifier of the business, such as its SIRET in France.
+     */
+    @SpeakeasyMetadata()
+    identifier: string;
 
-  /**
-   * Type of legal business identifier of the business, such as the SIRET in France.
-   */
-  @SpeakeasyMetadata()
-  identifierType?: LoanAPIGuarantorIdentifierTypeEnum;
+    /**
+     * Type of legal business identifier of the business, such as the SIRET in France.
+     */
+    @SpeakeasyMetadata()
+    identifierType?: LoanAPIGuarantorIdentifierType;
 
-  /**
-   * Legal form of the business.
-   */
-  @SpeakeasyMetadata()
-  legalForm?: string;
+    /**
+     * Legal form of the business.
+     */
+    @SpeakeasyMetadata()
+    legalForm?: string;
 
-  /**
-   * Legal name of the business.
-   */
-  @SpeakeasyMetadata()
-  name?: string;
+    /**
+     * Legal name of the business.
+     */
+    @SpeakeasyMetadata()
+    name?: string;
 
-  /**
-   * Name of the national organization where the business is registered. For example the RCS of Paris in France
-   */
-  @SpeakeasyMetadata()
-  registrationBody?: string;
+    /**
+     * Name of the national organization where the business is registered. For example the RCS of Paris in France
+     */
+    @SpeakeasyMetadata()
+    registrationBody?: string;
 
-  /**
-   * The part of the capital of a company that comes from the issue of shares, in cents.
-   */
-  @SpeakeasyMetadata()
-  shareCapital?: number;
+    /**
+     * The part of the capital of a company that comes from the issue of shares, in cents.
+     */
+    @SpeakeasyMetadata()
+    shareCapital?: number;
 
-  /**
-   * The VAT number of the business, if European
-   */
-  @SpeakeasyMetadata()
-  vatNumber?: string;
+    /**
+     * The VAT number of the business, if European
+     */
+    @SpeakeasyMetadata()
+    vatNumber?: string;
 }
 
 /**
  * The type of account number (e.g. IBAN).
  */
-export enum LoanAPILoanFromAccountNumberTypeEnum {
-  Iban = "iban",
-  AccountNumber = "account_number",
-  InternalId = "internal_id",
+export enum LoanAPILoanFromAccountNumberType {
+    Iban = "iban",
+    AccountNumber = "account_number",
+    InternalId = "internal_id",
 }
 
 /**
  * The type of bank identifier (e.g. BIC).
  */
-export enum LoanAPILoanFromBankIdentifierTypeEnum {
-  Bic = "bic",
-  RoutingNumber = "routing_number",
-  Name = "name",
+export enum LoanAPILoanFromBankIdentifierType {
+    Bic = "bic",
+    RoutingNumber = "routing_number",
+    Name = "name",
 }
 
 /**
  * Bank account used to transfer the amount of the loan to the borrower
  */
 export class LoanAPILoanFrom extends SpeakeasyBase {
-  /**
-   * The account identifier. Only IBANs are supported at the moment.
-   */
-  @SpeakeasyMetadata()
-  accountNumber: string;
+    /**
+     * The account identifier. Only IBANs are supported at the moment.
+     */
+    @SpeakeasyMetadata()
+    accountNumber: string;
 
-  /**
-   * The type of account number (e.g. IBAN).
-   */
-  @SpeakeasyMetadata()
-  accountNumberType: LoanAPILoanFromAccountNumberTypeEnum;
+    /**
+     * The type of account number (e.g. IBAN).
+     */
+    @SpeakeasyMetadata()
+    accountNumberType: LoanAPILoanFromAccountNumberType;
 
-  /**
-   * The identifier of the bank.
-   */
-  @SpeakeasyMetadata()
-  bankIdentifier: string;
+    /**
+     * The identifier of the bank.
+     */
+    @SpeakeasyMetadata()
+    bankIdentifier: string;
 
-  /**
-   * The type of bank identifier (e.g. BIC).
-   */
-  @SpeakeasyMetadata()
-  bankIdentifierType: LoanAPILoanFromBankIdentifierTypeEnum;
+    /**
+     * The type of bank identifier (e.g. BIC).
+     */
+    @SpeakeasyMetadata()
+    bankIdentifierType: LoanAPILoanFromBankIdentifierType;
 }
 
 /**
  * The type of account number (e.g. IBAN).
  */
-export enum LoanAPILoanToAccountNumberTypeEnum {
-  Iban = "iban",
-  AccountNumber = "account_number",
-  InternalId = "internal_id",
+export enum LoanAPILoanToAccountNumberType {
+    Iban = "iban",
+    AccountNumber = "account_number",
+    InternalId = "internal_id",
 }
 
 /**
  * The type of bank identifier (e.g. BIC).
  */
-export enum LoanAPILoanToBankIdentifierTypeEnum {
-  Bic = "bic",
-  RoutingNumber = "routing_number",
-  Name = "name",
+export enum LoanAPILoanToBankIdentifierType {
+    Bic = "bic",
+    RoutingNumber = "routing_number",
+    Name = "name",
 }
 
 /**
  * Bank account receiving the money of the loan
  */
 export class LoanAPILoanTo extends SpeakeasyBase {
-  /**
-   * The account identifier. Only IBANs are supported at the moment.
-   */
-  @SpeakeasyMetadata()
-  accountNumber: string;
+    /**
+     * The account identifier. Only IBANs are supported at the moment.
+     */
+    @SpeakeasyMetadata()
+    accountNumber: string;
 
-  /**
-   * The type of account number (e.g. IBAN).
-   */
-  @SpeakeasyMetadata()
-  accountNumberType: LoanAPILoanToAccountNumberTypeEnum;
+    /**
+     * The type of account number (e.g. IBAN).
+     */
+    @SpeakeasyMetadata()
+    accountNumberType: LoanAPILoanToAccountNumberType;
 
-  /**
-   * The identifier of the bank.
-   */
-  @SpeakeasyMetadata()
-  bankIdentifier: string;
+    /**
+     * The identifier of the bank.
+     */
+    @SpeakeasyMetadata()
+    bankIdentifier: string;
 
-  /**
-   * The type of bank identifier (e.g. BIC).
-   */
-  @SpeakeasyMetadata()
-  bankIdentifierType: LoanAPILoanToBankIdentifierTypeEnum;
+    /**
+     * The type of bank identifier (e.g. BIC).
+     */
+    @SpeakeasyMetadata()
+    bankIdentifierType: LoanAPILoanToBankIdentifierType;
 }
 
-export enum LoanAPILoanTypeEnum {
-  InvoiceBasedFinancing = "INVOICE_BASED_FINANCING",
-  WalletFinancing = "WALLET_FINANCING",
+export enum LoanAPILoanType {
+    InvoiceBasedFinancing = "INVOICE_BASED_FINANCING",
+    WalletFinancing = "WALLET_FINANCING",
 }
 
 /**
  * The type of account number (e.g. IBAN).
  */
-export enum LoanAPIRepaymentFromAccountNumberTypeEnum {
-  Iban = "iban",
-  AccountNumber = "account_number",
-  InternalId = "internal_id",
+export enum LoanAPIRepaymentFromAccountNumberType {
+    Iban = "iban",
+    AccountNumber = "account_number",
+    InternalId = "internal_id",
 }
 
 /**
  * The type of bank identifier (e.g. BIC).
  */
-export enum LoanAPIRepaymentFromBankIdentifierTypeEnum {
-  Bic = "bic",
-  RoutingNumber = "routing_number",
-  Name = "name",
+export enum LoanAPIRepaymentFromBankIdentifierType {
+    Bic = "bic",
+    RoutingNumber = "routing_number",
+    Name = "name",
 }
 
 /**
  * Bank account repaying the loan
  */
 export class LoanAPIRepaymentFrom extends SpeakeasyBase {
-  /**
-   * The account identifier. Only IBANs are supported at the moment.
-   */
-  @SpeakeasyMetadata()
-  accountNumber: string;
+    /**
+     * The account identifier. Only IBANs are supported at the moment.
+     */
+    @SpeakeasyMetadata()
+    accountNumber: string;
 
-  /**
-   * The type of account number (e.g. IBAN).
-   */
-  @SpeakeasyMetadata()
-  accountNumberType: LoanAPIRepaymentFromAccountNumberTypeEnum;
+    /**
+     * The type of account number (e.g. IBAN).
+     */
+    @SpeakeasyMetadata()
+    accountNumberType: LoanAPIRepaymentFromAccountNumberType;
 
-  /**
-   * The identifier of the bank.
-   */
-  @SpeakeasyMetadata()
-  bankIdentifier: string;
+    /**
+     * The identifier of the bank.
+     */
+    @SpeakeasyMetadata()
+    bankIdentifier: string;
 
-  /**
-   * The type of bank identifier (e.g. BIC).
-   */
-  @SpeakeasyMetadata()
-  bankIdentifierType: LoanAPIRepaymentFromBankIdentifierTypeEnum;
+    /**
+     * The type of bank identifier (e.g. BIC).
+     */
+    @SpeakeasyMetadata()
+    bankIdentifierType: LoanAPIRepaymentFromBankIdentifierType;
 }
 
-export enum LoanAPIRepaymentMethodEnum {
-  DirectDebit = "DIRECT_DEBIT",
-  Sct = "SCT",
-  P2P = "P2P",
-  LessThanNilGreaterThan = "<nil>",
+export enum LoanAPIRepaymentMethod {
+    DirectDebit = "DIRECT_DEBIT",
+    Sct = "SCT",
+    P2P = "P2P",
+    LessThanNilGreaterThan = "<nil>",
 }
 
 /**
  * The type of account number (e.g. IBAN).
  */
-export enum LoanAPIRepaymentToAccountNumberTypeEnum {
-  Iban = "iban",
-  AccountNumber = "account_number",
-  InternalId = "internal_id",
+export enum LoanAPIRepaymentToAccountNumberType {
+    Iban = "iban",
+    AccountNumber = "account_number",
+    InternalId = "internal_id",
 }
 
 /**
  * The type of bank identifier (e.g. BIC).
  */
-export enum LoanAPIRepaymentToBankIdentifierTypeEnum {
-  Bic = "bic",
-  RoutingNumber = "routing_number",
-  Name = "name",
+export enum LoanAPIRepaymentToBankIdentifierType {
+    Bic = "bic",
+    RoutingNumber = "routing_number",
+    Name = "name",
 }
 
 /**
  * Bank account to send the loan repayment to
  */
 export class LoanAPIRepaymentTo extends SpeakeasyBase {
-  /**
-   * The account identifier. Only IBANs are supported at the moment.
-   */
-  @SpeakeasyMetadata()
-  accountNumber: string;
+    /**
+     * The account identifier. Only IBANs are supported at the moment.
+     */
+    @SpeakeasyMetadata()
+    accountNumber: string;
 
-  /**
-   * The type of account number (e.g. IBAN).
-   */
-  @SpeakeasyMetadata()
-  accountNumberType: LoanAPIRepaymentToAccountNumberTypeEnum;
+    /**
+     * The type of account number (e.g. IBAN).
+     */
+    @SpeakeasyMetadata()
+    accountNumberType: LoanAPIRepaymentToAccountNumberType;
 
-  /**
-   * The identifier of the bank.
-   */
-  @SpeakeasyMetadata()
-  bankIdentifier: string;
+    /**
+     * The identifier of the bank.
+     */
+    @SpeakeasyMetadata()
+    bankIdentifier: string;
 
-  /**
-   * The type of bank identifier (e.g. BIC).
-   */
-  @SpeakeasyMetadata()
-  bankIdentifierType: LoanAPIRepaymentToBankIdentifierTypeEnum;
+    /**
+     * The type of bank identifier (e.g. BIC).
+     */
+    @SpeakeasyMetadata()
+    bankIdentifierType: LoanAPIRepaymentToBankIdentifierType;
 }
 
-export enum LoanAPIStatusEnum {
-  Submitted = "SUBMITTED",
-  ToValidate = "TO_VALIDATE",
-  Declined = "DECLINED",
-  Validated = "VALIDATED",
-  Canceled = "CANCELED",
-  Scheduled = "SCHEDULED",
-  Initiated = "INITIATED",
-  ToRepay = "TO_REPAY",
-  ToRepayFees = "TO_REPAY_FEES",
-  Overdue = "OVERDUE",
-  Closed = "CLOSED",
-  IssueDetected = "ISSUE_DETECTED",
-  Deleted = "DELETED",
+export enum LoanAPIStatus {
+    Submitted = "SUBMITTED",
+    ToValidate = "TO_VALIDATE",
+    Declined = "DECLINED",
+    Validated = "VALIDATED",
+    Canceled = "CANCELED",
+    Scheduled = "SCHEDULED",
+    Initiated = "INITIATED",
+    ToRepay = "TO_REPAY",
+    ToRepayFees = "TO_REPAY_FEES",
+    Overdue = "OVERDUE",
+    Closed = "CLOSED",
+    IssueDetected = "ISSUE_DETECTED",
+    Deleted = "DELETED",
 }
 
 export class LoanAPI extends SpeakeasyBase {
-  /**
-   * Loan amount in cents
-   */
-  @SpeakeasyMetadata()
-  amount: number;
+    /**
+     * Loan amount in cents
+     */
+    @SpeakeasyMetadata()
+    amount: number;
 
-  /**
-   * Entity receiving the money
-   */
-  @SpeakeasyMetadata()
-  beneficiary: LightBusiness;
+    /**
+     * Entity receiving the money
+     */
+    @SpeakeasyMetadata()
+    beneficiary: LightBusiness;
 
-  /**
-   * Entity legally contracting the loan
-   */
-  @SpeakeasyMetadata()
-  borrower?: LoanAPIBorrower;
+    /**
+     * Entity legally contracting the loan
+     */
+    @SpeakeasyMetadata()
+    borrower?: LoanAPIBorrower;
 
-  /**
-   * Loan full repayment date
-   */
-  @SpeakeasyMetadata()
-  closedAt?: Date;
+    /**
+     * Loan full repayment date
+     */
+    @SpeakeasyMetadata()
+    closedAt?: Date;
 
-  @SpeakeasyMetadata()
-  contractUrl?: string;
+    @SpeakeasyMetadata()
+    contractUrl?: string;
 
-  /**
-   * ISO 4217 currency code.
-   */
-  @SpeakeasyMetadata()
-  currency: LoanAPICurrencyEnum;
+    /**
+     * ISO 4217 currency code.
+     */
+    @SpeakeasyMetadata()
+    currency: LoanAPICurrency;
 
-  @SpeakeasyMetadata()
-  denialReason?: string;
+    @SpeakeasyMetadata()
+    denialReason?: string;
 
-  /**
-   * Loan reimbursement earliest possible date
-   */
-  @SpeakeasyMetadata()
-  earliestToRepayAt?: Date;
+    /**
+     * Loan reimbursement earliest possible date
+     */
+    @SpeakeasyMetadata()
+    earliestToRepayAt?: Date;
 
-  /**
-   * In cents (estimated loan duration * interest * amount)
-   */
-  @SpeakeasyMetadata()
-  feesEstimated?: number;
+    /**
+     * In cents (estimated loan duration * interest * amount)
+     */
+    @SpeakeasyMetadata()
+    feesEstimated?: number;
 
-  /**
-   * Fees if you repay today. In cents (current duration * interest * amount)
-   */
-  @SpeakeasyMetadata()
-  feesOngoing?: number;
+    /**
+     * Fees if you repay today. In cents (current duration * interest * amount)
+     */
+    @SpeakeasyMetadata()
+    feesOngoing?: number;
 
-  /**
-   * Entity legally responsible to payback the loan
-   */
-  @SpeakeasyMetadata()
-  guarantor?: LoanAPIGuarantor;
+    /**
+     * Entity legally responsible to payback the loan
+     */
+    @SpeakeasyMetadata()
+    guarantor?: LoanAPIGuarantor;
 
-  @SpeakeasyMetadata()
-  id?: any;
+    @SpeakeasyMetadata()
+    id?: any;
 
-  /**
-   * Invoices already uploaded that the loan should finance
-   */
-  @SpeakeasyMetadata()
-  invoiceIds?: string[];
+    /**
+     * Invoices already uploaded that the loan should finance
+     */
+    @SpeakeasyMetadata()
+    invoiceIds?: string[];
 
-  /**
-   * Bank account used to transfer the amount of the loan to the borrower
-   */
-  @SpeakeasyMetadata()
-  loanFrom?: LoanAPILoanFrom;
+    /**
+     * Bank account used to transfer the amount of the loan to the borrower
+     */
+    @SpeakeasyMetadata()
+    loanFrom?: LoanAPILoanFrom;
 
-  /**
-   * References in the transfer of the loan payment, on the account sending the money
-   */
-  @SpeakeasyMetadata()
-  loanFromReferences?: string[];
+    /**
+     * References in the transfer of the loan payment, on the account sending the money
+     */
+    @SpeakeasyMetadata()
+    loanFromReferences?: string[];
 
-  /**
-   * Bank account receiving the money of the loan
-   */
-  @SpeakeasyMetadata()
-  loanTo?: LoanAPILoanTo;
+    /**
+     * Bank account receiving the money of the loan
+     */
+    @SpeakeasyMetadata()
+    loanTo?: LoanAPILoanTo;
 
-  /**
-   * References in the transfer of the loan payment, on the account receiving the money
-   */
-  @SpeakeasyMetadata()
-  loanToReferences?: string[];
+    /**
+     * References in the transfer of the loan payment, on the account receiving the money
+     */
+    @SpeakeasyMetadata()
+    loanToReferences?: string[];
 
-  @SpeakeasyMetadata()
-  loanType: LoanAPILoanTypeEnum;
+    @SpeakeasyMetadata()
+    loanType: LoanAPILoanType;
 
-  @SpeakeasyMetadata()
-  metadata?: Record<string, any>;
+    @SpeakeasyMetadata()
+    metadata?: Record<string, any>;
 
-  @SpeakeasyMetadata()
-  notificationEmails?: string[];
+    @SpeakeasyMetadata()
+    notificationEmails?: string[];
 
-  /**
-   * Amount of the loan that has been repaid by the borrower, in cents
-   */
-  @SpeakeasyMetadata()
-  repaidAmount?: number;
+    /**
+     * Amount of the loan that has been repaid by the borrower, in cents
+     */
+    @SpeakeasyMetadata()
+    repaidAmount?: number;
 
-  @SpeakeasyMetadata()
-  repaidNominalAt?: Date;
+    @SpeakeasyMetadata()
+    repaidNominalAt?: Date;
 
-  /**
-   * Bank account repaying the loan
-   */
-  @SpeakeasyMetadata()
-  repaymentFrom?: LoanAPIRepaymentFrom;
+    /**
+     * Bank account repaying the loan
+     */
+    @SpeakeasyMetadata()
+    repaymentFrom?: LoanAPIRepaymentFrom;
 
-  /**
-   * References in the transfer of the loan repayment, on the account sending the money
-   */
-  @SpeakeasyMetadata()
-  repaymentFromReferences?: string[];
+    /**
+     * References in the transfer of the loan repayment, on the account sending the money
+     */
+    @SpeakeasyMetadata()
+    repaymentFromReferences?: string[];
 
-  @SpeakeasyMetadata()
-  repaymentMethod?: LoanAPIRepaymentMethodEnum;
+    @SpeakeasyMetadata()
+    repaymentMethod?: LoanAPIRepaymentMethod;
 
-  /**
-   * Bank account to send the loan repayment to
-   */
-  @SpeakeasyMetadata()
-  repaymentTo?: LoanAPIRepaymentTo;
+    /**
+     * Bank account to send the loan repayment to
+     */
+    @SpeakeasyMetadata()
+    repaymentTo?: LoanAPIRepaymentTo;
 
-  /**
-   * References in the transfer of the loan repayment, on the account receiving the money
-   */
-  @SpeakeasyMetadata()
-  repaymentToReferences?: string[];
+    /**
+     * References in the transfer of the loan repayment, on the account receiving the money
+     */
+    @SpeakeasyMetadata()
+    repaymentToReferences?: string[];
 
-  @SpeakeasyMetadata()
-  status?: LoanAPIStatusEnum;
+    @SpeakeasyMetadata()
+    status?: LoanAPIStatus;
 
-  @SpeakeasyMetadata()
-  submittedAt: Date;
+    @SpeakeasyMetadata()
+    submittedAt: Date;
 
-  /**
-   * Loan disbursement estimated date
-   */
-  @SpeakeasyMetadata()
-  toPayAt: Date;
+    /**
+     * Loan disbursement estimated date
+     */
+    @SpeakeasyMetadata()
+    toPayAt: Date;
 
-  /**
-   * Loan reimbursement estimated date
-   */
-  @SpeakeasyMetadata()
-  toRepayAt: Date;
+    /**
+     * Loan reimbursement estimated date
+     */
+    @SpeakeasyMetadata()
+    toRepayAt: Date;
 
-  @SpeakeasyMetadata()
-  transferContractUrl?: string;
+    @SpeakeasyMetadata()
+    transferContractUrl?: string;
 }

@@ -5,43 +5,39 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 
-export enum GenerateIbanCountryEnum {
-  Fra = "FRA",
-  Esp = "ESP",
-  Nld = "NLD",
-  Deu = "DEU",
-  Bel = "BEL",
+export enum GenerateIbanCountry {
+    Fra = "FRA",
+    Esp = "ESP",
+    Nld = "NLD",
+    Deu = "DEU",
+    Bel = "BEL",
 }
 
-export enum GenerateIbanScenarioEnum {
-  Success = "SUCCESS",
-  SuccessOneDayLater = "SUCCESS_ONE_DAY_LATER",
-  Reject = "REJECT",
-  Fail = "FAIL",
+export enum GenerateIbanScenario {
+    Success = "SUCCESS",
+    SuccessOneDayLater = "SUCCESS_ONE_DAY_LATER",
+    Reject = "REJECT",
+    Fail = "FAIL",
 }
 
 export class GenerateIbanRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=country",
-  })
-  country?: GenerateIbanCountryEnum;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=country" })
+    country?: GenerateIbanCountry;
 
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=scenario",
-  })
-  scenario?: GenerateIbanScenarioEnum;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=scenario" })
+    scenario?: GenerateIbanScenario;
 }
 
 export class GenerateIbanResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  body?: Uint8Array;
+    @SpeakeasyMetadata()
+    body?: Uint8Array;
 
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

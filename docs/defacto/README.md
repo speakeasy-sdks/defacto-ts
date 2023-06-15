@@ -1,4 +1,0 @@
-# Defacto SDK
-
-### Available Operations
-

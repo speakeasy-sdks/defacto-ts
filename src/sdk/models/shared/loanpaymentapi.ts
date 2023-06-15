@@ -4,29 +4,29 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
-export enum LoanPaymentApiPaymentTypeEnum {
-  LoanPayment = "LOAN_PAYMENT",
-  RepaymentNominal = "REPAYMENT_NOMINAL",
-  RepaymentFees = "REPAYMENT_FEES",
-  RepaymentFull = "REPAYMENT_FULL",
-  Refund = "REFUND",
-  Extra = "EXTRA",
-  Internal = "INTERNAL",
-  Returned = "RETURNED",
-  RevenueShare = "REVENUE_SHARE",
-  LoanPurchase = "LOAN_PURCHASE",
-  Chargeback = "CHARGEBACK",
-  ChannelVerification = "CHANNEL_VERIFICATION",
-  PaymentProviderFees = "PAYMENT_PROVIDER_FEES",
+export enum LoanPaymentApiPaymentType {
+    LoanPayment = "LOAN_PAYMENT",
+    RepaymentNominal = "REPAYMENT_NOMINAL",
+    RepaymentFees = "REPAYMENT_FEES",
+    RepaymentFull = "REPAYMENT_FULL",
+    Refund = "REFUND",
+    Extra = "EXTRA",
+    Internal = "INTERNAL",
+    Returned = "RETURNED",
+    RevenueShare = "REVENUE_SHARE",
+    LoanPurchase = "LOAN_PURCHASE",
+    Chargeback = "CHARGEBACK",
+    ChannelVerification = "CHANNEL_VERIFICATION",
+    PaymentProviderFees = "PAYMENT_PROVIDER_FEES",
 }
 
 export class LoanPaymentApi extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  amount: number;
+    @SpeakeasyMetadata()
+    amount: number;
 
-  @SpeakeasyMetadata()
-  loanId: string;
+    @SpeakeasyMetadata()
+    loanId: string;
 
-  @SpeakeasyMetadata()
-  paymentType: LoanPaymentApiPaymentTypeEnum;
+    @SpeakeasyMetadata()
+    paymentType: LoanPaymentApiPaymentType;
 }

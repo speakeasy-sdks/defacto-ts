@@ -1,0 +1,9 @@
+# UploadInvoicesRequest
+
+
+## Fields
+
+| Field                                                                                                  | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `buyer`                                                                                                | *string*                                                                                               | :heavy_minus_sign:                                                                                     | Business identifier of the buyer, must be in the form - such as SIREN-899021021 for a french company.  |
+| `seller`                                                                                               | *string*                                                                                               | :heavy_minus_sign:                                                                                     | Business identifier of the seller, must be in the form - such as SIREN-899021021 for a french company. |

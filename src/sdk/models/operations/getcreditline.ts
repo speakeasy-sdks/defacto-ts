@@ -6,25 +6,23 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 
 export class GetCreditLineRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=credit_line_id",
-  })
-  creditLineId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=credit_line_id" })
+    creditLineId: string;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=at" })
-  at?: Date;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=at" })
+    at?: Date;
 }
 
 export class GetCreditLineResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  body?: Uint8Array;
+    @SpeakeasyMetadata()
+    body?: Uint8Array;
 
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

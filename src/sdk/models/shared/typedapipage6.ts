@@ -6,15 +6,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Webhook1 } from "./webhook1";
 
 export class TypedApiPage6 extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  count: number;
+    @SpeakeasyMetadata()
+    count: number;
 
-  @SpeakeasyMetadata({ elemType: Webhook1 })
-  data?: Webhook1[];
+    @SpeakeasyMetadata({ elemType: Webhook1 })
+    data?: Webhook1[];
 
-  @SpeakeasyMetadata()
-  nextPage?: string;
+    @SpeakeasyMetadata()
+    nextPage?: string;
 
-  @SpeakeasyMetadata()
-  pageSize: number;
+    @SpeakeasyMetadata()
+    pageSize: number;
 }
