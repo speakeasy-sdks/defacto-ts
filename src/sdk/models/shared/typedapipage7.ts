@@ -6,15 +6,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { APIBill } from "./apibill";
 
 export class TypedApiPage7 extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  count: number;
+    @SpeakeasyMetadata()
+    count: number;
 
-  @SpeakeasyMetadata({ elemType: APIBill })
-  data?: APIBill[];
+    @SpeakeasyMetadata({ elemType: APIBill })
+    data?: APIBill[];
 
-  @SpeakeasyMetadata()
-  nextPage?: string;
+    @SpeakeasyMetadata()
+    nextPage?: string;
 
-  @SpeakeasyMetadata()
-  pageSize: number;
+    @SpeakeasyMetadata()
+    pageSize: number;
 }

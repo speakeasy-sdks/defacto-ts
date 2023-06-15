@@ -7,242 +7,242 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum APIInvoiceBuyerIdentifierTypeEnum {
-  Siret = "siret",
-  Siren = "siren",
-  VatNumber = "vat_number",
-  Name = "name",
-  Nif = "nif",
-  Cif = "cif",
-  Kvk = "kvk",
-  Bsn = "bsn",
-  HrNummer = "hr_nummer",
-  BelgiumRegistrationNumber = "belgium_registration_number",
-  Steuernummer = "steuernummer",
-  LessThanNilGreaterThan = "<nil>",
+export enum APIInvoiceBuyerIdentifierType {
+    Siret = "siret",
+    Siren = "siren",
+    VatNumber = "vat_number",
+    Name = "name",
+    Nif = "nif",
+    Cif = "cif",
+    Kvk = "kvk",
+    Bsn = "bsn",
+    HrNummer = "hr_nummer",
+    BelgiumRegistrationNumber = "belgium_registration_number",
+    Steuernummer = "steuernummer",
+    LessThanNilGreaterThan = "<nil>",
 }
 
 export class APIInvoiceBuyer extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  businessId?: any;
+    @SpeakeasyMetadata()
+    businessId?: any;
 
-  @SpeakeasyMetadata()
-  id?: any;
+    @SpeakeasyMetadata()
+    id?: any;
 
-  /**
-   * Legal identifier of the business, such as its SIRET in France.
-   */
-  @SpeakeasyMetadata()
-  identifier: string;
+    /**
+     * Legal identifier of the business, such as its SIRET in France.
+     */
+    @SpeakeasyMetadata()
+    identifier: string;
 
-  /**
-   * Type of legal business identifier of the business, such as the SIRET in France.
-   */
-  @SpeakeasyMetadata()
-  identifierType?: APIInvoiceBuyerIdentifierTypeEnum;
+    /**
+     * Type of legal business identifier of the business, such as the SIRET in France.
+     */
+    @SpeakeasyMetadata()
+    identifierType?: APIInvoiceBuyerIdentifierType;
 
-  /**
-   * Legal name of the business.
-   */
-  @SpeakeasyMetadata()
-  name?: string;
+    /**
+     * Legal name of the business.
+     */
+    @SpeakeasyMetadata()
+    name?: string;
 
-  /**
-   * The VAT number of the business, if European
-   */
-  @SpeakeasyMetadata()
-  vatNumber?: string;
+    /**
+     * The VAT number of the business, if European
+     */
+    @SpeakeasyMetadata()
+    vatNumber?: string;
 }
 
 /**
  * Currency of the invoice. Use ISO 4217 currency code.
  */
-export enum APIInvoiceCurrencyEnum {
-  Eur = "EUR",
-  Gbp = "GBP",
+export enum APIInvoiceCurrency {
+    Eur = "EUR",
+    Gbp = "GBP",
 }
 
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum APIInvoiceSellerIdentifierTypeEnum {
-  Siret = "siret",
-  Siren = "siren",
-  VatNumber = "vat_number",
-  Name = "name",
-  Nif = "nif",
-  Cif = "cif",
-  Kvk = "kvk",
-  Bsn = "bsn",
-  HrNummer = "hr_nummer",
-  BelgiumRegistrationNumber = "belgium_registration_number",
-  Steuernummer = "steuernummer",
-  LessThanNilGreaterThan = "<nil>",
+export enum APIInvoiceSellerIdentifierType {
+    Siret = "siret",
+    Siren = "siren",
+    VatNumber = "vat_number",
+    Name = "name",
+    Nif = "nif",
+    Cif = "cif",
+    Kvk = "kvk",
+    Bsn = "bsn",
+    HrNummer = "hr_nummer",
+    BelgiumRegistrationNumber = "belgium_registration_number",
+    Steuernummer = "steuernummer",
+    LessThanNilGreaterThan = "<nil>",
 }
 
 export class APIInvoiceSeller extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  businessId?: any;
+    @SpeakeasyMetadata()
+    businessId?: any;
 
-  @SpeakeasyMetadata()
-  id?: any;
+    @SpeakeasyMetadata()
+    id?: any;
 
-  /**
-   * Legal identifier of the business, such as its SIRET in France.
-   */
-  @SpeakeasyMetadata()
-  identifier: string;
+    /**
+     * Legal identifier of the business, such as its SIRET in France.
+     */
+    @SpeakeasyMetadata()
+    identifier: string;
 
-  /**
-   * Type of legal business identifier of the business, such as the SIRET in France.
-   */
-  @SpeakeasyMetadata()
-  identifierType?: APIInvoiceSellerIdentifierTypeEnum;
+    /**
+     * Type of legal business identifier of the business, such as the SIRET in France.
+     */
+    @SpeakeasyMetadata()
+    identifierType?: APIInvoiceSellerIdentifierType;
 
-  /**
-   * Legal name of the business.
-   */
-  @SpeakeasyMetadata()
-  name?: string;
+    /**
+     * Legal name of the business.
+     */
+    @SpeakeasyMetadata()
+    name?: string;
 
-  /**
-   * The VAT number of the business, if European
-   */
-  @SpeakeasyMetadata()
-  vatNumber?: string;
+    /**
+     * The VAT number of the business, if European
+     */
+    @SpeakeasyMetadata()
+    vatNumber?: string;
 }
 
 /**
  * TO_SUBMIT, SUBMITTED, TO_EDIT or VERIFIED TO_SUBMIT: the invoice is a draft, you can correct it and submit it when correct SUBMITTED: the invoice has been submitted and Defacto is verifying it TO_EDIT: the invoice has not been validated by Defacto. It should be edited before you can submit it again VERIFIED: the invoice has been verified by Defacto. A loan can now be requested for the invoice.
  */
-export enum APIInvoiceStatusEnum {
-  ToSubmit = "TO_SUBMIT",
-  Submitted = "SUBMITTED",
-  ToEdit = "TO_EDIT",
-  Verified = "VERIFIED",
-  Deleted = "DELETED",
+export enum APIInvoiceStatus {
+    ToSubmit = "TO_SUBMIT",
+    Submitted = "SUBMITTED",
+    ToEdit = "TO_EDIT",
+    Verified = "VERIFIED",
+    Deleted = "DELETED",
 }
 
 /**
  * The type of account number (e.g. IBAN).
  */
-export enum APIInvoiceToAccountDetailsAccountNumberTypeEnum {
-  Iban = "iban",
-  AccountNumber = "account_number",
-  InternalId = "internal_id",
+export enum APIInvoiceToAccountDetailsAccountNumberType {
+    Iban = "iban",
+    AccountNumber = "account_number",
+    InternalId = "internal_id",
 }
 
 /**
  * The type of bank identifier (e.g. BIC).
  */
-export enum APIInvoiceToAccountDetailsBankIdentifierTypeEnum {
-  Bic = "bic",
-  RoutingNumber = "routing_number",
-  Name = "name",
+export enum APIInvoiceToAccountDetailsBankIdentifierType {
+    Bic = "bic",
+    RoutingNumber = "routing_number",
+    Name = "name",
 }
 
 export class APIInvoiceToAccountDetails extends SpeakeasyBase {
-  /**
-   * The account identifier. Only IBANs are supported at the moment.
-   */
-  @SpeakeasyMetadata()
-  accountNumber: string;
+    /**
+     * The account identifier. Only IBANs are supported at the moment.
+     */
+    @SpeakeasyMetadata()
+    accountNumber: string;
 
-  /**
-   * The type of account number (e.g. IBAN).
-   */
-  @SpeakeasyMetadata()
-  accountNumberType: APIInvoiceToAccountDetailsAccountNumberTypeEnum;
+    /**
+     * The type of account number (e.g. IBAN).
+     */
+    @SpeakeasyMetadata()
+    accountNumberType: APIInvoiceToAccountDetailsAccountNumberType;
 
-  /**
-   * The identifier of the bank.
-   */
-  @SpeakeasyMetadata()
-  bankIdentifier: string;
+    /**
+     * The identifier of the bank.
+     */
+    @SpeakeasyMetadata()
+    bankIdentifier: string;
 
-  /**
-   * The type of bank identifier (e.g. BIC).
-   */
-  @SpeakeasyMetadata()
-  bankIdentifierType: APIInvoiceToAccountDetailsBankIdentifierTypeEnum;
+    /**
+     * The type of bank identifier (e.g. BIC).
+     */
+    @SpeakeasyMetadata()
+    bankIdentifierType: APIInvoiceToAccountDetailsBankIdentifierType;
 }
 
 export class APIInvoice extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  buyer?: APIInvoiceBuyer;
+    @SpeakeasyMetadata()
+    buyer?: APIInvoiceBuyer;
 
-  /**
-   * Currency of the invoice. Use ISO 4217 currency code.
-   */
-  @SpeakeasyMetadata()
-  currency?: APIInvoiceCurrencyEnum;
+    /**
+     * Currency of the invoice. Use ISO 4217 currency code.
+     */
+    @SpeakeasyMetadata()
+    currency?: APIInvoiceCurrency;
 
-  @SpeakeasyMetadata()
-  documentUrl?: string;
+    @SpeakeasyMetadata()
+    documentUrl?: string;
 
-  @SpeakeasyMetadata()
-  dueAt?: Date;
+    @SpeakeasyMetadata()
+    dueAt?: Date;
 
-  @SpeakeasyMetadata()
-  id?: any;
+    @SpeakeasyMetadata()
+    id?: any;
 
-  /**
-   * Invoice number as displayed on the invoice
-   */
-  @SpeakeasyMetadata()
-  invoiceNumber: string;
+    /**
+     * Invoice number as displayed on the invoice
+     */
+    @SpeakeasyMetadata()
+    invoiceNumber: string;
 
-  /**
-   * True by default, set to false if you want to create and validate invoice in one API call.
-   */
-  @SpeakeasyMetadata()
-  isDraft?: boolean;
+    /**
+     * True by default, set to false if you want to create and validate invoice in one API call.
+     */
+    @SpeakeasyMetadata()
+    isDraft?: boolean;
 
-  @SpeakeasyMetadata()
-  issuedAt?: Date;
+    @SpeakeasyMetadata()
+    issuedAt?: Date;
 
-  @SpeakeasyMetadata()
-  loanIds?: string[];
+    @SpeakeasyMetadata()
+    loanIds?: string[];
 
-  /**
-   * This object is yours, it enables you to add custom data.
-   */
-  @SpeakeasyMetadata()
-  metadata?: Record<string, any>;
+    /**
+     * This object is yours, it enables you to add custom data.
+     */
+    @SpeakeasyMetadata()
+    metadata?: Record<string, any>;
 
-  /**
-   * Amount before tax, in cents
-   */
-  @SpeakeasyMetadata()
-  netAmount: number;
+    /**
+     * Amount before tax, in cents
+     */
+    @SpeakeasyMetadata()
+    netAmount: number;
 
-  @SpeakeasyMetadata()
-  seller?: APIInvoiceSeller;
+    @SpeakeasyMetadata()
+    seller?: APIInvoiceSeller;
 
-  /**
-   * TO_SUBMIT, SUBMITTED, TO_EDIT or VERIFIED TO_SUBMIT: the invoice is a draft, you can correct it and submit it when correct SUBMITTED: the invoice has been submitted and Defacto is verifying it TO_EDIT: the invoice has not been validated by Defacto. It should be edited before you can submit it again VERIFIED: the invoice has been verified by Defacto. A loan can now be requested for the invoice.
-   */
-  @SpeakeasyMetadata()
-  status?: APIInvoiceStatusEnum;
+    /**
+     * TO_SUBMIT, SUBMITTED, TO_EDIT or VERIFIED TO_SUBMIT: the invoice is a draft, you can correct it and submit it when correct SUBMITTED: the invoice has been submitted and Defacto is verifying it TO_EDIT: the invoice has not been validated by Defacto. It should be edited before you can submit it again VERIFIED: the invoice has been verified by Defacto. A loan can now be requested for the invoice.
+     */
+    @SpeakeasyMetadata()
+    status?: APIInvoiceStatus;
 
-  /**
-   * Amount of tax, in cents
-   */
-  @SpeakeasyMetadata()
-  taxAmount?: number;
+    /**
+     * Amount of tax, in cents
+     */
+    @SpeakeasyMetadata()
+    taxAmount?: number;
 
-  @SpeakeasyMetadata()
-  toAccountDetails?: APIInvoiceToAccountDetails;
+    @SpeakeasyMetadata()
+    toAccountDetails?: APIInvoiceToAccountDetails;
 
-  /**
-   * Remaining amount due by buyer to seller, in cents. Set at 0 for fully paid invoices.
-   */
-  @SpeakeasyMetadata()
-  toPayAmount?: number;
+    /**
+     * Remaining amount due by buyer to seller, in cents. Set at 0 for fully paid invoices.
+     */
+    @SpeakeasyMetadata()
+    toPayAmount?: number;
 
-  /**
-   * Sum of net amount and tax amount, in cents
-   */
-  @SpeakeasyMetadata()
-  totalAmount?: number;
+    /**
+     * Sum of net amount and tax amount, in cents
+     */
+    @SpeakeasyMetadata()
+    totalAmount?: number;
 }

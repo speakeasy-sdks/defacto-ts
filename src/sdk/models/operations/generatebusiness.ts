@@ -5,36 +5,32 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 
-export enum GenerateBusinessCountryEnum {
-  Fra = "FRA",
-  Esp = "ESP",
-  Nld = "NLD",
-  Deu = "DEU",
-  Bel = "BEL",
+export enum GenerateBusinessCountry {
+    Fra = "FRA",
+    Esp = "ESP",
+    Nld = "NLD",
+    Deu = "DEU",
+    Bel = "BEL",
 }
 
 export class GenerateBusinessRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=country",
-  })
-  country?: GenerateBusinessCountryEnum;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=country" })
+    country?: GenerateBusinessCountry;
 
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=is_borrower",
-  })
-  isBorrower?: boolean;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=is_borrower" })
+    isBorrower?: boolean;
 }
 
 export class GenerateBusinessResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  body?: Uint8Array;
+    @SpeakeasyMetadata()
+    body?: Uint8Array;
 
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

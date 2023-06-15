@@ -4,54 +4,54 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
-export enum LoanApiEventEntityTypeEnum {
-  Business = "business",
-  Account = "account",
-  Loan = "loan",
-  Invoice = "invoice",
-  Payment = "payment",
-  Counterparty = "counterparty",
-  Bill = "bill",
-  SandboxInvoice = "sandbox_invoice",
-  Borrower = "borrower",
-  Contract = "contract",
-  Mandate = "mandate",
-  RawData = "raw_data",
-  CreditLine = "credit_line",
-  BusinessExposure = "business_exposure",
-  MaxExposureDeployment = "max_exposure_deployment",
-  RevenueShare = "revenue_share",
+export enum LoanApiEventEntityType {
+    Business = "business",
+    Account = "account",
+    Loan = "loan",
+    Invoice = "invoice",
+    Payment = "payment",
+    Counterparty = "counterparty",
+    Bill = "bill",
+    SandboxInvoice = "sandbox_invoice",
+    Borrower = "borrower",
+    Contract = "contract",
+    Mandate = "mandate",
+    RawData = "raw_data",
+    CreditLine = "credit_line",
+    BusinessExposure = "business_exposure",
+    MaxExposureDeployment = "max_exposure_deployment",
+    RevenueShare = "revenue_share",
 }
 
-export enum LoanApiEventStatusEnum {
-  Submitted = "SUBMITTED",
-  ToValidate = "TO_VALIDATE",
-  Declined = "DECLINED",
-  Validated = "VALIDATED",
-  Canceled = "CANCELED",
-  Scheduled = "SCHEDULED",
-  Initiated = "INITIATED",
-  ToRepay = "TO_REPAY",
-  ToRepayFees = "TO_REPAY_FEES",
-  Overdue = "OVERDUE",
-  Closed = "CLOSED",
-  IssueDetected = "ISSUE_DETECTED",
-  Deleted = "DELETED",
+export enum LoanApiEventStatus {
+    Submitted = "SUBMITTED",
+    ToValidate = "TO_VALIDATE",
+    Declined = "DECLINED",
+    Validated = "VALIDATED",
+    Canceled = "CANCELED",
+    Scheduled = "SCHEDULED",
+    Initiated = "INITIATED",
+    ToRepay = "TO_REPAY",
+    ToRepayFees = "TO_REPAY_FEES",
+    Overdue = "OVERDUE",
+    Closed = "CLOSED",
+    IssueDetected = "ISSUE_DETECTED",
+    Deleted = "DELETED",
 }
 
 export class LoanApiEvent extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  entityType: LoanApiEventEntityTypeEnum;
+    @SpeakeasyMetadata()
+    entityType: LoanApiEventEntityType;
 
-  @SpeakeasyMetadata()
-  payload?: Record<string, any>;
+    @SpeakeasyMetadata()
+    payload?: Record<string, any>;
 
-  @SpeakeasyMetadata()
-  status: LoanApiEventStatusEnum;
+    @SpeakeasyMetadata()
+    status: LoanApiEventStatus;
 
-  @SpeakeasyMetadata()
-  timestamp?: Date;
+    @SpeakeasyMetadata()
+    timestamp?: Date;
 
-  @SpeakeasyMetadata()
-  transitionName?: string;
+    @SpeakeasyMetadata()
+    transitionName?: string;
 }

@@ -7,49 +7,49 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 /**
  * The type of account number (e.g. IBAN).
  */
-export enum APILightAccountAccountNumberTypeEnum {
-  Iban = "iban",
-  AccountNumber = "account_number",
-  InternalId = "internal_id",
+export enum APILightAccountAccountNumberType {
+    Iban = "iban",
+    AccountNumber = "account_number",
+    InternalId = "internal_id",
 }
 
 /**
  * The type of bank identifier (e.g. BIC).
  */
-export enum APILightAccountBankIdentifierTypeEnum {
-  Bic = "bic",
-  RoutingNumber = "routing_number",
-  Name = "name",
+export enum APILightAccountBankIdentifierType {
+    Bic = "bic",
+    RoutingNumber = "routing_number",
+    Name = "name",
 }
 
 export class APILightAccount extends SpeakeasyBase {
-  /**
-   * A name given to this account. Any name can be given.
-   */
-  @SpeakeasyMetadata()
-  accountName?: string;
+    /**
+     * A name given to this account. Any name can be given.
+     */
+    @SpeakeasyMetadata()
+    accountName?: string;
 
-  /**
-   * The account identifier. Only IBANs are supported at the moment.
-   */
-  @SpeakeasyMetadata()
-  accountNumber: string;
+    /**
+     * The account identifier. Only IBANs are supported at the moment.
+     */
+    @SpeakeasyMetadata()
+    accountNumber: string;
 
-  /**
-   * The type of account number (e.g. IBAN).
-   */
-  @SpeakeasyMetadata()
-  accountNumberType: APILightAccountAccountNumberTypeEnum;
+    /**
+     * The type of account number (e.g. IBAN).
+     */
+    @SpeakeasyMetadata()
+    accountNumberType: APILightAccountAccountNumberType;
 
-  /**
-   * The identifier of the bank.
-   */
-  @SpeakeasyMetadata()
-  bankIdentifier: string;
+    /**
+     * The identifier of the bank.
+     */
+    @SpeakeasyMetadata()
+    bankIdentifier: string;
 
-  /**
-   * The type of bank identifier (e.g. BIC).
-   */
-  @SpeakeasyMetadata()
-  bankIdentifierType: APILightAccountBankIdentifierTypeEnum;
+    /**
+     * The type of bank identifier (e.g. BIC).
+     */
+    @SpeakeasyMetadata()
+    bankIdentifierType: APILightAccountBankIdentifierType;
 }

@@ -5,113 +5,89 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 
-export enum ListPaymentsPaymentMethodEnum {
-  DirectDebit = "DIRECT_DEBIT",
-  Sct = "SCT",
-  P2P = "P2P",
+export enum ListPaymentsPaymentMethod {
+    DirectDebit = "DIRECT_DEBIT",
+    Sct = "SCT",
+    P2P = "P2P",
 }
 
-export enum ListPaymentsPaymentTypeEnum {
-  LoanPayment = "LOAN_PAYMENT",
-  RepaymentNominal = "REPAYMENT_NOMINAL",
-  RepaymentFees = "REPAYMENT_FEES",
-  RepaymentFull = "REPAYMENT_FULL",
-  Refund = "REFUND",
-  Extra = "EXTRA",
-  Internal = "INTERNAL",
-  Returned = "RETURNED",
-  RevenueShare = "REVENUE_SHARE",
-  LoanPurchase = "LOAN_PURCHASE",
-  Chargeback = "CHARGEBACK",
-  ChannelVerification = "CHANNEL_VERIFICATION",
-  PaymentProviderFees = "PAYMENT_PROVIDER_FEES",
+export enum ListPaymentsPaymentType {
+    LoanPayment = "LOAN_PAYMENT",
+    RepaymentNominal = "REPAYMENT_NOMINAL",
+    RepaymentFees = "REPAYMENT_FEES",
+    RepaymentFull = "REPAYMENT_FULL",
+    Refund = "REFUND",
+    Extra = "EXTRA",
+    Internal = "INTERNAL",
+    Returned = "RETURNED",
+    RevenueShare = "REVENUE_SHARE",
+    LoanPurchase = "LOAN_PURCHASE",
+    Chargeback = "CHARGEBACK",
+    ChannelVerification = "CHANNEL_VERIFICATION",
+    PaymentProviderFees = "PAYMENT_PROVIDER_FEES",
 }
 
-export enum ListPaymentsStatusEnum {
-  Proposed = "PROPOSED",
-  Scheduled = "SCHEDULED",
-  Canceled = "CANCELED",
-  Failed = "FAILED",
-  Instructed = "INSTRUCTED",
-  InTransit = "IN_TRANSIT",
-  Paid = "PAID",
+export enum ListPaymentsStatus {
+    Proposed = "PROPOSED",
+    Scheduled = "SCHEDULED",
+    Canceled = "CANCELED",
+    Failed = "FAILED",
+    Instructed = "INSTRUCTED",
+    InTransit = "IN_TRANSIT",
+    Paid = "PAID",
 }
 
 export class ListPaymentsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=cursor",
-  })
-  cursor?: string;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=cursor" })
+    cursor?: string;
 
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=from_account_id",
-  })
-  fromAccountId?: string;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=from_account_id" })
+    fromAccountId?: string;
 
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=from_date",
-  })
-  fromDate?: Date;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=from_date" })
+    fromDate?: Date;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=id" })
-  id?: string;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=id" })
+    id?: string;
 
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=is_reconciled",
-  })
-  isReconciled?: boolean;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=is_reconciled" })
+    isReconciled?: boolean;
 
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=loan_id",
-  })
-  loanId?: string[];
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=loan_id" })
+    loanId?: string[];
 
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=page_size",
-  })
-  pageSize?: number;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page_size" })
+    pageSize?: number;
 
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=payment_method",
-  })
-  paymentMethod?: ListPaymentsPaymentMethodEnum[];
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=payment_method" })
+    paymentMethod?: ListPaymentsPaymentMethod[];
 
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=payment_type",
-  })
-  paymentType?: ListPaymentsPaymentTypeEnum[];
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=payment_type" })
+    paymentType?: ListPaymentsPaymentType[];
 
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=references",
-  })
-  references?: string[];
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=references" })
+    references?: string[];
 
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=status",
-  })
-  status?: ListPaymentsStatusEnum[];
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=status" })
+    status?: ListPaymentsStatus[];
 
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=to_account_id",
-  })
-  toAccountId?: string;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=to_account_id" })
+    toAccountId?: string;
 
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=to_date",
-  })
-  toDate?: Date;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=to_date" })
+    toDate?: Date;
 }
 
 export class ListPaymentsResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  body?: Uint8Array;
+    @SpeakeasyMetadata()
+    body?: Uint8Array;
 
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

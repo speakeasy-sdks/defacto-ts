@@ -7,25 +7,23 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class SubmitInvoiceRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=invoice_id",
-  })
-  invoiceId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=invoice_id" })
+    invoiceId: string;
 
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  apiPatchInvoice?: shared.APIPatchInvoice;
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    apiPatchInvoice?: shared.APIPatchInvoice;
 }
 
 export class SubmitInvoiceResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  body?: Uint8Array;
+    @SpeakeasyMetadata()
+    body?: Uint8Array;
 
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

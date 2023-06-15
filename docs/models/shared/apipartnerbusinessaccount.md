@@ -1,0 +1,10 @@
+# APIPartnerBusinessAccount
+
+
+## Fields
+
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `amount`                                                                                      | *number*                                                                                      | :heavy_check_mark:                                                                            | Balance of the bank account.                                                                  |
+| `id`                                                                                          | *string*                                                                                      | :heavy_check_mark:                                                                            | Unique bank account identifier.                                                               |
+| `lastUpdatedAt`                                                                               | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | Date of last balance update.                                                                  |

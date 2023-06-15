@@ -9,73 +9,73 @@ import { Expose, Transform, Type } from "class-transformer";
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum APIQuoteEligibilityBorrowerIdentifierTypeEnum {
-  Siret = "siret",
-  Siren = "siren",
-  VatNumber = "vat_number",
-  Name = "name",
-  Nif = "nif",
-  Cif = "cif",
-  Kvk = "kvk",
-  Bsn = "bsn",
-  HrNummer = "hr_nummer",
-  BelgiumRegistrationNumber = "belgium_registration_number",
-  Steuernummer = "steuernummer",
-  LessThanNilGreaterThan = "<nil>",
+export enum APIQuoteEligibilityBorrowerIdentifierType {
+    Siret = "siret",
+    Siren = "siren",
+    VatNumber = "vat_number",
+    Name = "name",
+    Nif = "nif",
+    Cif = "cif",
+    Kvk = "kvk",
+    Bsn = "bsn",
+    HrNummer = "hr_nummer",
+    BelgiumRegistrationNumber = "belgium_registration_number",
+    Steuernummer = "steuernummer",
+    LessThanNilGreaterThan = "<nil>",
 }
 
 export class APIQuoteEligibilityBorrower extends SpeakeasyBase {
-  /**
-   * Legal identifier of the business, such as its SIRET in France.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "identifier" })
-  identifier: string;
+    /**
+     * Legal identifier of the business, such as its SIRET in France.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "identifier" })
+    identifier: string;
 
-  /**
-   * Type of legal business identifier of the business, such as the SIRET in France.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "identifier_type" })
-  identifierType?: APIQuoteEligibilityBorrowerIdentifierTypeEnum;
+    /**
+     * Type of legal business identifier of the business, such as the SIRET in France.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "identifier_type" })
+    identifierType?: APIQuoteEligibilityBorrowerIdentifierType;
 }
 
 export class APIQuoteEligibility extends SpeakeasyBase {
-  /**
-   * Amount requested, in cents. For example, to request 10€, the value to pass is 1000
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "amount" })
-  amount: number;
+    /**
+     * Amount requested, in cents. For example, to request 10€, the value to pass is 1000
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "amount" })
+    amount: number;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "borrower" })
-  @Type(() => APIQuoteEligibilityBorrower)
-  borrower?: APIQuoteEligibilityBorrower;
+    @SpeakeasyMetadata()
+    @Expose({ name: "borrower" })
+    @Type(() => APIQuoteEligibilityBorrower)
+    borrower?: APIQuoteEligibilityBorrower;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "buyer" })
-  @Type(() => BusinessIdentifier)
-  buyer: BusinessIdentifier;
+    @SpeakeasyMetadata()
+    @Expose({ name: "buyer" })
+    @Type(() => BusinessIdentifier)
+    buyer: BusinessIdentifier;
 
-  /**
-   * End date of the financing to check eligibility for.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "end_date" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  endDate: Date;
+    /**
+     * End date of the financing to check eligibility for.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "end_date" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    endDate: Date;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "seller" })
-  @Type(() => BusinessIdentifier)
-  seller: BusinessIdentifier;
+    @SpeakeasyMetadata()
+    @Expose({ name: "seller" })
+    @Type(() => BusinessIdentifier)
+    seller: BusinessIdentifier;
 
-  /**
-   * Start date of the financing to check eligibility for.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "start_date" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  startDate: Date;
+    /**
+     * Start date of the financing to check eligibility for.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "start_date" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    startDate: Date;
 }

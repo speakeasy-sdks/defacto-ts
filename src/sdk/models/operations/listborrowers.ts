@@ -6,43 +6,35 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 
 export class ListBorrowersRequest extends SpeakeasyBase {
-  /**
-   * UUID(s) of the borrower(s) in Defacto API.
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=borrower_id",
-  })
-  borrowerId?: string[];
+    /**
+     * UUID(s) of the borrower(s) in Defacto API.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=borrower_id" })
+    borrowerId?: string[];
 
-  /**
-   * Legal identifier of the business, such as its SIREN in France.
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=borrower_identifier",
-  })
-  borrowerIdentifier?: string;
+    /**
+     * Legal identifier of the business, such as its SIREN in France.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=borrower_identifier" })
+    borrowerIdentifier?: string;
 
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=cursor",
-  })
-  cursor?: string;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=cursor" })
+    cursor?: string;
 
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=page_size",
-  })
-  pageSize?: number;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page_size" })
+    pageSize?: number;
 }
 
 export class ListBorrowersResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  body?: Uint8Array;
+    @SpeakeasyMetadata()
+    body?: Uint8Array;
 
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

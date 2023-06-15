@@ -5,158 +5,154 @@
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
+import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 export class Billing {
-  _defaultClient: AxiosInstance;
-  _securityClient: AxiosInstance;
-  _serverURL: string;
-  _language: string;
-  _sdkVersion: string;
-  _genVersion: string;
+    private sdkConfiguration: SDKConfiguration;
 
-  constructor(
-    defaultClient: AxiosInstance,
-    securityClient: AxiosInstance,
-    serverURL: string,
-    language: string,
-    sdkVersion: string,
-    genVersion: string
-  ) {
-    this._defaultClient = defaultClient;
-    this._securityClient = securityClient;
-    this._serverURL = serverURL;
-    this._language = language;
-    this._sdkVersion = sdkVersion;
-    this._genVersion = genVersion;
-  }
-
-  /**
-   * List your fees invoices (i.e: your Defacto bill) for the loans you performed on the platform. By default, this endpoint only returns your own bills, but you may request bills for your own specific borrowers (with a business identifier or ID) depending on your contract type.
-   */
-  async listBills(
-    req: operations.ListBillsRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.ListBillsResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.ListBillsRequest(req);
+    constructor(sdkConfig: SDKConfiguration) {
+        this.sdkConfiguration = sdkConfig;
     }
 
-    const baseURL: string = this._serverURL;
-    const url: string = baseURL.replace(/\/$/, "") + "/bills";
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const queryParams: string = utils.serializeQueryParams(req);
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url + queryParams,
-      method: "get",
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.ListBillsResponse = new operations.ListBillsResponse({
-      statusCode: httpRes.status,
-      contentType: contentType,
-      rawResponse: httpRes,
-    });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `*/*`)) {
-          const resBody: string = JSON.stringify(httpRes?.data, null, 0);
-          const out: Uint8Array = new Uint8Array(resBody.length);
-          for (let i = 0; i < resBody.length; i++)
-            out[i] = resBody.charCodeAt(i);
-          res.body = out;
+    /**
+     * List your fees invoices (i.e: your Defacto bill) for the loans you performed on the platform. By default, this endpoint only returns your own bills, but you may request bills for your own specific borrowers (with a business identifier or ID) depending on your contract type.
+     */
+    async listBills(
+        req: operations.ListBillsRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.ListBillsResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.ListBillsRequest(req);
         }
-        break;
-    }
 
-    return res;
-  }
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
+        const url: string = baseURL.replace(/\/$/, "") + "/bills";
 
-  /**
-   *
-   * This endpoint enables you to notify Defacto when you sent the bill for the fees of the loans to your user.
-   * A bill should be sent to the user only when its status is VALIDATED (see GET /bills endpoint).
-   *
-   * It is very important to use this endpoint so that Defacto can proceed to a recollection process
-   * that will be fair for our users.
-   *
-   * This endpoint is useful only for partners who send the bill themselves.
-   * By default the bills are sent the the payers of the fees by Defacto.
-   * If you need to send them by yourself please get in touch with us.
-   *
-   */
-  async sendBill(
-    billId: string,
-    apiBillSentByPartnerRequest?: shared.APIBillSentByPartnerRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.SendBillResponse> {
-    const req = new operations.SendBillRequest({
-      billId: billId,
-      apiBillSentByPartnerRequest: apiBillSentByPartnerRequest,
-    });
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/bill/{bill_id}/sent", req);
+        const client: AxiosInstance =
+            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
 
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
+        headers["Accept"] = "*/*";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-        req,
-        "apiBillSentByPartnerRequest",
-        "json"
-      );
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url + queryParams,
+            method: "get",
+            headers: headers,
+            responseType: "arraybuffer",
+            ...config,
+        });
 
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-    const headers = { ...reqBodyHeaders, ...config?.headers };
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url,
-      method: "post",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.SendBillResponse = new operations.SendBillResponse({
-      statusCode: httpRes.status,
-      contentType: contentType,
-      rawResponse: httpRes,
-    });
-    switch (true) {
-      case httpRes?.status == 204:
-        if (utils.matchContentType(contentType, `*/*`)) {
-          const resBody: string = JSON.stringify(httpRes?.data, null, 0);
-          const out: Uint8Array = new Uint8Array(resBody.length);
-          for (let i = 0; i < resBody.length; i++)
-            out[i] = resBody.charCodeAt(i);
-          res.body = out;
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
         }
-        break;
+
+        const res: operations.ListBillsResponse = new operations.ListBillsResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `*/*`)) {
+                    res.body = httpRes?.data;
+                }
+                break;
+        }
+
+        return res;
     }
 
-    return res;
-  }
+    /**
+     *
+     * This endpoint enables you to notify Defacto when you sent the bill for the fees of the loans to your user.
+     * A bill should be sent to the user only when its status is VALIDATED (see GET /bills endpoint).
+     *
+     * It is very important to use this endpoint so that Defacto can proceed to a recollection process
+     * that will be fair for our users.
+     *
+     * This endpoint is useful only for partners who send the bill themselves.
+     * By default the bills are sent the the payers of the fees by Defacto.
+     * If you need to send them by yourself please get in touch with us.
+     *
+     */
+    async sendBill(
+        billId: string,
+        apiBillSentByPartnerRequest?: shared.APIBillSentByPartnerRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.SendBillResponse> {
+        const req = new operations.SendBillRequest({
+            billId: billId,
+            apiBillSentByPartnerRequest: apiBillSentByPartnerRequest,
+        });
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
+        const url: string = utils.generateURL(baseURL, "/bill/{bill_id}/sent", req);
+
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+        try {
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+                req,
+                "apiBillSentByPartnerRequest",
+                "json"
+            );
+        } catch (e: unknown) {
+            if (e instanceof Error) {
+                throw new Error(`Error serializing request body, cause: ${e.message}`);
+            }
+        }
+
+        const client: AxiosInstance =
+            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
+
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        headers["Accept"] = "*/*";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url,
+            method: "post",
+            headers: headers,
+            responseType: "arraybuffer",
+            data: reqBody,
+            ...config,
+        });
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.SendBillResponse = new operations.SendBillResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
+        switch (true) {
+            case httpRes?.status == 204:
+                if (utils.matchContentType(contentType, `*/*`)) {
+                    res.body = httpRes?.data;
+                }
+                break;
+        }
+
+        return res;
+    }
 }

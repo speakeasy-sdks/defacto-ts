@@ -5,6 +5,6 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 export class GenerateIbanResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  iban: string;
+    @SpeakeasyMetadata()
+    iban: string;
 }
