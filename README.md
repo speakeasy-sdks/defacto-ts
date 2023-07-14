@@ -26,6 +26,8 @@ yarn add https://github.com/speakeasy-sdks/defacto-ts
 
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
+
+
 ```typescript
 import { Defacto } from "defacto";
 import { ListBillsResponse, ListBillsStatus } from "defacto/dist/sdk/models/operations";

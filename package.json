@@ -1,6 +1,6 @@
 {
   "name": "defacto",
-  "version": "1.11.0",
+  "version": "1.12.0",
   "author": "Defacto",
   "scripts": {
     "prepare": "tsc --build"

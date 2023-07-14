@@ -2,14 +2,14 @@ configVersion: 1.0.0
 management:
   docChecksum: 1ce0e179a6e0de2157399d3d6e839ba2
   docVersion: v1.0.0
-  speakeasyVersion: 1.57.0
-  generationVersion: 2.62.1
+  speakeasyVersion: 1.59.0
+  generationVersion: 2.65.0
 generation:
   sdkClassName: defacto
   singleTagPerOp: false
   telemetryEnabled: false
 typescript:
-  version: 1.11.0
+  version: 1.12.0
   author: Defacto
   maxMethodParams: 4
   packageName: defacto
