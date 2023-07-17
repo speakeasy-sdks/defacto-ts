@@ -81,6 +81,13 @@ export class BusinessData {
             case httpRes?.status == 204:
                 if (utils.matchContentType(contentType, `*/*`)) {
                     res.body = httpRes?.data;
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        httpRes?.data,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -155,6 +162,13 @@ export class BusinessData {
             case httpRes?.status == 204:
                 if (utils.matchContentType(contentType, `*/*`)) {
                     res.body = httpRes?.data;
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        httpRes?.data,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -229,6 +243,13 @@ export class BusinessData {
             case httpRes?.status == 204:
                 if (utils.matchContentType(contentType, `*/*`)) {
                     res.body = httpRes?.data;
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        httpRes?.data,
+                        httpRes
+                    );
                 }
                 break;
         }

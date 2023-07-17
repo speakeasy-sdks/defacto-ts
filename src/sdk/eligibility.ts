@@ -67,6 +67,13 @@ export class Eligibility {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `*/*`)) {
                     res.body = httpRes?.data;
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        httpRes?.data,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -117,6 +124,13 @@ export class Eligibility {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `*/*`)) {
                     res.body = httpRes?.data;
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        httpRes?.data,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -180,6 +194,13 @@ export class Eligibility {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `*/*`)) {
                     res.body = httpRes?.data;
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        httpRes?.data,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -251,6 +272,13 @@ export class Eligibility {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `*/*`)) {
                     res.body = httpRes?.data;
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        httpRes?.data,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -322,6 +350,13 @@ export class Eligibility {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `*/*`)) {
                     res.body = httpRes?.data;
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        httpRes?.data,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -391,6 +426,13 @@ export class Eligibility {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `*/*`)) {
                     res.body = httpRes?.data;
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        httpRes?.data,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -462,6 +504,13 @@ export class Eligibility {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `*/*`)) {
                     res.body = httpRes?.data;
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        httpRes?.data,
+                        httpRes
+                    );
                 }
                 break;
         }
