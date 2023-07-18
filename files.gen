@@ -122,6 +122,7 @@ src/sdk/models/shared/typedapipage6.ts
 src/sdk/models/shared/webhook1.ts
 src/sdk/models/shared/security.ts
 src/sdk/models/shared/index.ts
+src/sdk/models/errors/index.ts
 docs/sdks/defacto/README.md
 docs/sdks/billing/README.md
 docs/sdks/businessdata/README.md
