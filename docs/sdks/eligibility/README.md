@@ -24,15 +24,17 @@ Get credit line
 
 ```typescript
 import { Defacto } from "defacto";
-import { GetCreditLineResponse } from "defacto/dist/sdk/models/operations";
+import { GetCreditLineRequest, GetCreditLineResponse } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
     bearer: "",
   },
 });
+const creditLineId: string = "eos";
+const at: Date = new Date("2022-10-30T14:09:25.982Z");
 
-sdk.eligibility.getCreditLine("eos", new Date("2022-10-30T14:09:25.982Z")).then((res: GetCreditLineResponse) => {
+sdk.eligibility.getCreditLine(creditLineId, at).then((res: GetCreditLineResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -96,25 +98,29 @@ List all the credit lines that have been opened for your company. By default, th
 
 ```typescript
 import { Defacto } from "defacto";
-import { ListCreditLinesResponse } from "defacto/dist/sdk/models/operations";
+import { ListCreditLinesRequest, ListCreditLinesResponse } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
     bearer: "",
   },
 });
-
-sdk.eligibility.listCreditLines([
+const borrower: string[] = [
   "quam",
   "dolor",
   "vero",
   "nostrum",
-], "hic", [
+];
+const cursor: string = "hic";
+const id: string[] = [
   "9b90c289-09b3-4fe4-9a8d-9cbf48633323",
   "f9b77f3a-4100-4674-abf6-9280d1ba77a8",
   "9ebf737a-e420-43ce-9e6a-95d8a0d446ce",
   "2af7a73c-f3be-4453-b870-b326b5a73429",
-], 807581).then((res: ListCreditLinesResponse) => {
+];
+const pageSize: number = 807581;
+
+sdk.eligibility.listCreditLines(borrower, cursor, id, pageSize).then((res: ListCreditLinesResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

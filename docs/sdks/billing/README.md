@@ -89,22 +89,25 @@ If you need to send them by yourself please get in touch with us.
 
 ```typescript
 import { Defacto } from "defacto";
-import { SendBillResponse } from "defacto/dist/sdk/models/operations";
+import { SendBillRequest, SendBillResponse } from "defacto/dist/sdk/models/operations";
+import { APIBillSentByPartnerRequest } from "defacto/dist/sdk/models/shared";
 
 const sdk = new Defacto({
   security: {
     bearer: "",
   },
 });
-
-sdk.billing.sendBill("deleniti", {
+const billId: string = "deleniti";
+const apiBillSentByPartnerRequest: APIBillSentByPartnerRequest = {
   sentOn: new Date("2022-04-23T13:35:30.978Z"),
   toEmailAddresses: [
     "Henry.Mosciski@yahoo.com",
     "Janice_Gutkowski28@gmail.com",
     "Geraldine.Mosciski87@gmail.com",
   ],
-}).then((res: SendBillResponse) => {
+};
+
+sdk.billing.sendBill(billId, apiBillSentByPartnerRequest).then((res: SendBillResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

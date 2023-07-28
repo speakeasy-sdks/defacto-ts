@@ -13,15 +13,16 @@
 
 ```typescript
 import { Defacto } from "defacto";
-import { DeactivateBorrowerResponse } from "defacto/dist/sdk/models/operations";
+import { DeactivateBorrowerRequest, DeactivateBorrowerResponse } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
     bearer: "",
   },
 });
+const borrowerId: string = "debitis";
 
-sdk.onboarding.deactivateBorrower("debitis").then((res: DeactivateBorrowerResponse) => {
+sdk.onboarding.deactivateBorrower(borrowerId).then((res: DeactivateBorrowerResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -174,20 +175,24 @@ List all your borrowers
 
 ```typescript
 import { Defacto } from "defacto";
-import { ListBorrowersResponse } from "defacto/dist/sdk/models/operations";
+import { ListBorrowersRequest, ListBorrowersResponse } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
     bearer: "",
   },
 });
-
-sdk.onboarding.listBorrowers([
+const borrowerId: string[] = [
   "3e060807-e2b6-4e3a-b884-5f0597a60ff2",
   "a54a31e9-4764-4a3e-865e-7956f9251a5a",
   "9da660ff-57bf-4aad-8f9e-fc1b4512c103",
   "2648dc2f-6151-499e-bfd0-e9fe6c632ca3",
-], "animi", "necessitatibus", 862063).then((res: ListBorrowersResponse) => {
+];
+const borrowerIdentifier: string = "animi";
+const cursor: string = "necessitatibus";
+const pageSize: number = 862063;
+
+sdk.onboarding.listBorrowers(borrowerId, borrowerIdentifier, cursor, pageSize).then((res: ListBorrowersResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -218,18 +223,21 @@ Register the date a new borrower accepted our T&Cs
 
 ```typescript
 import { Defacto } from "defacto";
-import { SignBorrowerResponse } from "defacto/dist/sdk/models/operations";
+import { SignBorrowerRequest, SignBorrowerResponse } from "defacto/dist/sdk/models/operations";
+import { SignedInput } from "defacto/dist/sdk/models/shared";
 
 const sdk = new Defacto({
   security: {
     bearer: "",
   },
 });
-
-sdk.onboarding.signBorrower("consequatur", {
+const borrowerId: string = "consequatur";
+const signedInput: SignedInput = {
   signedAt: new Date("2022-11-29T01:33:31.768Z"),
   waitForReady: false,
-}).then((res: SignBorrowerResponse) => {
+};
+
+sdk.onboarding.signBorrower(borrowerId, signedInput).then((res: SignBorrowerResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

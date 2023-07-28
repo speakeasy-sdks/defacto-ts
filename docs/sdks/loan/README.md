@@ -30,15 +30,16 @@ Use this function to cancel a loan proposal. Available for LoanStatus.TO_VALIDAT
 
 ```typescript
 import { Defacto } from "defacto";
-import { CancelLoanResponse } from "defacto/dist/sdk/models/operations";
+import { CancelLoanRequest, CancelLoanResponse } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
     bearer: "",
   },
 });
+const loanId: string = "eum";
 
-sdk.loan.cancel("eum").then((res: CancelLoanResponse) => {
+sdk.loan.cancel(loanId).then((res: CancelLoanResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -66,15 +67,16 @@ Get a loan by id
 
 ```typescript
 import { Defacto } from "defacto";
-import { GetLoanResponse } from "defacto/dist/sdk/models/operations";
+import { GetLoanRequest, GetLoanResponse } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
     bearer: "",
   },
 });
+const loanId: string = "quas";
 
-sdk.loan.get("quas").then((res: GetLoanResponse) => {
+sdk.loan.get(loanId).then((res: GetLoanResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -102,15 +104,16 @@ Get the activity log of a loan.
 
 ```typescript
 import { Defacto } from "defacto";
-import { GetLoanEventsResponse } from "defacto/dist/sdk/models/operations";
+import { GetLoanEventsRequest, GetLoanEventsResponse } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
     bearer: "",
   },
 });
+const loanId: string = "praesentium";
 
-sdk.loan.getEvents("praesentium").then((res: GetLoanEventsResponse) => {
+sdk.loan.getEvents(loanId).then((res: GetLoanEventsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -380,8 +383,11 @@ This operation is not available when the loan is in another status.
 
 ```typescript
 import { Defacto } from "defacto";
-import { UpdateLoanResponse } from "defacto/dist/sdk/models/operations";
+import { UpdateLoanRequest, UpdateLoanResponse } from "defacto/dist/sdk/models/operations";
 import {
+  PatchLoan,
+  PatchLoanLoanTo,
+  PatchLoanLoanToAccountHolder,
   PatchLoanLoanToAccountHolderIdentifierType,
   PatchLoanLoanToAccountNumberType,
   PatchLoanLoanToBankIdentifierType,
@@ -392,8 +398,8 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-
-sdk.loan.update("quaerat", {
+const loanId: string = "quaerat";
+const patchLoan: PatchLoan = {
   amount: 277773,
   lenderId: "ipsam",
   loanTo: {
@@ -424,7 +430,9 @@ sdk.loan.update("quaerat", {
   toPayAt: new Date("2022-04-27T14:41:34.966Z"),
   toRepayAt: new Date("2021-10-03T15:49:29.329Z"),
   transferContractUrl: "hic",
-}).then((res: UpdateLoanResponse) => {
+};
+
+sdk.loan.update(loanId, patchLoan).then((res: UpdateLoanResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -453,15 +461,16 @@ Use this function to accept a loan proposal. Available for LoanStatus.TO_VALIDAT
 
 ```typescript
 import { Defacto } from "defacto";
-import { ValidateLoanResponse } from "defacto/dist/sdk/models/operations";
+import { ValidateLoanRequest, ValidateLoanResponse } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
     bearer: "",
   },
 });
+const loanId: string = "expedita";
 
-sdk.loan.validate("expedita").then((res: ValidateLoanResponse) => {
+sdk.loan.validate(loanId).then((res: ValidateLoanResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

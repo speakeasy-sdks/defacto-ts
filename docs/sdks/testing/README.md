@@ -50,15 +50,17 @@ Warning: these invoices and their IBANs will not work in production.
 
 ```typescript
 import { Defacto } from "defacto";
-import { GenerateBusinessCountry, GenerateBusinessResponse } from "defacto/dist/sdk/models/operations";
+import { GenerateBusinessCountry, GenerateBusinessRequest, GenerateBusinessResponse } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
     bearer: "",
   },
 });
+const country: GenerateBusinessCountry = GenerateBusinessCountry.Fra;
+const isBorrower: boolean = false;
 
-sdk.testing.generateBusiness(GenerateBusinessCountry.Fra, false).then((res: GenerateBusinessResponse) => {
+sdk.testing.generateBusiness(country, isBorrower).then((res: GenerateBusinessResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -95,15 +97,22 @@ Warning: these IBANs will not work in production.
 
 ```typescript
 import { Defacto } from "defacto";
-import { GenerateIbanCountry, GenerateIbanResponse, GenerateIbanScenario } from "defacto/dist/sdk/models/operations";
+import {
+  GenerateIbanCountry,
+  GenerateIbanRequest,
+  GenerateIbanResponse,
+  GenerateIbanScenario,
+} from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
     bearer: "",
   },
 });
+const country: GenerateIbanCountry = GenerateIbanCountry.Bel;
+const scenario: GenerateIbanScenario = GenerateIbanScenario.SuccessOneDayLater;
 
-sdk.testing.generateIban(GenerateIbanCountry.Bel, GenerateIbanScenario.SuccessOneDayLater).then((res: GenerateIbanResponse) => {
+sdk.testing.generateIban(country, scenario).then((res: GenerateIbanResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
