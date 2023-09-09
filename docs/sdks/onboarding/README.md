@@ -20,7 +20,7 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const borrowerId: string = "debitis";
+const borrowerId: string = "quas";
 
 sdk.onboarding.deactivateBorrower(borrowerId).then((res: DeactivateBorrowerResponse) => {
   if (res.statusCode == 200) {
@@ -59,93 +59,48 @@ const sdk = new Defacto({
 });
 
 sdk.onboarding.enrollBorrower({
-  accountNumber: "neque",
+  accountNumber: "itaque",
   address: {
-    addressLine1: "dolorum",
-    addressLine2: "nostrum",
-    city: "Padbergstad",
-    country: "Tanzania",
-    postalCode: "51280",
-    state: "culpa",
+    addressLine1: "consequatur",
+    addressLine2: "est",
+    city: "San Francisco",
+    country: "Western Sahara",
+    postalCode: "75105",
+    state: "odio",
   },
   directors: [
     {
       address: {
-        addressLine1: "magnam",
-        addressLine2: "consequatur",
-        city: "Gagetown",
-        country: "Malawi",
-        postalCode: "93054-1043",
-        state: "saepe",
+        addressLine1: "occaecati",
+        addressLine2: "voluptatibus",
+        city: "Terrystead",
+        country: "Greenland",
+        postalCode: "94289",
+        state: "dignissimos",
       },
-      birthDate: new RFCDate("2022-12-25"),
+      birthDate: new RFCDate("2020-11-08"),
       birthPlace: {
-        city: "Fort Cornelius",
-        country: "Papua New Guinea",
+        city: "Kuhicfurt",
+        country: "Pitcairn Islands",
       },
-      businessEmail: "Baby69@gmail.com",
-      businessPhoneNumber: "atque",
-      firstName: "Margarett",
-      lastName: "Reilly",
-      nationality: "tenetur",
-      title: "Mrs.",
-    },
-    {
-      address: {
-        addressLine1: "alias",
-        addressLine2: "amet",
-        city: "Klockostead",
-        country: "Virgin Islands, British",
-        postalCode: "89906-6486",
-        state: "praesentium",
-      },
-      birthDate: new RFCDate("2022-05-02"),
-      birthPlace: {
-        city: "Port Tevinland",
-        country: "Mali",
-      },
-      businessEmail: "Yvette_Leannon@yahoo.com",
-      businessPhoneNumber: "maxime",
-      firstName: "Aubrey",
-      lastName: "Koepp",
-      nationality: "amet",
-      title: "Dr.",
-    },
-    {
-      address: {
-        addressLine1: "ea",
-        addressLine2: "atque",
-        city: "Torphyside",
-        country: "Tanzania",
-        postalCode: "31495-8653",
-        state: "repudiandae",
-      },
-      birthDate: new RFCDate("2021-12-01"),
-      birthPlace: {
-        city: "Fort Marinahaven",
-        country: "Finland",
-      },
-      businessEmail: "Alphonso3@hotmail.com",
-      businessPhoneNumber: "beatae",
-      firstName: "Chandler",
-      lastName: "Halvorson",
-      nationality: "laboriosam",
+      businessEmail: "Jessica_Greenholt19@hotmail.com",
+      businessPhoneNumber: "natus",
+      firstName: "Oma",
+      lastName: "Ankunding",
+      nationality: "voluptatibus",
       title: "Mrs.",
     },
   ],
-  identifier: "a",
-  identifierType: APIPostBorrowerIdentifierType.Bsn,
-  legalForm: "magnam",
+  identifier: "nulla",
+  identifierType: APIPostBorrowerIdentifierType.Siren,
+  legalForm: "porro",
   metadata: {
-    "consequuntur": "occaecati",
-    "officiis": "perspiciatis",
-    "in": "adipisci",
-    "eveniet": "occaecati",
+    "maiores": "doloribus",
   },
-  name: "Beverly Olson",
-  preferredLanguage: "error",
-  signedAt: new Date("2022-08-22T02:57:43.536Z"),
-  vatNumber: "quidem",
+  name: "Miss Vicky Kuphal",
+  preferredLanguage: "ipsam",
+  signedAt: new Date("2022-11-12T00:45:12.094Z"),
+  vatNumber: "vel",
   waitForReady: false,
 }).then((res: EnrollBorrowerResponse) => {
   if (res.statusCode == 200) {
@@ -183,14 +138,11 @@ const sdk = new Defacto({
   },
 });
 const borrowerId: string[] = [
-  "3e060807-e2b6-4e3a-b884-5f0597a60ff2",
-  "a54a31e9-4764-4a3e-865e-7956f9251a5a",
-  "9da660ff-57bf-4aad-8f9e-fc1b4512c103",
-  "2648dc2f-6151-499e-bfd0-e9fe6c632ca3",
+  "d436813f-16d9-4f5f-8e6c-556146c3e250",
 ];
-const borrowerIdentifier: string = "animi";
-const cursor: string = "necessitatibus";
-const pageSize: number = 862063;
+const borrowerIdentifier: string = "a";
+const cursor: string = "libero";
+const pageSize: number = 13948;
 
 sdk.onboarding.listBorrowers(borrowerId, borrowerIdentifier, cursor, pageSize).then((res: ListBorrowersResponse) => {
   if (res.statusCode == 200) {
@@ -231,9 +183,9 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const borrowerId: string = "consequatur";
+const borrowerId: string = "aut";
 const signedInput: SignedInput = {
-  signedAt: new Date("2022-11-29T01:33:31.768Z"),
+  signedAt: new Date("2021-06-17T11:25:30.782Z"),
   waitForReady: false,
 };
 

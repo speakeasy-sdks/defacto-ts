@@ -37,7 +37,7 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const loanId: string = "eum";
+const loanId: string = "adipisci";
 
 sdk.loan.cancel(loanId).then((res: CancelLoanResponse) => {
   if (res.statusCode == 200) {
@@ -74,7 +74,7 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const loanId: string = "quas";
+const loanId: string = "asperiores";
 
 sdk.loan.get(loanId).then((res: GetLoanResponse) => {
   if (res.statusCode == 200) {
@@ -111,7 +111,7 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const loanId: string = "praesentium";
+const loanId: string = "earum";
 
 sdk.loan.getEvents(loanId).then((res: GetLoanEventsResponse) => {
   if (res.statusCode == 200) {
@@ -151,31 +151,26 @@ const sdk = new Defacto({
 
 sdk.loan.list({
   borrower: [
-    "deleniti",
+    "modi",
   ],
-  cursor: "fugit",
+  cursor: "iste",
   guaranteeCalled: false,
-  guarantor: "fuga",
+  guarantor: "dolorum",
   id: [
-    "482562f2-22e9-4817-ae17-cbe61e6b7b95",
-    "bc0ab3c2-0c4f-4378-9fd8-71f99dd2efd1",
-    "21aa6f1e-674b-4db0-8f15-756082d68ea1",
+    "8d9cbf48-6333-423f-9b77-f3a4100674eb",
   ],
   loanType: [
     ListLoansLoanType.WalletFinancing,
-    ListLoansLoanType.InvoiceBasedFinancing,
-    ListLoansLoanType.WalletFinancing,
   ],
-  pageSize: 92027,
+  pageSize: 377752,
   status: [
-    ListLoansStatus.Submitted,
-    ListLoansStatus.Canceled,
+    ListLoansStatus.ToRepayFees,
   ],
-  toPayAtFrom: new Date("2022-10-08T01:09:40.281Z"),
-  toPayAtTo: new Date("2022-05-21T17:17:20.623Z"),
-  toRepayAtFrom: new Date("2022-11-25T18:47:58.319Z"),
-  toRepayAtTo: new Date("2022-12-20T14:34:53.149Z"),
-  toRepayAtWithinDays: 513075,
+  toPayAtFrom: new Date("2022-06-16T23:42:38.113Z"),
+  toPayAtTo: new Date("2022-02-23T01:35:05.899Z"),
+  toRepayAtFrom: new Date("2022-04-04T12:00:33.616Z"),
+  toRepayAtTo: new Date("2022-01-16T14:59:31.978Z"),
+  toRepayAtWithinDays: 453697,
 }).then((res: ListLoansResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -231,123 +226,80 @@ const sdk = new Defacto({
 });
 
 sdk.loan.request({
-  amount: 428796,
+  amount: 677082,
   autoValidate: false,
   borrower: {
-    identifier: "mollitia",
-    identifierType: APIPostLoanBorrowerIdentifierType.Siret,
+    identifier: "deleniti",
+    identifierType: APIPostLoanBorrowerIdentifierType.Bsn,
   },
   currency: APIPostLoanCurrency.Gbp,
   invoiceIds: [
-    "0394c260-71f9-43f5-b064-2dac7af515cc",
-    "413aa63a-ae8d-4678-a4db-b675fd5e60b3",
+    "bf737ae4-203c-4e5e-aa95-d8a0d446ce2a",
   ],
   invoices: [
     {
       buyer: {
-        identifier: "exercitationem",
-        identifierType: CounterpartyCreationIdentifierType.LessThanNilGreaterThan,
-        name: "Jesus Yost",
-        vatNumber: "quidem",
+        identifier: "a",
+        identifierType: CounterpartyCreationIdentifierType.Cif,
+        name: "Tyrone Emard",
+        vatNumber: "amet",
       },
       currency: APIRequiredInvoiceCreationCurrency.Gbp,
-      document: "necessitatibus",
-      dueAt: new Date("2022-11-17T19:30:54.837Z"),
-      invoiceNumber: "asperiores",
-      issuedAt: new Date("2022-10-01T23:04:48.771Z"),
+      document: "accusamus",
+      dueAt: new Date("2022-09-08T12:03:15.868Z"),
+      invoiceNumber: "dolorem",
+      issuedAt: new Date("2021-06-12T13:41:06.619Z"),
       metadata: {
-        "beatae": "dignissimos",
+        "nihil": "sit",
       },
-      netAmount: 950953,
+      netAmount: 711584,
       seller: {
-        identifier: "debitis",
-        identifierType: CounterpartyCreationIdentifierType.VatNumber,
-        name: "Dr. Maryann Howe",
-        vatNumber: "vitae",
-      },
-      taxAmount: 881721,
-      toAccount: {
-        accountHolder: {
-          identifier: "similique",
-          identifierType: APIRequiredInvoiceCreationToAccountAccountHolderIdentifierType.Name,
-        },
-        accountNumber: "aspernatur",
-        accountNumberType: APIRequiredInvoiceCreationToAccountAccountNumberType.AccountNumber,
-        bankIdentifier: "voluptas",
-        bankIdentifierType: APIRequiredInvoiceCreationToAccountBankIdentifierType.RoutingNumber,
-      },
-      toPayAmount: 324405,
-      totalAmount: 748789,
-    },
-    {
-      buyer: {
-        identifier: "dolorum",
-        identifierType: CounterpartyCreationIdentifierType.VatNumber,
-        name: "Ernest Labadie",
-        vatNumber: "aliquam",
-      },
-      currency: APIRequiredInvoiceCreationCurrency.Gbp,
-      document: "temporibus",
-      dueAt: new Date("2022-10-06T05:22:53.091Z"),
-      invoiceNumber: "cum",
-      issuedAt: new Date("2021-11-21T14:04:14.152Z"),
-      metadata: {
-        "nesciunt": "culpa",
-        "corrupti": "pariatur",
-        "totam": "hic",
-        "exercitationem": "nobis",
-      },
-      netAmount: 24619,
-      seller: {
-        identifier: "rerum",
+        identifier: "neque",
         identifierType: CounterpartyCreationIdentifierType.Siren,
-        name: "Benjamin Ziemann",
-        vatNumber: "expedita",
+        name: "Kelli Hintz",
+        vatNumber: "ipsum",
       },
-      taxAmount: 70869,
+      taxAmount: 277628,
       toAccount: {
         accountHolder: {
-          identifier: "iste",
-          identifierType: APIRequiredInvoiceCreationToAccountAccountHolderIdentifierType.Name,
+          identifier: "qui",
+          identifierType: APIRequiredInvoiceCreationToAccountAccountHolderIdentifierType.Bsn,
         },
-        accountNumber: "laborum",
-        accountNumberType: APIRequiredInvoiceCreationToAccountAccountNumberType.Iban,
-        bankIdentifier: "in",
-        bankIdentifierType: APIRequiredInvoiceCreationToAccountBankIdentifierType.RoutingNumber,
+        accountNumber: "maxime",
+        accountNumberType: APIRequiredInvoiceCreationToAccountAccountNumberType.InternalId,
+        bankIdentifier: "soluta",
+        bankIdentifierType: APIRequiredInvoiceCreationToAccountBankIdentifierType.Bic,
       },
-      toPayAmount: 696077,
-      totalAmount: 131289,
+      toPayAmount: 674848,
+      totalAmount: 517379,
     },
   ],
   loanTo: {
     accountHolder: {
-      identifier: "voluptas",
-      identifierType: AccountCreationAccountHolderIdentifierType.Bsn,
+      identifier: "incidunt",
+      identifierType: AccountCreationAccountHolderIdentifierType.Siren,
     },
-    accountNumber: "architecto",
-    accountNumberType: AccountCreationAccountNumberType.AccountNumber,
-    bankIdentifier: "sapiente",
-    bankIdentifierType: AccountCreationBankIdentifierType.Name,
+    accountNumber: "dolores",
+    accountNumberType: AccountCreationAccountNumberType.InternalId,
+    bankIdentifier: "facilis",
+    bankIdentifierType: AccountCreationBankIdentifierType.RoutingNumber,
   },
   loanToReferences: [
-    "reiciendis",
+    "quam",
   ],
-  loanType: APIPostLoanLoanType.InvoiceBasedFinancing,
+  loanType: APIPostLoanLoanType.WalletFinancing,
   metadata: {
-    "maiores": "incidunt",
-    "sed": "provident",
-    "eius": "necessitatibus",
+    "temporibus": "qui",
   },
   notificationEmails: [
-    "Kory.Lueilwitz27@yahoo.com",
+    "Burdette.Cummerata@gmail.com",
   ],
   repaymentFromReferences: [
-    "reiciendis",
-    "ex",
+    "ullam",
   ],
-  saltId: "sit",
-  toPayAt: new Date("2022-02-10T20:44:13.580Z"),
-  toRepayAt: new Date("2021-08-01T17:10:22.856Z"),
+  saltId: "nam",
+  toPayAt: new Date("2022-11-28T15:41:44.846Z"),
+  toRepayAt: new Date("2020-10-05T00:59:28.911Z"),
 }).then((res: RequestLoanResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -398,38 +350,32 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const loanId: string = "quaerat";
+const loanId: string = "nobis";
 const patchLoan: PatchLoan = {
-  amount: 277773,
-  lenderId: "ipsam",
+  amount: 92596,
+  lenderId: "saepe",
   loanTo: {
     accountHolder: {
-      identifier: "debitis",
-      identifierType: PatchLoanLoanToAccountHolderIdentifierType.Kvk,
+      identifier: "ipsum",
+      identifierType: PatchLoanLoanToAccountHolderIdentifierType.Siren,
     },
-    accountNumber: "sit",
-    accountNumberType: PatchLoanLoanToAccountNumberType.InternalId,
-    bankIdentifier: "error",
+    accountNumber: "nobis",
+    accountNumberType: PatchLoanLoanToAccountNumberType.AccountNumber,
+    bankIdentifier: "tempore",
     bankIdentifierType: PatchLoanLoanToBankIdentifierType.RoutingNumber,
   },
   loanToReferences: [
-    "recusandae",
-    "reiciendis",
+    "aperiam",
   ],
   metadata: {
-    "magni": "aperiam",
-    "saepe": "numquam",
-    "veniam": "in",
-    "officiis": "beatae",
+    "delectus": "dolorem",
   },
   repaymentToReferences: [
-    "exercitationem",
-    "praesentium",
-    "cum",
+    "dolore",
   ],
-  toPayAt: new Date("2022-04-27T14:41:34.966Z"),
-  toRepayAt: new Date("2021-10-03T15:49:29.329Z"),
-  transferContractUrl: "hic",
+  toPayAt: new Date("2022-10-05T02:20:22.923Z"),
+  toRepayAt: new Date("2022-10-19T18:50:59.428Z"),
+  transferContractUrl: "quae",
 };
 
 sdk.loan.update(loanId, patchLoan).then((res: UpdateLoanResponse) => {
@@ -468,7 +414,7 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const loanId: string = "expedita";
+const loanId: string = "aut";
 
 sdk.loan.validate(loanId).then((res: ValidateLoanResponse) => {
   if (res.statusCode == 200) {

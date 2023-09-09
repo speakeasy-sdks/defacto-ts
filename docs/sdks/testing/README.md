@@ -57,7 +57,7 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const country: GenerateBusinessCountry = GenerateBusinessCountry.Fra;
+const country: GenerateBusinessCountry = GenerateBusinessCountry.Deu;
 const isBorrower: boolean = false;
 
 sdk.testing.generateBusiness(country, isBorrower).then((res: GenerateBusinessResponse) => {
@@ -109,8 +109,8 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const country: GenerateIbanCountry = GenerateIbanCountry.Bel;
-const scenario: GenerateIbanScenario = GenerateIbanScenario.SuccessOneDayLater;
+const country: GenerateIbanCountry = GenerateIbanCountry.Deu;
+const scenario: GenerateIbanScenario = GenerateIbanScenario.Success;
 
 sdk.testing.generateIban(country, scenario).then((res: GenerateIbanResponse) => {
   if (res.statusCode == 200) {
@@ -167,17 +167,17 @@ const sdk = new Defacto({
 sdk.testing.generateInvoice({
   buyer: {
     identifier: "quo",
-    identifierType: GenerateInvoiceRequestBuyerIdentifierType.Nif,
-    name: "Ms. Geraldine Ratke",
-    vatNumber: "aliquid",
+    identifierType: GenerateInvoiceRequestBuyerIdentifierType.Steuernummer,
+    name: "Wilbur Gerlach",
+    vatNumber: "ab",
   },
-  country: GenerateInvoiceRequestCountry.Fra,
-  scenario: GenerateInvoiceRequestScenario.Reject,
+  country: GenerateInvoiceRequestCountry.Nld,
+  scenario: GenerateInvoiceRequestScenario.Success,
   seller: {
-    identifier: "omnis",
-    identifierType: GenerateInvoiceRequestSellerIdentifierType.Siren,
-    name: "Dr. Rex Nicolas",
-    vatNumber: "architecto",
+    identifier: "tempora",
+    identifierType: GenerateInvoiceRequestSellerIdentifierType.Steuernummer,
+    name: "Kelly Donnelly",
+    vatNumber: "recusandae",
   },
 }).then((res: GenerateInvoiceResponse) => {
   if (res.statusCode == 200) {
@@ -260,8 +260,8 @@ const sdk = new Defacto({
 
 sdk.testing.setBusinessEligible({
   businessIdentifier: {
-    identifier: "fuga",
-    identifierType: BusinessIdentifierIdentifierType.Steuernummer,
+    identifier: "aperiam",
+    identifierType: BusinessIdentifierIdentifierType.HrNummer,
   },
   scenario: BusinessEligibileParamsScenario.NotEligible,
 }).then((res: SetBusinessEligibleResponse) => {
