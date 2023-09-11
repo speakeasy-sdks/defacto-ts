@@ -26,6 +26,8 @@ yarn add https://github.com/speakeasy-sdks/defacto-ts
 
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
+
+
 ```typescript
 import { Defacto } from "defacto";
 import { ListBillsResponse, ListBillsStatus } from "defacto/dist/sdk/models/operations";
@@ -38,19 +40,16 @@ const sdk = new Defacto({
 
 sdk.billing.listBills({
   businessId: [
-    "9bd9d8d6-9a67-44e0-b467-cc8796ed151a",
-    "05dfc2dd-f7cc-478c-a1ba-928fc816742c",
-    "b7392059-2939-46fe-a759-6eb10faaa235",
+    "89bd9d8d-69a6-474e-8f46-7cc8796ed151",
   ],
   businessIdentifier: [
-    "nobis",
+    "deserunt",
   ],
-  cursor: "enim",
-  endDate: new Date("2022-04-10T11:47:13.463Z"),
-  pageSize: 325047,
-  startDate: new Date("2022-12-03T22:47:10.600Z"),
+  cursor: "perferendis",
+  endDate: new Date("2022-03-03T02:15:00.468Z"),
+  pageSize: 957156,
+  startDate: new Date("2022-07-31T07:34:52.790Z"),
   status: [
-    ListBillsStatus.ToPay,
     ListBillsStatus.Paid,
   ],
 }).then((res: ListBillsResponse) => {

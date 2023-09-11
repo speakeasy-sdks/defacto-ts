@@ -33,23 +33,17 @@ const sdk = new Defacto({
 
 sdk.billing.listBills({
   businessId: [
-    "1a3a2fa9-4677-4392-91aa-52c3f5ad019d",
-    "a1ffe78f-097b-4007-8f15-471b5e6e13b9",
-    "9d488e1e-91e4-450a-92ab-d44269802d50",
-    "2a94bb4f-63c9-469e-9a3e-fa77dfb14cd6",
+    "df7cc78c-a1ba-4928-bc81-6742cb739205",
   ],
   businessIdentifier: [
-    "laborum",
-    "accusamus",
+    "natus",
   ],
-  cursor: "non",
-  endDate: new Date("2022-05-17T08:24:52.669Z"),
-  pageSize: 881736,
-  startDate: new Date("2020-12-03T16:16:10.882Z"),
+  cursor: "sed",
+  endDate: new Date("2022-07-22T16:55:44.795Z"),
+  pageSize: 616934,
+  startDate: new Date("2022-01-21T12:46:00.641Z"),
   status: [
-    ListBillsStatus.ToPay,
-    ListBillsStatus.ToPay,
-    ListBillsStatus.ToPay,
+    ListBillsStatus.Paid,
   ],
 }).then((res: ListBillsResponse) => {
   if (res.statusCode == 200) {
@@ -89,22 +83,23 @@ If you need to send them by yourself please get in touch with us.
 
 ```typescript
 import { Defacto } from "defacto";
-import { SendBillResponse } from "defacto/dist/sdk/models/operations";
+import { SendBillRequest, SendBillResponse } from "defacto/dist/sdk/models/operations";
+import { APIBillSentByPartnerRequest } from "defacto/dist/sdk/models/shared";
 
 const sdk = new Defacto({
   security: {
     bearer: "",
   },
 });
-
-sdk.billing.sendBill("deleniti", {
-  sentOn: new Date("2022-04-23T13:35:30.978Z"),
+const billId: string = "fuga";
+const apiBillSentByPartnerRequest: APIBillSentByPartnerRequest = {
+  sentOn: new Date("2022-08-22T18:42:38.160Z"),
   toEmailAddresses: [
-    "Henry.Mosciski@yahoo.com",
-    "Janice_Gutkowski28@gmail.com",
-    "Geraldine.Mosciski87@gmail.com",
+    "Humberto.Turcotte6@yahoo.com",
   ],
-}).then((res: SendBillResponse) => {
+};
+
+sdk.billing.sendBill(billId, apiBillSentByPartnerRequest).then((res: SendBillResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

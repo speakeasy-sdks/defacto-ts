@@ -46,12 +46,12 @@ const sdk = new Defacto({
 sdk.businessData.uploadAccounts({
   accounts: [
     {
-      amount: 102863,
-      id: "41959890-afa5-463e-a516-fe4c8b711e5b",
-      lastUpdatedAt: new Date("2022-01-01T10:06:00.916Z"),
+      amount: 969810,
+      id: "aaa2352c-5955-4907-aff1-a3a2fa946773",
+      lastUpdatedAt: new Date("2022-09-06T22:51:09.401Z"),
     },
   ],
-  identifier: "quibusdam",
+  identifier: "quis",
   identifierType: APIPartnerBusinessAccountsIdentifierType.Siren,
 }).then((res: UploadAccountsResponse) => {
   if (res.statusCode == 200) {
@@ -103,31 +103,31 @@ const sdk = new Defacto({
 });
 
 sdk.businessData.uploadInvoices({
-  identifier: "saepe",
-  identifierType: APIPartnerBusinessInvoicesIdentifierType.BelgiumRegistrationNumber,
+  identifier: "laborum",
+  identifierType: APIPartnerBusinessInvoicesIdentifierType.Bsn,
   invoices: [
     {
       buyer: {
-        identifier: "consequuntur",
-        identifierType: BuyerBusinessIdentifierIdentifierType.Cif,
+        identifier: "enim",
+        identifierType: BuyerBusinessIdentifierIdentifierType.Siren,
       },
       currency: APIPartnerBusinessInvoiceCurrency.Gbp,
       direction: APIPartnerBusinessInvoiceDirection.Customer,
-      dueAt: new Date("2022-03-22T15:30:46.869Z"),
-      firstPaymentAt: new Date("2020-05-28T21:33:10.895Z"),
-      invoiceNumber: "maxime",
-      issuedAt: new Date("2022-06-07T06:40:38.496Z"),
-      lastPaymentAt: new Date("2022-08-05T09:04:26.932Z"),
-      netAmount: 33222,
-      paymentMethod: APIPartnerBusinessInvoicePaymentMethod.Other,
-      saltId: "maiores",
+      dueAt: new Date("2021-11-23T05:54:08.890Z"),
+      firstPaymentAt: new Date("2021-05-11T16:11:54.761Z"),
+      invoiceNumber: "aut",
+      issuedAt: new Date("2022-05-18T15:52:05.226Z"),
+      lastPaymentAt: new Date("2020-12-24T08:13:29.299Z"),
+      netAmount: 96098,
+      paymentMethod: APIPartnerBusinessInvoicePaymentMethod.LessThanNilGreaterThan,
+      saltId: "voluptatibus",
       seller: {
-        identifier: "quidem",
-        identifierType: SellerBusinessIdentifierIdentifierType.Nif,
+        identifier: "vero",
+        identifierType: SellerBusinessIdentifierIdentifierType.Cif,
       },
-      taxAmount: 453543,
-      toPayAmount: 420075,
-      totalAmount: 722056,
+      taxAmount: 509624,
+      toPayAmount: 976762,
+      totalAmount: 55714,
     },
   ],
 }).then((res: UploadInvoicesBusinessResponse) => {
@@ -179,23 +179,23 @@ const sdk = new Defacto({
 });
 
 sdk.businessData.uploadTransactions({
-  endDate: new Date("2022-02-18T18:29:26.833Z"),
-  identifier: "nemo",
-  identifierType: APIPartnerAccountTransactionsIdentifierType.Steuernummer,
-  startDate: new Date("2022-02-22T15:09:45.631Z"),
+  endDate: new Date("2022-02-05T15:41:25.512Z"),
+  identifier: "cum",
+  identifierType: APIPartnerAccountTransactionsIdentifierType.Siret,
+  startDate: new Date("2022-07-23T18:36:43.822Z"),
   transactions: [
     {
-      account: "aut",
-      amount: 764912,
-      at: new Date("2022-01-21T09:28:40.593Z"),
-      category: "libero",
-      counterpartyName: "nobis",
+      account: "ut",
+      amount: 979587,
+      at: new Date("2022-08-22T19:15:58.586Z"),
+      category: "dolore",
+      counterpartyName: "iusto",
       currency: APIPartnerAccountTransactionCurrency.Eur,
-      operationType: APIPartnerAccountTransactionOperationType.DirectDebit,
-      reference: "totam",
-      saltId: "dignissimos",
-      settledBalance: 54338,
-      side: APIPartnerAccountTransactionSide.Credit,
+      operationType: APIPartnerAccountTransactionOperationType.Recall,
+      reference: "enim",
+      saltId: "accusamus",
+      settledBalance: 414263,
+      side: APIPartnerAccountTransactionSide.LessThanNilGreaterThan,
       status: APIPartnerAccountTransactionStatus.Pending,
     },
   ],

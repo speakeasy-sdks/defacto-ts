@@ -50,15 +50,17 @@ Warning: these invoices and their IBANs will not work in production.
 
 ```typescript
 import { Defacto } from "defacto";
-import { GenerateBusinessCountry, GenerateBusinessResponse } from "defacto/dist/sdk/models/operations";
+import { GenerateBusinessCountry, GenerateBusinessRequest, GenerateBusinessResponse } from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
     bearer: "",
   },
 });
+const country: GenerateBusinessCountry = GenerateBusinessCountry.Deu;
+const isBorrower: boolean = false;
 
-sdk.testing.generateBusiness(GenerateBusinessCountry.Fra, false).then((res: GenerateBusinessResponse) => {
+sdk.testing.generateBusiness(country, isBorrower).then((res: GenerateBusinessResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -95,15 +97,22 @@ Warning: these IBANs will not work in production.
 
 ```typescript
 import { Defacto } from "defacto";
-import { GenerateIbanCountry, GenerateIbanResponse, GenerateIbanScenario } from "defacto/dist/sdk/models/operations";
+import {
+  GenerateIbanCountry,
+  GenerateIbanRequest,
+  GenerateIbanResponse,
+  GenerateIbanScenario,
+} from "defacto/dist/sdk/models/operations";
 
 const sdk = new Defacto({
   security: {
     bearer: "",
   },
 });
+const country: GenerateIbanCountry = GenerateIbanCountry.Deu;
+const scenario: GenerateIbanScenario = GenerateIbanScenario.Success;
 
-sdk.testing.generateIban(GenerateIbanCountry.Bel, GenerateIbanScenario.SuccessOneDayLater).then((res: GenerateIbanResponse) => {
+sdk.testing.generateIban(country, scenario).then((res: GenerateIbanResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -158,17 +167,17 @@ const sdk = new Defacto({
 sdk.testing.generateInvoice({
   buyer: {
     identifier: "quo",
-    identifierType: GenerateInvoiceRequestBuyerIdentifierType.Nif,
-    name: "Ms. Geraldine Ratke",
-    vatNumber: "aliquid",
+    identifierType: GenerateInvoiceRequestBuyerIdentifierType.Steuernummer,
+    name: "Wilbur Gerlach",
+    vatNumber: "ab",
   },
-  country: GenerateInvoiceRequestCountry.Fra,
-  scenario: GenerateInvoiceRequestScenario.Reject,
+  country: GenerateInvoiceRequestCountry.Nld,
+  scenario: GenerateInvoiceRequestScenario.Success,
   seller: {
-    identifier: "omnis",
-    identifierType: GenerateInvoiceRequestSellerIdentifierType.Siren,
-    name: "Dr. Rex Nicolas",
-    vatNumber: "architecto",
+    identifier: "tempora",
+    identifierType: GenerateInvoiceRequestSellerIdentifierType.Steuernummer,
+    name: "Kelly Donnelly",
+    vatNumber: "recusandae",
   },
 }).then((res: GenerateInvoiceResponse) => {
   if (res.statusCode == 200) {
@@ -251,8 +260,8 @@ const sdk = new Defacto({
 
 sdk.testing.setBusinessEligible({
   businessIdentifier: {
-    identifier: "fuga",
-    identifierType: BusinessIdentifierIdentifierType.Steuernummer,
+    identifier: "aperiam",
+    identifierType: BusinessIdentifierIdentifierType.HrNummer,
   },
   scenario: BusinessEligibileParamsScenario.NotEligible,
 }).then((res: SetBusinessEligibleResponse) => {
