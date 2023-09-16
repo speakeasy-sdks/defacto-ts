@@ -1,4 +1,4 @@
-# loan
+# Loan
 
 ### Available Operations
 

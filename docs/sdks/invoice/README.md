@@ -1,4 +1,4 @@
-# invoice
+# Invoice
 
 ### Available Operations
 

@@ -1,4 +1,4 @@
-# eligibility
+# Eligibility
 
 ### Available Operations
 
