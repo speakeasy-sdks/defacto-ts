@@ -38,7 +38,7 @@ export class BusinessData {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/business/data/accounts";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");
@@ -124,7 +124,7 @@ export class BusinessData {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/business/data/invoices";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");
@@ -211,7 +211,7 @@ export class BusinessData {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/business/data/account-transactions";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");

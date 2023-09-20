@@ -97,7 +97,7 @@ export class Onboarding {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/borrowers";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");
@@ -255,7 +255,7 @@ export class Onboarding {
         );
         const url: string = utils.generateURL(baseURL, "/borrower/{borrower_id}/sign", req);
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "signedInput", "json");

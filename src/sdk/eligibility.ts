@@ -246,7 +246,7 @@ export class Eligibility {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/eligibility/borrower";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");
@@ -330,7 +330,7 @@ export class Eligibility {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/eligibility/buyer";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");
@@ -412,7 +412,7 @@ export class Eligibility {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/eligibility/quote";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");
@@ -496,7 +496,7 @@ export class Eligibility {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/eligibility/seller";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");

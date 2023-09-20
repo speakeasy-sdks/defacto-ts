@@ -40,7 +40,7 @@ export class Webhook {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/webhooks";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");
@@ -268,7 +268,7 @@ export class Webhook {
         );
         const url: string = utils.generateURL(baseURL, "/webhook/{webhook_id}", req);
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "createWebhook", "json");

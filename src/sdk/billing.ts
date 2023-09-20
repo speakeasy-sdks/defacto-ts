@@ -115,7 +115,7 @@ export class Billing {
         );
         const url: string = utils.generateURL(baseURL, "/bill/{bill_id}/sent", req);
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(

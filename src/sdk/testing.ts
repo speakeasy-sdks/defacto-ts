@@ -199,7 +199,7 @@ export class Testing {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/sandbox/invoice-generator";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");
@@ -351,7 +351,7 @@ export class Testing {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/sandbox/business-eligible";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");

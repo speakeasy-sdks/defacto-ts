@@ -37,7 +37,7 @@ export class Invoice {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/invoices";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");
@@ -331,7 +331,7 @@ export class Invoice {
         );
         const url: string = utils.generateURL(baseURL, "/invoice/{invoice_id}/submit", req);
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "apiPatchInvoice", "json");
@@ -413,7 +413,7 @@ export class Invoice {
         );
         const url: string = utils.generateURL(baseURL, "/invoice/{invoice_id}", req);
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "apiPatchInvoice", "json");

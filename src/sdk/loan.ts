@@ -313,7 +313,7 @@ export class Loan {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/loans";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");
@@ -402,7 +402,7 @@ export class Loan {
         );
         const url: string = utils.generateURL(baseURL, "/loan/{loan_id}", req);
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "patchLoan", "json");
