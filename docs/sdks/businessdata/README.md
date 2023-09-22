@@ -46,13 +46,13 @@ const sdk = new Defacto({
 sdk.businessData.uploadAccounts({
   accounts: [
     {
-      amount: 969810,
-      id: "aaa2352c-5955-4907-aff1-a3a2fa946773",
-      lastUpdatedAt: new Date("2022-09-06T22:51:09.401Z"),
+      amount: 138183,
+      id: "c3f5ad01-9da1-4ffe-b8f0-97b0074f1547",
+      lastUpdatedAt: new Date("2022-04-24T15:19:40.519Z"),
     },
   ],
-  identifier: "quis",
-  identifierType: APIPartnerBusinessAccountsIdentifierType.Siren,
+  identifier: "enim",
+  identifierType: APIPartnerBusinessAccountsIdentifierType.BelgiumRegistrationNumber,
 }).then((res: UploadAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -103,31 +103,31 @@ const sdk = new Defacto({
 });
 
 sdk.businessData.uploadInvoices({
-  identifier: "laborum",
-  identifierType: APIPartnerBusinessInvoicesIdentifierType.Bsn,
+  identifier: "commodi",
+  identifierType: APIPartnerBusinessInvoicesIdentifierType.Steuernummer,
   invoices: [
     {
       buyer: {
-        identifier: "enim",
-        identifierType: BuyerBusinessIdentifierIdentifierType.Siren,
+        identifier: "quae",
+        identifierType: BuyerBusinessIdentifierIdentifierType.VatNumber,
       },
       currency: APIPartnerBusinessInvoiceCurrency.Gbp,
-      direction: APIPartnerBusinessInvoiceDirection.Customer,
-      dueAt: new Date("2021-11-23T05:54:08.890Z"),
-      firstPaymentAt: new Date("2021-05-11T16:11:54.761Z"),
-      invoiceNumber: "aut",
-      issuedAt: new Date("2022-05-18T15:52:05.226Z"),
-      lastPaymentAt: new Date("2020-12-24T08:13:29.299Z"),
-      netAmount: 96098,
+      direction: APIPartnerBusinessInvoiceDirection.Receivable,
+      dueAt: new Date("2021-04-09T11:24:10.949Z"),
+      firstPaymentAt: new Date("2022-06-29T05:25:54.356Z"),
+      invoiceNumber: "rem",
+      issuedAt: new Date("2022-09-20T03:14:35.704Z"),
+      lastPaymentAt: new Date("2021-04-10T08:07:33.561Z"),
+      netAmount: 83112,
       paymentMethod: APIPartnerBusinessInvoicePaymentMethod.LessThanNilGreaterThan,
-      saltId: "voluptatibus",
+      saltId: "incidunt",
       seller: {
-        identifier: "vero",
-        identifierType: SellerBusinessIdentifierIdentifierType.Cif,
+        identifier: "enim",
+        identifierType: SellerBusinessIdentifierIdentifierType.Siret,
       },
-      taxAmount: 509624,
-      toPayAmount: 976762,
-      totalAmount: 55714,
+      taxAmount: 667411,
+      toPayAmount: 842342,
+      totalAmount: 131797,
     },
   ],
 }).then((res: UploadInvoicesBusinessResponse) => {
@@ -179,24 +179,24 @@ const sdk = new Defacto({
 });
 
 sdk.businessData.uploadTransactions({
-  endDate: new Date("2022-02-05T15:41:25.512Z"),
-  identifier: "cum",
-  identifierType: APIPartnerAccountTransactionsIdentifierType.Siret,
-  startDate: new Date("2022-07-23T18:36:43.822Z"),
+  endDate: new Date("2021-07-27T01:56:50.693Z"),
+  identifier: "quibusdam",
+  identifierType: APIPartnerAccountTransactionsIdentifierType.Name,
+  startDate: new Date("2022-10-26T03:14:36.345Z"),
   transactions: [
     {
-      account: "ut",
-      amount: 979587,
-      at: new Date("2022-08-22T19:15:58.586Z"),
-      category: "dolore",
-      counterpartyName: "iusto",
+      account: "aliquid",
+      amount: 586513,
+      at: new Date("2022-12-17T07:42:55.593Z"),
+      category: "magni",
+      counterpartyName: "assumenda",
       currency: APIPartnerAccountTransactionCurrency.Eur,
-      operationType: APIPartnerAccountTransactionOperationType.Recall,
-      reference: "enim",
-      saltId: "accusamus",
-      settledBalance: 414263,
-      side: APIPartnerAccountTransactionSide.LessThanNilGreaterThan,
-      status: APIPartnerAccountTransactionStatus.Pending,
+      operationType: APIPartnerAccountTransactionOperationType.Income,
+      reference: "fugit",
+      saltId: "dolorum",
+      settledBalance: 569618,
+      side: APIPartnerAccountTransactionSide.Debit,
+      status: APIPartnerAccountTransactionStatus.Declined,
     },
   ],
 }).then((res: UploadTransactionsResponse) => {

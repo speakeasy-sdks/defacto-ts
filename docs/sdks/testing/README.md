@@ -57,7 +57,7 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const country: GenerateBusinessCountry = GenerateBusinessCountry.Deu;
+const country: GenerateBusinessCountry = GenerateBusinessCountry.Nld;
 const isBorrower: boolean = false;
 
 sdk.testing.generateBusiness(country, isBorrower).then((res: GenerateBusinessResponse) => {
@@ -109,8 +109,8 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const country: GenerateIbanCountry = GenerateIbanCountry.Deu;
-const scenario: GenerateIbanScenario = GenerateIbanScenario.Success;
+const country: GenerateIbanCountry = GenerateIbanCountry.Nld;
+const scenario: GenerateIbanScenario = GenerateIbanScenario.Reject;
 
 sdk.testing.generateIban(country, scenario).then((res: GenerateIbanResponse) => {
   if (res.statusCode == 200) {
@@ -166,18 +166,18 @@ const sdk = new Defacto({
 
 sdk.testing.generateInvoice({
   buyer: {
-    identifier: "quo",
-    identifierType: GenerateInvoiceRequestBuyerIdentifierType.Steuernummer,
-    name: "Wilbur Gerlach",
-    vatNumber: "ab",
+    identifier: "consequuntur",
+    identifierType: GenerateInvoiceRequestBuyerIdentifierType.Kvk,
+    name: "Lee O'Conner",
+    vatNumber: "explicabo",
   },
-  country: GenerateInvoiceRequestCountry.Nld,
-  scenario: GenerateInvoiceRequestScenario.Success,
+  country: GenerateInvoiceRequestCountry.Esp,
+  scenario: GenerateInvoiceRequestScenario.SuccessOneDayLater,
   seller: {
-    identifier: "tempora",
-    identifierType: GenerateInvoiceRequestSellerIdentifierType.Steuernummer,
-    name: "Kelly Donnelly",
-    vatNumber: "recusandae",
+    identifier: "fugit",
+    identifierType: GenerateInvoiceRequestSellerIdentifierType.LessThanNilGreaterThan,
+    name: "Norma Christiansen",
+    vatNumber: "atque",
   },
 }).then((res: GenerateInvoiceResponse) => {
   if (res.statusCode == 200) {
@@ -260,8 +260,8 @@ const sdk = new Defacto({
 
 sdk.testing.setBusinessEligible({
   businessIdentifier: {
-    identifier: "aperiam",
-    identifierType: BusinessIdentifierIdentifierType.HrNummer,
+    identifier: "et",
+    identifierType: BusinessIdentifierIdentifierType.Cif,
   },
   scenario: BusinessEligibileParamsScenario.NotEligible,
 }).then((res: SetBusinessEligibleResponse) => {

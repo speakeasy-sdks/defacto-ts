@@ -54,10 +54,10 @@ const sdk = new Defacto({
 
 sdk.webhook.create({
   eventTypes: [
-    CreateWebhookEventTypes.LoanISSUEDETECTED,
+    CreateWebhookEventTypes.InvoiceTOEDIT,
   ],
-  name: "Jackie Leannon",
-  toUrl: "odio",
+  name: "Joy Schmidt",
+  toUrl: "aliquid",
 }).then((res: CreateWebhookResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -93,7 +93,7 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const webhookId: string = "occaecati";
+const webhookId: string = "quasi";
 
 sdk.webhook.delete(webhookId).then((res: DeleteWebhookResponse) => {
   if (res.statusCode == 200) {
@@ -180,13 +180,13 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const webhookId: string = "commodi";
+const webhookId: string = "saepe";
 const createWebhook: CreateWebhook = {
   eventTypes: [
-    CreateWebhookEventTypes.InvoiceVERIFIED,
+    CreateWebhookEventTypes.LoanTOREPAYFEES,
   ],
-  name: "Miss Rosie Krajcik",
-  toUrl: "quas",
+  name: "Javier Price",
+  toUrl: "distinctio",
 };
 
 sdk.webhook.update(webhookId, createWebhook).then((res: UpdateWebhookResponse) => {

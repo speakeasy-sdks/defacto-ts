@@ -33,17 +33,17 @@ const sdk = new Defacto({
 
 sdk.billing.listBills({
   businessId: [
-    "df7cc78c-a1ba-4928-bc81-6742cb739205",
+    "a7596eb1-0faa-4a23-92c5-955907aff1a3",
   ],
   businessIdentifier: [
-    "natus",
+    "culpa",
   ],
-  cursor: "sed",
-  endDate: new Date("2022-07-22T16:55:44.795Z"),
-  pageSize: 616934,
-  startDate: new Date("2022-01-21T12:46:00.641Z"),
+  cursor: "consequuntur",
+  endDate: new Date("2021-01-15T20:18:47.519Z"),
+  pageSize: 581850,
+  startDate: new Date("2022-08-02T18:07:51.623Z"),
   status: [
-    ListBillsStatus.Paid,
+    ListBillsStatus.SentToPayer,
   ],
 }).then((res: ListBillsResponse) => {
   if (res.statusCode == 200) {
@@ -91,11 +91,11 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const billId: string = "fuga";
+const billId: string = "molestiae";
 const apiBillSentByPartnerRequest: APIBillSentByPartnerRequest = {
-  sentOn: new Date("2022-08-22T18:42:38.160Z"),
+  sentOn: new Date("2022-05-18T10:03:04.921Z"),
   toEmailAddresses: [
-    "Humberto.Turcotte6@yahoo.com",
+    "Eugene_Brown31@gmail.com",
   ],
 };
 

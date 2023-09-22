@@ -47,40 +47,40 @@ const sdk = new Defacto({
 
 sdk.invoice.create({
   buyer: {
-    identifier: "dolorum",
-    identifierType: APIDraftableInvoiceCreationBuyerIdentifierType.Cif,
-    name: "Angel Wolff II",
-    vatNumber: "cumque",
+    identifier: "labore",
+    identifierType: APIDraftableInvoiceCreationBuyerIdentifierType.Nif,
+    name: "Robin Keebler",
+    vatNumber: "architecto",
   },
-  currency: APIDraftableInvoiceCreationCurrency.Gbp,
-  document: "ea",
-  dueAt: new Date("2022-04-29T11:09:12.937Z"),
-  invoiceNumber: "accusamus",
+  currency: APIDraftableInvoiceCreationCurrency.Eur,
+  document: "et",
+  dueAt: new Date("2022-04-17T13:06:08.135Z"),
+  invoiceNumber: "provident",
   isDraft: false,
-  issuedAt: new Date("2022-06-02T20:02:58.167Z"),
+  issuedAt: new Date("2021-11-07T17:49:17.039Z"),
   metadata: {
-    "enim": "accusamus",
+    "accusantium": "mollitia",
   },
-  netAmount: 965417,
+  netAmount: 968962,
   seller: {
-    identifier: "quidem",
-    identifierType: APIDraftableInvoiceCreationSellerIdentifierType.Bsn,
-    name: "Lynn Kuvalis",
-    vatNumber: "amet",
+    identifier: "mollitia",
+    identifierType: APIDraftableInvoiceCreationSellerIdentifierType.Name,
+    name: "Carmen Treutel",
+    vatNumber: "quasi",
   },
-  taxAmount: 643990,
+  taxAmount: 435865,
   toAccount: {
     accountHolder: {
-      identifier: "nisi",
-      identifierType: APIDraftableInvoiceCreationToAccountAccountHolderIdentifierType.Cif,
+      identifier: "doloribus",
+      identifierType: APIDraftableInvoiceCreationToAccountAccountHolderIdentifierType.Steuernummer,
     },
-    accountNumber: "natus",
-    accountNumberType: APIDraftableInvoiceCreationToAccountAccountNumberType.AccountNumber,
-    bankIdentifier: "molestiae",
-    bankIdentifierType: APIDraftableInvoiceCreationToAccountBankIdentifierType.Bic,
+    accountNumber: "eius",
+    accountNumberType: APIDraftableInvoiceCreationToAccountAccountNumberType.InternalId,
+    bankIdentifier: "deleniti",
+    bankIdentifierType: APIDraftableInvoiceCreationToAccountBankIdentifierType.Name,
   },
-  toPayAmount: 470132,
-  totalAmount: 301575,
+  toPayAmount: 447926,
+  totalAmount: 100226,
 }).then((res: CreateInvoiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -116,7 +116,7 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const invoiceId: string = "distinctio";
+const invoiceId: string = "architecto";
 
 sdk.invoice.delete(invoiceId).then((res: DeleteInvoiceResponse) => {
   if (res.statusCode == 200) {
@@ -153,7 +153,7 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const invoiceId: string = "id";
+const invoiceId: string = "repudiandae";
 
 sdk.invoice.get(invoiceId).then((res: GetInvoiceResponse) => {
   if (res.statusCode == 200) {
@@ -193,18 +193,18 @@ const sdk = new Defacto({
 
 sdk.invoice.list({
   buyer: [
-    "labore",
+    "ullam",
   ],
-  cursor: "labore",
+  cursor: "expedita",
   invoiceId: [
-    "69b6e214-1959-4890-afa5-63e2516fe4c8",
+    "7fd2ed02-8921-4cdd-8692-601fb576b0d5",
   ],
-  pageSize: 703889,
+  pageSize: 975522,
   seller: [
-    "in",
+    "perferendis",
   ],
   status: [
-    ListInvoicesStatus.ToSubmit,
+    ListInvoicesStatus.Deleted,
   ],
 }).then((res: ListInvoicesResponse) => {
   if (res.statusCode == 200) {
@@ -257,41 +257,41 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const invoiceId: string = "architecto";
+const invoiceId: string = "amet";
 const apiPatchInvoice: APIPatchInvoice = {
   buyer: {
-    identifier: "repudiandae",
-    identifierType: APIPatchInvoiceBuyerIdentifierType.Nif,
-    name: "Jessie Zulauf",
-    vatNumber: "saepe",
+    identifier: "aut",
+    identifierType: APIPatchInvoiceBuyerIdentifierType.BelgiumRegistrationNumber,
+    name: "Mindy Renner",
+    vatNumber: "quis",
   },
-  currency: APIPatchInvoiceCurrency.LessThanNilGreaterThan,
-  dueAt: new Date("2022-11-02T16:33:42.080Z"),
-  invoiceNumber: "praesentium",
-  issuedAt: new Date("2022-09-01T04:49:52.515Z"),
+  currency: APIPatchInvoiceCurrency.Gbp,
+  dueAt: new Date("2022-12-12T03:59:56.327Z"),
+  invoiceNumber: "quis",
+  issuedAt: new Date("2022-10-27T11:39:54.088Z"),
   metadata: {
-    "sunt": "quo",
+    "perferendis": "dolores",
   },
-  netAmount: 848009,
+  netAmount: 793698,
   seller: {
-    identifier: "pariatur",
-    identifierType: APIPatchInvoiceSellerIdentifierType.BelgiumRegistrationNumber,
-    name: "Miriam Connelly Jr.",
-    vatNumber: "maiores",
+    identifier: "quam",
+    identifierType: APIPatchInvoiceSellerIdentifierType.VatNumber,
+    name: "Dean Welch",
+    vatNumber: "facilis",
   },
-  taxAmount: 697429,
+  taxAmount: 596656,
   toAccount: {
     accountHolder: {
-      identifier: "ipsam",
-      identifierType: APIPatchInvoiceToAccountAccountHolderIdentifierType.Cif,
+      identifier: "voluptatem",
+      identifierType: APIPatchInvoiceToAccountAccountHolderIdentifierType.BelgiumRegistrationNumber,
     },
-    accountNumber: "autem",
-    accountNumberType: APIPatchInvoiceToAccountAccountNumberType.InternalId,
-    bankIdentifier: "eaque",
-    bankIdentifierType: APIPatchInvoiceToAccountBankIdentifierType.Name,
+    accountNumber: "consequuntur",
+    accountNumberType: APIPatchInvoiceToAccountAccountNumberType.AccountNumber,
+    bankIdentifier: "error",
+    bankIdentifierType: APIPatchInvoiceToAccountBankIdentifierType.Bic,
   },
-  toPayAmount: 365496,
-  totalAmount: 975522,
+  toPayAmount: 577229,
+  totalAmount: 699098,
 };
 
 sdk.invoice.submit(invoiceId, apiPatchInvoice).then((res: SubmitInvoiceResponse) => {
@@ -343,41 +343,41 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const invoiceId: string = "perferendis";
+const invoiceId: string = "adipisci";
 const apiPatchInvoice: APIPatchInvoice = {
   buyer: {
-    identifier: "fugiat",
-    identifierType: APIPatchInvoiceBuyerIdentifierType.VatNumber,
-    name: "Erma Hessel",
-    vatNumber: "nobis",
+    identifier: "asperiores",
+    identifierType: APIPatchInvoiceBuyerIdentifierType.LessThanNilGreaterThan,
+    name: "Sheryl Parisian",
+    vatNumber: "provident",
   },
-  currency: APIPatchInvoiceCurrency.Eur,
-  dueAt: new Date("2022-06-24T19:43:09.208Z"),
-  invoiceNumber: "dignissimos",
-  issuedAt: new Date("2022-08-30T06:29:24.707Z"),
+  currency: APIPatchInvoiceCurrency.LessThanNilGreaterThan,
+  dueAt: new Date("2021-01-26T22:08:21.462Z"),
+  invoiceNumber: "quaerat",
+  issuedAt: new Date("2022-03-16T07:10:00.236Z"),
   metadata: {
-    "nesciunt": "eos",
+    "dolorem": "dolorem",
   },
-  netAmount: 18521,
+  netAmount: 222443,
   seller: {
-    identifier: "dolores",
-    identifierType: APIPatchInvoiceSellerIdentifierType.BelgiumRegistrationNumber,
-    name: "Rosa Swift",
-    vatNumber: "recusandae",
+    identifier: "qui",
+    identifierType: APIPatchInvoiceSellerIdentifierType.VatNumber,
+    name: "Marshall Ritchie",
+    vatNumber: "reiciendis",
   },
-  taxAmount: 608253,
+  taxAmount: 227414,
   toAccount: {
     accountHolder: {
-      identifier: "facilis",
-      identifierType: APIPatchInvoiceToAccountAccountHolderIdentifierType.Bsn,
+      identifier: "dolorum",
+      identifierType: APIPatchInvoiceToAccountAccountHolderIdentifierType.Name,
     },
-    accountNumber: "voluptatem",
-    accountNumberType: APIPatchInvoiceToAccountAccountNumberType.InternalId,
-    bankIdentifier: "consequuntur",
+    accountNumber: "veritatis",
+    accountNumberType: APIPatchInvoiceToAccountAccountNumberType.Iban,
+    bankIdentifier: "ipsa",
     bankIdentifierType: APIPatchInvoiceToAccountBankIdentifierType.RoutingNumber,
   },
-  toPayAmount: 621479,
-  totalAmount: 50370,
+  toPayAmount: 487838,
+  totalAmount: 311796,
 };
 
 sdk.invoice.update(invoiceId, apiPatchInvoice).then((res: UpdateInvoiceResponse) => {
@@ -416,8 +416,8 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const buyer: string = "occaecati";
-const seller: string = "rerum";
+const buyer: string = "accusamus";
+const seller: string = "quidem";
 
 sdk.invoice.upload(buyer, seller).then((res: UploadInvoicesResponse) => {
   if (res.statusCode == 200) {

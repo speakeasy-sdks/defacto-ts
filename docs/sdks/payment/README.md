@@ -26,29 +26,29 @@ const sdk = new Defacto({
 });
 
 sdk.payment.list({
-  cursor: "aliquam",
-  fromAccountId: "fugit",
-  fromDate: new Date("2022-10-05T22:09:33.495Z"),
-  id: "41aac366-c8dd-46b1-8429-07474778a7bd",
+  cursor: "eos",
+  fromAccountId: "praesentium",
+  fromDate: new Date("2022-09-28T10:00:45.702Z"),
+  id: "0ab3cdca-4251-4904-a523-c7e0bc7178e4",
   isReconciled: false,
   loanId: [
-    "ut",
+    "odio",
   ],
-  pageSize: 433439,
+  pageSize: 577543,
   paymentMethod: [
     ListPaymentsPaymentMethod.Sct,
   ],
   paymentType: [
-    ListPaymentsPaymentType.Chargeback,
+    ListPaymentsPaymentType.PaymentProviderFees,
   ],
   references: [
-    "eos",
+    "dolores",
   ],
   status: [
-    ListPaymentsStatus.Failed,
+    ListPaymentsStatus.Instructed,
   ],
-  toAccountId: "quisquam",
-  toDate: new Date("2022-12-11T06:00:38.230Z"),
+  toAccountId: "molestiae",
+  toDate: new Date("2022-03-20T23:14:37.473Z"),
 }).then((res: ListPaymentsResponse) => {
   if (res.statusCode == 200) {
     // handle response

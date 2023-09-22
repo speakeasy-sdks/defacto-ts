@@ -31,8 +31,8 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const creditLineId: string = "ipsum";
-const at: Date = new Date("2021-11-14T09:53:27.431Z");
+const creditLineId: string = "tempore";
+const at: Date = new Date("2022-01-14T19:13:42.009Z");
 
 sdk.eligibility.getCreditLine(creditLineId, at).then((res: GetCreditLineResponse) => {
   if (res.statusCode == 200) {
@@ -106,13 +106,13 @@ const sdk = new Defacto({
   },
 });
 const borrower: string[] = [
-  "excepturi",
+  "eum",
 ];
-const cursor: string = "pariatur";
+const cursor: string = "non";
 const id: string[] = [
-  "488e1e91-e450-4ad2-abd4-4269802d502a",
+  "c969e9a3-efa7-47df-b14c-d66ae395efb9",
 ];
-const pageSize: number = 569618;
+const pageSize: number = 725255;
 
 sdk.eligibility.listCreditLines(borrower, cursor, id, pageSize).then((res: ListCreditLinesResponse) => {
   if (res.statusCode == 200) {
@@ -157,8 +157,8 @@ const sdk = new Defacto({
 });
 
 sdk.eligibility.requestElligibilityBorrower({
-  identifier: "tempora",
-  identifierType: APIBorrowerEligibilityIdentifierType.HrNummer,
+  identifier: "id",
+  identifierType: APIBorrowerEligibilityIdentifierType.Kvk,
 }).then((res: RequestElligibilityBorrowerResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -199,8 +199,8 @@ const sdk = new Defacto({
 });
 
 sdk.eligibility.requestElligibilityBuyer({
-  identifier: "tempore",
-  identifierType: APIBorrowerEligibilityIdentifierType.Name,
+  identifier: "deleniti",
+  identifierType: APIBorrowerEligibilityIdentifierType.LessThanNilGreaterThan,
 }).then((res: RequestElligibilityBuyerResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -239,21 +239,21 @@ const sdk = new Defacto({
 });
 
 sdk.eligibility.requestElligibilityQuote({
-  amount: 962189,
+  amount: 230533,
   borrower: {
-    identifier: "eum",
-    identifierType: APIQuoteEligibilityBorrowerIdentifierType.VatNumber,
+    identifier: "deserunt",
+    identifierType: APIQuoteEligibilityBorrowerIdentifierType.Nif,
   },
   buyer: {
-    identifier: "eligendi",
-    identifierType: BusinessIdentifierIdentifierType.Kvk,
+    identifier: "vel",
+    identifierType: BusinessIdentifierIdentifierType.Bsn,
   },
-  endDate: new Date("2022-05-29T21:42:45.399Z"),
+  endDate: new Date("2022-01-19T08:19:15.156Z"),
   seller: {
-    identifier: "necessitatibus",
-    identifierType: BusinessIdentifierIdentifierType.Kvk,
+    identifier: "perferendis",
+    identifierType: BusinessIdentifierIdentifierType.Cif,
   },
-  startDate: new Date("2022-07-22T03:36:34.615Z"),
+  startDate: new Date("2022-04-14T15:11:13.227Z"),
 }).then((res: RequestElligibilityQuoteResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -294,8 +294,8 @@ const sdk = new Defacto({
 });
 
 sdk.eligibility.requestElligibilitySeller({
-  identifier: "debitis",
-  identifierType: APIBorrowerEligibilityIdentifierType.LessThanNilGreaterThan,
+  identifier: "id",
+  identifierType: APIBorrowerEligibilityIdentifierType.Name,
 }).then((res: RequestElligibilitySellerResponse) => {
   if (res.statusCode == 200) {
     // handle response

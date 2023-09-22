@@ -26,8 +26,6 @@ yarn add https://github.com/speakeasy-sdks/defacto-ts
 
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
-
-
 ```typescript
 import { Defacto } from "defacto";
 import { ListBillsResponse, ListBillsStatus } from "defacto/dist/sdk/models/operations";
@@ -40,15 +38,15 @@ const sdk = new Defacto({
 
 sdk.billing.listBills({
   businessId: [
-    "89bd9d8d-69a6-474e-8f46-7cc8796ed151",
+    "df7cc78c-a1ba-4928-bc81-6742cb739205",
   ],
   businessIdentifier: [
-    "deserunt",
+    "natus",
   ],
-  cursor: "perferendis",
-  endDate: new Date("2022-03-03T02:15:00.468Z"),
-  pageSize: 957156,
-  startDate: new Date("2022-07-31T07:34:52.790Z"),
+  cursor: "sed",
+  endDate: new Date("2022-07-22T16:55:44.795Z"),
+  pageSize: 616934,
+  startDate: new Date("2022-01-21T12:46:00.641Z"),
   status: [
     ListBillsStatus.Paid,
   ],
@@ -228,9 +226,33 @@ Update a webhook subscription.
 ⚠️ Our webhooks always call the POST method of the given url.
 
 For more information on webhooks such as how to secure them, you can refer to our guide.
-
-
 <!-- End SDK Available Operations -->
+
+
+
+<!-- Start Dev Containers -->
+
+
+
+<!-- End Dev Containers -->
+
+
+
+<!-- Start Pagination -->
+# Pagination
+
+Some of the endpoints in this SDK support pagination. To use pagination, you make your SDK calls as usual, but the
+returned response object will have a `next` method that can be called to pull down the next group of results. If the
+return value of `next` is `null`, then there are no more pages to be fetched.
+
+Here's an example of one such pagination call:
+
+
+<!-- End Pagination -->
+
+<!-- Placeholder for Future Speakeasy SDK Sections -->
+
+
 
 ### Maturity
 
