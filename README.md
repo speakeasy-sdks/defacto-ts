@@ -62,7 +62,7 @@ sdk.billing.listBills({
 ## Available Resources and Operations
 
 
-### [Billing](docs/sdks/billing/README.md)
+### [billing](docs/sdks/billing/README.md)
 
 * [listBills](docs/sdks/billing/README.md#listbills) - List your fees invoices (i.e: your Defacto bill) for the loans you performed on the platform. By default, this endpoint only returns your own bills, but you may request bills for your own specific borrowers (with a business identifier or ID) depending on your contract type.
 * [sendBill](docs/sdks/billing/README.md#sendbill) - 
@@ -77,7 +77,7 @@ By default the bills are sent the the payers of the fees by Defacto.
 If you need to send them by yourself please get in touch with us.
 
 
-### [BusinessData](docs/sdks/businessdata/README.md)
+### [businessData](docs/sdks/businessdata/README.md)
 
 * [uploadAccounts](docs/sdks/businessdata/README.md#uploadaccounts) - 
 Upload bank account balances into our platform to refine borrower credit
@@ -98,7 +98,7 @@ credit line allowance.
 This endpoint doesn't support updates on data already uploaded.
 
 
-### [Eligibility](docs/sdks/eligibility/README.md)
+### [eligibility](docs/sdks/eligibility/README.md)
 
 * [getCreditLine](docs/sdks/eligibility/README.md#getcreditline) - Get credit line
 * [listCreditLine](docs/sdks/eligibility/README.md#listcreditline) - Get the credit line associated with your account
@@ -114,7 +114,7 @@ Ask for the eligibility of a buyer.
 Ask for the eligibility of a seller.
 
 
-### [Invoice](docs/sdks/invoice/README.md)
+### [invoice](docs/sdks/invoice/README.md)
 
 * [create](docs/sdks/invoice/README.md#create) - 
 Create an invoice.
@@ -131,7 +131,7 @@ If some data is missing prior to validating the invoice, a 422 error will be ret
 * [update](docs/sdks/invoice/README.md#update) - Updates an invoice (with status TO_SUBMIT or TO_EDIT only)
 * [upload](docs/sdks/invoice/README.md#upload) - Create an invoice entity from the PDF of an invoice. Send the file within a formData. The endpoint will automatically extract the invoice information and create an invoice entity from them.
 
-### [Loan](docs/sdks/loan/README.md)
+### [loan](docs/sdks/loan/README.md)
 
 * [cancel](docs/sdks/loan/README.md#cancel) - Use this function to cancel a loan proposal. Available for LoanStatus.TO_VALIDATE,LoanStatus.VALIDATED and LoanStatus.SCHEDULED loans.
 * [get](docs/sdks/loan/README.md#get) - Get a loan by id
@@ -153,18 +153,18 @@ This operation is not available when the loan is in another status.
 
 * [validate](docs/sdks/loan/README.md#validate) - Use this function to accept a loan proposal. Available for LoanStatus.TO_VALIDATE loans only.
 
-### [Onboarding](docs/sdks/onboarding/README.md)
+### [onboarding](docs/sdks/onboarding/README.md)
 
 * [deactivateBorrower](docs/sdks/onboarding/README.md#deactivateborrower)
 * [enrollBorrower](docs/sdks/onboarding/README.md#enrollborrower)
 * [listBorrowers](docs/sdks/onboarding/README.md#listborrowers) - List all your borrowers
 * [signBorrower](docs/sdks/onboarding/README.md#signborrower) - Register the date a new borrower accepted our T&Cs
 
-### [Payment](docs/sdks/payment/README.md)
+### [payment](docs/sdks/payment/README.md)
 
 * [list](docs/sdks/payment/README.md#list) - Get payments related to loans
 
-### [Testing](docs/sdks/testing/README.md)
+### [testing](docs/sdks/testing/README.md)
 
 * [generateBusiness](docs/sdks/testing/README.md#generatebusiness) - 
 Generate a fake business for you to use in your test.
@@ -201,7 +201,7 @@ You can test multiple scenarios:
 (2) when the business is on the invoice to finance but is not the borrower.
 
 
-### [Webhook](docs/sdks/webhook/README.md)
+### [webhook](docs/sdks/webhook/README.md)
 
 * [create](docs/sdks/webhook/README.md#create) - 
 Create a webhook subscription.
