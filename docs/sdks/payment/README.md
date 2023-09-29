@@ -27,29 +27,29 @@ const sdk = new Defacto({
 });
 
 sdk.payment.list({
-  cursor: "eos",
-  fromAccountId: "praesentium",
-  fromDate: new Date("2022-09-28T10:00:45.702Z"),
-  id: "0ab3cdca-4251-4904-a523-c7e0bc7178e4",
+  cursor: "Northeast Metal Canada",
+  fromAccountId: "Data Response West",
+  fromDate: new Date("2023-02-26T13:00:25.189Z"),
+  id: "<ID>",
   isReconciled: false,
   loanId: [
-    "odio",
+    "boil",
   ],
-  pageSize: 577543,
+  pageSize: 483371,
   paymentMethod: [
-    ListPaymentsPaymentMethod.Sct,
+    ListPaymentsPaymentMethod.DirectDebit,
   ],
   paymentType: [
-    ListPaymentsPaymentType.PaymentProviderFees,
+    ListPaymentsPaymentType.Returned,
   ],
   references: [
-    "dolores",
+    "Designer",
   ],
   status: [
-    ListPaymentsStatus.Instructed,
+    ListPaymentsStatus.Failed,
   ],
-  toAccountId: "molestiae",
-  toDate: new Date("2022-03-20T23:14:37.473Z"),
+  toAccountId: "Paradigm",
+  toDate: new Date("2021-01-09T04:15:41.822Z"),
 }).then((res: ListPaymentsResponse) => {
   if (res.statusCode == 200) {
     // handle response

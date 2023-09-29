@@ -34,17 +34,17 @@ const sdk = new Defacto({
 
 sdk.billing.listBills({
   businessId: [
-    "a7596eb1-0faa-4a23-92c5-955907aff1a3",
+    "123e62b5-ef5d-43b3-825e-9f0f1d4ec684",
   ],
   businessIdentifier: [
-    "culpa",
+    "Denar",
   ],
-  cursor: "consequuntur",
-  endDate: new Date("2021-01-15T20:18:47.519Z"),
-  pageSize: 581850,
-  startDate: new Date("2022-08-02T18:07:51.623Z"),
+  cursor: "minus",
+  endDate: new Date("2023-02-13T03:15:50.495Z"),
+  pageSize: 246412,
+  startDate: new Date("2021-10-17T07:11:49.846Z"),
   status: [
-    ListBillsStatus.SentToPayer,
+    ListBillsStatus.Paid,
   ],
 }).then((res: ListBillsResponse) => {
   if (res.statusCode == 200) {
@@ -92,11 +92,11 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const billId: string = "molestiae";
+const billId: string = "Hybrid";
 const apiBillSentByPartnerRequest: APIBillSentByPartnerRequest = {
-  sentOn: new Date("2022-05-18T10:03:04.921Z"),
+  sentOn: new Date("2023-03-31T16:16:03.817Z"),
   toEmailAddresses: [
-    "Eugene_Brown31@gmail.com",
+    "Henri_Kiehn@gmail.com",
   ],
 };
 

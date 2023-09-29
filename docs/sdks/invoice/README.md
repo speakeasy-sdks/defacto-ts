@@ -48,40 +48,40 @@ const sdk = new Defacto({
 
 sdk.invoice.create({
   buyer: {
-    identifier: "labore",
-    identifierType: APIDraftableInvoiceCreationBuyerIdentifierType.Nif,
-    name: "Robin Keebler",
-    vatNumber: "architecto",
+    identifier: "bluetooth Extended",
+    identifierType: APIDraftableInvoiceCreationBuyerIdentifierType.Siren,
+    name: "Cambridgeshire grey technology",
+    vatNumber: "deposit",
   },
   currency: APIDraftableInvoiceCreationCurrency.Eur,
-  document: "et",
-  dueAt: new Date("2022-04-17T13:06:08.135Z"),
-  invoiceNumber: "provident",
+  document: "male",
+  dueAt: new Date("2023-07-27T06:25:16.774Z"),
+  invoiceNumber: "quantify Polestar mobile",
   isDraft: false,
-  issuedAt: new Date("2021-11-07T17:49:17.039Z"),
+  issuedAt: new Date("2022-12-20T14:24:16.947Z"),
   metadata: {
-    "accusantium": "mollitia",
+    "ullam": "Durham",
   },
-  netAmount: 968962,
+  netAmount: 901176,
   seller: {
-    identifier: "mollitia",
-    identifierType: APIDraftableInvoiceCreationSellerIdentifierType.Name,
-    name: "Carmen Treutel",
-    vatNumber: "quasi",
+    identifier: "overriding",
+    identifierType: APIDraftableInvoiceCreationSellerIdentifierType.VatNumber,
+    name: "female",
+    vatNumber: "functionalities Grocery Borders",
   },
-  taxAmount: 435865,
+  taxAmount: 100966,
   toAccount: {
     accountHolder: {
-      identifier: "doloribus",
-      identifierType: APIDraftableInvoiceCreationToAccountAccountHolderIdentifierType.Steuernummer,
+      identifier: "Direct metrics",
+      identifierType: APIDraftableInvoiceCreationToAccountAccountHolderIdentifierType.Siret,
     },
-    accountNumber: "eius",
-    accountNumberType: APIDraftableInvoiceCreationToAccountAccountNumberType.InternalId,
-    bankIdentifier: "deleniti",
-    bankIdentifierType: APIDraftableInvoiceCreationToAccountBankIdentifierType.Name,
+    accountNumber: "Interactions Senior Mouse",
+    accountNumberType: APIDraftableInvoiceCreationToAccountAccountNumberType.Iban,
+    bankIdentifier: "array Edinburg Investor",
+    bankIdentifierType: APIDraftableInvoiceCreationToAccountBankIdentifierType.RoutingNumber,
   },
-  toPayAmount: 447926,
-  totalAmount: 100226,
+  toPayAmount: 787096,
+  totalAmount: 906537,
 }).then((res: CreateInvoiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -117,7 +117,7 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const invoiceId: string = "architecto";
+const invoiceId: string = "program";
 
 sdk.invoice.delete(invoiceId).then((res: DeleteInvoiceResponse) => {
   if (res.statusCode == 200) {
@@ -154,7 +154,7 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const invoiceId: string = "repudiandae";
+const invoiceId: string = "female";
 
 sdk.invoice.get(invoiceId).then((res: GetInvoiceResponse) => {
   if (res.statusCode == 200) {
@@ -194,18 +194,18 @@ const sdk = new Defacto({
 
 sdk.invoice.list({
   buyer: [
-    "ullam",
+    "Bicycle",
   ],
-  cursor: "expedita",
+  cursor: "Product",
   invoiceId: [
-    "7fd2ed02-8921-4cdd-8692-601fb576b0d5",
+    "02eaca40-dbf1-4718-b882-a50805557419",
   ],
-  pageSize: 975522,
+  pageSize: 931165,
   seller: [
-    "perferendis",
+    "RAM",
   ],
   status: [
-    ListInvoicesStatus.Deleted,
+    ListInvoicesStatus.ToSubmit,
   ],
 }).then((res: ListInvoicesResponse) => {
   if (res.statusCode == 200) {
@@ -258,41 +258,41 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const invoiceId: string = "amet";
+const invoiceId: string = "sad";
 const apiPatchInvoice: APIPatchInvoice = {
   buyer: {
-    identifier: "aut",
+    identifier: "grey Pound",
     identifierType: APIPatchInvoiceBuyerIdentifierType.BelgiumRegistrationNumber,
-    name: "Mindy Renner",
-    vatNumber: "quis",
+    name: "seriously Representative less",
+    vatNumber: "ew alias",
   },
-  currency: APIPatchInvoiceCurrency.Gbp,
-  dueAt: new Date("2022-12-12T03:59:56.327Z"),
-  invoiceNumber: "quis",
-  issuedAt: new Date("2022-10-27T11:39:54.088Z"),
+  currency: APIPatchInvoiceCurrency.LessThanNilGreaterThan,
+  dueAt: new Date("2022-03-11T10:34:32.330Z"),
+  invoiceNumber: "Van Licensed",
+  issuedAt: new Date("2021-07-19T11:44:26.485Z"),
   metadata: {
-    "perferendis": "dolores",
+    "impedit": "website",
   },
-  netAmount: 793698,
+  netAmount: 509444,
   seller: {
-    identifier: "quam",
-    identifierType: APIPatchInvoiceSellerIdentifierType.VatNumber,
-    name: "Dean Welch",
-    vatNumber: "facilis",
+    identifier: "Southeast synthesizing blue",
+    identifierType: APIPatchInvoiceSellerIdentifierType.Siret,
+    name: "lavender",
+    vatNumber: "intranet",
   },
-  taxAmount: 596656,
+  taxAmount: 598256,
   toAccount: {
     accountHolder: {
-      identifier: "voluptatem",
-      identifierType: APIPatchInvoiceToAccountAccountHolderIdentifierType.BelgiumRegistrationNumber,
+      identifier: "West",
+      identifierType: APIPatchInvoiceToAccountAccountHolderIdentifierType.Name,
     },
-    accountNumber: "consequuntur",
+    accountNumber: "temporibus pink",
     accountNumberType: APIPatchInvoiceToAccountAccountNumberType.AccountNumber,
-    bankIdentifier: "error",
-    bankIdentifierType: APIPatchInvoiceToAccountBankIdentifierType.Bic,
+    bankIdentifier: "interface inwardly utilisation",
+    bankIdentifierType: APIPatchInvoiceToAccountBankIdentifierType.RoutingNumber,
   },
-  toPayAmount: 577229,
-  totalAmount: 699098,
+  toPayAmount: 162935,
+  totalAmount: 200240,
 };
 
 sdk.invoice.submit(invoiceId, apiPatchInvoice).then((res: SubmitInvoiceResponse) => {
@@ -344,41 +344,41 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const invoiceId: string = "adipisci";
+const invoiceId: string = "Van";
 const apiPatchInvoice: APIPatchInvoice = {
   buyer: {
-    identifier: "asperiores",
+    identifier: "Reactive",
     identifierType: APIPatchInvoiceBuyerIdentifierType.LessThanNilGreaterThan,
-    name: "Sheryl Parisian",
-    vatNumber: "provident",
+    name: "Quality",
+    vatNumber: "invoice Arizona",
   },
-  currency: APIPatchInvoiceCurrency.LessThanNilGreaterThan,
-  dueAt: new Date("2021-01-26T22:08:21.462Z"),
-  invoiceNumber: "quaerat",
-  issuedAt: new Date("2022-03-16T07:10:00.236Z"),
+  currency: APIPatchInvoiceCurrency.Eur,
+  dueAt: new Date("2023-09-09T16:01:31.674Z"),
+  invoiceNumber: "withdrawal extend",
+  issuedAt: new Date("2021-10-01T03:16:58.654Z"),
   metadata: {
-    "dolorem": "dolorem",
+    "nemo": "Carolina",
   },
-  netAmount: 222443,
+  netAmount: 993680,
   seller: {
-    identifier: "qui",
-    identifierType: APIPatchInvoiceSellerIdentifierType.VatNumber,
-    name: "Marshall Ritchie",
-    vatNumber: "reiciendis",
+    identifier: "East Baht Quality",
+    identifierType: APIPatchInvoiceSellerIdentifierType.LessThanNilGreaterThan,
+    name: "driver users",
+    vatNumber: "Gasoline Lev",
   },
-  taxAmount: 227414,
+  taxAmount: 481319,
   toAccount: {
     accountHolder: {
-      identifier: "dolorum",
-      identifierType: APIPatchInvoiceToAccountAccountHolderIdentifierType.Name,
+      identifier: "Wooden",
+      identifierType: APIPatchInvoiceToAccountAccountHolderIdentifierType.Nif,
     },
-    accountNumber: "veritatis",
+    accountNumber: "Internal invoice",
     accountNumberType: APIPatchInvoiceToAccountAccountNumberType.Iban,
-    bankIdentifier: "ipsa",
-    bankIdentifierType: APIPatchInvoiceToAccountBankIdentifierType.RoutingNumber,
+    bankIdentifier: "Buckinghamshire frictionless haptic",
+    bankIdentifierType: APIPatchInvoiceToAccountBankIdentifierType.Name,
   },
-  toPayAmount: 487838,
-  totalAmount: 311796,
+  toPayAmount: 579805,
+  totalAmount: 823897,
 };
 
 sdk.invoice.update(invoiceId, apiPatchInvoice).then((res: UpdateInvoiceResponse) => {
@@ -417,8 +417,8 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const buyer: string = "accusamus";
-const seller: string = "quidem";
+const buyer: string = "Market";
+const seller: string = "hard";
 
 sdk.invoice.upload(buyer, seller).then((res: UploadInvoicesResponse) => {
   if (res.statusCode == 200) {

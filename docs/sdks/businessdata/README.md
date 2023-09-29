@@ -47,13 +47,13 @@ const sdk = new Defacto({
 sdk.businessData.uploadAccounts({
   accounts: [
     {
-      amount: 138183,
-      id: "c3f5ad01-9da1-4ffe-b8f0-97b0074f1547",
-      lastUpdatedAt: new Date("2022-04-24T15:19:40.519Z"),
+      amount: 79711,
+      id: "<ID>",
+      lastUpdatedAt: new Date("2022-09-04T05:03:11.864Z"),
     },
   ],
-  identifier: "enim",
-  identifierType: APIPartnerBusinessAccountsIdentifierType.BelgiumRegistrationNumber,
+  identifier: "Folk support",
+  identifierType: APIPartnerBusinessAccountsIdentifierType.Bsn,
 }).then((res: UploadAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -104,31 +104,31 @@ const sdk = new Defacto({
 });
 
 sdk.businessData.uploadInvoices({
-  identifier: "commodi",
-  identifierType: APIPartnerBusinessInvoicesIdentifierType.Steuernummer,
+  identifier: "Creative itaque",
+  identifierType: APIPartnerBusinessInvoicesIdentifierType.Kvk,
   invoices: [
     {
       buyer: {
-        identifier: "quae",
-        identifierType: BuyerBusinessIdentifierIdentifierType.VatNumber,
+        identifier: "Metal",
+        identifierType: BuyerBusinessIdentifierIdentifierType.Name,
       },
-      currency: APIPartnerBusinessInvoiceCurrency.Gbp,
-      direction: APIPartnerBusinessInvoiceDirection.Receivable,
-      dueAt: new Date("2021-04-09T11:24:10.949Z"),
-      firstPaymentAt: new Date("2022-06-29T05:25:54.356Z"),
-      invoiceNumber: "rem",
-      issuedAt: new Date("2022-09-20T03:14:35.704Z"),
-      lastPaymentAt: new Date("2021-04-10T08:07:33.561Z"),
-      netAmount: 83112,
-      paymentMethod: APIPartnerBusinessInvoicePaymentMethod.LessThanNilGreaterThan,
-      saltId: "incidunt",
+      currency: APIPartnerBusinessInvoiceCurrency.Eur,
+      direction: APIPartnerBusinessInvoiceDirection.Supplier,
+      dueAt: new Date("2022-10-19T15:45:44.614Z"),
+      firstPaymentAt: new Date("2023-03-30T08:13:25.125Z"),
+      invoiceNumber: "Northeast Mountain",
+      issuedAt: new Date("2022-06-22T03:34:12.554Z"),
+      lastPaymentAt: new Date("2022-12-08T21:51:45.487Z"),
+      netAmount: 243699,
+      paymentMethod: APIPartnerBusinessInvoicePaymentMethod.Card,
+      saltId: "microchip IP",
       seller: {
-        identifier: "enim",
-        identifierType: SellerBusinessIdentifierIdentifierType.Siret,
+        identifier: "Steel Nissan",
+        identifierType: SellerBusinessIdentifierIdentifierType.Bsn,
       },
-      taxAmount: 667411,
-      toPayAmount: 842342,
-      totalAmount: 131797,
+      taxAmount: 406969,
+      toPayAmount: 734042,
+      totalAmount: 350644,
     },
   ],
 }).then((res: UploadInvoicesBusinessResponse) => {
@@ -180,24 +180,24 @@ const sdk = new Defacto({
 });
 
 sdk.businessData.uploadTransactions({
-  endDate: new Date("2021-07-27T01:56:50.693Z"),
-  identifier: "quibusdam",
-  identifierType: APIPartnerAccountTransactionsIdentifierType.Name,
-  startDate: new Date("2022-10-26T03:14:36.345Z"),
+  endDate: new Date("2022-01-16T01:56:51.205Z"),
+  identifier: "Loan",
+  identifierType: APIPartnerAccountTransactionsIdentifierType.Steuernummer,
+  startDate: new Date("2021-04-14T06:11:46.028Z"),
   transactions: [
     {
-      account: "aliquid",
-      amount: 586513,
-      at: new Date("2022-12-17T07:42:55.593Z"),
-      category: "magni",
-      counterpartyName: "assumenda",
-      currency: APIPartnerAccountTransactionCurrency.Eur,
-      operationType: APIPartnerAccountTransactionOperationType.Income,
-      reference: "fugit",
-      saltId: "dolorum",
-      settledBalance: 569618,
-      side: APIPartnerAccountTransactionSide.Debit,
-      status: APIPartnerAccountTransactionStatus.Declined,
+      account: "13201943",
+      amount: 623650,
+      at: new Date("2022-08-19T00:52:56.282Z"),
+      category: "cultivate harness Grande",
+      counterpartyName: "Frozen male Sleek",
+      currency: APIPartnerAccountTransactionCurrency.Gbp,
+      operationType: APIPartnerAccountTransactionOperationType.Card,
+      reference: "conglomeration",
+      saltId: "Intuitive East",
+      settledBalance: 911839,
+      side: APIPartnerAccountTransactionSide.LessThanNilGreaterThan,
+      status: APIPartnerAccountTransactionStatus.Completed,
     },
   ],
 }).then((res: UploadTransactionsResponse) => {

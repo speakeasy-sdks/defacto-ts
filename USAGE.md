@@ -13,15 +13,15 @@ const sdk = new Defacto({
 
 sdk.billing.listBills({
   businessId: [
-    "89bd9d8d-69a6-474e-8f46-7cc8796ed151",
+    "123e62b5-ef5d-43b3-825e-9f0f1d4ec684",
   ],
   businessIdentifier: [
-    "deserunt",
+    "Denar",
   ],
-  cursor: "perferendis",
-  endDate: new Date("2022-03-03T02:15:00.468Z"),
-  pageSize: 957156,
-  startDate: new Date("2022-07-31T07:34:52.790Z"),
+  cursor: "minus",
+  endDate: new Date("2023-02-13T03:15:50.495Z"),
+  pageSize: 246412,
+  startDate: new Date("2021-10-17T07:11:49.846Z"),
   status: [
     ListBillsStatus.Paid,
   ],

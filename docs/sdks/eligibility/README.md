@@ -32,8 +32,8 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const creditLineId: string = "tempore";
-const at: Date = new Date("2022-01-14T19:13:42.009Z");
+const creditLineId: string = "F2M";
+const at: Date = new Date("2023-07-21T14:28:25.004Z");
 
 sdk.eligibility.getCreditLine(creditLineId, at).then((res: GetCreditLineResponse) => {
   if (res.statusCode == 200) {
@@ -107,13 +107,13 @@ const sdk = new Defacto({
   },
 });
 const borrower: string[] = [
-  "eum",
+  "East",
 ];
-const cursor: string = "non";
+const cursor: string = "quantifying";
 const id: string[] = [
-  "c969e9a3-efa7-47df-b14c-d66ae395efb9",
+  "a1216f99-8267-4263-9729-e6d603d0ce0a",
 ];
-const pageSize: number = 725255;
+const pageSize: number = 559034;
 
 sdk.eligibility.listCreditLines(borrower, cursor, id, pageSize).then((res: ListCreditLinesResponse) => {
   if (res.statusCode == 200) {
@@ -158,8 +158,8 @@ const sdk = new Defacto({
 });
 
 sdk.eligibility.requestElligibilityBorrower({
-  identifier: "id",
-  identifierType: APIBorrowerEligibilityIdentifierType.Kvk,
+  identifier: "North Bespoke",
+  identifierType: APIBorrowerEligibilityIdentifierType.Name,
 }).then((res: RequestElligibilityBorrowerResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -200,8 +200,8 @@ const sdk = new Defacto({
 });
 
 sdk.eligibility.requestElligibilityBuyer({
-  identifier: "deleniti",
-  identifierType: APIBorrowerEligibilityIdentifierType.LessThanNilGreaterThan,
+  identifier: "Cummerata",
+  identifierType: APIBorrowerEligibilityIdentifierType.Nif,
 }).then((res: RequestElligibilityBuyerResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -240,21 +240,21 @@ const sdk = new Defacto({
 });
 
 sdk.eligibility.requestElligibilityQuote({
-  amount: 230533,
+  amount: 367035,
   borrower: {
-    identifier: "deserunt",
-    identifierType: APIQuoteEligibilityBorrowerIdentifierType.Nif,
+    identifier: "Optimization self male",
+    identifierType: APIQuoteEligibilityBorrowerIdentifierType.Cif,
   },
   buyer: {
-    identifier: "vel",
-    identifierType: BusinessIdentifierIdentifierType.Bsn,
+    identifier: "tesla Northeast",
+    identifierType: BusinessIdentifierIdentifierType.Steuernummer,
   },
-  endDate: new Date("2022-01-19T08:19:15.156Z"),
+  endDate: new Date("2023-12-27T11:57:36.744Z"),
   seller: {
-    identifier: "perferendis",
+    identifier: "Frozen er North",
     identifierType: BusinessIdentifierIdentifierType.Cif,
   },
-  startDate: new Date("2022-04-14T15:11:13.227Z"),
+  startDate: new Date("2022-10-23T11:08:05.081Z"),
 }).then((res: RequestElligibilityQuoteResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -295,8 +295,8 @@ const sdk = new Defacto({
 });
 
 sdk.eligibility.requestElligibilitySeller({
-  identifier: "id",
-  identifierType: APIBorrowerEligibilityIdentifierType.Name,
+  identifier: "Virginia Senior",
+  identifierType: APIBorrowerEligibilityIdentifierType.Kvk,
 }).then((res: RequestElligibilitySellerResponse) => {
   if (res.statusCode == 200) {
     // handle response

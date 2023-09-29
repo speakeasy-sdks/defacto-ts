@@ -38,7 +38,7 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const loanId: string = "voluptatibus";
+const loanId: string = "Clifton";
 
 sdk.loan.cancel(loanId).then((res: CancelLoanResponse) => {
   if (res.statusCode == 200) {
@@ -75,7 +75,7 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const loanId: string = "voluptas";
+const loanId: string = "female";
 
 sdk.loan.get(loanId).then((res: GetLoanResponse) => {
   if (res.statusCode == 200) {
@@ -112,7 +112,7 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const loanId: string = "natus";
+const loanId: string = "Executive";
 
 sdk.loan.getEvents(loanId).then((res: GetLoanEventsResponse) => {
   if (res.statusCode == 200) {
@@ -152,26 +152,26 @@ const sdk = new Defacto({
 
 sdk.loan.list({
   borrower: [
-    "eos",
+    "Bicycle",
   ],
-  cursor: "atque",
+  cursor: "Product",
   guaranteeCalled: false,
-  guarantor: "sit",
+  guarantor: "Shores",
   id: [
-    "d1ba77a8-9ebf-4737-ae42-03ce5e6a95d8",
+    "40dbf171-8b88-42a5-8805-557419e790e2",
   ],
   loanType: [
-    ListLoansLoanType.WalletFinancing,
+    ListLoansLoanType.InvoiceBasedFinancing,
   ],
-  pageSize: 55,
+  pageSize: 168183,
   status: [
-    ListLoansStatus.IssueDetected,
+    ListLoansStatus.Submitted,
   ],
-  toPayAtFrom: new Date("2022-09-23T03:46:17.712Z"),
-  toPayAtTo: new Date("2022-03-15T17:06:34.956Z"),
-  toRepayAtFrom: new Date("2022-06-11T17:29:13.872Z"),
-  toRepayAtTo: new Date("2021-02-04T11:05:24.484Z"),
-  toRepayAtWithinDays: 456130,
+  toPayAtFrom: new Date("2022-01-09T19:59:05.695Z"),
+  toPayAtTo: new Date("2021-12-20T05:49:55.589Z"),
+  toRepayAtFrom: new Date("2023-07-09T18:04:47.782Z"),
+  toRepayAtTo: new Date("2023-08-01T08:27:33.943Z"),
+  toRepayAtWithinDays: 311789,
 }).then((res: ListLoansResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -227,80 +227,80 @@ const sdk = new Defacto({
 });
 
 sdk.loan.request({
-  amount: 687488,
+  amount: 193368,
   autoValidate: false,
   borrower: {
-    identifier: "iusto",
-    identifierType: APIPostLoanBorrowerIdentifierType.VatNumber,
+    identifier: "Johns",
+    identifierType: APIPostLoanBorrowerIdentifierType.Siret,
   },
-  currency: APIPostLoanCurrency.Gbp,
+  currency: APIPostLoanCurrency.Eur,
   invoiceIds: [
-    "f3be453f-870b-4326-b5a7-3429cdb1a842",
+    "56d1f09d-ae62-4352-896c-e7636725e5c3",
   ],
   invoices: [
     {
       buyer: {
-        identifier: "dolores",
-        identifierType: CounterpartyCreationIdentifierType.HrNummer,
-        name: "Gilbert Kohler",
-        vatNumber: "qui",
+        identifier: "homogeneous",
+        identifierType: CounterpartyCreationIdentifierType.BelgiumRegistrationNumber,
+        name: "Persevering",
+        vatNumber: "forenenst",
       },
-      currency: APIRequiredInvoiceCreationCurrency.Eur,
-      document: "fugit",
-      dueAt: new Date("2022-07-06T20:37:36.497Z"),
-      invoiceNumber: "sunt",
-      issuedAt: new Date("2022-04-12T10:34:24.004Z"),
+      currency: APIRequiredInvoiceCreationCurrency.Gbp,
+      document: "zowie",
+      dueAt: new Date("2022-11-27T18:24:04.300Z"),
+      invoiceNumber: "Reggae Hatchback",
+      issuedAt: new Date("2021-05-28T21:51:57.413Z"),
       metadata: {
-        "hic": "voluptatem",
+        "aut": "male",
       },
-      netAmount: 765326,
+      netAmount: 424922,
       seller: {
-        identifier: "soluta",
-        identifierType: CounterpartyCreationIdentifierType.HrNummer,
-        name: "Miss Kerry Emmerich",
-        vatNumber: "tempore",
+        identifier: "doloribus until gosh",
+        identifierType: CounterpartyCreationIdentifierType.Bsn,
+        name: "Kelsie",
+        vatNumber: "synergize Plastic",
       },
-      taxAmount: 584476,
+      taxAmount: 873008,
       toAccount: {
         accountHolder: {
-          identifier: "aperiam",
-          identifierType: APIRequiredInvoiceCreationToAccountAccountHolderIdentifierType.LessThanNilGreaterThan,
+          identifier: "Decentralized",
+          identifierType: APIRequiredInvoiceCreationToAccountAccountHolderIdentifierType.Siren,
         },
-        accountNumber: "dolorem",
-        accountNumberType: APIRequiredInvoiceCreationToAccountAccountNumberType.Iban,
-        bankIdentifier: "labore",
+        accountNumber: "Saint Stage maximized",
+        accountNumberType: APIRequiredInvoiceCreationToAccountAccountNumberType.AccountNumber,
+        bankIdentifier: "Dollar Djibouti woman",
         bankIdentifierType: APIRequiredInvoiceCreationToAccountBankIdentifierType.Bic,
       },
-      toPayAmount: 677263,
-      totalAmount: 100294,
+      toPayAmount: 977960,
+      totalAmount: 887611,
     },
   ],
   loanTo: {
     accountHolder: {
-      identifier: "quae",
-      identifierType: AccountCreationAccountHolderIdentifierType.Siret,
+      identifier: "invoice quidem",
+      identifierType: AccountCreationAccountHolderIdentifierType.LessThanNilGreaterThan,
     },
-    accountNumber: "quas",
-    accountNumberType: AccountCreationAccountNumberType.InternalId,
-    bankIdentifier: "consequatur",
-    bankIdentifierType: AccountCreationBankIdentifierType.Name,
+    accountNumber: "Oganesson steradian Progressive",
+    accountNumberType: AccountCreationAccountNumberType.Iban,
+    bankIdentifier: "payment ouch Table",
+    bankIdentifierType: AccountCreationBankIdentifierType.RoutingNumber,
   },
   loanToReferences: [
-    "repellendus",
+    "searchingly",
   ],
-  loanType: APIPostLoanLoanType.WalletFinancing,
+  loanType: APIPostLoanLoanType.InvoiceBasedFinancing,
   metadata: {
-    "doloribus": "ut",
+    "excepturi": "yowza",
   },
   notificationEmails: [
-    "Kyler51@hotmail.com",
+    "Jefferey.Abernathy64@yahoo.com",
   ],
   repaymentFromReferences: [
-    "odio",
+    "classmate",
   ],
-  saltId: "occaecati",
-  toPayAt: new Date("2020-08-21T15:23:31.740Z"),
-  toRepayAt: new Date("2021-03-07T21:49:29.078Z"),
+  saltId: "West Electric Buckinghamshire",
+  toPayAt: new Date("2021-11-09T06:25:24.342Z"),
+  toRepayAt: new Date("2022-04-04T05:05:53.505Z"),
 }).then((res: RequestLoanResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -351,32 +351,32 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const loanId: string = "quis";
+const loanId: string = "Van";
 const patchLoan: PatchLoan = {
-  amount: 218403,
-  lenderId: "delectus",
+  amount: 15652,
+  lenderId: "Reactive",
   loanTo: {
     accountHolder: {
-      identifier: "voluptate",
-      identifierType: PatchLoanLoanToAccountHolderIdentifierType.VatNumber,
+      identifier: "Metal cheater Islands",
+      identifierType: PatchLoanLoanToAccountHolderIdentifierType.Cif,
     },
-    accountNumber: "vero",
-    accountNumberType: PatchLoanLoanToAccountNumberType.InternalId,
-    bankIdentifier: "dignissimos",
+    accountNumber: "dynamic white",
+    accountNumberType: PatchLoanLoanToAccountNumberType.AccountNumber,
+    bankIdentifier: "Forward",
     bankIdentifierType: PatchLoanLoanToBankIdentifierType.Name,
   },
   loanToReferences: [
-    "distinctio",
+    "immediately",
   ],
   metadata: {
-    "quod": "odio",
+    "aliquam": "East",
   },
   repaymentToReferences: [
-    "similique",
+    "Baht",
   ],
-  toPayAt: new Date("2021-04-02T18:28:29.036Z"),
-  toRepayAt: new Date("2022-09-16T01:08:31.616Z"),
-  transferContractUrl: "quibusdam",
+  toPayAt: new Date("2022-11-21T15:34:31.437Z"),
+  toRepayAt: new Date("2023-01-30T09:22:35.379Z"),
+  transferContractUrl: "Home users Sharable",
 };
 
 sdk.loan.update(loanId, patchLoan).then((res: UpdateLoanResponse) => {
@@ -415,7 +415,7 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const loanId: string = "illum";
+const loanId: string = "Liaison";
 
 sdk.loan.validate(loanId).then((res: ValidateLoanResponse) => {
   if (res.statusCode == 200) {

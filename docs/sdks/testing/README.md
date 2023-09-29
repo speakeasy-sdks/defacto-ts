@@ -58,7 +58,7 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const country: GenerateBusinessCountry = GenerateBusinessCountry.Nld;
+const country: GenerateBusinessCountry = GenerateBusinessCountry.Deu;
 const isBorrower: boolean = false;
 
 sdk.testing.generateBusiness(country, isBorrower).then((res: GenerateBusinessResponse) => {
@@ -110,8 +110,8 @@ const sdk = new Defacto({
     bearer: "",
   },
 });
-const country: GenerateIbanCountry = GenerateIbanCountry.Nld;
-const scenario: GenerateIbanScenario = GenerateIbanScenario.Reject;
+const country: GenerateIbanCountry = GenerateIbanCountry.Deu;
+const scenario: GenerateIbanScenario = GenerateIbanScenario.Success;
 
 sdk.testing.generateIban(country, scenario).then((res: GenerateIbanResponse) => {
   if (res.statusCode == 200) {
@@ -167,18 +167,18 @@ const sdk = new Defacto({
 
 sdk.testing.generateInvoice({
   buyer: {
-    identifier: "consequuntur",
-    identifierType: GenerateInvoiceRequestBuyerIdentifierType.Kvk,
-    name: "Lee O'Conner",
-    vatNumber: "explicabo",
+    identifier: "olive Wyoming withdrawal",
+    identifierType: GenerateInvoiceRequestBuyerIdentifierType.HrNummer,
+    name: "Cotton a lest",
+    vatNumber: "Bigender",
   },
-  country: GenerateInvoiceRequestCountry.Esp,
-  scenario: GenerateInvoiceRequestScenario.SuccessOneDayLater,
+  country: GenerateInvoiceRequestCountry.Deu,
+  scenario: GenerateInvoiceRequestScenario.Fail,
   seller: {
-    identifier: "fugit",
-    identifierType: GenerateInvoiceRequestSellerIdentifierType.LessThanNilGreaterThan,
-    name: "Norma Christiansen",
-    vatNumber: "atque",
+    identifier: "black Director",
+    identifierType: GenerateInvoiceRequestSellerIdentifierType.Siren,
+    name: "West Thulium Card",
+    vatNumber: "female",
   },
 }).then((res: GenerateInvoiceResponse) => {
   if (res.statusCode == 200) {
@@ -261,8 +261,8 @@ const sdk = new Defacto({
 
 sdk.testing.setBusinessEligible({
   businessIdentifier: {
-    identifier: "et",
-    identifierType: BusinessIdentifierIdentifierType.Cif,
+    identifier: "laudantium",
+    identifierType: BusinessIdentifierIdentifierType.VatNumber,
   },
   scenario: BusinessEligibileParamsScenario.NotEligible,
 }).then((res: SetBusinessEligibleResponse) => {
