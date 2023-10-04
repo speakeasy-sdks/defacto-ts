@@ -2,21 +2,21 @@ configVersion: 1.0.0
 management:
   docChecksum: 1ce0e179a6e0de2157399d3d6e839ba2
   docVersion: v1.0.0
-  speakeasyVersion: 1.92.3
-  generationVersion: 2.143.2
+  speakeasyVersion: 1.93.3
+  generationVersion: 2.146.1
 generation:
   sdkClassName: defacto
   singleTagPerOp: false
   telemetryEnabled: false
 features:
   typescript:
-    core: 2.90.1
+    core: 2.90.2
     flattening: 2.81.1
     globalSecurity: 2.81.1
     globalServerURLs: 2.82.0
     nameOverrides: 2.81.1
 typescript:
-  version: 1.28.1
+  version: 1.28.2
   author: Defacto
   maxMethodParams: 4
   packageName: defacto
