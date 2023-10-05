@@ -68,6 +68,7 @@ export class Director extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "birth_date" })
+    @Type(() => String)
     @Transform(({ value }) => new RFCDate(value), { toClassOnly: true })
     birthDate?: RFCDate;
 
