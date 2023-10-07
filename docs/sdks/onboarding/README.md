@@ -14,20 +14,22 @@
 
 ```typescript
 import { Defacto } from "defacto";
-import { DeactivateBorrowerRequest, DeactivateBorrowerResponse } from "defacto/dist/sdk/models/operations";
+import { DeactivateBorrowerRequest } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 const borrowerId: string = "Factors";
 
-sdk.onboarding.deactivateBorrower(borrowerId).then((res: DeactivateBorrowerResponse) => {
+  const res = await sdk.onboarding.deactivateBorrower(borrowerId);
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -49,65 +51,41 @@ sdk.onboarding.deactivateBorrower(borrowerId).then((res: DeactivateBorrowerRespo
 
 ```typescript
 import { Defacto } from "defacto";
-import { EnrollBorrowerResponse } from "defacto/dist/sdk/models/operations";
 import { APIPostBorrowerIdentifierType } from "defacto/dist/sdk/models/shared";
 import { RFCDate } from "defacto/dist/sdk/types";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
-
-sdk.onboarding.enrollBorrower({
-  accountNumber: "Southeast",
-  address: {
-    addressLine1: "National",
-    addressLine2: "Modern Northeast",
-    city: "South Macie",
-    country: "Singapore",
-    postalCode: "40033-0616",
-    state: "female Gender neural",
-  },
-  directors: [
-    {
-      address: {
-        addressLine1: "male strategy orchestration",
-        addressLine2: "withdrawal deserted",
-        city: "South Lorenz",
-        country: "Papua New Guinea",
-        postalCode: "35268-4020",
-        state: "solution Androgynous",
-      },
-      birthDate: new RFCDate("2022-03-29"),
-      birthPlace: {
-        city: "Kokomo",
-        country: "Antarctica (the territory South of 60 deg S)",
-      },
-      businessEmail: "Missouri.Williamson4@gmail.com",
-      businessPhoneNumber: "Northwest Missouri Berkshire",
-      firstName: "Lonie",
-      lastName: "Effertz",
-      nationality: "beyond over Architect",
-      title: "Cis sensor monetize",
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
     },
-  ],
-  identifier: "Rap South online",
-  identifierType: APIPostBorrowerIdentifierType.LessThanNilGreaterThan,
-  legalForm: "composite siemens",
-  metadata: {
-    "dignissimos": "man",
-  },
-  name: "Sausages",
-  preferredLanguage: "renounce",
-  signedAt: new Date("2022-10-02T22:52:49.029Z"),
-  vatNumber: "Northwest Oriental Account",
-  waitForReady: false,
-}).then((res: EnrollBorrowerResponse) => {
+  });
+
+  const res = await sdk.onboarding.enrollBorrower({
+    address: {
+      addressLine1: "Southeast",
+      city: "Lake Genesisworth",
+      country: "Cape Verde",
+      postalCode: "52401",
+    },
+    directors: [
+      {
+        address: {
+          country: "Azerbaijan",
+        },
+        birthPlace: {},
+      },
+    ],
+    identifier: "Elegant",
+    metadata: {
+      "SDD": "Gasoline",
+    },
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -131,13 +109,14 @@ List all your borrowers
 
 ```typescript
 import { Defacto } from "defacto";
-import { ListBorrowersRequest, ListBorrowersResponse } from "defacto/dist/sdk/models/operations";
+import { ListBorrowersRequest } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 const borrowerId: string[] = [
   "ea2a2e84-a3b5-41bb-9e07-36c532ce23cc",
 ];
@@ -145,11 +124,12 @@ const borrowerIdentifier: string = "Assistant";
 const cursor: string = "orchid";
 const pageSize: number = 788273;
 
-sdk.onboarding.listBorrowers(borrowerId, borrowerIdentifier, cursor, pageSize).then((res: ListBorrowersResponse) => {
+  const res = await sdk.onboarding.listBorrowers(borrowerId, borrowerIdentifier, cursor, pageSize);
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -176,25 +156,26 @@ Register the date a new borrower accepted our T&Cs
 
 ```typescript
 import { Defacto } from "defacto";
-import { SignBorrowerRequest, SignBorrowerResponse } from "defacto/dist/sdk/models/operations";
+import { SignBorrowerRequest } from "defacto/dist/sdk/models/operations";
 import { SignedInput } from "defacto/dist/sdk/models/shared";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 const borrowerId: string = "Alaska";
 const signedInput: SignedInput = {
   signedAt: new Date("2023-02-10T21:07:04.855Z"),
-  waitForReady: false,
 };
 
-sdk.onboarding.signBorrower(borrowerId, signedInput).then((res: SignBorrowerResponse) => {
+  const res = await sdk.onboarding.signBorrower(borrowerId, signedInput);
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

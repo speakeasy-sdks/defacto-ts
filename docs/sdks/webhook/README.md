@@ -44,26 +44,27 @@ For more information on webhooks such as how to secure them, you can refer to ou
 
 ```typescript
 import { Defacto } from "defacto";
-import { CreateWebhookResponse } from "defacto/dist/sdk/models/operations";
 import { CreateWebhookEventTypes } from "defacto/dist/sdk/models/shared";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 
-sdk.webhook.create({
-  eventTypes: [
-    CreateWebhookEventTypes.LoanISSUEDETECTED,
-  ],
-  name: "Configuration Money",
-  toUrl: "https://big-young.net",
-}).then((res: CreateWebhookResponse) => {
+  const res = await sdk.webhook.create({
+    eventTypes: [
+      CreateWebhookEventTypes.LoanISSUEDETECTED,
+    ],
+    name: "Configuration Money",
+    toUrl: "https://big-young.net",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -87,20 +88,22 @@ Delete a webhook subscription.
 
 ```typescript
 import { Defacto } from "defacto";
-import { DeleteWebhookRequest, DeleteWebhookResponse } from "defacto/dist/sdk/models/operations";
+import { DeleteWebhookRequest } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 const webhookId: string = "program";
 
-sdk.webhook.delete(webhookId).then((res: DeleteWebhookResponse) => {
+  const res = await sdk.webhook.delete(webhookId);
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -131,19 +134,20 @@ For more information on webhooks such as how to secure them, you can refer to ou
 
 ```typescript
 import { Defacto } from "defacto";
-import { ListWebhooksResponse } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 
-sdk.webhook.list().then((res: ListWebhooksResponse) => {
+  const res = await sdk.webhook.list();
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -173,14 +177,15 @@ For more information on webhooks such as how to secure them, you can refer to ou
 
 ```typescript
 import { Defacto } from "defacto";
-import { UpdateWebhookRequest, UpdateWebhookResponse } from "defacto/dist/sdk/models/operations";
+import { UpdateWebhookRequest } from "defacto/dist/sdk/models/operations";
 import { CreateWebhook, CreateWebhookEventTypes } from "defacto/dist/sdk/models/shared";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 const webhookId: string = "Van";
 const createWebhook: CreateWebhook = {
   eventTypes: [
@@ -190,11 +195,12 @@ const createWebhook: CreateWebhook = {
   toUrl: "https://complex-authority.biz",
 };
 
-sdk.webhook.update(webhookId, createWebhook).then((res: UpdateWebhookResponse) => {
+  const res = await sdk.webhook.update(webhookId, createWebhook);
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

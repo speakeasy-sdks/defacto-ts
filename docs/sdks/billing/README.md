@@ -24,33 +24,31 @@ List your fees invoices (i.e: your Defacto bill) for the loans you performed on 
 
 ```typescript
 import { Defacto } from "defacto";
-import { ListBillsResponse, ListBillsStatus } from "defacto/dist/sdk/models/operations";
+import { ListBillsStatus } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 
-sdk.billing.listBills({
-  businessId: [
-    "123e62b5-ef5d-43b3-825e-9f0f1d4ec684",
-  ],
-  businessIdentifier: [
-    "Denar",
-  ],
-  cursor: "minus",
-  endDate: new Date("2023-02-13T03:15:50.495Z"),
-  pageSize: 246412,
-  startDate: new Date("2021-10-17T07:11:49.846Z"),
-  status: [
-    ListBillsStatus.Paid,
-  ],
-}).then((res: ListBillsResponse) => {
+  const res = await sdk.billing.listBills({
+    businessId: [
+      "123e62b5-ef5d-43b3-825e-9f0f1d4ec684",
+    ],
+    businessIdentifier: [
+      "Denar",
+    ],
+    status: [
+      ListBillsStatus.SentToPayer,
+    ],
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -84,14 +82,15 @@ If you need to send them by yourself please get in touch with us.
 
 ```typescript
 import { Defacto } from "defacto";
-import { SendBillRequest, SendBillResponse } from "defacto/dist/sdk/models/operations";
+import { SendBillRequest } from "defacto/dist/sdk/models/operations";
 import { APIBillSentByPartnerRequest } from "defacto/dist/sdk/models/shared";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 const billId: string = "Hybrid";
 const apiBillSentByPartnerRequest: APIBillSentByPartnerRequest = {
   sentOn: new Date("2023-03-31T16:16:03.817Z"),
@@ -100,11 +99,12 @@ const apiBillSentByPartnerRequest: APIBillSentByPartnerRequest = {
   ],
 };
 
-sdk.billing.sendBill(billId, apiBillSentByPartnerRequest).then((res: SendBillResponse) => {
+  const res = await sdk.billing.sendBill(billId, apiBillSentByPartnerRequest);
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -31,20 +31,22 @@ Use this function to cancel a loan proposal. Available for LoanStatus.TO_VALIDAT
 
 ```typescript
 import { Defacto } from "defacto";
-import { CancelLoanRequest, CancelLoanResponse } from "defacto/dist/sdk/models/operations";
+import { CancelLoanRequest } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 const loanId: string = "Clifton";
 
-sdk.loan.cancel(loanId).then((res: CancelLoanResponse) => {
+  const res = await sdk.loan.cancel(loanId);
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -68,20 +70,22 @@ Get a loan by id
 
 ```typescript
 import { Defacto } from "defacto";
-import { GetLoanRequest, GetLoanResponse } from "defacto/dist/sdk/models/operations";
+import { GetLoanRequest } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 const loanId: string = "female";
 
-sdk.loan.get(loanId).then((res: GetLoanResponse) => {
+  const res = await sdk.loan.get(loanId);
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -105,20 +109,22 @@ Get the activity log of a loan.
 
 ```typescript
 import { Defacto } from "defacto";
-import { GetLoanEventsRequest, GetLoanEventsResponse } from "defacto/dist/sdk/models/operations";
+import { GetLoanEventsRequest } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 const loanId: string = "Executive";
 
-sdk.loan.getEvents(loanId).then((res: GetLoanEventsResponse) => {
+  const res = await sdk.loan.getEvents(loanId);
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -142,41 +148,34 @@ List loans
 
 ```typescript
 import { Defacto } from "defacto";
-import { ListLoansLoanType, ListLoansResponse, ListLoansStatus } from "defacto/dist/sdk/models/operations";
+import { ListLoansLoanType, ListLoansStatus } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 
-sdk.loan.list({
-  borrower: [
-    "Bicycle",
-  ],
-  cursor: "Product",
-  guaranteeCalled: false,
-  guarantor: "Shores",
-  id: [
-    "40dbf171-8b88-42a5-8805-557419e790e2",
-  ],
-  loanType: [
-    ListLoansLoanType.InvoiceBasedFinancing,
-  ],
-  pageSize: 168183,
-  status: [
-    ListLoansStatus.Submitted,
-  ],
-  toPayAtFrom: new Date("2022-01-09T19:59:05.695Z"),
-  toPayAtTo: new Date("2021-12-20T05:49:55.589Z"),
-  toRepayAtFrom: new Date("2023-07-09T18:04:47.782Z"),
-  toRepayAtTo: new Date("2023-08-01T08:27:33.943Z"),
-  toRepayAtWithinDays: 311789,
-}).then((res: ListLoansResponse) => {
+  const res = await sdk.loan.list({
+    borrower: [
+      "Bicycle",
+    ],
+    id: [
+      "4a429302-eaca-440d-bf17-18b882a50805",
+    ],
+    loanType: [
+      ListLoansLoanType.InvoiceBasedFinancing,
+    ],
+    status: [
+      ListLoansStatus.Canceled,
+    ],
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -205,7 +204,6 @@ Request a new loan. You can request a loan for only one invoice. At the moment, 
 
 ```typescript
 import { Defacto } from "defacto";
-import { RequestLoanResponse } from "defacto/dist/sdk/models/operations";
 import {
   AccountCreationAccountHolderIdentifierType,
   AccountCreationAccountNumberType,
@@ -220,92 +218,66 @@ import {
   CounterpartyCreationIdentifierType,
 } from "defacto/dist/sdk/models/shared";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 
-sdk.loan.request({
-  amount: 193368,
-  autoValidate: false,
-  borrower: {
-    identifier: "Johns",
-    identifierType: APIPostLoanBorrowerIdentifierType.Siret,
-  },
-  currency: APIPostLoanCurrency.Eur,
-  invoiceIds: [
-    "56d1f09d-ae62-4352-896c-e7636725e5c3",
-  ],
-  invoices: [
-    {
-      buyer: {
-        identifier: "homogeneous",
-        identifierType: CounterpartyCreationIdentifierType.BelgiumRegistrationNumber,
-        name: "Persevering",
-        vatNumber: "forenenst",
-      },
-      currency: APIRequiredInvoiceCreationCurrency.Gbp,
-      document: "zowie",
-      dueAt: new Date("2022-11-27T18:24:04.300Z"),
-      invoiceNumber: "Reggae Hatchback",
-      issuedAt: new Date("2021-05-28T21:51:57.413Z"),
-      metadata: {
-        "aut": "male",
-      },
-      netAmount: 424922,
-      seller: {
-        identifier: "doloribus until gosh",
-        identifierType: CounterpartyCreationIdentifierType.Bsn,
-        name: "Kelsie",
-        vatNumber: "synergize Plastic",
-      },
-      taxAmount: 873008,
-      toAccount: {
-        accountHolder: {
-          identifier: "Decentralized",
-          identifierType: APIRequiredInvoiceCreationToAccountAccountHolderIdentifierType.Siren,
+  const res = await sdk.loan.request({
+    amount: 193368,
+    borrower: {
+      identifier: "Johns",
+    },
+    invoiceIds: [
+      "0356d1f0-9dae-4623-9249-6ce7636725e5",
+    ],
+    invoices: [
+      {
+        buyer: {},
+        dueAt: new Date("2023-04-22T09:46:12.899Z"),
+        invoiceNumber: "Jasmin",
+        issuedAt: new Date("2022-01-28T20:17:34.992Z"),
+        metadata: {
+          "Metal": "forenenst",
         },
-        accountNumber: "Saint Stage maximized",
-        accountNumberType: APIRequiredInvoiceCreationToAccountAccountNumberType.AccountNumber,
-        bankIdentifier: "Dollar Djibouti woman",
-        bankIdentifierType: APIRequiredInvoiceCreationToAccountBankIdentifierType.Bic,
+        seller: {},
+        toAccount: {
+          accountHolder: {
+            identifier: "ubiquitous that SAS",
+          },
+          accountNumber: "Hatchback Alabama male",
+        },
+        totalAmount: 424922,
       },
-      toPayAmount: 977960,
-      totalAmount: 887611,
+    ],
+    loanTo: {
+      accountHolder: {
+        identifier: "doloribus until gosh",
+      },
+      accountNumber: "Delaware Kwacha",
     },
-  ],
-  loanTo: {
-    accountHolder: {
-      identifier: "invoice quidem",
-      identifierType: AccountCreationAccountHolderIdentifierType.LessThanNilGreaterThan,
+    loanToReferences: [
+      "HTTP",
+    ],
+    metadata: {
+      "quaerat": "Account",
     },
-    accountNumber: "Oganesson steradian Progressive",
-    accountNumberType: AccountCreationAccountNumberType.Iban,
-    bankIdentifier: "payment ouch Table",
-    bankIdentifierType: AccountCreationBankIdentifierType.RoutingNumber,
-  },
-  loanToReferences: [
-    "searchingly",
-  ],
-  loanType: APIPostLoanLoanType.InvoiceBasedFinancing,
-  metadata: {
-    "excepturi": "yowza",
-  },
-  notificationEmails: [
-    "Jefferey.Abernathy64@yahoo.com",
-  ],
-  repaymentFromReferences: [
-    "classmate",
-  ],
-  saltId: "West Electric Buckinghamshire",
-  toPayAt: new Date("2021-11-09T06:25:24.342Z"),
-  toRepayAt: new Date("2022-04-04T05:05:53.505Z"),
-}).then((res: RequestLoanResponse) => {
+    notificationEmails: [
+      "Rick.Kuhlman34@yahoo.com",
+    ],
+    repaymentFromReferences: [
+      "Cape",
+    ],
+    toPayAt: new Date("2021-03-31T02:09:56.241Z"),
+    toRepayAt: new Date("2022-10-12T05:14:55.926Z"),
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -336,7 +308,7 @@ This operation is not available when the loan is in another status.
 
 ```typescript
 import { Defacto } from "defacto";
-import { UpdateLoanRequest, UpdateLoanResponse } from "defacto/dist/sdk/models/operations";
+import { UpdateLoanRequest } from "defacto/dist/sdk/models/operations";
 import {
   PatchLoan,
   PatchLoanLoanTo,
@@ -346,44 +318,37 @@ import {
   PatchLoanLoanToBankIdentifierType,
 } from "defacto/dist/sdk/models/shared";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 const loanId: string = "Van";
 const patchLoan: PatchLoan = {
-  amount: 15652,
-  lenderId: "Reactive",
   loanTo: {
     accountHolder: {
-      identifier: "Metal cheater Islands",
-      identifierType: PatchLoanLoanToAccountHolderIdentifierType.Cif,
+      identifier: "Reactive",
     },
-    accountNumber: "dynamic white",
-    accountNumberType: PatchLoanLoanToAccountNumberType.AccountNumber,
-    bankIdentifier: "Forward",
-    bankIdentifierType: PatchLoanLoanToBankIdentifierType.Name,
+    accountNumber: "Metal cheater Islands",
   },
   loanToReferences: [
-    "immediately",
+    "online",
   ],
   metadata: {
-    "aliquam": "East",
+    "dynamic": "white",
   },
   repaymentToReferences: [
-    "Baht",
+    "bifurcated",
   ],
-  toPayAt: new Date("2022-11-21T15:34:31.437Z"),
-  toRepayAt: new Date("2023-01-30T09:22:35.379Z"),
-  transferContractUrl: "Home users Sharable",
 };
 
-sdk.loan.update(loanId, patchLoan).then((res: UpdateLoanResponse) => {
+  const res = await sdk.loan.update(loanId, patchLoan);
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -408,20 +373,22 @@ Use this function to accept a loan proposal. Available for LoanStatus.TO_VALIDAT
 
 ```typescript
 import { Defacto } from "defacto";
-import { ValidateLoanRequest, ValidateLoanResponse } from "defacto/dist/sdk/models/operations";
+import { ValidateLoanRequest } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 const loanId: string = "Liaison";
 
-sdk.loan.validate(loanId).then((res: ValidateLoanResponse) => {
+  const res = await sdk.loan.validate(loanId);
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

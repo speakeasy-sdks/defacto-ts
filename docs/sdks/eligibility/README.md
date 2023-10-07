@@ -25,21 +25,23 @@ Get credit line
 
 ```typescript
 import { Defacto } from "defacto";
-import { GetCreditLineRequest, GetCreditLineResponse } from "defacto/dist/sdk/models/operations";
+import { GetCreditLineRequest } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 const creditLineId: string = "F2M";
 const at: Date = new Date("2023-07-21T14:28:25.004Z");
 
-sdk.eligibility.getCreditLine(creditLineId, at).then((res: GetCreditLineResponse) => {
+  const res = await sdk.eligibility.getCreditLine(creditLineId, at);
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -64,19 +66,20 @@ Get the credit line associated with your account
 
 ```typescript
 import { Defacto } from "defacto";
-import { ListCreditLineResponse } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 
-sdk.eligibility.listCreditLine().then((res: ListCreditLineResponse) => {
+  const res = await sdk.eligibility.listCreditLine();
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -99,13 +102,14 @@ List all the credit lines that have been opened for your company. By default, th
 
 ```typescript
 import { Defacto } from "defacto";
-import { ListCreditLinesRequest, ListCreditLinesResponse } from "defacto/dist/sdk/models/operations";
+import { ListCreditLinesRequest } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 const borrower: string[] = [
   "East",
 ];
@@ -115,11 +119,12 @@ const id: string[] = [
 ];
 const pageSize: number = 559034;
 
-sdk.eligibility.listCreditLines(borrower, cursor, id, pageSize).then((res: ListCreditLinesResponse) => {
+  const res = await sdk.eligibility.listCreditLines(borrower, cursor, id, pageSize);
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -148,23 +153,23 @@ Ask for the eligibility of a borrower.
 
 ```typescript
 import { Defacto } from "defacto";
-import { RequestElligibilityBorrowerResponse } from "defacto/dist/sdk/models/operations";
 import { APIBorrowerEligibilityIdentifierType } from "defacto/dist/sdk/models/shared";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 
-sdk.eligibility.requestElligibilityBorrower({
-  identifier: "North Bespoke",
-  identifierType: APIBorrowerEligibilityIdentifierType.Name,
-}).then((res: RequestElligibilityBorrowerResponse) => {
+  const res = await sdk.eligibility.requestElligibilityBorrower({
+    identifier: "North Bespoke",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -190,23 +195,23 @@ Ask for the eligibility of a buyer.
 
 ```typescript
 import { Defacto } from "defacto";
-import { RequestElligibilityBuyerResponse } from "defacto/dist/sdk/models/operations";
 import { APIBorrowerEligibilityIdentifierType } from "defacto/dist/sdk/models/shared";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 
-sdk.eligibility.requestElligibilityBuyer({
-  identifier: "Cummerata",
-  identifierType: APIBorrowerEligibilityIdentifierType.Nif,
-}).then((res: RequestElligibilityBuyerResponse) => {
+  const res = await sdk.eligibility.requestElligibilityBuyer({
+    identifier: "Cummerata",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -230,36 +235,34 @@ Ask for the eligibility of a quote.
 
 ```typescript
 import { Defacto } from "defacto";
-import { RequestElligibilityQuoteResponse } from "defacto/dist/sdk/models/operations";
 import { APIQuoteEligibilityBorrowerIdentifierType, BusinessIdentifierIdentifierType } from "defacto/dist/sdk/models/shared";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 
-sdk.eligibility.requestElligibilityQuote({
-  amount: 367035,
-  borrower: {
-    identifier: "Optimization self male",
-    identifierType: APIQuoteEligibilityBorrowerIdentifierType.Cif,
-  },
-  buyer: {
-    identifier: "tesla Northeast",
-    identifierType: BusinessIdentifierIdentifierType.Steuernummer,
-  },
-  endDate: new Date("2023-12-27T11:57:36.744Z"),
-  seller: {
-    identifier: "Frozen er North",
-    identifierType: BusinessIdentifierIdentifierType.Cif,
-  },
-  startDate: new Date("2022-10-23T11:08:05.081Z"),
-}).then((res: RequestElligibilityQuoteResponse) => {
+  const res = await sdk.eligibility.requestElligibilityQuote({
+    amount: 367035,
+    borrower: {
+      identifier: "Optimization self male",
+    },
+    buyer: {
+      identifier: "Card Northeast",
+    },
+    endDate: new Date("2023-07-28T13:34:20.951Z"),
+    seller: {
+      identifier: "devour er yuck",
+    },
+    startDate: new Date("2021-01-13T11:08:54.126Z"),
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -285,23 +288,23 @@ Ask for the eligibility of a seller.
 
 ```typescript
 import { Defacto } from "defacto";
-import { RequestElligibilitySellerResponse } from "defacto/dist/sdk/models/operations";
 import { APIBorrowerEligibilityIdentifierType } from "defacto/dist/sdk/models/shared";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 
-sdk.eligibility.requestElligibilitySeller({
-  identifier: "Virginia Senior",
-  identifierType: APIBorrowerEligibilityIdentifierType.Kvk,
-}).then((res: RequestElligibilitySellerResponse) => {
+  const res = await sdk.eligibility.requestElligibilitySeller({
+    identifier: "Virginia Senior",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

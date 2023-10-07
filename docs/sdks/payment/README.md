@@ -13,48 +13,37 @@ Get payments related to loans
 
 ```typescript
 import { Defacto } from "defacto";
-import {
-  ListPaymentsPaymentMethod,
-  ListPaymentsPaymentType,
-  ListPaymentsResponse,
-  ListPaymentsStatus,
-} from "defacto/dist/sdk/models/operations";
+import { ListPaymentsPaymentMethod, ListPaymentsPaymentType, ListPaymentsStatus } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 
-sdk.payment.list({
-  cursor: "Northeast Metal Canada",
-  fromAccountId: "Data Response West",
-  fromDate: new Date("2023-02-26T13:00:25.189Z"),
-  id: "<ID>",
-  isReconciled: false,
-  loanId: [
-    "boil",
-  ],
-  pageSize: 483371,
-  paymentMethod: [
-    ListPaymentsPaymentMethod.DirectDebit,
-  ],
-  paymentType: [
-    ListPaymentsPaymentType.Returned,
-  ],
-  references: [
-    "Designer",
-  ],
-  status: [
-    ListPaymentsStatus.Failed,
-  ],
-  toAccountId: "Paradigm",
-  toDate: new Date("2021-01-09T04:15:41.822Z"),
-}).then((res: ListPaymentsResponse) => {
+  const res = await sdk.payment.list({
+    loanId: [
+      "Bicycle",
+    ],
+    paymentMethod: [
+      ListPaymentsPaymentMethod.DirectDebit,
+    ],
+    paymentType: [
+      ListPaymentsPaymentType.RevenueShare,
+    ],
+    references: [
+      "Canada",
+    ],
+    status: [
+      ListPaymentsStatus.Paid,
+    ],
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
