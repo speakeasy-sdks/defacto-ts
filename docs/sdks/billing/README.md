@@ -38,7 +38,7 @@ import { ListBillsStatus } from "defacto/dist/sdk/models/operations";
       "123e62b5-ef5d-43b3-825e-9f0f1d4ec684",
     ],
     businessIdentifier: [
-      "Denar",
+      "string",
     ],
     status: [
       ListBillsStatus.SentToPayer,
@@ -91,11 +91,11 @@ import { APIBillSentByPartnerRequest } from "defacto/dist/sdk/models/shared";
       bearer: "",
     },
   });
-const billId: string = "Hybrid";
+const billId: string = "string";
 const apiBillSentByPartnerRequest: APIBillSentByPartnerRequest = {
-  sentOn: new Date("2023-03-31T16:16:03.817Z"),
+  sentOn: new Date("2023-05-31T06:58:02.853Z"),
   toEmailAddresses: [
-    "Henri_Kiehn@gmail.com",
+    "Nella.Frami@hotmail.com",
   ],
 };
 

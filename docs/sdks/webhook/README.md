@@ -57,8 +57,8 @@ import { CreateWebhookEventTypes } from "defacto/dist/sdk/models/shared";
     eventTypes: [
       CreateWebhookEventTypes.LoanISSUEDETECTED,
     ],
-    name: "Configuration Money",
-    toUrl: "https://big-young.net",
+    name: "string",
+    toUrl: "http://popular-street.info",
   });
 
   if (res.statusCode == 200) {
@@ -96,7 +96,7 @@ import { DeleteWebhookRequest } from "defacto/dist/sdk/models/operations";
       bearer: "",
     },
   });
-const webhookId: string = "program";
+const webhookId: string = "string";
 
   const res = await sdk.webhook.delete(webhookId);
 
@@ -186,13 +186,13 @@ import { CreateWebhook, CreateWebhookEventTypes } from "defacto/dist/sdk/models/
       bearer: "",
     },
   });
-const webhookId: string = "Van";
+const webhookId: string = "string";
 const createWebhook: CreateWebhook = {
   eventTypes: [
-    CreateWebhookEventTypes.CreditLinePOOLAMOUNTUPDATED,
+    CreateWebhookEventTypes.InvoiceSUBMITTED,
   ],
-  name: "male Metal",
-  toUrl: "https://complex-authority.biz",
+  name: "string",
+  toUrl: "http://ordinary-agony.info",
 };
 
   const res = await sdk.webhook.update(webhookId, createWebhook);

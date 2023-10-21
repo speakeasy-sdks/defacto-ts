@@ -39,7 +39,7 @@ import { CancelLoanRequest } from "defacto/dist/sdk/models/operations";
       bearer: "",
     },
   });
-const loanId: string = "Clifton";
+const loanId: string = "string";
 
   const res = await sdk.loan.cancel(loanId);
 
@@ -78,7 +78,7 @@ import { GetLoanRequest } from "defacto/dist/sdk/models/operations";
       bearer: "",
     },
   });
-const loanId: string = "female";
+const loanId: string = "string";
 
   const res = await sdk.loan.get(loanId);
 
@@ -117,7 +117,7 @@ import { GetLoanEventsRequest } from "defacto/dist/sdk/models/operations";
       bearer: "",
     },
   });
-const loanId: string = "Executive";
+const loanId: string = "string";
 
   const res = await sdk.loan.getEvents(loanId);
 
@@ -159,16 +159,16 @@ import { ListLoansLoanType, ListLoansStatus } from "defacto/dist/sdk/models/oper
 
   const res = await sdk.loan.list({
     borrower: [
-      "Bicycle",
+      "string",
     ],
     id: [
-      "4a429302-eaca-440d-bf17-18b882a50805",
+      "c184a429-302e-4aca-80db-f1718b882a50",
     ],
     loanType: [
-      ListLoansLoanType.InvoiceBasedFinancing,
+      ListLoansLoanType.WalletFinancing,
     ],
     status: [
-      ListLoansStatus.Canceled,
+      ListLoansStatus.Submitted,
     ],
   });
 
@@ -228,50 +228,50 @@ import {
   const res = await sdk.loan.request({
     amount: 193368,
     borrower: {
-      identifier: "Johns",
+      identifier: "string",
     },
     invoiceIds: [
-      "0356d1f0-9dae-4623-9249-6ce7636725e5",
+      "12e6e103-56d1-4f09-9ae6-2352496ce763",
     ],
     invoices: [
       {
         buyer: {},
-        dueAt: new Date("2023-04-22T09:46:12.899Z"),
-        invoiceNumber: "Jasmin",
-        issuedAt: new Date("2022-01-28T20:17:34.992Z"),
+        dueAt: new Date("2022-04-11T19:15:30.887Z"),
+        invoiceNumber: "string",
+        issuedAt: new Date("2022-05-31T20:09:47.209Z"),
         metadata: {
-          "Metal": "forenenst",
+          "key": "string",
         },
         seller: {},
         toAccount: {
           accountHolder: {
-            identifier: "ubiquitous that SAS",
+            identifier: "string",
           },
-          accountNumber: "Hatchback Alabama male",
+          accountNumber: "string",
         },
-        totalAmount: 424922,
+        totalAmount: 143159,
       },
     ],
     loanTo: {
       accountHolder: {
-        identifier: "doloribus until gosh",
+        identifier: "string",
       },
-      accountNumber: "Delaware Kwacha",
+      accountNumber: "string",
     },
     loanToReferences: [
-      "HTTP",
+      "string",
     ],
     metadata: {
-      "quaerat": "Account",
+      "key": "string",
     },
     notificationEmails: [
-      "Rick.Kuhlman34@yahoo.com",
+      "Tony.Hauck15@gmail.com",
     ],
     repaymentFromReferences: [
-      "Cape",
+      "string",
     ],
-    toPayAt: new Date("2021-03-31T02:09:56.241Z"),
-    toRepayAt: new Date("2022-10-12T05:14:55.926Z"),
+    toPayAt: new Date("2022-02-09T09:57:15.949Z"),
+    toRepayAt: new Date("2022-06-07T12:19:30.660Z"),
   });
 
   if (res.statusCode == 200) {
@@ -324,22 +324,22 @@ import {
       bearer: "",
     },
   });
-const loanId: string = "Van";
+const loanId: string = "string";
 const patchLoan: PatchLoan = {
   loanTo: {
     accountHolder: {
-      identifier: "Reactive",
+      identifier: "string",
     },
-    accountNumber: "Metal cheater Islands",
+    accountNumber: "string",
   },
   loanToReferences: [
-    "online",
+    "string",
   ],
   metadata: {
-    "dynamic": "white",
+    "key": "string",
   },
   repaymentToReferences: [
-    "bifurcated",
+    "string",
   ],
 };
 
@@ -381,7 +381,7 @@ import { ValidateLoanRequest } from "defacto/dist/sdk/models/operations";
       bearer: "",
     },
   });
-const loanId: string = "Liaison";
+const loanId: string = "string";
 
   const res = await sdk.loan.validate(loanId);
 

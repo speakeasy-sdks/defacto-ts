@@ -52,8 +52,8 @@ import { APIPartnerBusinessAccountsIdentifierType } from "defacto/dist/sdk/model
         lastUpdatedAt: new Date("2022-09-04T05:03:11.864Z"),
       },
     ],
-    identifier: "Folk support",
-    identifierType: APIPartnerBusinessAccountsIdentifierType.Bsn,
+    identifier: "string",
+    identifierType: APIPartnerBusinessAccountsIdentifierType.Cif,
   });
 
   if (res.statusCode == 200) {
@@ -105,22 +105,22 @@ import {
   });
 
   const res = await sdk.businessData.uploadInvoices({
-    identifier: "Creative itaque",
-    identifierType: APIPartnerBusinessInvoicesIdentifierType.Kvk,
+    identifier: "string",
+    identifierType: APIPartnerBusinessInvoicesIdentifierType.Cif,
     invoices: [
       {
         buyer: {
-          identifier: "Metal",
-          identifierType: BuyerBusinessIdentifierIdentifierType.Name,
+          identifier: "string",
+          identifierType: BuyerBusinessIdentifierIdentifierType.Kvk,
         },
-        direction: APIPartnerBusinessInvoiceDirection.Supplier,
-        dueAt: new Date("2021-11-25T08:58:57.800Z"),
-        invoiceNumber: "volt Northeast",
-        issuedAt: new Date("2023-04-22T11:01:11.428Z"),
-        netAmount: 604602,
+        direction: APIPartnerBusinessInvoiceDirection.Payable,
+        dueAt: new Date("2022-09-26T23:29:22.021Z"),
+        invoiceNumber: "string",
+        issuedAt: new Date("2023-10-20T09:30:41.794Z"),
+        netAmount: 569687,
         seller: {
-          identifier: "bluetooth",
-          identifierType: SellerBusinessIdentifierIdentifierType.VatNumber,
+          identifier: "string",
+          identifierType: SellerBusinessIdentifierIdentifierType.Siret,
         },
       },
     ],
@@ -174,12 +174,12 @@ import {
   });
 
   const res = await sdk.businessData.uploadTransactions({
-    identifier: "Grocery salmon",
-    identifierType: APIPartnerAccountTransactionsIdentifierType.Steuernummer,
+    identifier: "string",
+    identifierType: APIPartnerAccountTransactionsIdentifierType.Name,
     transactions: [
       {
-        amount: 94299,
-        at: new Date("2021-05-24T14:23:21.579Z"),
+        amount: 195960,
+        at: new Date("2022-03-25T16:48:12.110Z"),
       },
     ],
   });

@@ -24,19 +24,19 @@ import { ListPaymentsPaymentMethod, ListPaymentsPaymentType, ListPaymentsStatus 
 
   const res = await sdk.payment.list({
     loanId: [
-      "Bicycle",
+      "string",
     ],
     paymentMethod: [
-      ListPaymentsPaymentMethod.DirectDebit,
+      ListPaymentsPaymentMethod.P2P,
     ],
     paymentType: [
-      ListPaymentsPaymentType.RevenueShare,
+      ListPaymentsPaymentType.RepaymentNominal,
     ],
     references: [
-      "Canada",
+      "string",
     ],
     status: [
-      ListPaymentsStatus.Paid,
+      ListPaymentsStatus.Failed,
     ],
   });
 

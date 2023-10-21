@@ -33,8 +33,8 @@ import { GetCreditLineRequest } from "defacto/dist/sdk/models/operations";
       bearer: "",
     },
   });
-const creditLineId: string = "F2M";
-const at: Date = new Date("2023-07-21T14:28:25.004Z");
+const creditLineId: string = "string";
+const at: Date = new Date("2022-10-25T14:52:10.068Z");
 
   const res = await sdk.eligibility.getCreditLine(creditLineId, at);
 
@@ -111,13 +111,13 @@ import { ListCreditLinesRequest } from "defacto/dist/sdk/models/operations";
     },
   });
 const borrower: string[] = [
-  "East",
+  "string",
 ];
-const cursor: string = "quantifying";
+const cursor: string = "string";
 const id: string[] = [
-  "a1216f99-8267-4263-9729-e6d603d0ce0a",
+  "128aa121-6f99-4826-b263-d729e6d603d0",
 ];
-const pageSize: number = 559034;
+const pageSize: number = 781880;
 
   const res = await sdk.eligibility.listCreditLines(borrower, cursor, id, pageSize);
 
@@ -163,7 +163,7 @@ import { APIBorrowerEligibilityIdentifierType } from "defacto/dist/sdk/models/sh
   });
 
   const res = await sdk.eligibility.requestElligibilityBorrower({
-    identifier: "North Bespoke",
+    identifier: "string",
   });
 
   if (res.statusCode == 200) {
@@ -205,7 +205,7 @@ import { APIBorrowerEligibilityIdentifierType } from "defacto/dist/sdk/models/sh
   });
 
   const res = await sdk.eligibility.requestElligibilityBuyer({
-    identifier: "Cummerata",
+    identifier: "string",
   });
 
   if (res.statusCode == 200) {
@@ -247,16 +247,16 @@ import { APIQuoteEligibilityBorrowerIdentifierType, BusinessIdentifierIdentifier
   const res = await sdk.eligibility.requestElligibilityQuote({
     amount: 367035,
     borrower: {
-      identifier: "Optimization self male",
+      identifier: "string",
     },
     buyer: {
-      identifier: "Card Northeast",
+      identifier: "string",
     },
-    endDate: new Date("2023-07-28T13:34:20.951Z"),
+    endDate: new Date("2023-12-08T04:18:59.213Z"),
     seller: {
-      identifier: "devour er yuck",
+      identifier: "string",
     },
-    startDate: new Date("2021-01-13T11:08:54.126Z"),
+    startDate: new Date("2021-11-17T15:27:10.874Z"),
   });
 
   if (res.statusCode == 200) {
@@ -298,7 +298,7 @@ import { APIBorrowerEligibilityIdentifierType } from "defacto/dist/sdk/models/sh
   });
 
   const res = await sdk.eligibility.requestElligibilitySeller({
-    identifier: "Virginia Senior",
+    identifier: "string",
   });
 
   if (res.statusCode == 200) {

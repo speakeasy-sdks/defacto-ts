@@ -22,7 +22,7 @@ import { DeactivateBorrowerRequest } from "defacto/dist/sdk/models/operations";
       bearer: "",
     },
   });
-const borrowerId: string = "Factors";
+const borrowerId: string = "string";
 
   const res = await sdk.onboarding.deactivateBorrower(borrowerId);
 
@@ -63,10 +63,10 @@ import { RFCDate } from "defacto/dist/sdk/types";
 
   const res = await sdk.onboarding.enrollBorrower({
     address: {
-      addressLine1: "Southeast",
-      city: "Lake Genesisworth",
-      country: "Cape Verde",
-      postalCode: "52401",
+      addressLine1: "string",
+      city: "North Layla",
+      country: "Anguilla",
+      postalCode: "39105-2401",
     },
     directors: [
       {
@@ -76,9 +76,9 @@ import { RFCDate } from "defacto/dist/sdk/types";
         birthPlace: {},
       },
     ],
-    identifier: "Elegant",
+    identifier: "string",
     metadata: {
-      "SDD": "Gasoline",
+      "key": "string",
     },
   });
 
@@ -120,9 +120,9 @@ import { ListBorrowersRequest } from "defacto/dist/sdk/models/operations";
 const borrowerId: string[] = [
   "ea2a2e84-a3b5-41bb-9e07-36c532ce23cc",
 ];
-const borrowerIdentifier: string = "Assistant";
-const cursor: string = "orchid";
-const pageSize: number = 788273;
+const borrowerIdentifier: string = "string";
+const cursor: string = "string";
+const pageSize: number = 667100;
 
   const res = await sdk.onboarding.listBorrowers(borrowerId, borrowerIdentifier, cursor, pageSize);
 
@@ -165,9 +165,9 @@ import { SignedInput } from "defacto/dist/sdk/models/shared";
       bearer: "",
     },
   });
-const borrowerId: string = "Alaska";
+const borrowerId: string = "string";
 const signedInput: SignedInput = {
-  signedAt: new Date("2023-02-10T21:07:04.855Z"),
+  signedAt: new Date("2021-05-26T05:22:09.176Z"),
 };
 
   const res = await sdk.onboarding.signBorrower(borrowerId, signedInput);

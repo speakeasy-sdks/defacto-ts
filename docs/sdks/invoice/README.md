@@ -49,14 +49,14 @@ import {
   const res = await sdk.invoice.create({
     buyer: {},
     metadata: {
-      "online": "Configuration",
+      "key": "string",
     },
     seller: {},
     toAccount: {
       accountHolder: {
-        identifier: "innovative blue",
+        identifier: "string",
       },
-      accountNumber: "grey technology East",
+      accountNumber: "string",
     },
   });
 
@@ -95,7 +95,7 @@ import { DeleteInvoiceRequest } from "defacto/dist/sdk/models/operations";
       bearer: "",
     },
   });
-const invoiceId: string = "program";
+const invoiceId: string = "string";
 
   const res = await sdk.invoice.delete(invoiceId);
 
@@ -134,7 +134,7 @@ import { GetInvoiceRequest } from "defacto/dist/sdk/models/operations";
       bearer: "",
     },
   });
-const invoiceId: string = "female";
+const invoiceId: string = "string";
 
   const res = await sdk.invoice.get(invoiceId);
 
@@ -176,13 +176,13 @@ import { ListInvoicesStatus } from "defacto/dist/sdk/models/operations";
 
   const res = await sdk.invoice.list({
     buyer: [
-      "Bicycle",
+      "string",
     ],
     invoiceId: [
-      "4a429302-eaca-440d-bf17-18b882a50805",
+      "c184a429-302e-4aca-80db-f1718b882a50",
     ],
     seller: [
-      "empowering",
+      "string",
     ],
     status: [
       ListInvoicesStatus.ToEdit,
@@ -240,18 +240,18 @@ import {
       bearer: "",
     },
   });
-const invoiceId: string = "sad";
+const invoiceId: string = "string";
 const apiPatchInvoice: APIPatchInvoice = {
   buyer: {},
   metadata: {
-    "challenge": "Oriental",
+    "key": "string",
   },
   seller: {},
   toAccount: {
     accountHolder: {
-      identifier: "weber Thallium pish",
+      identifier: "string",
     },
-    accountNumber: "Steel TLS",
+    accountNumber: "string",
   },
 };
 
@@ -306,18 +306,18 @@ import {
       bearer: "",
     },
   });
-const invoiceId: string = "Van";
+const invoiceId: string = "string";
 const apiPatchInvoice: APIPatchInvoice = {
   buyer: {},
   metadata: {
-    "East": "male",
+    "key": "string",
   },
   seller: {},
   toAccount: {
     accountHolder: {
-      identifier: "Quality",
+      identifier: "string",
     },
-    accountNumber: "invoice Arizona",
+    accountNumber: "string",
   },
 };
 
@@ -359,8 +359,8 @@ import { UploadInvoicesRequest } from "defacto/dist/sdk/models/operations";
       bearer: "",
     },
   });
-const buyer: string = "Market";
-const seller: string = "hard";
+const buyer: string = "string";
+const seller: string = "string";
 
   const res = await sdk.invoice.upload(buyer, seller);
 

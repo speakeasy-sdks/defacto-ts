@@ -250,7 +250,7 @@ import { BusinessEligibileParamsScenario, BusinessIdentifierIdentifierType } fro
 
   const res = await sdk.testing.setBusinessEligible({
     businessIdentifier: {
-      identifier: "laudantium",
+      identifier: "string",
     },
     scenario: BusinessEligibileParamsScenario.Ok,
   });
