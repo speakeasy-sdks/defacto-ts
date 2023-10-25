@@ -1,4 +1,5 @@
-# billing
+# Billing
+(*billing*)
 
 ### Available Operations
 
@@ -23,33 +24,31 @@ List your fees invoices (i.e: your Defacto bill) for the loans you performed on 
 
 ```typescript
 import { Defacto } from "defacto";
-import { ListBillsResponse, ListBillsStatus } from "defacto/dist/sdk/models/operations";
+import { ListBillsStatus } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 
-sdk.billing.listBills({
-  businessId: [
-    "df7cc78c-a1ba-4928-bc81-6742cb739205",
-  ],
-  businessIdentifier: [
-    "natus",
-  ],
-  cursor: "sed",
-  endDate: new Date("2022-07-22T16:55:44.795Z"),
-  pageSize: 616934,
-  startDate: new Date("2022-01-21T12:46:00.641Z"),
-  status: [
-    ListBillsStatus.Paid,
-  ],
-}).then((res: ListBillsResponse) => {
+  const res = await sdk.billing.listBills({
+    businessId: [
+      "123e62b5-ef5d-43b3-825e-9f0f1d4ec684",
+    ],
+    businessIdentifier: [
+      "string",
+    ],
+    status: [
+      ListBillsStatus.SentToPayer,
+    ],
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -83,27 +82,29 @@ If you need to send them by yourself please get in touch with us.
 
 ```typescript
 import { Defacto } from "defacto";
-import { SendBillRequest, SendBillResponse } from "defacto/dist/sdk/models/operations";
+import { SendBillRequest } from "defacto/dist/sdk/models/operations";
 import { APIBillSentByPartnerRequest } from "defacto/dist/sdk/models/shared";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
-const billId: string = "fuga";
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
+const billId: string = "string";
 const apiBillSentByPartnerRequest: APIBillSentByPartnerRequest = {
-  sentOn: new Date("2022-08-22T18:42:38.160Z"),
+  sentOn: new Date("2023-05-31T06:58:02.853Z"),
   toEmailAddresses: [
-    "Humberto.Turcotte6@yahoo.com",
+    "Nella.Frami@hotmail.com",
   ],
 };
 
-sdk.billing.sendBill(billId, apiBillSentByPartnerRequest).then((res: SendBillResponse) => {
+  const res = await sdk.billing.sendBill(billId, apiBillSentByPartnerRequest);
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

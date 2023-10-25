@@ -1,4 +1,5 @@
-# testing
+# Testing
+(*testing*)
 
 ### Available Operations
 
@@ -50,21 +51,23 @@ Warning: these invoices and their IBANs will not work in production.
 
 ```typescript
 import { Defacto } from "defacto";
-import { GenerateBusinessCountry, GenerateBusinessRequest, GenerateBusinessResponse } from "defacto/dist/sdk/models/operations";
+import { GenerateBusinessCountry, GenerateBusinessRequest } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 const country: GenerateBusinessCountry = GenerateBusinessCountry.Deu;
 const isBorrower: boolean = false;
 
-sdk.testing.generateBusiness(country, isBorrower).then((res: GenerateBusinessResponse) => {
+  const res = await sdk.testing.generateBusiness(country, isBorrower);
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -97,26 +100,23 @@ Warning: these IBANs will not work in production.
 
 ```typescript
 import { Defacto } from "defacto";
-import {
-  GenerateIbanCountry,
-  GenerateIbanRequest,
-  GenerateIbanResponse,
-  GenerateIbanScenario,
-} from "defacto/dist/sdk/models/operations";
+import { GenerateIbanCountry, GenerateIbanRequest, GenerateIbanScenario } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 const country: GenerateIbanCountry = GenerateIbanCountry.Deu;
 const scenario: GenerateIbanScenario = GenerateIbanScenario.Success;
 
-sdk.testing.generateIban(country, scenario).then((res: GenerateIbanResponse) => {
+  const res = await sdk.testing.generateIban(country, scenario);
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -150,7 +150,6 @@ Warning: these invoices and their IBANs will not work in production.
 
 ```typescript
 import { Defacto } from "defacto";
-import { GenerateInvoiceResponse } from "defacto/dist/sdk/models/operations";
 import {
   GenerateInvoiceRequestBuyerIdentifierType,
   GenerateInvoiceRequestCountry,
@@ -158,32 +157,22 @@ import {
   GenerateInvoiceRequestSellerIdentifierType,
 } from "defacto/dist/sdk/models/shared";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 
-sdk.testing.generateInvoice({
-  buyer: {
-    identifier: "quo",
-    identifierType: GenerateInvoiceRequestBuyerIdentifierType.Steuernummer,
-    name: "Wilbur Gerlach",
-    vatNumber: "ab",
-  },
-  country: GenerateInvoiceRequestCountry.Nld,
-  scenario: GenerateInvoiceRequestScenario.Success,
-  seller: {
-    identifier: "tempora",
-    identifierType: GenerateInvoiceRequestSellerIdentifierType.Steuernummer,
-    name: "Kelly Donnelly",
-    vatNumber: "recusandae",
-  },
-}).then((res: GenerateInvoiceResponse) => {
+  const res = await sdk.testing.generateInvoice({
+    buyer: {},
+    seller: {},
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -207,19 +196,20 @@ Make a first call to this endpoint to test your connection to Defacto API with y
 
 ```typescript
 import { Defacto } from "defacto";
-import { HelloResponse } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 
-sdk.testing.hello().then((res: HelloResponse) => {
+  const res = await sdk.testing.hello();
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -249,26 +239,26 @@ You can test multiple scenarios:
 
 ```typescript
 import { Defacto } from "defacto";
-import { SetBusinessEligibleResponse } from "defacto/dist/sdk/models/operations";
 import { BusinessEligibileParamsScenario, BusinessIdentifierIdentifierType } from "defacto/dist/sdk/models/shared";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 
-sdk.testing.setBusinessEligible({
-  businessIdentifier: {
-    identifier: "aperiam",
-    identifierType: BusinessIdentifierIdentifierType.HrNummer,
-  },
-  scenario: BusinessEligibileParamsScenario.NotEligible,
-}).then((res: SetBusinessEligibleResponse) => {
+  const res = await sdk.testing.setBusinessEligible({
+    businessIdentifier: {
+      identifier: "string",
+    },
+    scenario: BusinessEligibileParamsScenario.Ok,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

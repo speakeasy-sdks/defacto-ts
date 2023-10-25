@@ -1,4 +1,5 @@
-# businessData
+# BusinessData
+(*businessData*)
 
 ### Available Operations
 
@@ -34,30 +35,31 @@ This endpoint doesn't support updates on data already uploaded.
 
 ```typescript
 import { Defacto } from "defacto";
-import { UploadAccountsResponse } from "defacto/dist/sdk/models/operations";
 import { APIPartnerBusinessAccountsIdentifierType } from "defacto/dist/sdk/models/shared";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
-
-sdk.businessData.uploadAccounts({
-  accounts: [
-    {
-      amount: 969810,
-      id: "aaa2352c-5955-4907-aff1-a3a2fa946773",
-      lastUpdatedAt: new Date("2022-09-06T22:51:09.401Z"),
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
     },
-  ],
-  identifier: "quis",
-  identifierType: APIPartnerBusinessAccountsIdentifierType.Siren,
-}).then((res: UploadAccountsResponse) => {
+  });
+
+  const res = await sdk.businessData.uploadAccounts({
+    accounts: [
+      {
+        amount: 79711,
+        id: "<ID>",
+        lastUpdatedAt: new Date("2022-09-04T05:03:11.864Z"),
+      },
+    ],
+    identifier: "string",
+    identifierType: APIPartnerBusinessAccountsIdentifierType.Cif,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -86,7 +88,6 @@ This endpoint doesn't support updates on data already uploaded.
 
 ```typescript
 import { Defacto } from "defacto";
-import { UploadInvoicesBusinessResponse } from "defacto/dist/sdk/models/operations";
 import {
   APIPartnerBusinessInvoiceCurrency,
   APIPartnerBusinessInvoiceDirection,
@@ -96,45 +97,39 @@ import {
   SellerBusinessIdentifierIdentifierType,
 } from "defacto/dist/sdk/models/shared";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
-
-sdk.businessData.uploadInvoices({
-  identifier: "laborum",
-  identifierType: APIPartnerBusinessInvoicesIdentifierType.Bsn,
-  invoices: [
-    {
-      buyer: {
-        identifier: "enim",
-        identifierType: BuyerBusinessIdentifierIdentifierType.Siren,
-      },
-      currency: APIPartnerBusinessInvoiceCurrency.Gbp,
-      direction: APIPartnerBusinessInvoiceDirection.Customer,
-      dueAt: new Date("2021-11-23T05:54:08.890Z"),
-      firstPaymentAt: new Date("2021-05-11T16:11:54.761Z"),
-      invoiceNumber: "aut",
-      issuedAt: new Date("2022-05-18T15:52:05.226Z"),
-      lastPaymentAt: new Date("2020-12-24T08:13:29.299Z"),
-      netAmount: 96098,
-      paymentMethod: APIPartnerBusinessInvoicePaymentMethod.LessThanNilGreaterThan,
-      saltId: "voluptatibus",
-      seller: {
-        identifier: "vero",
-        identifierType: SellerBusinessIdentifierIdentifierType.Cif,
-      },
-      taxAmount: 509624,
-      toPayAmount: 976762,
-      totalAmount: 55714,
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
     },
-  ],
-}).then((res: UploadInvoicesBusinessResponse) => {
+  });
+
+  const res = await sdk.businessData.uploadInvoices({
+    identifier: "string",
+    identifierType: APIPartnerBusinessInvoicesIdentifierType.Cif,
+    invoices: [
+      {
+        buyer: {
+          identifier: "string",
+          identifierType: BuyerBusinessIdentifierIdentifierType.Kvk,
+        },
+        direction: APIPartnerBusinessInvoiceDirection.Payable,
+        dueAt: new Date("2022-09-26T23:29:22.021Z"),
+        invoiceNumber: "string",
+        issuedAt: new Date("2023-10-20T09:30:41.794Z"),
+        netAmount: 569687,
+        seller: {
+          identifier: "string",
+          identifierType: SellerBusinessIdentifierIdentifierType.Siret,
+        },
+      },
+    ],
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -163,7 +158,6 @@ This endpoint doesn't support updates on data already uploaded.
 
 ```typescript
 import { Defacto } from "defacto";
-import { UploadTransactionsResponse } from "defacto/dist/sdk/models/operations";
 import {
   APIPartnerAccountTransactionCurrency,
   APIPartnerAccountTransactionOperationType,
@@ -172,38 +166,28 @@ import {
   APIPartnerAccountTransactionStatus,
 } from "defacto/dist/sdk/models/shared";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
-
-sdk.businessData.uploadTransactions({
-  endDate: new Date("2022-02-05T15:41:25.512Z"),
-  identifier: "cum",
-  identifierType: APIPartnerAccountTransactionsIdentifierType.Siret,
-  startDate: new Date("2022-07-23T18:36:43.822Z"),
-  transactions: [
-    {
-      account: "ut",
-      amount: 979587,
-      at: new Date("2022-08-22T19:15:58.586Z"),
-      category: "dolore",
-      counterpartyName: "iusto",
-      currency: APIPartnerAccountTransactionCurrency.Eur,
-      operationType: APIPartnerAccountTransactionOperationType.Recall,
-      reference: "enim",
-      saltId: "accusamus",
-      settledBalance: 414263,
-      side: APIPartnerAccountTransactionSide.LessThanNilGreaterThan,
-      status: APIPartnerAccountTransactionStatus.Pending,
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
     },
-  ],
-}).then((res: UploadTransactionsResponse) => {
+  });
+
+  const res = await sdk.businessData.uploadTransactions({
+    identifier: "string",
+    identifierType: APIPartnerAccountTransactionsIdentifierType.Name,
+    transactions: [
+      {
+        amount: 195960,
+        at: new Date("2022-03-25T16:48:12.110Z"),
+      },
+    ],
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
