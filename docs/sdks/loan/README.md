@@ -1,4 +1,5 @@
-# loan
+# Loan
+(*loan*)
 
 ### Available Operations
 
@@ -30,20 +31,23 @@ Use this function to cancel a loan proposal. Available for LoanStatus.TO_VALIDAT
 
 ```typescript
 import { Defacto } from "defacto";
-import { CancelLoanRequest, CancelLoanResponse } from "defacto/dist/sdk/models/operations";
+import { CancelLoanRequest } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
-const loanId: string = "adipisci";
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
+const loanId: string = "string";
 
-sdk.loan.cancel(loanId).then((res: CancelLoanResponse) => {
+  const res = await sdk.loan.cancel(loanId);
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -67,20 +71,23 @@ Get a loan by id
 
 ```typescript
 import { Defacto } from "defacto";
-import { GetLoanRequest, GetLoanResponse } from "defacto/dist/sdk/models/operations";
+import { GetLoanRequest } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
-const loanId: string = "asperiores";
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
+const loanId: string = "string";
 
-sdk.loan.get(loanId).then((res: GetLoanResponse) => {
+  const res = await sdk.loan.get(loanId);
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -104,20 +111,23 @@ Get the activity log of a loan.
 
 ```typescript
 import { Defacto } from "defacto";
-import { GetLoanEventsRequest, GetLoanEventsResponse } from "defacto/dist/sdk/models/operations";
+import { GetLoanEventsRequest } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
-const loanId: string = "earum";
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
+const loanId: string = "string";
 
-sdk.loan.getEvents(loanId).then((res: GetLoanEventsResponse) => {
+  const res = await sdk.loan.getEvents(loanId);
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -141,41 +151,35 @@ List loans
 
 ```typescript
 import { Defacto } from "defacto";
-import { ListLoansLoanType, ListLoansResponse, ListLoansStatus } from "defacto/dist/sdk/models/operations";
+import { ListLoansLoanType, ListLoansStatus } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 
-sdk.loan.list({
-  borrower: [
-    "modi",
-  ],
-  cursor: "iste",
-  guaranteeCalled: false,
-  guarantor: "dolorum",
-  id: [
-    "8d9cbf48-6333-423f-9b77-f3a4100674eb",
-  ],
-  loanType: [
-    ListLoansLoanType.WalletFinancing,
-  ],
-  pageSize: 377752,
-  status: [
-    ListLoansStatus.ToRepayFees,
-  ],
-  toPayAtFrom: new Date("2022-06-16T23:42:38.113Z"),
-  toPayAtTo: new Date("2022-02-23T01:35:05.899Z"),
-  toRepayAtFrom: new Date("2022-04-04T12:00:33.616Z"),
-  toRepayAtTo: new Date("2022-01-16T14:59:31.978Z"),
-  toRepayAtWithinDays: 453697,
-}).then((res: ListLoansResponse) => {
+  const res = await sdk.loan.list({
+    borrower: [
+      "string",
+    ],
+    id: [
+      "c184a429-302e-4aca-80db-f1718b882a50",
+    ],
+    loanType: [
+      ListLoansLoanType.WalletFinancing,
+    ],
+    status: [
+      ListLoansStatus.Submitted,
+    ],
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -204,7 +208,6 @@ Request a new loan. You can request a loan for only one invoice. At the moment, 
 
 ```typescript
 import { Defacto } from "defacto";
-import { RequestLoanResponse } from "defacto/dist/sdk/models/operations";
 import {
   AccountCreationAccountHolderIdentifierType,
   AccountCreationAccountNumberType,
@@ -219,92 +222,67 @@ import {
   CounterpartyCreationIdentifierType,
 } from "defacto/dist/sdk/models/shared";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 
-sdk.loan.request({
-  amount: 677082,
-  autoValidate: false,
-  borrower: {
-    identifier: "deleniti",
-    identifierType: APIPostLoanBorrowerIdentifierType.Bsn,
-  },
-  currency: APIPostLoanCurrency.Gbp,
-  invoiceIds: [
-    "bf737ae4-203c-4e5e-aa95-d8a0d446ce2a",
-  ],
-  invoices: [
-    {
-      buyer: {
-        identifier: "a",
-        identifierType: CounterpartyCreationIdentifierType.Cif,
-        name: "Tyrone Emard",
-        vatNumber: "amet",
-      },
-      currency: APIRequiredInvoiceCreationCurrency.Gbp,
-      document: "accusamus",
-      dueAt: new Date("2022-09-08T12:03:15.868Z"),
-      invoiceNumber: "dolorem",
-      issuedAt: new Date("2021-06-12T13:41:06.619Z"),
-      metadata: {
-        "nihil": "sit",
-      },
-      netAmount: 711584,
-      seller: {
-        identifier: "neque",
-        identifierType: CounterpartyCreationIdentifierType.Siren,
-        name: "Kelli Hintz",
-        vatNumber: "ipsum",
-      },
-      taxAmount: 277628,
-      toAccount: {
-        accountHolder: {
-          identifier: "qui",
-          identifierType: APIRequiredInvoiceCreationToAccountAccountHolderIdentifierType.Bsn,
+  const res = await sdk.loan.request({
+    amount: 193368,
+    borrower: {
+      identifier: "string",
+    },
+    invoiceIds: [
+      "12e6e103-56d1-4f09-9ae6-2352496ce763",
+    ],
+    invoices: [
+      {
+        buyer: {},
+        dueAt: new Date("2022-04-11T19:15:30.887Z"),
+        invoiceNumber: "string",
+        issuedAt: new Date("2022-05-31T20:09:47.209Z"),
+        metadata: {
+          "key": "string",
         },
-        accountNumber: "maxime",
-        accountNumberType: APIRequiredInvoiceCreationToAccountAccountNumberType.InternalId,
-        bankIdentifier: "soluta",
-        bankIdentifierType: APIRequiredInvoiceCreationToAccountBankIdentifierType.Bic,
+        seller: {},
+        toAccount: {
+          accountHolder: {
+            identifier: "string",
+          },
+          accountNumber: "string",
+        },
+        totalAmount: 143159,
       },
-      toPayAmount: 674848,
-      totalAmount: 517379,
+    ],
+    loanTo: {
+      accountHolder: {
+        identifier: "string",
+      },
+      accountNumber: "string",
     },
-  ],
-  loanTo: {
-    accountHolder: {
-      identifier: "incidunt",
-      identifierType: AccountCreationAccountHolderIdentifierType.Siren,
+    loanToReferences: [
+      "string",
+    ],
+    metadata: {
+      "key": "string",
     },
-    accountNumber: "dolores",
-    accountNumberType: AccountCreationAccountNumberType.InternalId,
-    bankIdentifier: "facilis",
-    bankIdentifierType: AccountCreationBankIdentifierType.RoutingNumber,
-  },
-  loanToReferences: [
-    "quam",
-  ],
-  loanType: APIPostLoanLoanType.WalletFinancing,
-  metadata: {
-    "temporibus": "qui",
-  },
-  notificationEmails: [
-    "Burdette.Cummerata@gmail.com",
-  ],
-  repaymentFromReferences: [
-    "ullam",
-  ],
-  saltId: "nam",
-  toPayAt: new Date("2022-11-28T15:41:44.846Z"),
-  toRepayAt: new Date("2020-10-05T00:59:28.911Z"),
-}).then((res: RequestLoanResponse) => {
+    notificationEmails: [
+      "Tony.Hauck15@gmail.com",
+    ],
+    repaymentFromReferences: [
+      "string",
+    ],
+    toPayAt: new Date("2022-02-09T09:57:15.949Z"),
+    toRepayAt: new Date("2022-06-07T12:19:30.660Z"),
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -335,7 +313,7 @@ This operation is not available when the loan is in another status.
 
 ```typescript
 import { Defacto } from "defacto";
-import { UpdateLoanRequest, UpdateLoanResponse } from "defacto/dist/sdk/models/operations";
+import { UpdateLoanRequest } from "defacto/dist/sdk/models/operations";
 import {
   PatchLoan,
   PatchLoanLoanTo,
@@ -345,44 +323,38 @@ import {
   PatchLoanLoanToBankIdentifierType,
 } from "defacto/dist/sdk/models/shared";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
-const loanId: string = "nobis";
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
+const loanId: string = "string";
 const patchLoan: PatchLoan = {
-  amount: 92596,
-  lenderId: "saepe",
   loanTo: {
     accountHolder: {
-      identifier: "ipsum",
-      identifierType: PatchLoanLoanToAccountHolderIdentifierType.Siren,
+      identifier: "string",
     },
-    accountNumber: "nobis",
-    accountNumberType: PatchLoanLoanToAccountNumberType.AccountNumber,
-    bankIdentifier: "tempore",
-    bankIdentifierType: PatchLoanLoanToBankIdentifierType.RoutingNumber,
+    accountNumber: "string",
   },
   loanToReferences: [
-    "aperiam",
+    "string",
   ],
   metadata: {
-    "delectus": "dolorem",
+    "key": "string",
   },
   repaymentToReferences: [
-    "dolore",
+    "string",
   ],
-  toPayAt: new Date("2022-10-05T02:20:22.923Z"),
-  toRepayAt: new Date("2022-10-19T18:50:59.428Z"),
-  transferContractUrl: "quae",
 };
 
-sdk.loan.update(loanId, patchLoan).then((res: UpdateLoanResponse) => {
+  const res = await sdk.loan.update(loanId, patchLoan);
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -407,20 +379,23 @@ Use this function to accept a loan proposal. Available for LoanStatus.TO_VALIDAT
 
 ```typescript
 import { Defacto } from "defacto";
-import { ValidateLoanRequest, ValidateLoanResponse } from "defacto/dist/sdk/models/operations";
+import { ValidateLoanRequest } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
-const loanId: string = "aut";
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
+const loanId: string = "string";
 
-sdk.loan.validate(loanId).then((res: ValidateLoanResponse) => {
+  const res = await sdk.loan.validate(loanId);
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -1,4 +1,5 @@
-# payment
+# Payment
+(*payment*)
 
 ### Available Operations
 
@@ -12,48 +13,38 @@ Get payments related to loans
 
 ```typescript
 import { Defacto } from "defacto";
-import {
-  ListPaymentsPaymentMethod,
-  ListPaymentsPaymentType,
-  ListPaymentsResponse,
-  ListPaymentsStatus,
-} from "defacto/dist/sdk/models/operations";
+import { ListPaymentsPaymentMethod, ListPaymentsPaymentType, ListPaymentsStatus } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 
-sdk.payment.list({
-  cursor: "aliquam",
-  fromAccountId: "fugit",
-  fromDate: new Date("2022-10-05T22:09:33.495Z"),
-  id: "41aac366-c8dd-46b1-8429-07474778a7bd",
-  isReconciled: false,
-  loanId: [
-    "ut",
-  ],
-  pageSize: 433439,
-  paymentMethod: [
-    ListPaymentsPaymentMethod.Sct,
-  ],
-  paymentType: [
-    ListPaymentsPaymentType.Chargeback,
-  ],
-  references: [
-    "eos",
-  ],
-  status: [
-    ListPaymentsStatus.Failed,
-  ],
-  toAccountId: "quisquam",
-  toDate: new Date("2022-12-11T06:00:38.230Z"),
-}).then((res: ListPaymentsResponse) => {
+  const res = await sdk.payment.list({
+    loanId: [
+      "string",
+    ],
+    paymentMethod: [
+      ListPaymentsPaymentMethod.P2P,
+    ],
+    paymentType: [
+      ListPaymentsPaymentType.RepaymentNominal,
+    ],
+    references: [
+      "string",
+    ],
+    status: [
+      ListPaymentsStatus.Failed,
+    ],
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

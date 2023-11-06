@@ -1,4 +1,5 @@
-# invoice
+# Invoice
+(*invoice*)
 
 ### Available Operations
 
@@ -29,7 +30,6 @@ Create an invoice.
 
 ```typescript
 import { Defacto } from "defacto";
-import { CreateInvoiceResponse } from "defacto/dist/sdk/models/operations";
 import {
   APIDraftableInvoiceCreationBuyerIdentifierType,
   APIDraftableInvoiceCreationCurrency,
@@ -39,53 +39,32 @@ import {
   APIDraftableInvoiceCreationToAccountBankIdentifierType,
 } from "defacto/dist/sdk/models/shared";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
-
-sdk.invoice.create({
-  buyer: {
-    identifier: "dolorum",
-    identifierType: APIDraftableInvoiceCreationBuyerIdentifierType.Cif,
-    name: "Angel Wolff II",
-    vatNumber: "cumque",
-  },
-  currency: APIDraftableInvoiceCreationCurrency.Gbp,
-  document: "ea",
-  dueAt: new Date("2022-04-29T11:09:12.937Z"),
-  invoiceNumber: "accusamus",
-  isDraft: false,
-  issuedAt: new Date("2022-06-02T20:02:58.167Z"),
-  metadata: {
-    "enim": "accusamus",
-  },
-  netAmount: 965417,
-  seller: {
-    identifier: "quidem",
-    identifierType: APIDraftableInvoiceCreationSellerIdentifierType.Bsn,
-    name: "Lynn Kuvalis",
-    vatNumber: "amet",
-  },
-  taxAmount: 643990,
-  toAccount: {
-    accountHolder: {
-      identifier: "nisi",
-      identifierType: APIDraftableInvoiceCreationToAccountAccountHolderIdentifierType.Cif,
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
     },
-    accountNumber: "natus",
-    accountNumberType: APIDraftableInvoiceCreationToAccountAccountNumberType.AccountNumber,
-    bankIdentifier: "molestiae",
-    bankIdentifierType: APIDraftableInvoiceCreationToAccountBankIdentifierType.Bic,
-  },
-  toPayAmount: 470132,
-  totalAmount: 301575,
-}).then((res: CreateInvoiceResponse) => {
+  });
+
+  const res = await sdk.invoice.create({
+    buyer: {},
+    metadata: {
+      "key": "string",
+    },
+    seller: {},
+    toAccount: {
+      accountHolder: {
+        identifier: "string",
+      },
+      accountNumber: "string",
+    },
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -109,20 +88,23 @@ Delete an invoice by id
 
 ```typescript
 import { Defacto } from "defacto";
-import { DeleteInvoiceRequest, DeleteInvoiceResponse } from "defacto/dist/sdk/models/operations";
+import { DeleteInvoiceRequest } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
-const invoiceId: string = "distinctio";
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
+const invoiceId: string = "string";
 
-sdk.invoice.delete(invoiceId).then((res: DeleteInvoiceResponse) => {
+  const res = await sdk.invoice.delete(invoiceId);
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -146,20 +128,23 @@ Get an invoice by id
 
 ```typescript
 import { Defacto } from "defacto";
-import { GetInvoiceRequest, GetInvoiceResponse } from "defacto/dist/sdk/models/operations";
+import { GetInvoiceRequest } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
-const invoiceId: string = "id";
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
+const invoiceId: string = "string";
 
-sdk.invoice.get(invoiceId).then((res: GetInvoiceResponse) => {
+  const res = await sdk.invoice.get(invoiceId);
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -183,34 +168,35 @@ Get your invoices
 
 ```typescript
 import { Defacto } from "defacto";
-import { ListInvoicesResponse, ListInvoicesStatus } from "defacto/dist/sdk/models/operations";
+import { ListInvoicesStatus } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
 
-sdk.invoice.list({
-  buyer: [
-    "labore",
-  ],
-  cursor: "labore",
-  invoiceId: [
-    "69b6e214-1959-4890-afa5-63e2516fe4c8",
-  ],
-  pageSize: 703889,
-  seller: [
-    "in",
-  ],
-  status: [
-    ListInvoicesStatus.ToSubmit,
-  ],
-}).then((res: ListInvoicesResponse) => {
+  const res = await sdk.invoice.list({
+    buyer: [
+      "string",
+    ],
+    invoiceId: [
+      "c184a429-302e-4aca-80db-f1718b882a50",
+    ],
+    seller: [
+      "string",
+    ],
+    status: [
+      ListInvoicesStatus.ToEdit,
+    ],
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -237,7 +223,7 @@ If some data is missing prior to validating the invoice, a 422 error will be ret
 
 ```typescript
 import { Defacto } from "defacto";
-import { SubmitInvoiceRequest, SubmitInvoiceResponse } from "defacto/dist/sdk/models/operations";
+import { SubmitInvoiceRequest } from "defacto/dist/sdk/models/operations";
 import {
   APIPatchInvoice,
   APIPatchInvoiceBuyer,
@@ -252,53 +238,34 @@ import {
   APIPatchInvoiceToAccountBankIdentifierType,
 } from "defacto/dist/sdk/models/shared";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
-const invoiceId: string = "architecto";
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
+const invoiceId: string = "string";
 const apiPatchInvoice: APIPatchInvoice = {
-  buyer: {
-    identifier: "repudiandae",
-    identifierType: APIPatchInvoiceBuyerIdentifierType.Nif,
-    name: "Jessie Zulauf",
-    vatNumber: "saepe",
-  },
-  currency: APIPatchInvoiceCurrency.LessThanNilGreaterThan,
-  dueAt: new Date("2022-11-02T16:33:42.080Z"),
-  invoiceNumber: "praesentium",
-  issuedAt: new Date("2022-09-01T04:49:52.515Z"),
+  buyer: {},
   metadata: {
-    "sunt": "quo",
+    "key": "string",
   },
-  netAmount: 848009,
-  seller: {
-    identifier: "pariatur",
-    identifierType: APIPatchInvoiceSellerIdentifierType.BelgiumRegistrationNumber,
-    name: "Miriam Connelly Jr.",
-    vatNumber: "maiores",
-  },
-  taxAmount: 697429,
+  seller: {},
   toAccount: {
     accountHolder: {
-      identifier: "ipsam",
-      identifierType: APIPatchInvoiceToAccountAccountHolderIdentifierType.Cif,
+      identifier: "string",
     },
-    accountNumber: "autem",
-    accountNumberType: APIPatchInvoiceToAccountAccountNumberType.InternalId,
-    bankIdentifier: "eaque",
-    bankIdentifierType: APIPatchInvoiceToAccountBankIdentifierType.Name,
+    accountNumber: "string",
   },
-  toPayAmount: 365496,
-  totalAmount: 975522,
 };
 
-sdk.invoice.submit(invoiceId, apiPatchInvoice).then((res: SubmitInvoiceResponse) => {
+  const res = await sdk.invoice.submit(invoiceId, apiPatchInvoice);
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -323,7 +290,7 @@ Updates an invoice (with status TO_SUBMIT or TO_EDIT only)
 
 ```typescript
 import { Defacto } from "defacto";
-import { UpdateInvoiceRequest, UpdateInvoiceResponse } from "defacto/dist/sdk/models/operations";
+import { UpdateInvoiceRequest } from "defacto/dist/sdk/models/operations";
 import {
   APIPatchInvoice,
   APIPatchInvoiceBuyer,
@@ -338,53 +305,34 @@ import {
   APIPatchInvoiceToAccountBankIdentifierType,
 } from "defacto/dist/sdk/models/shared";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
-const invoiceId: string = "perferendis";
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
+const invoiceId: string = "string";
 const apiPatchInvoice: APIPatchInvoice = {
-  buyer: {
-    identifier: "fugiat",
-    identifierType: APIPatchInvoiceBuyerIdentifierType.VatNumber,
-    name: "Erma Hessel",
-    vatNumber: "nobis",
-  },
-  currency: APIPatchInvoiceCurrency.Eur,
-  dueAt: new Date("2022-06-24T19:43:09.208Z"),
-  invoiceNumber: "dignissimos",
-  issuedAt: new Date("2022-08-30T06:29:24.707Z"),
+  buyer: {},
   metadata: {
-    "nesciunt": "eos",
+    "key": "string",
   },
-  netAmount: 18521,
-  seller: {
-    identifier: "dolores",
-    identifierType: APIPatchInvoiceSellerIdentifierType.BelgiumRegistrationNumber,
-    name: "Rosa Swift",
-    vatNumber: "recusandae",
-  },
-  taxAmount: 608253,
+  seller: {},
   toAccount: {
     accountHolder: {
-      identifier: "facilis",
-      identifierType: APIPatchInvoiceToAccountAccountHolderIdentifierType.Bsn,
+      identifier: "string",
     },
-    accountNumber: "voluptatem",
-    accountNumberType: APIPatchInvoiceToAccountAccountNumberType.InternalId,
-    bankIdentifier: "consequuntur",
-    bankIdentifierType: APIPatchInvoiceToAccountBankIdentifierType.RoutingNumber,
+    accountNumber: "string",
   },
-  toPayAmount: 621479,
-  totalAmount: 50370,
 };
 
-sdk.invoice.update(invoiceId, apiPatchInvoice).then((res: UpdateInvoiceResponse) => {
+  const res = await sdk.invoice.update(invoiceId, apiPatchInvoice);
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -409,21 +357,24 @@ Create an invoice entity from the PDF of an invoice. Send the file within a form
 
 ```typescript
 import { Defacto } from "defacto";
-import { UploadInvoicesRequest, UploadInvoicesResponse } from "defacto/dist/sdk/models/operations";
+import { UploadInvoicesRequest } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
-const buyer: string = "occaecati";
-const seller: string = "rerum";
+(async() => {
+  const sdk = new Defacto({
+    security: {
+      bearer: "",
+    },
+  });
+const buyer: string = "string";
+const seller: string = "string";
 
-sdk.invoice.upload(buyer, seller).then((res: UploadInvoicesResponse) => {
+  const res = await sdk.invoice.upload(buyer, seller);
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

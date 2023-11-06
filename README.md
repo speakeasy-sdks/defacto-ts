@@ -26,37 +26,28 @@ yarn add https://github.com/speakeasy-sdks/defacto-ts
 
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
-
-
 ```typescript
 import { Defacto } from "defacto";
-import { ListBillsResponse, ListBillsStatus } from "defacto/dist/sdk/models/operations";
+import { ListBillsStatus } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+(async () => {
+    const sdk = new Defacto({
+        security: {
+            bearer: "",
+        },
+    });
 
-sdk.billing.listBills({
-  businessId: [
-    "89bd9d8d-69a6-474e-8f46-7cc8796ed151",
-  ],
-  businessIdentifier: [
-    "deserunt",
-  ],
-  cursor: "perferendis",
-  endDate: new Date("2022-03-03T02:15:00.468Z"),
-  pageSize: 957156,
-  startDate: new Date("2022-07-31T07:34:52.790Z"),
-  status: [
-    ListBillsStatus.Paid,
-  ],
-}).then((res: ListBillsResponse) => {
-  if (res.statusCode == 200) {
-    // handle response
-  }
-});
+    const res = await sdk.billing.listBills({
+        businessId: ["123e62b5-ef5d-43b3-825e-9f0f1d4ec684"],
+        businessIdentifier: ["string"],
+        status: [ListBillsStatus.SentToPayer],
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
 ```
 <!-- End SDK Example Usage -->
 
@@ -228,9 +219,127 @@ Update a webhook subscription.
 ⚠️ Our webhooks always call the POST method of the given url.
 
 For more information on webhooks such as how to secure them, you can refer to our guide.
-
-
 <!-- End SDK Available Operations -->
+
+
+
+<!-- Start Dev Containers -->
+
+
+
+<!-- End Dev Containers -->
+
+
+
+<!-- Start Error Handling -->
+# Error Handling
+
+Handling errors in your SDK should largely match your expectations.  All operations return a response object or throw an error.  If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
+
+
+<!-- End Error Handling -->
+
+
+
+<!-- Start Server Selection -->
+# Server Selection
+
+## Select Server by Index
+
+You can override the default server globally by passing a server index to the `serverIdx: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
+
+| # | Server | Variables |
+| - | ------ | --------- |
+| 0 | `https://api.getdefacto.com` | None |
+
+For example:
+
+
+```typescript
+import { Defacto } from "defacto";
+import { ListBillsStatus } from "defacto/dist/sdk/models/operations";
+
+(async () => {
+    const sdk = new Defacto({
+        security: {
+            bearer: "",
+        },
+        serverIdx: 0,
+    });
+
+    const res = await sdk.billing.listBills({
+        businessId: ["123e62b5-ef5d-43b3-825e-9f0f1d4ec684"],
+        businessIdentifier: ["string"],
+        status: [ListBillsStatus.SentToPayer],
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
+```
+
+
+## Override Server URL Per-Client
+
+The default server can also be overridden globally by passing a URL to the `serverURL: str` optional parameter when initializing the SDK client instance. For example:
+
+
+```typescript
+import { Defacto } from "defacto";
+import { ListBillsStatus } from "defacto/dist/sdk/models/operations";
+
+(async () => {
+    const sdk = new Defacto({
+        security: {
+            bearer: "",
+        },
+        serverURL: "https://api.getdefacto.com",
+    });
+
+    const res = await sdk.billing.listBills({
+        businessId: ["123e62b5-ef5d-43b3-825e-9f0f1d4ec684"],
+        businessIdentifier: ["string"],
+        status: [ListBillsStatus.SentToPayer],
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
+```
+<!-- End Server Selection -->
+
+
+
+<!-- Start Custom HTTP Client -->
+# Custom HTTP Client
+
+The Typescript SDK makes API calls using the (axios)[https://axios-http.com/docs/intro] HTTP library.  In order to provide a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration, you can initialize the SDK client with a custom `AxiosInstance` object.
+
+
+For example, you could specify a header for every request that your sdk makes as follows:
+
+```typescript
+from defacto import Defacto;
+import axios;
+
+const httpClient = axios.create({
+    headers: {'x-custom-header': 'someValue'}
+})
+
+
+const sdk = new Defacto({defaultClient: httpClient});
+```
+
+
+<!-- End Custom HTTP Client -->
+
+<!-- Placeholder for Future Speakeasy SDK Sections -->
+
+
 
 ### Maturity
 
