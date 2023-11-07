@@ -8,7 +8,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum GenerateInvoiceRequestBuyerIdentifierType {
+export enum GenerateInvoiceRequestIdentifierType {
     Siret = "siret",
     Siren = "siren",
     VatNumber = "vat_number",
@@ -36,7 +36,7 @@ export class GenerateInvoiceRequestBuyer extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "identifier_type" })
-    identifierType?: GenerateInvoiceRequestBuyerIdentifierType;
+    identifierType?: GenerateInvoiceRequestIdentifierType;
 
     /**
      * Legal name of the business.
@@ -53,7 +53,7 @@ export class GenerateInvoiceRequestBuyer extends SpeakeasyBase {
     vatNumber?: string;
 }
 
-export enum GenerateInvoiceRequestCountry {
+export enum Country {
     Fra = "FRA",
     Esp = "ESP",
     Nld = "NLD",
@@ -71,7 +71,7 @@ export enum GenerateInvoiceRequestScenario {
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum GenerateInvoiceRequestSellerIdentifierType {
+export enum GenerateInvoiceRequestSchemasIdentifierType {
     Siret = "siret",
     Siren = "siren",
     VatNumber = "vat_number",
@@ -99,7 +99,7 @@ export class GenerateInvoiceRequestSeller extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "identifier_type" })
-    identifierType?: GenerateInvoiceRequestSellerIdentifierType;
+    identifierType?: GenerateInvoiceRequestSchemasIdentifierType;
 
     /**
      * Legal name of the business.
@@ -124,7 +124,7 @@ export class GenerateInvoiceRequest extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "country" })
-    country?: GenerateInvoiceRequestCountry;
+    country?: Country;
 
     @SpeakeasyMetadata()
     @Expose({ name: "scenario" })

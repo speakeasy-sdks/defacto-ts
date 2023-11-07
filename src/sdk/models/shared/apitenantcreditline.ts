@@ -9,7 +9,7 @@ export enum APITenantCreditLineCurrency {
     Gbp = "GBP",
 }
 
-export class APITenantCreditLineDefaultBorrowerAddress extends SpeakeasyBase {
+export class APITenantCreditLineAddress extends SpeakeasyBase {
     @SpeakeasyMetadata()
     addressLine1?: string;
 
@@ -32,7 +32,7 @@ export class APITenantCreditLineDefaultBorrowerAddress extends SpeakeasyBase {
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum APITenantCreditLineDefaultBorrowerIdentifierType {
+export enum APITenantCreditLineIdentifierType {
     Siret = "siret",
     Siren = "siren",
     VatNumber = "vat_number",
@@ -49,7 +49,7 @@ export enum APITenantCreditLineDefaultBorrowerIdentifierType {
 
 export class APITenantCreditLineDefaultBorrower extends SpeakeasyBase {
     @SpeakeasyMetadata()
-    address?: APITenantCreditLineDefaultBorrowerAddress;
+    address?: APITenantCreditLineAddress;
 
     @SpeakeasyMetadata()
     id?: any;
@@ -64,7 +64,7 @@ export class APITenantCreditLineDefaultBorrower extends SpeakeasyBase {
      * Type of legal business identifier of the business, such as the SIRET in France.
      */
     @SpeakeasyMetadata()
-    identifierType?: APITenantCreditLineDefaultBorrowerIdentifierType;
+    identifierType?: APITenantCreditLineIdentifierType;
 
     /**
      * Legal form of the business.
@@ -103,7 +103,7 @@ export enum APITenantCreditLineDefaultBorrowerStrategy {
     LessThanNilGreaterThan = "<nil>",
 }
 
-export class APITenantCreditLineDefaultGuarantorAddress extends SpeakeasyBase {
+export class APITenantCreditLineSchemasAddress extends SpeakeasyBase {
     @SpeakeasyMetadata()
     addressLine1?: string;
 
@@ -126,7 +126,7 @@ export class APITenantCreditLineDefaultGuarantorAddress extends SpeakeasyBase {
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum APITenantCreditLineDefaultGuarantorIdentifierType {
+export enum APITenantCreditLineSchemasIdentifierType {
     Siret = "siret",
     Siren = "siren",
     VatNumber = "vat_number",
@@ -143,7 +143,7 @@ export enum APITenantCreditLineDefaultGuarantorIdentifierType {
 
 export class APITenantCreditLineDefaultGuarantor extends SpeakeasyBase {
     @SpeakeasyMetadata()
-    address?: APITenantCreditLineDefaultGuarantorAddress;
+    address?: APITenantCreditLineSchemasAddress;
 
     @SpeakeasyMetadata()
     id?: any;
@@ -158,7 +158,7 @@ export class APITenantCreditLineDefaultGuarantor extends SpeakeasyBase {
      * Type of legal business identifier of the business, such as the SIRET in France.
      */
     @SpeakeasyMetadata()
-    identifierType?: APITenantCreditLineDefaultGuarantorIdentifierType;
+    identifierType?: APITenantCreditLineSchemasIdentifierType;
 
     /**
      * Legal form of the business.
@@ -194,7 +194,7 @@ export class APITenantCreditLineDefaultGuarantor extends SpeakeasyBase {
 /**
  * The type of account number (e.g. IBAN).
  */
-export enum APITenantCreditLineDefaultLoanFromAccountNumberType {
+export enum APITenantCreditLineAccountNumberType {
     Iban = "iban",
     AccountNumber = "account_number",
     InternalId = "internal_id",
@@ -203,7 +203,7 @@ export enum APITenantCreditLineDefaultLoanFromAccountNumberType {
 /**
  * The type of bank identifier (e.g. BIC).
  */
-export enum APITenantCreditLineDefaultLoanFromBankIdentifierType {
+export enum APITenantCreditLineBankIdentifierType {
     Bic = "bic",
     RoutingNumber = "routing_number",
     Name = "name",
@@ -220,7 +220,7 @@ export class APITenantCreditLineDefaultLoanFrom extends SpeakeasyBase {
      * The type of account number (e.g. IBAN).
      */
     @SpeakeasyMetadata()
-    accountNumberType: APITenantCreditLineDefaultLoanFromAccountNumberType;
+    accountNumberType: APITenantCreditLineAccountNumberType;
 
     /**
      * The identifier of the bank.
@@ -232,13 +232,13 @@ export class APITenantCreditLineDefaultLoanFrom extends SpeakeasyBase {
      * The type of bank identifier (e.g. BIC).
      */
     @SpeakeasyMetadata()
-    bankIdentifierType: APITenantCreditLineDefaultLoanFromBankIdentifierType;
+    bankIdentifierType: APITenantCreditLineBankIdentifierType;
 }
 
 /**
  * The type of account number (e.g. IBAN).
  */
-export enum APITenantCreditLineDefaultRepaymentFromAccountNumberType {
+export enum APITenantCreditLineSchemasAccountNumberType {
     Iban = "iban",
     AccountNumber = "account_number",
     InternalId = "internal_id",
@@ -247,7 +247,7 @@ export enum APITenantCreditLineDefaultRepaymentFromAccountNumberType {
 /**
  * The type of bank identifier (e.g. BIC).
  */
-export enum APITenantCreditLineDefaultRepaymentFromBankIdentifierType {
+export enum APITenantCreditLineSchemasBankIdentifierType {
     Bic = "bic",
     RoutingNumber = "routing_number",
     Name = "name",
@@ -264,7 +264,7 @@ export class APITenantCreditLineDefaultRepaymentFrom extends SpeakeasyBase {
      * The type of account number (e.g. IBAN).
      */
     @SpeakeasyMetadata()
-    accountNumberType: APITenantCreditLineDefaultRepaymentFromAccountNumberType;
+    accountNumberType: APITenantCreditLineSchemasAccountNumberType;
 
     /**
      * The identifier of the bank.
@@ -276,7 +276,7 @@ export class APITenantCreditLineDefaultRepaymentFrom extends SpeakeasyBase {
      * The type of bank identifier (e.g. BIC).
      */
     @SpeakeasyMetadata()
-    bankIdentifierType: APITenantCreditLineDefaultRepaymentFromBankIdentifierType;
+    bankIdentifierType: APITenantCreditLineSchemasBankIdentifierType;
 }
 
 export enum APITenantCreditLineDefaultRepaymentMethod {
@@ -288,7 +288,7 @@ export enum APITenantCreditLineDefaultRepaymentMethod {
 /**
  * The type of account number (e.g. IBAN).
  */
-export enum APITenantCreditLineDefaultRepaymentToAccountNumberType {
+export enum APITenantCreditLineSchemasDefaultRepaymentToAccountNumberType {
     Iban = "iban",
     AccountNumber = "account_number",
     InternalId = "internal_id",
@@ -297,7 +297,7 @@ export enum APITenantCreditLineDefaultRepaymentToAccountNumberType {
 /**
  * The type of bank identifier (e.g. BIC).
  */
-export enum APITenantCreditLineDefaultRepaymentToBankIdentifierType {
+export enum APITenantCreditLineSchemasDefaultRepaymentToBankIdentifierType {
     Bic = "bic",
     RoutingNumber = "routing_number",
     Name = "name",
@@ -314,7 +314,7 @@ export class APITenantCreditLineDefaultRepaymentTo extends SpeakeasyBase {
      * The type of account number (e.g. IBAN).
      */
     @SpeakeasyMetadata()
-    accountNumberType: APITenantCreditLineDefaultRepaymentToAccountNumberType;
+    accountNumberType: APITenantCreditLineSchemasDefaultRepaymentToAccountNumberType;
 
     /**
      * The identifier of the bank.
@@ -326,7 +326,7 @@ export class APITenantCreditLineDefaultRepaymentTo extends SpeakeasyBase {
      * The type of bank identifier (e.g. BIC).
      */
     @SpeakeasyMetadata()
-    bankIdentifierType: APITenantCreditLineDefaultRepaymentToBankIdentifierType;
+    bankIdentifierType: APITenantCreditLineSchemasDefaultRepaymentToBankIdentifierType;
 }
 
 export enum APITenantCreditLineDistribution {
@@ -334,7 +334,7 @@ export enum APITenantCreditLineDistribution {
     Partner = "PARTNER",
 }
 
-export class APITenantCreditLineFeesPayerAddress extends SpeakeasyBase {
+export class APITenantCreditLineSchemasFeesPayerAddress extends SpeakeasyBase {
     @SpeakeasyMetadata()
     addressLine1?: string;
 
@@ -357,7 +357,7 @@ export class APITenantCreditLineFeesPayerAddress extends SpeakeasyBase {
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum APITenantCreditLineFeesPayerIdentifierType {
+export enum APITenantCreditLineSchemasFeesPayerIdentifierType {
     Siret = "siret",
     Siren = "siren",
     VatNumber = "vat_number",
@@ -374,7 +374,7 @@ export enum APITenantCreditLineFeesPayerIdentifierType {
 
 export class APITenantCreditLineFeesPayer extends SpeakeasyBase {
     @SpeakeasyMetadata()
-    address?: APITenantCreditLineFeesPayerAddress;
+    address?: APITenantCreditLineSchemasFeesPayerAddress;
 
     @SpeakeasyMetadata()
     id?: any;
@@ -389,7 +389,7 @@ export class APITenantCreditLineFeesPayer extends SpeakeasyBase {
      * Type of legal business identifier of the business, such as the SIRET in France.
      */
     @SpeakeasyMetadata()
-    identifierType?: APITenantCreditLineFeesPayerIdentifierType;
+    identifierType?: APITenantCreditLineSchemasFeesPayerIdentifierType;
 
     /**
      * Legal form of the business.

@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
-export enum LoanPaymentApiPaymentType {
+export enum PaymentType {
     LoanPayment = "LOAN_PAYMENT",
     RepaymentNominal = "REPAYMENT_NOMINAL",
     RepaymentFees = "REPAYMENT_FEES",
@@ -28,5 +28,5 @@ export class LoanPaymentApi extends SpeakeasyBase {
     loanId: string;
 
     @SpeakeasyMetadata()
-    paymentType: LoanPaymentApiPaymentType;
+    paymentType: PaymentType;
 }

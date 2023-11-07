@@ -1,5 +1,5 @@
 # Billing
-(*billing*)
+(*.billing*)
 
 ### Available Operations
 
@@ -24,7 +24,7 @@ List your fees invoices (i.e: your Defacto bill) for the loans you performed on 
 
 ```typescript
 import { Defacto } from "defacto";
-import { ListBillsStatus } from "defacto/dist/sdk/models/operations";
+import { Status } from "defacto/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Defacto({
@@ -41,7 +41,7 @@ import { ListBillsStatus } from "defacto/dist/sdk/models/operations";
       "string",
     ],
     status: [
-      ListBillsStatus.SentToPayer,
+      Status.SentToPayer,
     ],
   });
 

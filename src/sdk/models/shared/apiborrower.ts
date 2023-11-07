@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { APILightAccount } from "./apilightaccount";
 import { Employee } from "./employee";
 
-export class APIBorrowerAddress extends SpeakeasyBase {
+export class Address extends SpeakeasyBase {
     @SpeakeasyMetadata()
     addressLine1?: string;
 
@@ -29,7 +29,7 @@ export class APIBorrowerAddress extends SpeakeasyBase {
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum APIBorrowerIdentifierType {
+export enum IdentifierType {
     Siret = "siret",
     Siren = "siren",
     VatNumber = "vat_number",
@@ -62,7 +62,7 @@ export class APIBorrower extends SpeakeasyBase {
     accounts?: APILightAccount[];
 
     @SpeakeasyMetadata()
-    address?: APIBorrowerAddress;
+    address?: Address;
 
     /**
      * Pre-signed url to download the contract
@@ -89,7 +89,7 @@ export class APIBorrower extends SpeakeasyBase {
      * Type of legal business identifier of the business, such as the SIRET in France.
      */
     @SpeakeasyMetadata()
-    identifierType?: APIBorrowerIdentifierType;
+    identifierType?: IdentifierType;
 
     /**
      * Legal form of the business.

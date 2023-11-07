@@ -1,5 +1,5 @@
 # Testing
-(*testing*)
+(*.testing*)
 
 ### Available Operations
 
@@ -51,7 +51,7 @@ Warning: these invoices and their IBANs will not work in production.
 
 ```typescript
 import { Defacto } from "defacto";
-import { GenerateBusinessCountry, GenerateBusinessRequest } from "defacto/dist/sdk/models/operations";
+import { Country, GenerateBusinessRequest } from "defacto/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Defacto({
@@ -59,7 +59,7 @@ import { GenerateBusinessCountry, GenerateBusinessRequest } from "defacto/dist/s
       bearer: "",
     },
   });
-const country: GenerateBusinessCountry = GenerateBusinessCountry.Deu;
+const country: Country = Country.Deu;
 const isBorrower: boolean = false;
 
   const res = await sdk.testing.generateBusiness(country, isBorrower);
@@ -73,11 +73,11 @@ const isBorrower: boolean = false;
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `country`                                                                                | [operations.GenerateBusinessCountry](../../models/operations/generatebusinesscountry.md) | :heavy_minus_sign:                                                                       | N/A                                                                                      |
-| `isBorrower`                                                                             | *boolean*                                                                                | :heavy_minus_sign:                                                                       | N/A                                                                                      |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `country`                                                    | [operations.Country](../../models/operations/country.md)     | :heavy_minus_sign:                                           | N/A                                                          |
+| `isBorrower`                                                 | *boolean*                                                    | :heavy_minus_sign:                                           | N/A                                                          |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
 ### Response
@@ -101,7 +101,7 @@ Warning: these IBANs will not work in production.
 
 ```typescript
 import { Defacto } from "defacto";
-import { GenerateIbanCountry, GenerateIbanRequest, GenerateIbanScenario } from "defacto/dist/sdk/models/operations";
+import { GenerateIbanRequest, QueryParamCountry, Scenario } from "defacto/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Defacto({
@@ -109,8 +109,8 @@ import { GenerateIbanCountry, GenerateIbanRequest, GenerateIbanScenario } from "
       bearer: "",
     },
   });
-const country: GenerateIbanCountry = GenerateIbanCountry.Deu;
-const scenario: GenerateIbanScenario = GenerateIbanScenario.Success;
+const country: QueryParamCountry = QueryParamCountry.Deu;
+const scenario: Scenario = Scenario.Success;
 
   const res = await sdk.testing.generateIban(country, scenario);
 
@@ -123,11 +123,11 @@ const scenario: GenerateIbanScenario = GenerateIbanScenario.Success;
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `country`                                                                          | [operations.GenerateIbanCountry](../../models/operations/generateibancountry.md)   | :heavy_minus_sign:                                                                 | N/A                                                                                |
-| `scenario`                                                                         | [operations.GenerateIbanScenario](../../models/operations/generateibanscenario.md) | :heavy_minus_sign:                                                                 | N/A                                                                                |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `country`                                                                    | [operations.QueryParamCountry](../../models/operations/queryparamcountry.md) | :heavy_minus_sign:                                                           | N/A                                                                          |
+| `scenario`                                                                   | [operations.Scenario](../../models/operations/scenario.md)                   | :heavy_minus_sign:                                                           | N/A                                                                          |
+| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
 
 
 ### Response
@@ -153,10 +153,10 @@ Warning: these invoices and their IBANs will not work in production.
 ```typescript
 import { Defacto } from "defacto";
 import {
-  GenerateInvoiceRequestBuyerIdentifierType,
-  GenerateInvoiceRequestCountry,
+  Country,
+  GenerateInvoiceRequestIdentifierType,
   GenerateInvoiceRequestScenario,
-  GenerateInvoiceRequestSellerIdentifierType,
+  GenerateInvoiceRequestSchemasIdentifierType,
 } from "defacto/dist/sdk/models/shared";
 
 (async() => {
@@ -243,7 +243,7 @@ You can test multiple scenarios:
 
 ```typescript
 import { Defacto } from "defacto";
-import { BusinessEligibileParamsScenario, BusinessIdentifierIdentifierType } from "defacto/dist/sdk/models/shared";
+import { BusinessIdentifierIdentifierType, Scenario } from "defacto/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Defacto({
@@ -256,7 +256,7 @@ import { BusinessEligibileParamsScenario, BusinessIdentifierIdentifierType } fro
     businessIdentifier: {
       identifier: "string",
     },
-    scenario: BusinessEligibileParamsScenario.Ok,
+    scenario: Scenario.Ok,
   });
 
 

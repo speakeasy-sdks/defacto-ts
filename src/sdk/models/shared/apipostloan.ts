@@ -10,7 +10,7 @@ import { Expose, Transform, Type } from "class-transformer";
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum APIPostLoanBorrowerIdentifierType {
+export enum APIPostLoanIdentifierType {
     Siret = "siret",
     Siren = "siren",
     VatNumber = "vat_number",
@@ -28,7 +28,7 @@ export enum APIPostLoanBorrowerIdentifierType {
 /**
  * Entity legally contracting the loan
  */
-export class APIPostLoanBorrower extends SpeakeasyBase {
+export class Borrower extends SpeakeasyBase {
     /**
      * Legal identifier of the business, such as its SIRET in France.
      */
@@ -41,7 +41,7 @@ export class APIPostLoanBorrower extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "identifier_type" })
-    identifierType?: APIPostLoanBorrowerIdentifierType;
+    identifierType?: APIPostLoanIdentifierType;
 }
 
 /**
@@ -55,7 +55,7 @@ export enum APIPostLoanCurrency {
 /**
  * Type of loan to request. For example, INVOICE_BASED_FINANCING to finance invoices. Depending on the value of this field, another field with a name matching this value may be to complete. For example, for INVOICE_BASED_FINANCING either invoice_ids or invoices should be set.For WALLET_FINANCING, no specific field needs to be set.
  */
-export enum APIPostLoanLoanType {
+export enum LoanType {
     InvoiceBasedFinancing = "INVOICE_BASED_FINANCING",
     WalletFinancing = "WALLET_FINANCING",
 }
@@ -80,8 +80,8 @@ export class APIPostLoan extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "borrower" })
-    @Type(() => APIPostLoanBorrower)
-    borrower?: APIPostLoanBorrower;
+    @Type(() => Borrower)
+    borrower?: Borrower;
 
     /**
      * ISO 4217 currency code.
@@ -125,7 +125,7 @@ export class APIPostLoan extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "loan_type" })
-    loanType?: APIPostLoanLoanType;
+    loanType?: LoanType;
 
     /**
      * This object is yours, it enables you to add custom data.

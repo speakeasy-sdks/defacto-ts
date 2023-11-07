@@ -1,5 +1,5 @@
 # Onboarding
-(*onboarding*)
+(*.onboarding*)
 
 ### Available Operations
 

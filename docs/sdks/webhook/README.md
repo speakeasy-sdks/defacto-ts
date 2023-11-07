@@ -1,5 +1,5 @@
 # Webhook
-(*webhook*)
+(*.webhook*)
 
 ### Available Operations
 
@@ -44,7 +44,7 @@ For more information on webhooks such as how to secure them, you can refer to ou
 
 ```typescript
 import { Defacto } from "defacto";
-import { CreateWebhookEventTypes } from "defacto/dist/sdk/models/shared";
+import { EventTypes } from "defacto/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Defacto({
@@ -55,7 +55,7 @@ import { CreateWebhookEventTypes } from "defacto/dist/sdk/models/shared";
 
   const res = await sdk.webhook.create({
     eventTypes: [
-      CreateWebhookEventTypes.LoanISSUEDETECTED,
+      EventTypes.LoanISSUEDETECTED,
     ],
     name: "string",
     toUrl: "http://popular-street.info",
@@ -181,7 +181,7 @@ For more information on webhooks such as how to secure them, you can refer to ou
 ```typescript
 import { Defacto } from "defacto";
 import { UpdateWebhookRequest } from "defacto/dist/sdk/models/operations";
-import { CreateWebhook, CreateWebhookEventTypes } from "defacto/dist/sdk/models/shared";
+import { CreateWebhook, EventTypes } from "defacto/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Defacto({
@@ -192,7 +192,7 @@ import { CreateWebhook, CreateWebhookEventTypes } from "defacto/dist/sdk/models/
 const webhookId: string = "string";
 const createWebhook: CreateWebhook = {
   eventTypes: [
-    CreateWebhookEventTypes.InvoiceSUBMITTED,
+    EventTypes.InvoiceSUBMITTED,
   ],
   name: "string",
   toUrl: "http://ordinary-agony.info",

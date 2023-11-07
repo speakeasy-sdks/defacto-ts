@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -25,7 +25,7 @@ export class Testing {
      *
      */
     async generateBusiness(
-        country?: operations.GenerateBusinessCountry,
+        country?: operations.Country,
         isBorrower?: boolean,
         config?: AxiosRequestConfig
     ): Promise<operations.GenerateBusinessResponse> {
@@ -103,8 +103,8 @@ export class Testing {
      *
      */
     async generateIban(
-        country?: operations.GenerateIbanCountry,
-        scenario?: operations.GenerateIbanScenario,
+        country?: operations.QueryParamCountry,
+        scenario?: operations.Scenario,
         config?: AxiosRequestConfig
     ): Promise<operations.GenerateIbanResponse> {
         const req = new operations.GenerateIbanRequest({
@@ -308,7 +308,7 @@ export class Testing {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `text/plain`)) {
-                    res.hello200TextPlainAny = decodedRes;
+                    res.res = decodedRes;
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,

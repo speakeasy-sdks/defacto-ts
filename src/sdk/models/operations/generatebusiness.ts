@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 
-export enum GenerateBusinessCountry {
+export enum Country {
     Fra = "FRA",
     Esp = "ESP",
     Nld = "NLD",
@@ -15,7 +15,7 @@ export enum GenerateBusinessCountry {
 
 export class GenerateBusinessRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=country" })
-    country?: GenerateBusinessCountry;
+    country?: Country;
 
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=is_borrower" })
     isBorrower?: boolean;

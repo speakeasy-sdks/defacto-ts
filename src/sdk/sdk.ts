@@ -3,12 +3,12 @@
  */
 
 import * as utils from "../internal/utils";
+import * as shared from "../sdk/models/shared";
 import { Billing } from "./billing";
 import { BusinessData } from "./businessdata";
 import { Eligibility } from "./eligibility";
 import { Invoice } from "./invoice";
 import { Loan } from "./loan";
-import * as shared from "./models/shared";
 import { Onboarding } from "./onboarding";
 import { Payment } from "./payment";
 import { Testing } from "./testing";
@@ -57,9 +57,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "v1.0.0";
-    sdkVersion = "1.26.0";
-    genVersion = "2.173.0";
-    userAgent = "speakeasy-sdk/typescript 1.26.0 2.173.0 v1.0.0 defacto";
+    sdkVersion = "2.0.0";
+    genVersion = "2.181.1";
+    userAgent = "speakeasy-sdk/typescript 2.0.0 2.181.1 v1.0.0 defacto";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -68,13 +68,13 @@ export class SDKConfiguration {
 
 export class Defacto {
     public billing: Billing;
+    public onboarding: Onboarding;
     public businessData: BusinessData;
     public eligibility: Eligibility;
+    public testing: Testing;
     public invoice: Invoice;
     public loan: Loan;
-    public onboarding: Onboarding;
     public payment: Payment;
-    public testing: Testing;
     public webhook: Webhook;
 
     private sdkConfiguration: SDKConfiguration;
@@ -96,13 +96,13 @@ export class Defacto {
         });
 
         this.billing = new Billing(this.sdkConfiguration);
+        this.onboarding = new Onboarding(this.sdkConfiguration);
         this.businessData = new BusinessData(this.sdkConfiguration);
         this.eligibility = new Eligibility(this.sdkConfiguration);
+        this.testing = new Testing(this.sdkConfiguration);
         this.invoice = new Invoice(this.sdkConfiguration);
         this.loan = new Loan(this.sdkConfiguration);
-        this.onboarding = new Onboarding(this.sdkConfiguration);
         this.payment = new Payment(this.sdkConfiguration);
-        this.testing = new Testing(this.sdkConfiguration);
         this.webhook = new Webhook(this.sdkConfiguration);
     }
 }

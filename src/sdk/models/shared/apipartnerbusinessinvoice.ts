@@ -18,7 +18,7 @@ export enum APIPartnerBusinessInvoiceCurrency {
 /**
  * Is the invoice a 'receivable' or a 'payable'.Depecrated: 'customer' or 'supplier' if the business is the customer or the supplier on the invoice ?
  */
-export enum APIPartnerBusinessInvoiceDirection {
+export enum Direction {
     Customer = "customer",
     Supplier = "supplier",
     Receivable = "receivable",
@@ -28,7 +28,7 @@ export enum APIPartnerBusinessInvoiceDirection {
 /**
  * Expected payment method that will be used to pay this invoice.
  */
-export enum APIPartnerBusinessInvoicePaymentMethod {
+export enum PaymentMethod {
     Other = "other",
     Card = "card",
     DirectDebit = "direct_debit",
@@ -58,7 +58,7 @@ export class APIPartnerBusinessInvoice extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "direction" })
-    direction: APIPartnerBusinessInvoiceDirection;
+    direction: Direction;
 
     /**
      * Expected date when this invoice will be fully paid.
@@ -111,7 +111,7 @@ export class APIPartnerBusinessInvoice extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "payment_method" })
-    paymentMethod?: APIPartnerBusinessInvoicePaymentMethod;
+    paymentMethod?: PaymentMethod;
 
     /**
      * Unique invoice identifier.

@@ -1,5 +1,5 @@
 # Payment
-(*payment*)
+(*.payment*)
 
 ### Available Operations
 
@@ -13,7 +13,7 @@ Get payments related to loans
 
 ```typescript
 import { Defacto } from "defacto";
-import { ListPaymentsPaymentMethod, ListPaymentsPaymentType, ListPaymentsStatus } from "defacto/dist/sdk/models/operations";
+import { ListPaymentsQueryParamStatus, PaymentMethod, PaymentType } from "defacto/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Defacto({
@@ -27,16 +27,16 @@ import { ListPaymentsPaymentMethod, ListPaymentsPaymentType, ListPaymentsStatus 
       "string",
     ],
     paymentMethod: [
-      ListPaymentsPaymentMethod.P2P,
+      PaymentMethod.P2P,
     ],
     paymentType: [
-      ListPaymentsPaymentType.RepaymentNominal,
+      PaymentType.RepaymentNominal,
     ],
     references: [
       "string",
     ],
     status: [
-      ListPaymentsStatus.Failed,
+      ListPaymentsQueryParamStatus.Failed,
     ],
   });
 

@@ -1,5 +1,5 @@
 # Invoice
-(*invoice*)
+(*.invoice*)
 
 ### Available Operations
 
@@ -31,12 +31,12 @@ Create an invoice.
 ```typescript
 import { Defacto } from "defacto";
 import {
-  APIDraftableInvoiceCreationBuyerIdentifierType,
+  APIDraftableInvoiceCreationAccountNumberType,
+  APIDraftableInvoiceCreationBankIdentifierType,
   APIDraftableInvoiceCreationCurrency,
-  APIDraftableInvoiceCreationSellerIdentifierType,
-  APIDraftableInvoiceCreationToAccountAccountHolderIdentifierType,
-  APIDraftableInvoiceCreationToAccountAccountNumberType,
-  APIDraftableInvoiceCreationToAccountBankIdentifierType,
+  APIDraftableInvoiceCreationIdentifierType,
+  APIDraftableInvoiceCreationSchemasIdentifierType,
+  APIDraftableInvoiceCreationSchemasToAccountIdentifierType,
 } from "defacto/dist/sdk/models/shared";
 
 (async() => {
@@ -168,7 +168,7 @@ Get your invoices
 
 ```typescript
 import { Defacto } from "defacto";
-import { ListInvoicesStatus } from "defacto/dist/sdk/models/operations";
+import { QueryParamStatus } from "defacto/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Defacto({
@@ -188,7 +188,7 @@ import { ListInvoicesStatus } from "defacto/dist/sdk/models/operations";
       "string",
     ],
     status: [
-      ListInvoicesStatus.ToEdit,
+      QueryParamStatus.ToEdit,
     ],
   });
 
@@ -226,16 +226,16 @@ import { Defacto } from "defacto";
 import { SubmitInvoiceRequest } from "defacto/dist/sdk/models/operations";
 import {
   APIPatchInvoice,
+  APIPatchInvoiceAccountHolder,
+  APIPatchInvoiceAccountNumberType,
+  APIPatchInvoiceBankIdentifierType,
   APIPatchInvoiceBuyer,
-  APIPatchInvoiceBuyerIdentifierType,
   APIPatchInvoiceCurrency,
+  APIPatchInvoiceIdentifierType,
+  APIPatchInvoiceSchemasIdentifierType,
+  APIPatchInvoiceSchemasToAccountIdentifierType,
   APIPatchInvoiceSeller,
-  APIPatchInvoiceSellerIdentifierType,
   APIPatchInvoiceToAccount,
-  APIPatchInvoiceToAccountAccountHolder,
-  APIPatchInvoiceToAccountAccountHolderIdentifierType,
-  APIPatchInvoiceToAccountAccountNumberType,
-  APIPatchInvoiceToAccountBankIdentifierType,
 } from "defacto/dist/sdk/models/shared";
 
 (async() => {
@@ -293,16 +293,16 @@ import { Defacto } from "defacto";
 import { UpdateInvoiceRequest } from "defacto/dist/sdk/models/operations";
 import {
   APIPatchInvoice,
+  APIPatchInvoiceAccountHolder,
+  APIPatchInvoiceAccountNumberType,
+  APIPatchInvoiceBankIdentifierType,
   APIPatchInvoiceBuyer,
-  APIPatchInvoiceBuyerIdentifierType,
   APIPatchInvoiceCurrency,
+  APIPatchInvoiceIdentifierType,
+  APIPatchInvoiceSchemasIdentifierType,
+  APIPatchInvoiceSchemasToAccountIdentifierType,
   APIPatchInvoiceSeller,
-  APIPatchInvoiceSellerIdentifierType,
   APIPatchInvoiceToAccount,
-  APIPatchInvoiceToAccountAccountHolder,
-  APIPatchInvoiceToAccountAccountHolderIdentifierType,
-  APIPatchInvoiceToAccountAccountNumberType,
-  APIPatchInvoiceToAccountBankIdentifierType,
 } from "defacto/dist/sdk/models/shared";
 
 (async() => {

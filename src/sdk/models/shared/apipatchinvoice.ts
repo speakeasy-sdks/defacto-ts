@@ -8,7 +8,7 @@ import { Expose, Transform, Type } from "class-transformer";
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum APIPatchInvoiceBuyerIdentifierType {
+export enum APIPatchInvoiceIdentifierType {
     Siret = "siret",
     Siren = "siren",
     VatNumber = "vat_number",
@@ -36,7 +36,7 @@ export class APIPatchInvoiceBuyer extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "identifier_type" })
-    identifierType?: APIPatchInvoiceBuyerIdentifierType;
+    identifierType?: APIPatchInvoiceIdentifierType;
 
     /**
      * Legal name of the business.
@@ -65,7 +65,7 @@ export enum APIPatchInvoiceCurrency {
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum APIPatchInvoiceSellerIdentifierType {
+export enum APIPatchInvoiceSchemasIdentifierType {
     Siret = "siret",
     Siren = "siren",
     VatNumber = "vat_number",
@@ -93,7 +93,7 @@ export class APIPatchInvoiceSeller extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "identifier_type" })
-    identifierType?: APIPatchInvoiceSellerIdentifierType;
+    identifierType?: APIPatchInvoiceSchemasIdentifierType;
 
     /**
      * Legal name of the business.
@@ -113,7 +113,7 @@ export class APIPatchInvoiceSeller extends SpeakeasyBase {
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum APIPatchInvoiceToAccountAccountHolderIdentifierType {
+export enum APIPatchInvoiceSchemasToAccountIdentifierType {
     Siret = "siret",
     Siren = "siren",
     VatNumber = "vat_number",
@@ -131,7 +131,7 @@ export enum APIPatchInvoiceToAccountAccountHolderIdentifierType {
 /**
  * The business owning the account.
  */
-export class APIPatchInvoiceToAccountAccountHolder extends SpeakeasyBase {
+export class APIPatchInvoiceAccountHolder extends SpeakeasyBase {
     /**
      * Legal identifier of the business, such as its SIRET in France.
      */
@@ -144,13 +144,13 @@ export class APIPatchInvoiceToAccountAccountHolder extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "identifier_type" })
-    identifierType?: APIPatchInvoiceToAccountAccountHolderIdentifierType;
+    identifierType?: APIPatchInvoiceSchemasToAccountIdentifierType;
 }
 
 /**
  * The type of account number (e.g. IBAN).
  */
-export enum APIPatchInvoiceToAccountAccountNumberType {
+export enum APIPatchInvoiceAccountNumberType {
     Iban = "iban",
     AccountNumber = "account_number",
     InternalId = "internal_id",
@@ -159,7 +159,7 @@ export enum APIPatchInvoiceToAccountAccountNumberType {
 /**
  * The type of bank identifier (e.g. BIC).
  */
-export enum APIPatchInvoiceToAccountBankIdentifierType {
+export enum APIPatchInvoiceBankIdentifierType {
     Bic = "bic",
     RoutingNumber = "routing_number",
     Name = "name",
@@ -174,8 +174,8 @@ export class APIPatchInvoiceToAccount extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "account_holder" })
-    @Type(() => APIPatchInvoiceToAccountAccountHolder)
-    accountHolder?: APIPatchInvoiceToAccountAccountHolder;
+    @Type(() => APIPatchInvoiceAccountHolder)
+    accountHolder?: APIPatchInvoiceAccountHolder;
 
     /**
      * The account identifier. Only IBANs are supported at the moment.
@@ -189,7 +189,7 @@ export class APIPatchInvoiceToAccount extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "account_number_type" })
-    accountNumberType?: APIPatchInvoiceToAccountAccountNumberType;
+    accountNumberType?: APIPatchInvoiceAccountNumberType;
 
     /**
      * The identifier of the bank.
@@ -203,7 +203,7 @@ export class APIPatchInvoiceToAccount extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "bank_identifier_type" })
-    bankIdentifierType?: APIPatchInvoiceToAccountBankIdentifierType;
+    bankIdentifierType?: APIPatchInvoiceBankIdentifierType;
 }
 
 export class APIPatchInvoice extends SpeakeasyBase {

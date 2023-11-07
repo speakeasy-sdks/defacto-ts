@@ -1,5 +1,5 @@
 # Loan
-(*loan*)
+(*.loan*)
 
 ### Available Operations
 
@@ -151,7 +151,7 @@ List loans
 
 ```typescript
 import { Defacto } from "defacto";
-import { ListLoansLoanType, ListLoansStatus } from "defacto/dist/sdk/models/operations";
+import { ListLoansQueryParamStatus, LoanType } from "defacto/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Defacto({
@@ -168,10 +168,10 @@ import { ListLoansLoanType, ListLoansStatus } from "defacto/dist/sdk/models/oper
       "c184a429-302e-4aca-80db-f1718b882a50",
     ],
     loanType: [
-      ListLoansLoanType.WalletFinancing,
+      LoanType.WalletFinancing,
     ],
     status: [
-      ListLoansStatus.Submitted,
+      ListLoansQueryParamStatus.Submitted,
     ],
   });
 
@@ -209,17 +209,17 @@ Request a new loan. You can request a loan for only one invoice. At the moment, 
 ```typescript
 import { Defacto } from "defacto";
 import {
-  AccountCreationAccountHolderIdentifierType,
   AccountCreationAccountNumberType,
   AccountCreationBankIdentifierType,
-  APIPostLoanBorrowerIdentifierType,
+  AccountCreationIdentifierType,
   APIPostLoanCurrency,
-  APIPostLoanLoanType,
+  APIPostLoanIdentifierType,
+  APIRequiredInvoiceCreationAccountNumberType,
+  APIRequiredInvoiceCreationBankIdentifierType,
   APIRequiredInvoiceCreationCurrency,
-  APIRequiredInvoiceCreationToAccountAccountHolderIdentifierType,
-  APIRequiredInvoiceCreationToAccountAccountNumberType,
-  APIRequiredInvoiceCreationToAccountBankIdentifierType,
+  APIRequiredInvoiceCreationIdentifierType,
   CounterpartyCreationIdentifierType,
+  LoanType,
 } from "defacto/dist/sdk/models/shared";
 
 (async() => {
@@ -316,11 +316,11 @@ import { Defacto } from "defacto";
 import { UpdateLoanRequest } from "defacto/dist/sdk/models/operations";
 import {
   PatchLoan,
+  PatchLoanAccountHolder,
+  PatchLoanAccountNumberType,
+  PatchLoanBankIdentifierType,
+  PatchLoanIdentifierType,
   PatchLoanLoanTo,
-  PatchLoanLoanToAccountHolder,
-  PatchLoanLoanToAccountHolderIdentifierType,
-  PatchLoanLoanToAccountNumberType,
-  PatchLoanLoanToBankIdentifierType,
 } from "defacto/dist/sdk/models/shared";
 
 (async() => {

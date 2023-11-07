@@ -1,5 +1,5 @@
 # Eligibility
-(*eligibility*)
+(*.eligibility*)
 
 ### Available Operations
 
@@ -240,7 +240,7 @@ Ask for the eligibility of a quote.
 
 ```typescript
 import { Defacto } from "defacto";
-import { APIQuoteEligibilityBorrowerIdentifierType, BusinessIdentifierIdentifierType } from "defacto/dist/sdk/models/shared";
+import { APIQuoteEligibilityIdentifierType, BusinessIdentifierIdentifierType } from "defacto/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Defacto({

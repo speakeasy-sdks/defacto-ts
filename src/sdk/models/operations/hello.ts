@@ -28,5 +28,5 @@ export class HelloResponse extends SpeakeasyBase {
      * A welcoming message from Defacto API.
      */
     @SpeakeasyMetadata()
-    hello200TextPlainAny?: string;
+    res?: string;
 }

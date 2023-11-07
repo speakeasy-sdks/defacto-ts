@@ -8,7 +8,7 @@ import { Expose, Transform, Type } from "class-transformer";
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum APIDraftableInvoiceCreationBuyerIdentifierType {
+export enum APIDraftableInvoiceCreationIdentifierType {
     Siret = "siret",
     Siren = "siren",
     VatNumber = "vat_number",
@@ -23,7 +23,7 @@ export enum APIDraftableInvoiceCreationBuyerIdentifierType {
     LessThanNilGreaterThan = "<nil>",
 }
 
-export class APIDraftableInvoiceCreationBuyer extends SpeakeasyBase {
+export class Buyer extends SpeakeasyBase {
     /**
      * Legal identifier of the business, such as its SIRET in France.
      */
@@ -36,7 +36,7 @@ export class APIDraftableInvoiceCreationBuyer extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "identifier_type" })
-    identifierType?: APIDraftableInvoiceCreationBuyerIdentifierType;
+    identifierType?: APIDraftableInvoiceCreationIdentifierType;
 
     /**
      * Legal name of the business.
@@ -64,7 +64,7 @@ export enum APIDraftableInvoiceCreationCurrency {
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum APIDraftableInvoiceCreationSellerIdentifierType {
+export enum APIDraftableInvoiceCreationSchemasIdentifierType {
     Siret = "siret",
     Siren = "siren",
     VatNumber = "vat_number",
@@ -79,7 +79,7 @@ export enum APIDraftableInvoiceCreationSellerIdentifierType {
     LessThanNilGreaterThan = "<nil>",
 }
 
-export class APIDraftableInvoiceCreationSeller extends SpeakeasyBase {
+export class Seller extends SpeakeasyBase {
     /**
      * Legal identifier of the business, such as its SIRET in France.
      */
@@ -92,7 +92,7 @@ export class APIDraftableInvoiceCreationSeller extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "identifier_type" })
-    identifierType?: APIDraftableInvoiceCreationSellerIdentifierType;
+    identifierType?: APIDraftableInvoiceCreationSchemasIdentifierType;
 
     /**
      * Legal name of the business.
@@ -112,7 +112,7 @@ export class APIDraftableInvoiceCreationSeller extends SpeakeasyBase {
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum APIDraftableInvoiceCreationToAccountAccountHolderIdentifierType {
+export enum APIDraftableInvoiceCreationSchemasToAccountIdentifierType {
     Siret = "siret",
     Siren = "siren",
     VatNumber = "vat_number",
@@ -130,7 +130,7 @@ export enum APIDraftableInvoiceCreationToAccountAccountHolderIdentifierType {
 /**
  * The business owning the account.
  */
-export class APIDraftableInvoiceCreationToAccountAccountHolder extends SpeakeasyBase {
+export class APIDraftableInvoiceCreationAccountHolder extends SpeakeasyBase {
     /**
      * Legal identifier of the business, such as its SIRET in France.
      */
@@ -143,13 +143,13 @@ export class APIDraftableInvoiceCreationToAccountAccountHolder extends Speakeasy
      */
     @SpeakeasyMetadata()
     @Expose({ name: "identifier_type" })
-    identifierType?: APIDraftableInvoiceCreationToAccountAccountHolderIdentifierType;
+    identifierType?: APIDraftableInvoiceCreationSchemasToAccountIdentifierType;
 }
 
 /**
  * The type of account number (e.g. IBAN).
  */
-export enum APIDraftableInvoiceCreationToAccountAccountNumberType {
+export enum APIDraftableInvoiceCreationAccountNumberType {
     Iban = "iban",
     AccountNumber = "account_number",
     InternalId = "internal_id",
@@ -158,7 +158,7 @@ export enum APIDraftableInvoiceCreationToAccountAccountNumberType {
 /**
  * The type of bank identifier (e.g. BIC).
  */
-export enum APIDraftableInvoiceCreationToAccountBankIdentifierType {
+export enum APIDraftableInvoiceCreationBankIdentifierType {
     Bic = "bic",
     RoutingNumber = "routing_number",
     Name = "name",
@@ -167,14 +167,14 @@ export enum APIDraftableInvoiceCreationToAccountBankIdentifierType {
 /**
  * Beneficiary account as mentioned on the invoice. Note that this does not determine the account where the loan payment will be made.That is done separately when calling the POST /loans endpoint.
  */
-export class APIDraftableInvoiceCreationToAccount extends SpeakeasyBase {
+export class ToAccount extends SpeakeasyBase {
     /**
      * The business owning the account.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "account_holder" })
-    @Type(() => APIDraftableInvoiceCreationToAccountAccountHolder)
-    accountHolder?: APIDraftableInvoiceCreationToAccountAccountHolder;
+    @Type(() => APIDraftableInvoiceCreationAccountHolder)
+    accountHolder?: APIDraftableInvoiceCreationAccountHolder;
 
     /**
      * The account identifier. Only IBANs are supported at the moment.
@@ -188,7 +188,7 @@ export class APIDraftableInvoiceCreationToAccount extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "account_number_type" })
-    accountNumberType?: APIDraftableInvoiceCreationToAccountAccountNumberType;
+    accountNumberType?: APIDraftableInvoiceCreationAccountNumberType;
 
     /**
      * The identifier of the bank.
@@ -202,14 +202,14 @@ export class APIDraftableInvoiceCreationToAccount extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "bank_identifier_type" })
-    bankIdentifierType?: APIDraftableInvoiceCreationToAccountBankIdentifierType;
+    bankIdentifierType?: APIDraftableInvoiceCreationBankIdentifierType;
 }
 
 export class APIDraftableInvoiceCreation extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "buyer" })
-    @Type(() => APIDraftableInvoiceCreationBuyer)
-    buyer?: APIDraftableInvoiceCreationBuyer;
+    @Type(() => Buyer)
+    buyer?: Buyer;
 
     /**
      * Currency of the invoice. Use ISO 4217 currency code.
@@ -265,8 +265,8 @@ export class APIDraftableInvoiceCreation extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "seller" })
-    @Type(() => APIDraftableInvoiceCreationSeller)
-    seller?: APIDraftableInvoiceCreationSeller;
+    @Type(() => Seller)
+    seller?: Seller;
 
     /**
      * Amount of tax, in cents
@@ -280,8 +280,8 @@ export class APIDraftableInvoiceCreation extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "to_account" })
-    @Type(() => APIDraftableInvoiceCreationToAccount)
-    toAccount?: APIDraftableInvoiceCreationToAccount;
+    @Type(() => ToAccount)
+    toAccount?: ToAccount;
 
     /**
      * Remaining amount due by buyer to seller, in cents. Set at 0 for fully paid invoices.

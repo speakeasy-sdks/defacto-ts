@@ -16,7 +16,7 @@ export enum APIPartnerAccountTransactionCurrency {
 /**
  * Source or payment method of this transaction
  */
-export enum APIPartnerAccountTransactionOperationType {
+export enum OperationType {
     Income = "income",
     Transfer = "transfer",
     Card = "card",
@@ -31,7 +31,7 @@ export enum APIPartnerAccountTransactionOperationType {
 /**
  * Is the transaction a debit or a credit operation.
  */
-export enum APIPartnerAccountTransactionSide {
+export enum Side {
     Debit = "debit",
     Credit = "credit",
     LessThanNilGreaterThan = "<nil>",
@@ -93,7 +93,7 @@ export class APIPartnerAccountTransaction extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "operation_type" })
-    operationType?: APIPartnerAccountTransactionOperationType;
+    operationType?: OperationType;
 
     /**
      * Bank reference for the transaction
@@ -121,7 +121,7 @@ export class APIPartnerAccountTransaction extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "side" })
-    side?: APIPartnerAccountTransactionSide;
+    side?: Side;
 
     @SpeakeasyMetadata()
     @Expose({ name: "status" })

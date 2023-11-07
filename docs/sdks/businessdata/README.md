@@ -1,5 +1,5 @@
 # BusinessData
-(*businessData*)
+(*.businessData*)
 
 ### Available Operations
 
@@ -91,10 +91,10 @@ This endpoint doesn't support updates on data already uploaded.
 import { Defacto } from "defacto";
 import {
   APIPartnerBusinessInvoiceCurrency,
-  APIPartnerBusinessInvoiceDirection,
-  APIPartnerBusinessInvoicePaymentMethod,
   APIPartnerBusinessInvoicesIdentifierType,
   BuyerBusinessIdentifierIdentifierType,
+  Direction,
+  PaymentMethod,
   SellerBusinessIdentifierIdentifierType,
 } from "defacto/dist/sdk/models/shared";
 
@@ -114,7 +114,7 @@ import {
           identifier: "string",
           identifierType: BuyerBusinessIdentifierIdentifierType.Kvk,
         },
-        direction: APIPartnerBusinessInvoiceDirection.Payable,
+        direction: Direction.Payable,
         dueAt: new Date("2022-09-26T23:29:22.021Z"),
         invoiceNumber: "string",
         issuedAt: new Date("2023-10-20T09:30:41.794Z"),
@@ -162,10 +162,10 @@ This endpoint doesn't support updates on data already uploaded.
 import { Defacto } from "defacto";
 import {
   APIPartnerAccountTransactionCurrency,
-  APIPartnerAccountTransactionOperationType,
-  APIPartnerAccountTransactionSide,
   APIPartnerAccountTransactionsIdentifierType,
   APIPartnerAccountTransactionStatus,
+  OperationType,
+  Side,
 } from "defacto/dist/sdk/models/shared";
 
 (async() => {
