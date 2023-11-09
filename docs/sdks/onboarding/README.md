@@ -1,5 +1,5 @@
 # Onboarding
-(*.onboarding*)
+(*onboarding*)
 
 ### Available Operations
 
@@ -26,7 +26,6 @@ const borrowerId: string = "string";
 
   const res = await sdk.onboarding.deactivateBorrower(borrowerId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -43,8 +42,12 @@ const borrowerId: string = "string";
 
 ### Response
 
-**Promise<[operations.DeactivateBorrowerResponse](../../models/operations/deactivateborrowerresponse.md)>**
+**Promise<[operations.DeactivateBorrowerResponse](../../sdk/models/operations/deactivateborrowerresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## enrollBorrower
 
@@ -83,7 +86,6 @@ import { RFCDate } from "defacto/dist/sdk/types";
     },
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -92,16 +94,20 @@ import { RFCDate } from "defacto/dist/sdk/types";
 
 ### Parameters
 
-| Parameter                                                        | Type                                                             | Required                                                         | Description                                                      |
-| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
-| `request`                                                        | [shared.APIPostBorrower](../../models/shared/apipostborrower.md) | :heavy_check_mark:                                               | The request object to use for the request.                       |
-| `config`                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)     | :heavy_minus_sign:                                               | Available config options for making requests.                    |
+| Parameter                                                            | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `request`                                                            | [shared.APIPostBorrower](../../sdk/models/shared/apipostborrower.md) | :heavy_check_mark:                                                   | The request object to use for the request.                           |
+| `config`                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)         | :heavy_minus_sign:                                                   | Available config options for making requests.                        |
 
 
 ### Response
 
-**Promise<[operations.EnrollBorrowerResponse](../../models/operations/enrollborrowerresponse.md)>**
+**Promise<[operations.EnrollBorrowerResponse](../../sdk/models/operations/enrollborrowerresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## listBorrowers
 
@@ -128,7 +134,6 @@ const pageSize: number = 667100;
 
   const res = await sdk.onboarding.listBorrowers(borrowerId, borrowerIdentifier, cursor, pageSize);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -148,8 +153,12 @@ const pageSize: number = 667100;
 
 ### Response
 
-**Promise<[operations.ListBorrowersResponse](../../models/operations/listborrowersresponse.md)>**
+**Promise<[operations.ListBorrowersResponse](../../sdk/models/operations/listborrowersresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## signBorrower
 
@@ -175,7 +184,6 @@ const signedInput: SignedInput = {
 
   const res = await sdk.onboarding.signBorrower(borrowerId, signedInput);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -184,14 +192,18 @@ const signedInput: SignedInput = {
 
 ### Parameters
 
-| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `borrowerId`                                                 | *string*                                                     | :heavy_check_mark:                                           | N/A                                                          |
-| `signedInput`                                                | [shared.SignedInput](../../models/shared/signedinput.md)     | :heavy_minus_sign:                                           | N/A                                                          |
-| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
+| Parameter                                                       | Type                                                            | Required                                                        | Description                                                     |
+| --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
+| `borrowerId`                                                    | *string*                                                        | :heavy_check_mark:                                              | N/A                                                             |
+| `signedInput`                                                   | [shared.SignedInput](../../../sdk/models/shared/signedinput.md) | :heavy_minus_sign:                                              | N/A                                                             |
+| `config`                                                        | [AxiosRequestConfig](https://axios-http.com/docs/req_config)    | :heavy_minus_sign:                                              | Available config options for making requests.                   |
 
 
 ### Response
 
-**Promise<[operations.SignBorrowerResponse](../../models/operations/signborrowerresponse.md)>**
+**Promise<[operations.SignBorrowerResponse](../../sdk/models/operations/signborrowerresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

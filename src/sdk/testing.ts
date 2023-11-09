@@ -37,7 +37,7 @@ export class Testing {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/sandbox/business-generator";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/sandbox/business-generator";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -55,7 +55,7 @@ export class Testing {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -115,7 +115,7 @@ export class Testing {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/sandbox/iban-generator";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/sandbox/iban-generator";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -133,7 +133,7 @@ export class Testing {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -193,7 +193,7 @@ export class Testing {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/sandbox/invoice-generator";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/sandbox/invoice-generator";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -224,7 +224,7 @@ export class Testing {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -269,7 +269,7 @@ export class Testing {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/hello";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/hello";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -286,7 +286,7 @@ export class Testing {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -345,7 +345,7 @@ export class Testing {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/sandbox/business-eligible";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/sandbox/business-eligible";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -376,7 +376,7 @@ export class Testing {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",

@@ -32,7 +32,11 @@ export class Eligibility {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/credit_line/{credit_line_id}", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/credit_line/{credit_line_id}",
+            req
+        );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -50,7 +54,7 @@ export class Eligibility {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -94,7 +98,7 @@ export class Eligibility {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/credit_line";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/credit_line";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -111,7 +115,7 @@ export class Eligibility {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -167,7 +171,7 @@ export class Eligibility {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/credit_lines";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/credit_lines";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -185,7 +189,7 @@ export class Eligibility {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -238,7 +242,7 @@ export class Eligibility {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/eligibility/borrower";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/eligibility/borrower";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -269,7 +273,7 @@ export class Eligibility {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -324,7 +328,7 @@ export class Eligibility {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/eligibility/buyer";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/eligibility/buyer";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -355,7 +359,7 @@ export class Eligibility {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -408,7 +412,7 @@ export class Eligibility {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/eligibility/quote";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/eligibility/quote";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -439,7 +443,7 @@ export class Eligibility {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -494,7 +498,7 @@ export class Eligibility {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/eligibility/seller";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/eligibility/seller";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -525,7 +529,7 @@ export class Eligibility {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",

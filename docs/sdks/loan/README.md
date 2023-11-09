@@ -1,5 +1,5 @@
 # Loan
-(*.loan*)
+(*loan*)
 
 ### Available Operations
 
@@ -43,7 +43,6 @@ const loanId: string = "string";
 
   const res = await sdk.loan.cancel(loanId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -60,8 +59,12 @@ const loanId: string = "string";
 
 ### Response
 
-**Promise<[operations.CancelLoanResponse](../../models/operations/cancelloanresponse.md)>**
+**Promise<[operations.CancelLoanResponse](../../sdk/models/operations/cancelloanresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## get
 
@@ -83,7 +86,6 @@ const loanId: string = "string";
 
   const res = await sdk.loan.get(loanId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -100,8 +102,12 @@ const loanId: string = "string";
 
 ### Response
 
-**Promise<[operations.GetLoanResponse](../../models/operations/getloanresponse.md)>**
+**Promise<[operations.GetLoanResponse](../../sdk/models/operations/getloanresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getEvents
 
@@ -123,7 +129,6 @@ const loanId: string = "string";
 
   const res = await sdk.loan.getEvents(loanId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -140,8 +145,12 @@ const loanId: string = "string";
 
 ### Response
 
-**Promise<[operations.GetLoanEventsResponse](../../models/operations/getloaneventsresponse.md)>**
+**Promise<[operations.GetLoanEventsResponse](../../sdk/models/operations/getloaneventsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## list
 
@@ -175,7 +184,6 @@ import { ListLoansQueryParamStatus, LoanType } from "defacto/dist/sdk/models/ope
     ],
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -184,16 +192,20 @@ import { ListLoansQueryParamStatus, LoanType } from "defacto/dist/sdk/models/ope
 
 ### Parameters
 
-| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `request`                                                                  | [operations.ListLoansRequest](../../models/operations/listloansrequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
-| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `request`                                                                      | [operations.ListLoansRequest](../../sdk/models/operations/listloansrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
 
 
 ### Response
 
-**Promise<[operations.ListLoansResponse](../../models/operations/listloansresponse.md)>**
+**Promise<[operations.ListLoansResponse](../../sdk/models/operations/listloansresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## request
 
@@ -278,7 +290,6 @@ import {
     toRepayAt: new Date("2022-06-07T12:19:30.660Z"),
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -289,14 +300,18 @@ import {
 
 | Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `request`                                                    | [shared.APIPostLoan](../../models/shared/apipostloan.md)     | :heavy_check_mark:                                           | The request object to use for the request.                   |
+| `request`                                                    | [shared.APIPostLoan](../../sdk/models/shared/apipostloan.md) | :heavy_check_mark:                                           | The request object to use for the request.                   |
 | `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
 ### Response
 
-**Promise<[operations.RequestLoanResponse](../../models/operations/requestloanresponse.md)>**
+**Promise<[operations.RequestLoanResponse](../../sdk/models/operations/requestloanresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## update
 
@@ -350,7 +365,6 @@ const patchLoan: PatchLoan = {
 
   const res = await sdk.loan.update(loanId, patchLoan);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -362,14 +376,18 @@ const patchLoan: PatchLoan = {
 | Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | `loanId`                                                     | *string*                                                     | :heavy_check_mark:                                           | N/A                                                          |
-| `patchLoan`                                                  | [shared.PatchLoan](../../models/shared/patchloan.md)         | :heavy_minus_sign:                                           | N/A                                                          |
+| `patchLoan`                                                  | [shared.PatchLoan](../../../sdk/models/shared/patchloan.md)  | :heavy_minus_sign:                                           | N/A                                                          |
 | `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
 ### Response
 
-**Promise<[operations.UpdateLoanResponse](../../models/operations/updateloanresponse.md)>**
+**Promise<[operations.UpdateLoanResponse](../../sdk/models/operations/updateloanresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## validate
 
@@ -391,7 +409,6 @@ const loanId: string = "string";
 
   const res = await sdk.loan.validate(loanId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -408,5 +425,9 @@ const loanId: string = "string";
 
 ### Response
 
-**Promise<[operations.ValidateLoanResponse](../../models/operations/validateloanresponse.md)>**
+**Promise<[operations.ValidateLoanResponse](../../sdk/models/operations/validateloanresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

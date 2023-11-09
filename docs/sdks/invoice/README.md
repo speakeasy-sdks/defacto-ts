@@ -1,5 +1,5 @@
 # Invoice
-(*.invoice*)
+(*invoice*)
 
 ### Available Operations
 
@@ -60,7 +60,6 @@ import {
     },
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -69,16 +68,20 @@ import {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [shared.APIDraftableInvoiceCreation](../../models/shared/apidraftableinvoicecreation.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [shared.APIDraftableInvoiceCreation](../../sdk/models/shared/apidraftableinvoicecreation.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
 ### Response
 
-**Promise<[operations.CreateInvoiceResponse](../../models/operations/createinvoiceresponse.md)>**
+**Promise<[operations.CreateInvoiceResponse](../../sdk/models/operations/createinvoiceresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## delete
 
@@ -100,7 +103,6 @@ const invoiceId: string = "string";
 
   const res = await sdk.invoice.delete(invoiceId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -117,8 +119,12 @@ const invoiceId: string = "string";
 
 ### Response
 
-**Promise<[operations.DeleteInvoiceResponse](../../models/operations/deleteinvoiceresponse.md)>**
+**Promise<[operations.DeleteInvoiceResponse](../../sdk/models/operations/deleteinvoiceresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## get
 
@@ -140,7 +146,6 @@ const invoiceId: string = "string";
 
   const res = await sdk.invoice.get(invoiceId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -157,8 +162,12 @@ const invoiceId: string = "string";
 
 ### Response
 
-**Promise<[operations.GetInvoiceResponse](../../models/operations/getinvoiceresponse.md)>**
+**Promise<[operations.GetInvoiceResponse](../../sdk/models/operations/getinvoiceresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## list
 
@@ -192,7 +201,6 @@ import { QueryParamStatus } from "defacto/dist/sdk/models/operations";
     ],
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -201,16 +209,20 @@ import { QueryParamStatus } from "defacto/dist/sdk/models/operations";
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `request`                                                                        | [operations.ListInvoicesRequest](../../models/operations/listinvoicesrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.ListInvoicesRequest](../../sdk/models/operations/listinvoicesrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
 
-**Promise<[operations.ListInvoicesResponse](../../models/operations/listinvoicesresponse.md)>**
+**Promise<[operations.ListInvoicesResponse](../../sdk/models/operations/listinvoicesresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## submit
 
@@ -261,7 +273,6 @@ const apiPatchInvoice: APIPatchInvoice = {
 
   const res = await sdk.invoice.submit(invoiceId, apiPatchInvoice);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -270,17 +281,21 @@ const apiPatchInvoice: APIPatchInvoice = {
 
 ### Parameters
 
-| Parameter                                                        | Type                                                             | Required                                                         | Description                                                      |
-| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
-| `invoiceId`                                                      | *string*                                                         | :heavy_check_mark:                                               | N/A                                                              |
-| `apiPatchInvoice`                                                | [shared.APIPatchInvoice](../../models/shared/apipatchinvoice.md) | :heavy_minus_sign:                                               | N/A                                                              |
-| `config`                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)     | :heavy_minus_sign:                                               | Available config options for making requests.                    |
+| Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `invoiceId`                                                             | *string*                                                                | :heavy_check_mark:                                                      | N/A                                                                     |
+| `apiPatchInvoice`                                                       | [shared.APIPatchInvoice](../../../sdk/models/shared/apipatchinvoice.md) | :heavy_minus_sign:                                                      | N/A                                                                     |
+| `config`                                                                | [AxiosRequestConfig](https://axios-http.com/docs/req_config)            | :heavy_minus_sign:                                                      | Available config options for making requests.                           |
 
 
 ### Response
 
-**Promise<[operations.SubmitInvoiceResponse](../../models/operations/submitinvoiceresponse.md)>**
+**Promise<[operations.SubmitInvoiceResponse](../../sdk/models/operations/submitinvoiceresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## update
 
@@ -328,7 +343,6 @@ const apiPatchInvoice: APIPatchInvoice = {
 
   const res = await sdk.invoice.update(invoiceId, apiPatchInvoice);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -337,17 +351,21 @@ const apiPatchInvoice: APIPatchInvoice = {
 
 ### Parameters
 
-| Parameter                                                        | Type                                                             | Required                                                         | Description                                                      |
-| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
-| `invoiceId`                                                      | *string*                                                         | :heavy_check_mark:                                               | N/A                                                              |
-| `apiPatchInvoice`                                                | [shared.APIPatchInvoice](../../models/shared/apipatchinvoice.md) | :heavy_minus_sign:                                               | N/A                                                              |
-| `config`                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)     | :heavy_minus_sign:                                               | Available config options for making requests.                    |
+| Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `invoiceId`                                                             | *string*                                                                | :heavy_check_mark:                                                      | N/A                                                                     |
+| `apiPatchInvoice`                                                       | [shared.APIPatchInvoice](../../../sdk/models/shared/apipatchinvoice.md) | :heavy_minus_sign:                                                      | N/A                                                                     |
+| `config`                                                                | [AxiosRequestConfig](https://axios-http.com/docs/req_config)            | :heavy_minus_sign:                                                      | Available config options for making requests.                           |
 
 
 ### Response
 
-**Promise<[operations.UpdateInvoiceResponse](../../models/operations/updateinvoiceresponse.md)>**
+**Promise<[operations.UpdateInvoiceResponse](../../sdk/models/operations/updateinvoiceresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## upload
 
@@ -370,7 +388,6 @@ const seller: string = "string";
 
   const res = await sdk.invoice.upload(buyer, seller);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -388,5 +405,9 @@ const seller: string = "string";
 
 ### Response
 
-**Promise<[operations.UploadInvoicesResponse](../../models/operations/uploadinvoicesresponse.md)>**
+**Promise<[operations.UploadInvoicesResponse](../../sdk/models/operations/uploadinvoicesresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

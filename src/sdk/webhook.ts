@@ -38,7 +38,7 @@ export class Webhook {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/webhooks";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/webhooks";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -69,7 +69,7 @@ export class Webhook {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -120,7 +120,7 @@ export class Webhook {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/webhook/{webhook_id}", req);
+        const operationUrl: string = utils.generateURL(baseURL, "/webhook/{webhook_id}", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -137,7 +137,7 @@ export class Webhook {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "delete",
             headers: headers,
             responseType: "arraybuffer",
@@ -188,7 +188,7 @@ export class Webhook {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/webhooks";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/webhooks";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -205,7 +205,7 @@ export class Webhook {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -264,7 +264,7 @@ export class Webhook {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/webhook/{webhook_id}", req);
+        const operationUrl: string = utils.generateURL(baseURL, "/webhook/{webhook_id}", req);
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -295,7 +295,7 @@ export class Webhook {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "patch",
             headers: headers,
             responseType: "arraybuffer",

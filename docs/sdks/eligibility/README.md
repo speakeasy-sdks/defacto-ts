@@ -1,5 +1,5 @@
 # Eligibility
-(*.eligibility*)
+(*eligibility*)
 
 ### Available Operations
 
@@ -38,7 +38,6 @@ const at: Date = new Date("2022-10-25T14:52:10.068Z");
 
   const res = await sdk.eligibility.getCreditLine(creditLineId, at);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -56,8 +55,12 @@ const at: Date = new Date("2022-10-25T14:52:10.068Z");
 
 ### Response
 
-**Promise<[operations.GetCreditLineResponse](../../models/operations/getcreditlineresponse.md)>**
+**Promise<[operations.GetCreditLineResponse](../../sdk/models/operations/getcreditlineresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## listCreditLine
 
@@ -77,7 +80,6 @@ import { Defacto } from "defacto";
 
   const res = await sdk.eligibility.listCreditLine();
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -93,8 +95,12 @@ import { Defacto } from "defacto";
 
 ### Response
 
-**Promise<[operations.ListCreditLineResponse](../../models/operations/listcreditlineresponse.md)>**
+**Promise<[operations.ListCreditLineResponse](../../sdk/models/operations/listcreditlineresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## listCreditLines
 
@@ -123,7 +129,6 @@ const pageSize: number = 781880;
 
   const res = await sdk.eligibility.listCreditLines(borrower, cursor, id, pageSize);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -143,8 +148,12 @@ const pageSize: number = 781880;
 
 ### Response
 
-**Promise<[operations.ListCreditLinesResponse](../../models/operations/listcreditlinesresponse.md)>**
+**Promise<[operations.ListCreditLinesResponse](../../sdk/models/operations/listcreditlinesresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## requestElligibilityBorrower
 
@@ -169,7 +178,6 @@ import { APIBorrowerEligibilityIdentifierType } from "defacto/dist/sdk/models/sh
     identifier: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -178,16 +186,20 @@ import { APIBorrowerEligibilityIdentifierType } from "defacto/dist/sdk/models/sh
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `request`                                                                      | [shared.APIBorrowerEligibility](../../models/shared/apiborrowereligibility.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [shared.APIBorrowerEligibility](../../sdk/models/shared/apiborrowereligibility.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 
 ### Response
 
-**Promise<[operations.RequestElligibilityBorrowerResponse](../../models/operations/requestelligibilityborrowerresponse.md)>**
+**Promise<[operations.RequestElligibilityBorrowerResponse](../../sdk/models/operations/requestelligibilityborrowerresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## requestElligibilityBuyer
 
@@ -212,7 +224,6 @@ import { APIBorrowerEligibilityIdentifierType } from "defacto/dist/sdk/models/sh
     identifier: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -221,16 +232,20 @@ import { APIBorrowerEligibilityIdentifierType } from "defacto/dist/sdk/models/sh
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `request`                                                                      | [shared.APIBorrowerEligibility](../../models/shared/apiborrowereligibility.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [shared.APIBorrowerEligibility](../../sdk/models/shared/apiborrowereligibility.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 
 ### Response
 
-**Promise<[operations.RequestElligibilityBuyerResponse](../../models/operations/requestelligibilitybuyerresponse.md)>**
+**Promise<[operations.RequestElligibilityBuyerResponse](../../sdk/models/operations/requestelligibilitybuyerresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## requestElligibilityQuote
 
@@ -264,7 +279,6 @@ import { APIQuoteEligibilityIdentifierType, BusinessIdentifierIdentifierType } f
     startDate: new Date("2021-11-17T15:27:10.874Z"),
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -273,16 +287,20 @@ import { APIQuoteEligibilityIdentifierType, BusinessIdentifierIdentifierType } f
 
 ### Parameters
 
-| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `request`                                                                | [shared.APIQuoteEligibility](../../models/shared/apiquoteeligibility.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
-| `config`                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)             | :heavy_minus_sign:                                                       | Available config options for making requests.                            |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `request`                                                                    | [shared.APIQuoteEligibility](../../sdk/models/shared/apiquoteeligibility.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
 
 
 ### Response
 
-**Promise<[operations.RequestElligibilityQuoteResponse](../../models/operations/requestelligibilityquoteresponse.md)>**
+**Promise<[operations.RequestElligibilityQuoteResponse](../../sdk/models/operations/requestelligibilityquoteresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## requestElligibilitySeller
 
@@ -307,7 +325,6 @@ import { APIBorrowerEligibilityIdentifierType } from "defacto/dist/sdk/models/sh
     identifier: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -316,13 +333,17 @@ import { APIBorrowerEligibilityIdentifierType } from "defacto/dist/sdk/models/sh
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `request`                                                                      | [shared.APIBorrowerEligibility](../../models/shared/apiborrowereligibility.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [shared.APIBorrowerEligibility](../../sdk/models/shared/apiborrowereligibility.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 
 ### Response
 
-**Promise<[operations.RequestElligibilitySellerResponse](../../models/operations/requestelligibilitysellerresponse.md)>**
+**Promise<[operations.RequestElligibilitySellerResponse](../../sdk/models/operations/requestelligibilitysellerresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

@@ -1,5 +1,5 @@
 # Testing
-(*.testing*)
+(*testing*)
 
 ### Available Operations
 
@@ -64,7 +64,6 @@ const isBorrower: boolean = false;
 
   const res = await sdk.testing.generateBusiness(country, isBorrower);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -73,17 +72,21 @@ const isBorrower: boolean = false;
 
 ### Parameters
 
-| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `country`                                                    | [operations.Country](../../models/operations/country.md)     | :heavy_minus_sign:                                           | N/A                                                          |
-| `isBorrower`                                                 | *boolean*                                                    | :heavy_minus_sign:                                           | N/A                                                          |
-| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
+| Parameter                                                       | Type                                                            | Required                                                        | Description                                                     |
+| --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
+| `country`                                                       | [operations.Country](../../../sdk/models/operations/country.md) | :heavy_minus_sign:                                              | N/A                                                             |
+| `isBorrower`                                                    | *boolean*                                                       | :heavy_minus_sign:                                              | N/A                                                             |
+| `config`                                                        | [AxiosRequestConfig](https://axios-http.com/docs/req_config)    | :heavy_minus_sign:                                              | Available config options for making requests.                   |
 
 
 ### Response
 
-**Promise<[operations.GenerateBusinessResponse](../../models/operations/generatebusinessresponse.md)>**
+**Promise<[operations.GenerateBusinessResponse](../../sdk/models/operations/generatebusinessresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## generateIban
 
@@ -114,7 +117,6 @@ const scenario: Scenario = Scenario.Success;
 
   const res = await sdk.testing.generateIban(country, scenario);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -123,17 +125,21 @@ const scenario: Scenario = Scenario.Success;
 
 ### Parameters
 
-| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `country`                                                                    | [operations.QueryParamCountry](../../models/operations/queryparamcountry.md) | :heavy_minus_sign:                                                           | N/A                                                                          |
-| `scenario`                                                                   | [operations.Scenario](../../models/operations/scenario.md)                   | :heavy_minus_sign:                                                           | N/A                                                                          |
-| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
+| Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `country`                                                                           | [operations.QueryParamCountry](../../../sdk/models/operations/queryparamcountry.md) | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `scenario`                                                                          | [operations.Scenario](../../../sdk/models/operations/scenario.md)                   | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `config`                                                                            | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                        | :heavy_minus_sign:                                                                  | Available config options for making requests.                                       |
 
 
 ### Response
 
-**Promise<[operations.GenerateIbanResponse](../../models/operations/generateibanresponse.md)>**
+**Promise<[operations.GenerateIbanResponse](../../sdk/models/operations/generateibanresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## generateInvoice
 
@@ -171,7 +177,6 @@ import {
     seller: {},
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -180,16 +185,20 @@ import {
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `request`                                                                      | [shared.GenerateInvoiceRequest](../../models/shared/generateinvoicerequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [shared.GenerateInvoiceRequest](../../sdk/models/shared/generateinvoicerequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 
 ### Response
 
-**Promise<[operations.GenerateInvoiceResponse](../../models/operations/generateinvoiceresponse.md)>**
+**Promise<[operations.GenerateInvoiceResponse](../../sdk/models/operations/generateinvoiceresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## hello
 
@@ -209,7 +218,6 @@ import { Defacto } from "defacto";
 
   const res = await sdk.testing.hello();
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -225,8 +233,12 @@ import { Defacto } from "defacto";
 
 ### Response
 
-**Promise<[operations.HelloResponse](../../models/operations/helloresponse.md)>**
+**Promise<[operations.HelloResponse](../../sdk/models/operations/helloresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## setBusinessEligible
 
@@ -259,7 +271,6 @@ import { BusinessIdentifierIdentifierType, Scenario } from "defacto/dist/sdk/mod
     scenario: Scenario.Ok,
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -268,13 +279,17 @@ import { BusinessIdentifierIdentifierType, Scenario } from "defacto/dist/sdk/mod
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `request`                                                                        | [shared.BusinessEligibileParams](../../models/shared/businesseligibileparams.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [shared.BusinessEligibileParams](../../sdk/models/shared/businesseligibileparams.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
 
-**Promise<[operations.SetBusinessEligibleResponse](../../models/operations/setbusinesseligibleresponse.md)>**
+**Promise<[operations.SetBusinessEligibleResponse](../../sdk/models/operations/setbusinesseligibleresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

@@ -27,7 +27,11 @@ export class Onboarding {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/borrower/{borrower_id}/deactivate", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/borrower/{borrower_id}/deactivate",
+            req
+        );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -44,7 +48,7 @@ export class Onboarding {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -93,7 +97,7 @@ export class Onboarding {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/borrowers";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/borrowers";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -124,7 +128,7 @@ export class Onboarding {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -181,7 +185,7 @@ export class Onboarding {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/borrowers";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/borrowers";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -199,7 +203,7 @@ export class Onboarding {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -251,7 +255,11 @@ export class Onboarding {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/borrower/{borrower_id}/sign", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/borrower/{borrower_id}/sign",
+            req
+        );
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -282,7 +290,7 @@ export class Onboarding {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",

@@ -1,0 +1,14 @@
+# PatchLoanLoanTo
+
+Bank account receiving the money of the loan
+
+
+## Fields
+
+| Field                                                                                           | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `accountHolder`                                                                                 | [shared.PatchLoanAccountHolder](../../../sdk/models/shared/patchloanaccountholder.md)           | :heavy_minus_sign:                                                                              | The business owning the account.                                                                |
+| `accountNumber`                                                                                 | *string*                                                                                        | :heavy_check_mark:                                                                              | The account identifier. Only IBANs are supported at the moment.                                 |
+| `accountNumberType`                                                                             | [shared.PatchLoanAccountNumberType](../../../sdk/models/shared/patchloanaccountnumbertype.md)   | :heavy_minus_sign:                                                                              | The type of account number (e.g. IBAN).                                                         |
+| `bankIdentifier`                                                                                | *string*                                                                                        | :heavy_minus_sign:                                                                              | The identifier of the bank.                                                                     |
+| `bankIdentifierType`                                                                            | [shared.PatchLoanBankIdentifierType](../../../sdk/models/shared/patchloanbankidentifiertype.md) | :heavy_minus_sign:                                                                              | The type of bank identifier (e.g. BIC).                                                         |

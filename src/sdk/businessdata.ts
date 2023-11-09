@@ -36,7 +36,7 @@ export class BusinessData {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/business/data/accounts";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/business/data/accounts";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -67,7 +67,7 @@ export class BusinessData {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -124,7 +124,7 @@ export class BusinessData {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/business/data/invoices";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/business/data/invoices";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -155,7 +155,7 @@ export class BusinessData {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -213,7 +213,8 @@ export class BusinessData {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/business/data/account-transactions";
+        const operationUrl: string =
+            baseURL.replace(/\/$/, "") + "/business/data/account-transactions";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -244,7 +245,7 @@ export class BusinessData {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",

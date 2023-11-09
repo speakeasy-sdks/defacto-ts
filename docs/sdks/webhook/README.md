@@ -1,5 +1,5 @@
 # Webhook
-(*.webhook*)
+(*webhook*)
 
 ### Available Operations
 
@@ -61,7 +61,6 @@ import { EventTypes } from "defacto/dist/sdk/models/shared";
     toUrl: "http://popular-street.info",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -70,16 +69,20 @@ import { EventTypes } from "defacto/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `request`                                                    | [shared.CreateWebhook](../../models/shared/createwebhook.md) | :heavy_check_mark:                                           | The request object to use for the request.                   |
-| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
+| Parameter                                                        | Type                                                             | Required                                                         | Description                                                      |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `request`                                                        | [shared.CreateWebhook](../../sdk/models/shared/createwebhook.md) | :heavy_check_mark:                                               | The request object to use for the request.                       |
+| `config`                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)     | :heavy_minus_sign:                                               | Available config options for making requests.                    |
 
 
 ### Response
 
-**Promise<[operations.CreateWebhookResponse](../../models/operations/createwebhookresponse.md)>**
+**Promise<[operations.CreateWebhookResponse](../../sdk/models/operations/createwebhookresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## delete
 
@@ -101,7 +104,6 @@ const webhookId: string = "string";
 
   const res = await sdk.webhook.delete(webhookId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -118,8 +120,12 @@ const webhookId: string = "string";
 
 ### Response
 
-**Promise<[operations.DeleteWebhookResponse](../../models/operations/deletewebhookresponse.md)>**
+**Promise<[operations.DeleteWebhookResponse](../../sdk/models/operations/deletewebhookresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## list
 
@@ -146,7 +152,6 @@ import { Defacto } from "defacto";
 
   const res = await sdk.webhook.list();
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -162,8 +167,12 @@ import { Defacto } from "defacto";
 
 ### Response
 
-**Promise<[operations.ListWebhooksResponse](../../models/operations/listwebhooksresponse.md)>**
+**Promise<[operations.ListWebhooksResponse](../../sdk/models/operations/listwebhooksresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## update
 
@@ -200,7 +209,6 @@ const createWebhook: CreateWebhook = {
 
   const res = await sdk.webhook.update(webhookId, createWebhook);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -209,14 +217,18 @@ const createWebhook: CreateWebhook = {
 
 ### Parameters
 
-| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `webhookId`                                                  | *string*                                                     | :heavy_check_mark:                                           | N/A                                                          |
-| `createWebhook`                                              | [shared.CreateWebhook](../../models/shared/createwebhook.md) | :heavy_minus_sign:                                           | N/A                                                          |
-| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `webhookId`                                                         | *string*                                                            | :heavy_check_mark:                                                  | N/A                                                                 |
+| `createWebhook`                                                     | [shared.CreateWebhook](../../../sdk/models/shared/createwebhook.md) | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `config`                                                            | [AxiosRequestConfig](https://axios-http.com/docs/req_config)        | :heavy_minus_sign:                                                  | Available config options for making requests.                       |
 
 
 ### Response
 
-**Promise<[operations.UpdateWebhookResponse](../../models/operations/updatewebhookresponse.md)>**
+**Promise<[operations.UpdateWebhookResponse](../../sdk/models/operations/updatewebhookresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
