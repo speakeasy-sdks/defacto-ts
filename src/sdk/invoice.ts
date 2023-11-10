@@ -74,7 +74,7 @@ export class Invoice {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -82,16 +82,16 @@ export class Invoice {
 
         const res: operations.CreateInvoiceResponse = new operations.CreateInvoiceResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         switch (true) {
             case httpRes?.status == 201:
-                if (utils.matchContentType(contentType, `*/*`)) {
+                if (utils.matchContentType(responseContentType, `*/*`)) {
                     res.body = httpRes?.data;
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         httpRes?.data,
                         httpRes
@@ -141,7 +141,7 @@ export class Invoice {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -149,16 +149,16 @@ export class Invoice {
 
         const res: operations.DeleteInvoiceResponse = new operations.DeleteInvoiceResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `*/*`)) {
+                if (utils.matchContentType(responseContentType, `*/*`)) {
                     res.body = httpRes?.data;
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         httpRes?.data,
                         httpRes
@@ -208,7 +208,7 @@ export class Invoice {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -216,16 +216,16 @@ export class Invoice {
 
         const res: operations.GetInvoiceResponse = new operations.GetInvoiceResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `*/*`)) {
+                if (utils.matchContentType(responseContentType, `*/*`)) {
                     res.body = httpRes?.data;
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         httpRes?.data,
                         httpRes
@@ -277,7 +277,7 @@ export class Invoice {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -285,16 +285,16 @@ export class Invoice {
 
         const res: operations.ListInvoicesResponse = new operations.ListInvoicesResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `*/*`)) {
+                if (utils.matchContentType(responseContentType, `*/*`)) {
                     res.body = httpRes?.data;
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         httpRes?.data,
                         httpRes
@@ -368,7 +368,7 @@ export class Invoice {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -376,16 +376,16 @@ export class Invoice {
 
         const res: operations.SubmitInvoiceResponse = new operations.SubmitInvoiceResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `*/*`)) {
+                if (utils.matchContentType(responseContentType, `*/*`)) {
                     res.body = httpRes?.data;
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         httpRes?.data,
                         httpRes
@@ -452,7 +452,7 @@ export class Invoice {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -460,16 +460,16 @@ export class Invoice {
 
         const res: operations.UpdateInvoiceResponse = new operations.UpdateInvoiceResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `*/*`)) {
+                if (utils.matchContentType(responseContentType, `*/*`)) {
                     res.body = httpRes?.data;
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         httpRes?.data,
                         httpRes
@@ -522,7 +522,7 @@ export class Invoice {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -530,16 +530,16 @@ export class Invoice {
 
         const res: operations.UploadInvoicesResponse = new operations.UploadInvoicesResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         switch (true) {
             case httpRes?.status == 201:
-                if (utils.matchContentType(contentType, `*/*`)) {
+                if (utils.matchContentType(responseContentType, `*/*`)) {
                     res.body = httpRes?.data;
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         httpRes?.data,
                         httpRes

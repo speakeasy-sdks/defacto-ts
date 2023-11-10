@@ -77,7 +77,7 @@ export class Webhook {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -85,16 +85,16 @@ export class Webhook {
 
         const res: operations.CreateWebhookResponse = new operations.CreateWebhookResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         switch (true) {
             case httpRes?.status == 201:
-                if (utils.matchContentType(contentType, `*/*`)) {
+                if (utils.matchContentType(responseContentType, `*/*`)) {
                     res.body = httpRes?.data;
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         httpRes?.data,
                         httpRes
@@ -144,7 +144,7 @@ export class Webhook {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -152,16 +152,16 @@ export class Webhook {
 
         const res: operations.DeleteWebhookResponse = new operations.DeleteWebhookResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         switch (true) {
             case httpRes?.status == 204:
-                if (utils.matchContentType(contentType, `*/*`)) {
+                if (utils.matchContentType(responseContentType, `*/*`)) {
                     res.body = httpRes?.data;
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         httpRes?.data,
                         httpRes
@@ -212,7 +212,7 @@ export class Webhook {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -220,16 +220,16 @@ export class Webhook {
 
         const res: operations.ListWebhooksResponse = new operations.ListWebhooksResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `*/*`)) {
+                if (utils.matchContentType(responseContentType, `*/*`)) {
                     res.body = httpRes?.data;
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         httpRes?.data,
                         httpRes
@@ -303,7 +303,7 @@ export class Webhook {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -311,16 +311,16 @@ export class Webhook {
 
         const res: operations.UpdateWebhookResponse = new operations.UpdateWebhookResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `*/*`)) {
+                if (utils.matchContentType(responseContentType, `*/*`)) {
                     res.body = httpRes?.data;
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         httpRes?.data,
                         httpRes

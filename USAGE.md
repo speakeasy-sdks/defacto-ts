@@ -1,6 +1,4 @@
 <!-- Start SDK Example Usage -->
-
-
 ```typescript
 import { Defacto } from "defacto";
 import { Status } from "defacto/dist/sdk/models/operations";
