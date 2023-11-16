@@ -2,8 +2,8 @@ configVersion: 1.0.0
 management:
   docChecksum: 1ce0e179a6e0de2157399d3d6e839ba2
   docVersion: v1.0.0
-  speakeasyVersion: 1.118.3
-  generationVersion: 2.187.7
+  speakeasyVersion: 1.120.3
+  generationVersion: 2.192.1
 generation:
   comments: {}
   sdkClassName: defacto
@@ -12,13 +12,13 @@ generation:
     optionalPropertyRendering: withExample
 features:
   typescript:
-    core: 3.1.3
+    core: 3.1.4
     flattening: 2.81.1
     globalSecurity: 2.82.0
     globalServerURLs: 2.82.0
     nameOverrides: 2.81.1
 typescript:
-  version: 2.0.2
+  version: 2.0.3
   author: Defacto
   clientServerStatusCodesAsErrors: false
   flattenGlobalSecurity: false
