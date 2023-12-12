@@ -15,10 +15,10 @@ Get payments related to loans
 import { Defacto } from "defacto";
 import { ListPaymentsQueryParamStatus, PaymentMethod, PaymentType } from "defacto/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 
@@ -43,7 +43,9 @@ import { ListPaymentsQueryParamStatus, PaymentMethod, PaymentType } from "defact
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

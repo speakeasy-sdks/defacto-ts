@@ -123,7 +123,6 @@ src/sdk/models/shared/security.ts
 src/sdk/models/errors/index.ts
 src/sdk/models/operations/index.ts
 src/sdk/models/shared/index.ts
-USAGE.md
 docs/sdk/models/operations/status.md
 docs/sdk/models/operations/listbillsrequest.md
 docs/sdk/models/operations/listbillsresponse.md
@@ -444,4 +443,5 @@ docs/sdks/invoice/README.md
 docs/sdks/loan/README.md
 docs/sdks/payment/README.md
 docs/sdks/webhook/README.md
+USAGE.md
 .gitattributes

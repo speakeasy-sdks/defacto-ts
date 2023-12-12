@@ -46,10 +46,10 @@ For more information on webhooks such as how to secure them, you can refer to ou
 import { Defacto } from "defacto";
 import { EventTypes } from "defacto/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 
@@ -64,7 +64,9 @@ import { EventTypes } from "defacto/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -94,10 +96,10 @@ Delete a webhook subscription.
 import { Defacto } from "defacto";
 import { DeleteWebhookRequest } from "defacto/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 const webhookId: string = "string";
@@ -107,7 +109,9 @@ const webhookId: string = "string";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -143,10 +147,10 @@ For more information on webhooks such as how to secure them, you can refer to ou
 ```typescript
 import { Defacto } from "defacto";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 
@@ -155,7 +159,9 @@ import { Defacto } from "defacto";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -192,10 +198,10 @@ import { Defacto } from "defacto";
 import { UpdateWebhookRequest } from "defacto/dist/sdk/models/operations";
 import { CreateWebhook, EventTypes } from "defacto/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 const webhookId: string = "string";
@@ -212,16 +218,18 @@ const createWebhook: CreateWebhook = {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `webhookId`                                                         | *string*                                                            | :heavy_check_mark:                                                  | N/A                                                                 |
-| `createWebhook`                                                     | [shared.CreateWebhook](../../../sdk/models/shared/createwebhook.md) | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `config`                                                            | [AxiosRequestConfig](https://axios-http.com/docs/req_config)        | :heavy_minus_sign:                                                  | Available config options for making requests.                       |
+| Parameter                                                        | Type                                                             | Required                                                         | Description                                                      |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `webhookId`                                                      | *string*                                                         | :heavy_check_mark:                                               | N/A                                                              |
+| `createWebhook`                                                  | [shared.CreateWebhook](../../sdk/models/shared/createwebhook.md) | :heavy_minus_sign:                                               | N/A                                                              |
+| `config`                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)     | :heavy_minus_sign:                                               | Available config options for making requests.                    |
 
 
 ### Response

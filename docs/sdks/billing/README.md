@@ -26,10 +26,10 @@ List your fees invoices (i.e: your Defacto bill) for the loans you performed on 
 import { Defacto } from "defacto";
 import { Status } from "defacto/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 
@@ -48,7 +48,9 @@ import { Status } from "defacto/dist/sdk/models/operations";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -89,10 +91,10 @@ import { Defacto } from "defacto";
 import { SendBillRequest } from "defacto/dist/sdk/models/operations";
 import { APIBillSentByPartnerRequest } from "defacto/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 const billId: string = "string";
@@ -108,16 +110,18 @@ const apiBillSentByPartnerRequest: APIBillSentByPartnerRequest = {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `billId`                                                                                        | *string*                                                                                        | :heavy_check_mark:                                                                              | N/A                                                                                             |
-| `apiBillSentByPartnerRequest`                                                                   | [shared.APIBillSentByPartnerRequest](../../../sdk/models/shared/apibillsentbypartnerrequest.md) | :heavy_minus_sign:                                                                              | N/A                                                                                             |
-| `config`                                                                                        | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                    | :heavy_minus_sign:                                                                              | Available config options for making requests.                                                   |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `billId`                                                                                     | *string*                                                                                     | :heavy_check_mark:                                                                           | N/A                                                                                          |
+| `apiBillSentByPartnerRequest`                                                                | [shared.APIBillSentByPartnerRequest](../../sdk/models/shared/apibillsentbypartnerrequest.md) | :heavy_minus_sign:                                                                           | N/A                                                                                          |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
 ### Response

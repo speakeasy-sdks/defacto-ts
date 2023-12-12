@@ -1,12 +1,12 @@
-<!-- Start SDK Example Usage -->
+<!-- Start SDK Example Usage [usage] -->
 ```typescript
 import { Defacto } from "defacto";
 import { Status } from "defacto/dist/sdk/models/operations";
 
-(async () => {
+async function run() {
     const sdk = new Defacto({
         security: {
-            bearer: "",
+            bearer: "<YOUR_API_KEY_HERE>",
         },
     });
 
@@ -19,7 +19,9 @@ import { Status } from "defacto/dist/sdk/models/operations";
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->

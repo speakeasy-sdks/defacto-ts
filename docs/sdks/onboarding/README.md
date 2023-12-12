@@ -16,10 +16,10 @@
 import { Defacto } from "defacto";
 import { DeactivateBorrowerRequest } from "defacto/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 const borrowerId: string = "string";
@@ -29,7 +29,9 @@ const borrowerId: string = "string";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -58,10 +60,10 @@ import { Defacto } from "defacto";
 import { APIPostBorrowerIdentifierType } from "defacto/dist/sdk/models/shared";
 import { RFCDate } from "defacto/dist/sdk/types";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 
@@ -89,7 +91,9 @@ import { RFCDate } from "defacto/dist/sdk/types";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -119,10 +123,10 @@ List all your borrowers
 import { Defacto } from "defacto";
 import { ListBorrowersRequest } from "defacto/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 const borrowerId: string[] = [
@@ -137,7 +141,9 @@ const pageSize: number = 667100;
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -171,10 +177,10 @@ import { Defacto } from "defacto";
 import { SignBorrowerRequest } from "defacto/dist/sdk/models/operations";
 import { SignedInput } from "defacto/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 const borrowerId: string = "string";
@@ -187,16 +193,18 @@ const signedInput: SignedInput = {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                       | Type                                                            | Required                                                        | Description                                                     |
-| --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
-| `borrowerId`                                                    | *string*                                                        | :heavy_check_mark:                                              | N/A                                                             |
-| `signedInput`                                                   | [shared.SignedInput](../../../sdk/models/shared/signedinput.md) | :heavy_minus_sign:                                              | N/A                                                             |
-| `config`                                                        | [AxiosRequestConfig](https://axios-http.com/docs/req_config)    | :heavy_minus_sign:                                              | Available config options for making requests.                   |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `borrowerId`                                                 | *string*                                                     | :heavy_check_mark:                                           | N/A                                                          |
+| `signedInput`                                                | [shared.SignedInput](../../sdk/models/shared/signedinput.md) | :heavy_minus_sign:                                           | N/A                                                          |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
 ### Response

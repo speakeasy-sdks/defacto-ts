@@ -37,10 +37,10 @@ This endpoint doesn't support updates on data already uploaded.
 import { Defacto } from "defacto";
 import { APIPartnerBusinessAccountsIdentifierType } from "defacto/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 
@@ -59,7 +59,9 @@ import { APIPartnerBusinessAccountsIdentifierType } from "defacto/dist/sdk/model
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -101,10 +103,10 @@ import {
   SellerBusinessIdentifierIdentifierType,
 } from "defacto/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 
@@ -133,7 +135,9 @@ import {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -174,10 +178,10 @@ import {
   Side,
 } from "defacto/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 
@@ -195,7 +199,9 @@ import {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

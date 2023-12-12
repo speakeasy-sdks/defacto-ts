@@ -33,10 +33,10 @@ Use this function to cancel a loan proposal. Available for LoanStatus.TO_VALIDAT
 import { Defacto } from "defacto";
 import { CancelLoanRequest } from "defacto/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 const loanId: string = "string";
@@ -46,7 +46,9 @@ const loanId: string = "string";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -76,10 +78,10 @@ Get a loan by id
 import { Defacto } from "defacto";
 import { GetLoanRequest } from "defacto/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 const loanId: string = "string";
@@ -89,7 +91,9 @@ const loanId: string = "string";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -119,10 +123,10 @@ Get the activity log of a loan.
 import { Defacto } from "defacto";
 import { GetLoanEventsRequest } from "defacto/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 const loanId: string = "string";
@@ -132,7 +136,9 @@ const loanId: string = "string";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -162,10 +168,10 @@ List loans
 import { Defacto } from "defacto";
 import { ListLoansQueryParamStatus, LoanType } from "defacto/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 
@@ -187,7 +193,9 @@ import { ListLoansQueryParamStatus, LoanType } from "defacto/dist/sdk/models/ope
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -234,10 +242,10 @@ import {
   LoanType,
 } from "defacto/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 
@@ -293,7 +301,9 @@ import {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -338,10 +348,10 @@ import {
   PatchLoanLoanTo,
 } from "defacto/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 const loanId: string = "string";
@@ -368,7 +378,9 @@ const patchLoan: PatchLoan = {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -376,7 +388,7 @@ const patchLoan: PatchLoan = {
 | Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | `loanId`                                                     | *string*                                                     | :heavy_check_mark:                                           | N/A                                                          |
-| `patchLoan`                                                  | [shared.PatchLoan](../../../sdk/models/shared/patchloan.md)  | :heavy_minus_sign:                                           | N/A                                                          |
+| `patchLoan`                                                  | [shared.PatchLoan](../../sdk/models/shared/patchloan.md)     | :heavy_minus_sign:                                           | N/A                                                          |
 | `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
@@ -399,10 +411,10 @@ Use this function to accept a loan proposal. Available for LoanStatus.TO_VALIDAT
 import { Defacto } from "defacto";
 import { ValidateLoanRequest } from "defacto/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 const loanId: string = "string";
@@ -412,7 +424,9 @@ const loanId: string = "string";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

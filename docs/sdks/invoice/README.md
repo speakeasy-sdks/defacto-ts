@@ -39,10 +39,10 @@ import {
   APIDraftableInvoiceCreationSchemasToAccountIdentifierType,
 } from "defacto/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 
@@ -63,7 +63,9 @@ import {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -93,10 +95,10 @@ Delete an invoice by id
 import { Defacto } from "defacto";
 import { DeleteInvoiceRequest } from "defacto/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 const invoiceId: string = "string";
@@ -106,7 +108,9 @@ const invoiceId: string = "string";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -136,10 +140,10 @@ Get an invoice by id
 import { Defacto } from "defacto";
 import { GetInvoiceRequest } from "defacto/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 const invoiceId: string = "string";
@@ -149,7 +153,9 @@ const invoiceId: string = "string";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -179,10 +185,10 @@ Get your invoices
 import { Defacto } from "defacto";
 import { QueryParamStatus } from "defacto/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 
@@ -204,7 +210,9 @@ import { QueryParamStatus } from "defacto/dist/sdk/models/operations";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -250,10 +258,10 @@ import {
   APIPatchInvoiceToAccount,
 } from "defacto/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 const invoiceId: string = "string";
@@ -276,16 +284,18 @@ const apiPatchInvoice: APIPatchInvoice = {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
-| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `invoiceId`                                                             | *string*                                                                | :heavy_check_mark:                                                      | N/A                                                                     |
-| `apiPatchInvoice`                                                       | [shared.APIPatchInvoice](../../../sdk/models/shared/apipatchinvoice.md) | :heavy_minus_sign:                                                      | N/A                                                                     |
-| `config`                                                                | [AxiosRequestConfig](https://axios-http.com/docs/req_config)            | :heavy_minus_sign:                                                      | Available config options for making requests.                           |
+| Parameter                                                            | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `invoiceId`                                                          | *string*                                                             | :heavy_check_mark:                                                   | N/A                                                                  |
+| `apiPatchInvoice`                                                    | [shared.APIPatchInvoice](../../sdk/models/shared/apipatchinvoice.md) | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `config`                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)         | :heavy_minus_sign:                                                   | Available config options for making requests.                        |
 
 
 ### Response
@@ -320,10 +330,10 @@ import {
   APIPatchInvoiceToAccount,
 } from "defacto/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 const invoiceId: string = "string";
@@ -346,16 +356,18 @@ const apiPatchInvoice: APIPatchInvoice = {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
-| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `invoiceId`                                                             | *string*                                                                | :heavy_check_mark:                                                      | N/A                                                                     |
-| `apiPatchInvoice`                                                       | [shared.APIPatchInvoice](../../../sdk/models/shared/apipatchinvoice.md) | :heavy_minus_sign:                                                      | N/A                                                                     |
-| `config`                                                                | [AxiosRequestConfig](https://axios-http.com/docs/req_config)            | :heavy_minus_sign:                                                      | Available config options for making requests.                           |
+| Parameter                                                            | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `invoiceId`                                                          | *string*                                                             | :heavy_check_mark:                                                   | N/A                                                                  |
+| `apiPatchInvoice`                                                    | [shared.APIPatchInvoice](../../sdk/models/shared/apipatchinvoice.md) | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `config`                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)         | :heavy_minus_sign:                                                   | Available config options for making requests.                        |
 
 
 ### Response
@@ -377,10 +389,10 @@ Create an invoice entity from the PDF of an invoice. Send the file within a form
 import { Defacto } from "defacto";
 import { UploadInvoicesRequest } from "defacto/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 const buyer: string = "string";
@@ -391,7 +403,9 @@ const seller: string = "string";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

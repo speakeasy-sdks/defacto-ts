@@ -27,10 +27,10 @@ Get credit line
 import { Defacto } from "defacto";
 import { GetCreditLineRequest } from "defacto/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 const creditLineId: string = "string";
@@ -41,7 +41,9 @@ const at: Date = new Date("2022-10-25T14:52:10.068Z");
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -71,10 +73,10 @@ Get the credit line associated with your account
 ```typescript
 import { Defacto } from "defacto";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 
@@ -83,7 +85,9 @@ import { Defacto } from "defacto";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -112,10 +116,10 @@ List all the credit lines that have been opened for your company. By default, th
 import { Defacto } from "defacto";
 import { ListCreditLinesRequest } from "defacto/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 const borrower: string[] = [
@@ -132,7 +136,9 @@ const pageSize: number = 781880;
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -167,10 +173,10 @@ Ask for the eligibility of a borrower.
 import { Defacto } from "defacto";
 import { APIBorrowerEligibilityIdentifierType } from "defacto/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 
@@ -181,7 +187,9 @@ import { APIBorrowerEligibilityIdentifierType } from "defacto/dist/sdk/models/sh
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -213,10 +221,10 @@ Ask for the eligibility of a buyer.
 import { Defacto } from "defacto";
 import { APIBorrowerEligibilityIdentifierType } from "defacto/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 
@@ -227,7 +235,9 @@ import { APIBorrowerEligibilityIdentifierType } from "defacto/dist/sdk/models/sh
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -257,10 +267,10 @@ Ask for the eligibility of a quote.
 import { Defacto } from "defacto";
 import { APIQuoteEligibilityIdentifierType, BusinessIdentifierIdentifierType } from "defacto/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 
@@ -282,7 +292,9 @@ import { APIQuoteEligibilityIdentifierType, BusinessIdentifierIdentifierType } f
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -314,10 +326,10 @@ Ask for the eligibility of a seller.
 import { Defacto } from "defacto";
 import { APIBorrowerEligibilityIdentifierType } from "defacto/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 
@@ -328,7 +340,9 @@ import { APIBorrowerEligibilityIdentifierType } from "defacto/dist/sdk/models/sh
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

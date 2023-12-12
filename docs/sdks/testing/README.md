@@ -53,10 +53,10 @@ Warning: these invoices and their IBANs will not work in production.
 import { Defacto } from "defacto";
 import { Country, GenerateBusinessRequest } from "defacto/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 const country: Country = Country.Deu;
@@ -67,16 +67,18 @@ const isBorrower: boolean = false;
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                       | Type                                                            | Required                                                        | Description                                                     |
-| --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
-| `country`                                                       | [operations.Country](../../../sdk/models/operations/country.md) | :heavy_minus_sign:                                              | N/A                                                             |
-| `isBorrower`                                                    | *boolean*                                                       | :heavy_minus_sign:                                              | N/A                                                             |
-| `config`                                                        | [AxiosRequestConfig](https://axios-http.com/docs/req_config)    | :heavy_minus_sign:                                              | Available config options for making requests.                   |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `country`                                                    | [operations.Country](../../sdk/models/operations/country.md) | :heavy_minus_sign:                                           | N/A                                                          |
+| `isBorrower`                                                 | *boolean*                                                    | :heavy_minus_sign:                                           | N/A                                                          |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
 ### Response
@@ -106,10 +108,10 @@ Warning: these IBANs will not work in production.
 import { Defacto } from "defacto";
 import { GenerateIbanRequest, QueryParamCountry, Scenario } from "defacto/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 const country: QueryParamCountry = QueryParamCountry.Deu;
@@ -120,16 +122,18 @@ const scenario: Scenario = Scenario.Success;
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
-| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `country`                                                                           | [operations.QueryParamCountry](../../../sdk/models/operations/queryparamcountry.md) | :heavy_minus_sign:                                                                  | N/A                                                                                 |
-| `scenario`                                                                          | [operations.Scenario](../../../sdk/models/operations/scenario.md)                   | :heavy_minus_sign:                                                                  | N/A                                                                                 |
-| `config`                                                                            | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                        | :heavy_minus_sign:                                                                  | Available config options for making requests.                                       |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `country`                                                                        | [operations.QueryParamCountry](../../sdk/models/operations/queryparamcountry.md) | :heavy_minus_sign:                                                               | N/A                                                                              |
+| `scenario`                                                                       | [operations.Scenario](../../sdk/models/operations/scenario.md)                   | :heavy_minus_sign:                                                               | N/A                                                                              |
+| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
 
 
 ### Response
@@ -165,10 +169,10 @@ import {
   GenerateInvoiceRequestSchemasIdentifierType,
 } from "defacto/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 
@@ -180,7 +184,9 @@ import {
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -209,10 +215,10 @@ Make a first call to this endpoint to test your connection to Defacto API with y
 ```typescript
 import { Defacto } from "defacto";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 
@@ -221,7 +227,9 @@ import { Defacto } from "defacto";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -257,10 +265,10 @@ You can test multiple scenarios:
 import { Defacto } from "defacto";
 import { BusinessIdentifierIdentifierType, Scenario } from "defacto/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Defacto({
     security: {
-      bearer: "",
+      bearer: "<YOUR_API_KEY_HERE>",
     },
   });
 
@@ -274,7 +282,9 @@ import { BusinessIdentifierIdentifierType, Scenario } from "defacto/dist/sdk/mod
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
