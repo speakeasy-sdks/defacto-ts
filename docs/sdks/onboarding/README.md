@@ -185,7 +185,7 @@ async function run() {
   });
 const borrowerId: string = "string";
 const signedInput: SignedInput = {
-  signedAt: new Date("2021-05-26T05:22:09.176Z"),
+  signedAt: new Date("2022-05-26T08:33:07.925Z"),
 };
 
   const res = await sdk.onboarding.signBorrower(borrowerId, signedInput);

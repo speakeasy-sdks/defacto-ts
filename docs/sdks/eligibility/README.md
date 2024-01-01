@@ -34,7 +34,7 @@ async function run() {
     },
   });
 const creditLineId: string = "string";
-const at: Date = new Date("2022-10-25T14:52:10.068Z");
+const at: Date = new Date("2023-10-26T05:23:33.474Z");
 
   const res = await sdk.eligibility.getCreditLine(creditLineId, at);
 
@@ -282,11 +282,11 @@ async function run() {
     buyer: {
       identifier: "string",
     },
-    endDate: new Date("2023-12-08T04:18:59.213Z"),
+    endDate: new Date("2024-12-08T03:47:39.705Z"),
     seller: {
       identifier: "string",
     },
-    startDate: new Date("2021-11-17T15:27:10.874Z"),
+    startDate: new Date("2022-11-17T22:28:50.994Z"),
   });
 
   if (res.statusCode == 200) {

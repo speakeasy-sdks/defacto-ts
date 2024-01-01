@@ -260,9 +260,9 @@ async function run() {
     invoices: [
       {
         buyer: {},
-        dueAt: new Date("2022-04-11T19:15:30.887Z"),
+        dueAt: new Date("2023-04-12T05:28:04.614Z"),
         invoiceNumber: "string",
-        issuedAt: new Date("2022-05-31T20:09:47.209Z"),
+        issuedAt: new Date("2023-06-01T07:28:09.115Z"),
         metadata: {
           "key": "string",
         },
@@ -294,8 +294,8 @@ async function run() {
     repaymentFromReferences: [
       "string",
     ],
-    toPayAt: new Date("2022-02-09T09:57:15.949Z"),
-    toRepayAt: new Date("2022-06-07T12:19:30.660Z"),
+    toPayAt: new Date("2023-02-09T18:49:05.936Z"),
+    toRepayAt: new Date("2023-06-07T23:46:39.127Z"),
   });
 
   if (res.statusCode == 200) {

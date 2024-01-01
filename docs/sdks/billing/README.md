@@ -99,7 +99,7 @@ async function run() {
   });
 const billId: string = "string";
 const apiBillSentByPartnerRequest: APIBillSentByPartnerRequest = {
-  sentOn: new Date("2023-05-31T06:58:02.853Z"),
+  sentOn: new Date("2024-05-31T02:15:41.376Z"),
   toEmailAddresses: [
     "Nella.Frami@hotmail.com",
   ],

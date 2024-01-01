@@ -49,7 +49,7 @@ async function run() {
       {
         amount: 79711,
         id: "<ID>",
-        lastUpdatedAt: new Date("2022-09-04T05:03:11.864Z"),
+        lastUpdatedAt: new Date("2023-09-04T18:26:58.889Z"),
       },
     ],
     identifier: "string",
@@ -120,9 +120,9 @@ async function run() {
           identifierType: BuyerBusinessIdentifierIdentifierType.Kvk,
         },
         direction: Direction.Payable,
-        dueAt: new Date("2022-09-26T23:29:22.021Z"),
+        dueAt: new Date("2023-09-27T13:23:05.548Z"),
         invoiceNumber: "string",
-        issuedAt: new Date("2023-10-20T09:30:41.794Z"),
+        issuedAt: new Date("2024-10-20T07:55:13.065Z"),
         netAmount: 569687,
         seller: {
           identifier: "string",
@@ -191,7 +191,7 @@ async function run() {
     transactions: [
       {
         amount: 195960,
-        at: new Date("2022-03-25T16:48:12.110Z"),
+        at: new Date("2023-03-26T02:38:16.395Z"),
       },
     ],
   });
