@@ -20,7 +20,6 @@ export enum APIPatchInvoiceIdentifierType {
     HrNummer = "hr_nummer",
     BelgiumRegistrationNumber = "belgium_registration_number",
     Steuernummer = "steuernummer",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class APIPatchInvoiceBuyer extends SpeakeasyBase {
@@ -59,7 +58,6 @@ export class APIPatchInvoiceBuyer extends SpeakeasyBase {
 export enum APIPatchInvoiceCurrency {
     Eur = "EUR",
     Gbp = "GBP",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 /**
@@ -77,7 +75,6 @@ export enum APIPatchInvoiceSchemasIdentifierType {
     HrNummer = "hr_nummer",
     BelgiumRegistrationNumber = "belgium_registration_number",
     Steuernummer = "steuernummer",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class APIPatchInvoiceSeller extends SpeakeasyBase {
@@ -125,7 +122,6 @@ export enum APIPatchInvoiceSchemasToAccountIdentifierType {
     HrNummer = "hr_nummer",
     BelgiumRegistrationNumber = "belgium_registration_number",
     Steuernummer = "steuernummer",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 /**

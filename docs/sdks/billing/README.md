@@ -38,7 +38,7 @@ async function run() {
       "123e62b5-ef5d-43b3-825e-9f0f1d4ec684",
     ],
     businessIdentifier: [
-      "string",
+      "<value>",
     ],
     status: [
       Status.SentToPayer,
@@ -97,7 +97,7 @@ async function run() {
       bearer: "<YOUR_API_KEY_HERE>",
     },
   });
-const billId: string = "string";
+const billId: string = "<value>";
 const apiBillSentByPartnerRequest: APIBillSentByPartnerRequest = {
   sentOn: new Date("2024-05-31T02:15:41.376Z"),
   toEmailAddresses: [

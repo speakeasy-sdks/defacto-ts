@@ -48,11 +48,11 @@ async function run() {
     accounts: [
       {
         amount: 79711,
-        id: "<ID>",
+        id: "<id>",
         lastUpdatedAt: new Date("2023-09-04T18:26:58.889Z"),
       },
     ],
-    identifier: "string",
+    identifier: "<value>",
     identifierType: APIPartnerBusinessAccountsIdentifierType.Cif,
   });
 
@@ -111,21 +111,21 @@ async function run() {
   });
 
   const res = await sdk.businessData.uploadInvoices({
-    identifier: "string",
+    identifier: "<value>",
     identifierType: APIPartnerBusinessInvoicesIdentifierType.Cif,
     invoices: [
       {
         buyer: {
-          identifier: "string",
+          identifier: "<value>",
           identifierType: BuyerBusinessIdentifierIdentifierType.Kvk,
         },
         direction: Direction.Payable,
         dueAt: new Date("2023-09-27T13:23:05.548Z"),
-        invoiceNumber: "string",
+        invoiceNumber: "<value>",
         issuedAt: new Date("2024-10-20T07:55:13.065Z"),
         netAmount: 569687,
         seller: {
-          identifier: "string",
+          identifier: "<value>",
           identifierType: SellerBusinessIdentifierIdentifierType.Siret,
         },
       },
@@ -186,7 +186,7 @@ async function run() {
   });
 
   const res = await sdk.businessData.uploadTransactions({
-    identifier: "string",
+    identifier: "<value>",
     identifierType: APIPartnerAccountTransactionsIdentifierType.Name,
     transactions: [
       {

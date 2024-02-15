@@ -20,7 +20,6 @@ export enum BusinessIdentifierIdentifierType {
     HrNummer = "hr_nummer",
     BelgiumRegistrationNumber = "belgium_registration_number",
     Steuernummer = "steuernummer",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class BusinessIdentifier extends SpeakeasyBase {

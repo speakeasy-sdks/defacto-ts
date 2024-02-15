@@ -34,7 +34,6 @@ export enum PaymentMethod {
     DirectDebit = "direct_debit",
     Cheque = "cheque",
     WireTransfer = "wire_transfer",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class APIPartnerBusinessInvoice extends SpeakeasyBase {

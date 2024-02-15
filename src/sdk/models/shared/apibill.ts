@@ -21,7 +21,6 @@ export enum APIBillSchemasIdentifierType {
     HrNummer = "hr_nummer",
     BelgiumRegistrationNumber = "belgium_registration_number",
     Steuernummer = "steuernummer",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class APIBillBuyer extends SpeakeasyBase {
@@ -79,7 +78,6 @@ export enum APIBillIdentifierType {
     HrNummer = "hr_nummer",
     BelgiumRegistrationNumber = "belgium_registration_number",
     Steuernummer = "steuernummer",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class APIBillSeller extends SpeakeasyBase {

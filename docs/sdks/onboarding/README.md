@@ -22,7 +22,7 @@ async function run() {
       bearer: "<YOUR_API_KEY_HERE>",
     },
   });
-const borrowerId: string = "string";
+const borrowerId: string = "<value>";
 
   const res = await sdk.onboarding.deactivateBorrower(borrowerId);
 
@@ -69,22 +69,22 @@ async function run() {
 
   const res = await sdk.onboarding.enrollBorrower({
     address: {
-      addressLine1: "string",
-      city: "North Layla",
-      country: "Anguilla",
-      postalCode: "39105-2401",
+      addressLine1: "16063 Crona Burgs",
+      city: "Duncanport",
+      country: "Antarctica (the territory South of 60 deg S)",
+      postalCode: "01224",
     },
     directors: [
       {
         address: {
-          country: "Azerbaijan",
+          country: "Niue",
         },
         birthPlace: {},
       },
     ],
-    identifier: "string",
+    identifier: "<value>",
     metadata: {
-      "key": "string",
+      "key": "<value>",
     },
   });
 
@@ -132,8 +132,8 @@ async function run() {
 const borrowerId: string[] = [
   "ea2a2e84-a3b5-41bb-9e07-36c532ce23cc",
 ];
-const borrowerIdentifier: string = "string";
-const cursor: string = "string";
+const borrowerIdentifier: string = "<value>";
+const cursor: string = "<value>";
 const pageSize: number = 667100;
 
   const res = await sdk.onboarding.listBorrowers(borrowerId, borrowerIdentifier, cursor, pageSize);
@@ -183,7 +183,7 @@ async function run() {
       bearer: "<YOUR_API_KEY_HERE>",
     },
   });
-const borrowerId: string = "string";
+const borrowerId: string = "<value>";
 const signedInput: SignedInput = {
   signedAt: new Date("2022-05-26T08:33:07.925Z"),
 };

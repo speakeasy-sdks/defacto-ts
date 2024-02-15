@@ -24,7 +24,7 @@ async function run() {
 
   const res = await sdk.payment.list({
     loanId: [
-      "string",
+      "<value>",
     ],
     paymentMethod: [
       PaymentMethod.P2P,
@@ -33,7 +33,7 @@ async function run() {
       PaymentType.RepaymentNominal,
     ],
     references: [
-      "string",
+      "<value>",
     ],
     status: [
       ListPaymentsQueryParamStatus.Failed,

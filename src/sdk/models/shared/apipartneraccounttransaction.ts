@@ -25,7 +25,6 @@ export enum OperationType {
     Cheque = "cheque",
     Recall = "recall",
     SwiftIncome = "swift_income",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 /**
@@ -34,14 +33,12 @@ export enum OperationType {
 export enum Side {
     Debit = "debit",
     Credit = "credit",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export enum APIPartnerAccountTransactionStatus {
     Pending = "pending",
     Completed = "completed",
     Declined = "declined",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class APIPartnerAccountTransaction extends SpeakeasyBase {

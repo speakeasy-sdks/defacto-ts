@@ -274,7 +274,7 @@ async function run() {
 
   const res = await sdk.testing.setBusinessEligible({
     businessIdentifier: {
-      identifier: "string",
+      identifier: "<value>",
     },
     scenario: Scenario.Ok,
   });

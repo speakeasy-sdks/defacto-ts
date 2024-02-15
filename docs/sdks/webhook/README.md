@@ -57,7 +57,7 @@ async function run() {
     eventTypes: [
       EventTypes.LoanISSUEDETECTED,
     ],
-    name: "string",
+    name: "<value>",
     toUrl: "http://popular-street.info",
   });
 
@@ -102,7 +102,7 @@ async function run() {
       bearer: "<YOUR_API_KEY_HERE>",
     },
   });
-const webhookId: string = "string";
+const webhookId: string = "<value>";
 
   const res = await sdk.webhook.delete(webhookId);
 
@@ -204,12 +204,12 @@ async function run() {
       bearer: "<YOUR_API_KEY_HERE>",
     },
   });
-const webhookId: string = "string";
+const webhookId: string = "<value>";
 const createWebhook: CreateWebhook = {
   eventTypes: [
     EventTypes.InvoiceSUBMITTED,
   ],
-  name: "string",
+  name: "<value>",
   toUrl: "http://ordinary-agony.info",
 };
 

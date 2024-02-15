@@ -39,7 +39,7 @@ async function run() {
       bearer: "<YOUR_API_KEY_HERE>",
     },
   });
-const loanId: string = "string";
+const loanId: string = "<value>";
 
   const res = await sdk.loan.cancel(loanId);
 
@@ -84,7 +84,7 @@ async function run() {
       bearer: "<YOUR_API_KEY_HERE>",
     },
   });
-const loanId: string = "string";
+const loanId: string = "<value>";
 
   const res = await sdk.loan.get(loanId);
 
@@ -129,7 +129,7 @@ async function run() {
       bearer: "<YOUR_API_KEY_HERE>",
     },
   });
-const loanId: string = "string";
+const loanId: string = "<value>";
 
   const res = await sdk.loan.getEvents(loanId);
 
@@ -177,7 +177,7 @@ async function run() {
 
   const res = await sdk.loan.list({
     borrower: [
-      "string",
+      "<value>",
     ],
     id: [
       "c184a429-302e-4aca-80db-f1718b882a50",
@@ -252,7 +252,7 @@ async function run() {
   const res = await sdk.loan.request({
     amount: 193368,
     borrower: {
-      identifier: "string",
+      identifier: "<value>",
     },
     invoiceIds: [
       "12e6e103-56d1-4f09-9ae6-2352496ce763",
@@ -261,38 +261,38 @@ async function run() {
       {
         buyer: {},
         dueAt: new Date("2023-04-12T05:28:04.614Z"),
-        invoiceNumber: "string",
+        invoiceNumber: "<value>",
         issuedAt: new Date("2023-06-01T07:28:09.115Z"),
         metadata: {
-          "key": "string",
+          "key": "<value>",
         },
         seller: {},
         toAccount: {
           accountHolder: {
-            identifier: "string",
+            identifier: "<value>",
           },
-          accountNumber: "string",
+          accountNumber: "<value>",
         },
         totalAmount: 143159,
       },
     ],
     loanTo: {
       accountHolder: {
-        identifier: "string",
+        identifier: "<value>",
       },
-      accountNumber: "string",
+      accountNumber: "<value>",
     },
     loanToReferences: [
-      "string",
+      "<value>",
     ],
     metadata: {
-      "key": "string",
+      "key": "<value>",
     },
     notificationEmails: [
       "Tony.Hauck15@gmail.com",
     ],
     repaymentFromReferences: [
-      "string",
+      "<value>",
     ],
     toPayAt: new Date("2023-02-09T18:49:05.936Z"),
     toRepayAt: new Date("2023-06-07T23:46:39.127Z"),
@@ -354,22 +354,22 @@ async function run() {
       bearer: "<YOUR_API_KEY_HERE>",
     },
   });
-const loanId: string = "string";
+const loanId: string = "<value>";
 const patchLoan: PatchLoan = {
   loanTo: {
     accountHolder: {
-      identifier: "string",
+      identifier: "<value>",
     },
-    accountNumber: "string",
+    accountNumber: "<value>",
   },
   loanToReferences: [
-    "string",
+    "<value>",
   ],
   metadata: {
-    "key": "string",
+    "key": "<value>",
   },
   repaymentToReferences: [
-    "string",
+    "<value>",
   ],
 };
 
@@ -417,7 +417,7 @@ async function run() {
       bearer: "<YOUR_API_KEY_HERE>",
     },
   });
-const loanId: string = "string";
+const loanId: string = "<value>";
 
   const res = await sdk.loan.validate(loanId);
 

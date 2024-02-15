@@ -48,7 +48,6 @@ export class EmployeeBirthPlace extends SpeakeasyBase {
 export enum Role {
     Director = "DIRECTOR",
     NonDirector = "NON_DIRECTOR",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class Employee extends SpeakeasyBase {

@@ -3,9 +3,8 @@
 
 ## Values
 
-| Name                     | Value                    |
-| ------------------------ | ------------------------ |
-| `Pending`                | pending                  |
-| `Completed`              | completed                |
-| `Declined`               | declined                 |
-| `LessThanNilGreaterThan` | <nil>                    |
+| Name        | Value       |
+| ----------- | ----------- |
+| `Pending`   | pending     |
+| `Completed` | completed   |
+| `Declined`  | declined    |

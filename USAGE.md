@@ -12,7 +12,7 @@ async function run() {
 
     const res = await sdk.billing.listBills({
         businessId: ["123e62b5-ef5d-43b3-825e-9f0f1d4ec684"],
-        businessIdentifier: ["string"],
+        businessIdentifier: ["<value>"],
         status: [Status.SentToPayer],
     });
 

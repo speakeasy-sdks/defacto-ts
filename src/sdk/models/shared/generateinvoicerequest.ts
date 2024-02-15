@@ -20,7 +20,6 @@ export enum GenerateInvoiceRequestIdentifierType {
     HrNummer = "hr_nummer",
     BelgiumRegistrationNumber = "belgium_registration_number",
     Steuernummer = "steuernummer",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class GenerateInvoiceRequestBuyer extends SpeakeasyBase {
@@ -83,7 +82,6 @@ export enum GenerateInvoiceRequestSchemasIdentifierType {
     HrNummer = "hr_nummer",
     BelgiumRegistrationNumber = "belgium_registration_number",
     Steuernummer = "steuernummer",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class GenerateInvoiceRequestSeller extends SpeakeasyBase {

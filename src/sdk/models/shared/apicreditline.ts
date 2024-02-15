@@ -44,7 +44,6 @@ export enum APICreditLineIdentifierType {
     HrNummer = "hr_nummer",
     BelgiumRegistrationNumber = "belgium_registration_number",
     Steuernummer = "steuernummer",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class DefaultBorrower extends SpeakeasyBase {
@@ -100,7 +99,6 @@ export class DefaultBorrower extends SpeakeasyBase {
 export enum DefaultBorrowerStrategy {
     Buyer = "BUYER",
     Seller = "SELLER",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class APICreditLineSchemasAddress extends SpeakeasyBase {
@@ -138,7 +136,6 @@ export enum APICreditLineSchemasIdentifierType {
     HrNummer = "hr_nummer",
     BelgiumRegistrationNumber = "belgium_registration_number",
     Steuernummer = "steuernummer",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class DefaultGuarantor extends SpeakeasyBase {
@@ -369,7 +366,6 @@ export enum APICreditLineSchemasFeesPayerIdentifierType {
     HrNummer = "hr_nummer",
     BelgiumRegistrationNumber = "belgium_registration_number",
     Steuernummer = "steuernummer",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class FeesPayer extends SpeakeasyBase {

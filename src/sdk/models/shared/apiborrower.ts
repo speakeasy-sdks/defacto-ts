@@ -41,7 +41,6 @@ export enum IdentifierType {
     HrNummer = "hr_nummer",
     BelgiumRegistrationNumber = "belgium_registration_number",
     Steuernummer = "steuernummer",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export enum APIBorrowerStatus {
@@ -51,7 +50,6 @@ export enum APIBorrowerStatus {
     AllPaymentSetup = "ALL_PAYMENT_SETUP",
     Ready = "READY",
     Canceled = "CANCELED",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class APIBorrower extends SpeakeasyBase {

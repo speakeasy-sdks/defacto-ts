@@ -40,7 +40,6 @@ export enum LoanAPIIdentifierType {
     HrNummer = "hr_nummer",
     BelgiumRegistrationNumber = "belgium_registration_number",
     Steuernummer = "steuernummer",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 /**
@@ -139,7 +138,6 @@ export enum LoanAPISchemasIdentifierType {
     HrNummer = "hr_nummer",
     BelgiumRegistrationNumber = "belgium_registration_number",
     Steuernummer = "steuernummer",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 /**
@@ -345,7 +343,6 @@ export enum RepaymentMethod {
     DirectDebit = "DIRECT_DEBIT",
     Sct = "SCT",
     P2P = "P2P",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 /**

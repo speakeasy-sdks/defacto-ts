@@ -49,14 +49,14 @@ async function run() {
   const res = await sdk.invoice.create({
     buyer: {},
     metadata: {
-      "key": "string",
+      "key": "<value>",
     },
     seller: {},
     toAccount: {
       accountHolder: {
-        identifier: "string",
+        identifier: "<value>",
       },
-      accountNumber: "string",
+      accountNumber: "<value>",
     },
   });
 
@@ -101,7 +101,7 @@ async function run() {
       bearer: "<YOUR_API_KEY_HERE>",
     },
   });
-const invoiceId: string = "string";
+const invoiceId: string = "<value>";
 
   const res = await sdk.invoice.delete(invoiceId);
 
@@ -146,7 +146,7 @@ async function run() {
       bearer: "<YOUR_API_KEY_HERE>",
     },
   });
-const invoiceId: string = "string";
+const invoiceId: string = "<value>";
 
   const res = await sdk.invoice.get(invoiceId);
 
@@ -194,13 +194,13 @@ async function run() {
 
   const res = await sdk.invoice.list({
     buyer: [
-      "string",
+      "<value>",
     ],
     invoiceId: [
       "c184a429-302e-4aca-80db-f1718b882a50",
     ],
     seller: [
-      "string",
+      "<value>",
     ],
     status: [
       QueryParamStatus.ToEdit,
@@ -264,18 +264,18 @@ async function run() {
       bearer: "<YOUR_API_KEY_HERE>",
     },
   });
-const invoiceId: string = "string";
+const invoiceId: string = "<value>";
 const apiPatchInvoice: APIPatchInvoice = {
   buyer: {},
   metadata: {
-    "key": "string",
+    "key": "<value>",
   },
   seller: {},
   toAccount: {
     accountHolder: {
-      identifier: "string",
+      identifier: "<value>",
     },
-    accountNumber: "string",
+    accountNumber: "<value>",
   },
 };
 
@@ -336,18 +336,18 @@ async function run() {
       bearer: "<YOUR_API_KEY_HERE>",
     },
   });
-const invoiceId: string = "string";
+const invoiceId: string = "<value>";
 const apiPatchInvoice: APIPatchInvoice = {
   buyer: {},
   metadata: {
-    "key": "string",
+    "key": "<value>",
   },
   seller: {},
   toAccount: {
     accountHolder: {
-      identifier: "string",
+      identifier: "<value>",
     },
-    accountNumber: "string",
+    accountNumber: "<value>",
   },
 };
 
@@ -395,8 +395,8 @@ async function run() {
       bearer: "<YOUR_API_KEY_HERE>",
     },
   });
-const buyer: string = "string";
-const seller: string = "string";
+const buyer: string = "<value>";
+const seller: string = "<value>";
 
   const res = await sdk.invoice.upload(buyer, seller);
 

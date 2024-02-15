@@ -58,7 +58,6 @@ export enum PaymentApiPaymentMethod {
     DirectDebit = "DIRECT_DEBIT",
     Sct = "SCT",
     P2P = "P2P",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export enum PaymentApiPaymentType {
@@ -75,7 +74,6 @@ export enum PaymentApiPaymentType {
     Chargeback = "CHARGEBACK",
     ChannelVerification = "CHANNEL_VERIFICATION",
     PaymentProviderFees = "PAYMENT_PROVIDER_FEES",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export enum Name {

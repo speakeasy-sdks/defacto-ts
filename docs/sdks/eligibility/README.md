@@ -33,7 +33,7 @@ async function run() {
       bearer: "<YOUR_API_KEY_HERE>",
     },
   });
-const creditLineId: string = "string";
+const creditLineId: string = "<value>";
 const at: Date = new Date("2023-10-26T05:23:33.474Z");
 
   const res = await sdk.eligibility.getCreditLine(creditLineId, at);
@@ -123,9 +123,9 @@ async function run() {
     },
   });
 const borrower: string[] = [
-  "string",
+  "<value>",
 ];
-const cursor: string = "string";
+const cursor: string = "<value>";
 const id: string[] = [
   "128aa121-6f99-4826-b263-d729e6d603d0",
 ];
@@ -181,7 +181,7 @@ async function run() {
   });
 
   const res = await sdk.eligibility.requestElligibilityBorrower({
-    identifier: "string",
+    identifier: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -229,7 +229,7 @@ async function run() {
   });
 
   const res = await sdk.eligibility.requestElligibilityBuyer({
-    identifier: "string",
+    identifier: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -277,14 +277,14 @@ async function run() {
   const res = await sdk.eligibility.requestElligibilityQuote({
     amount: 367035,
     borrower: {
-      identifier: "string",
+      identifier: "<value>",
     },
     buyer: {
-      identifier: "string",
+      identifier: "<value>",
     },
     endDate: new Date("2024-12-08T03:47:39.705Z"),
     seller: {
-      identifier: "string",
+      identifier: "<value>",
     },
     startDate: new Date("2022-11-17T22:28:50.994Z"),
   });
@@ -334,7 +334,7 @@ async function run() {
   });
 
   const res = await sdk.eligibility.requestElligibilitySeller({
-    identifier: "string",
+    identifier: "<value>",
   });
 
   if (res.statusCode == 200) {

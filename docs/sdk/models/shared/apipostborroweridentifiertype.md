@@ -17,4 +17,3 @@ Type of legal business identifier of the business, such as the SIRET in France.
 | `HrNummer`                  | hr_nummer                   |
 | `BelgiumRegistrationNumber` | belgium_registration_number |
 | `Steuernummer`              | steuernummer                |
-| `LessThanNilGreaterThan`    | <nil>                       |
