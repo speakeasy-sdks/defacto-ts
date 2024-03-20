@@ -3,10 +3,10 @@ id: 215e2867-ee9c-4fb5-aeb2-1638d097d023
 management:
   docChecksum: 1ce0e179a6e0de2157399d3d6e839ba2
   docVersion: v1.0.0
-  speakeasyVersion: 1.207.1
-  generationVersion: 2.280.6
-  releaseVersion: 2.1.4
-  configChecksum: 044feb934b79daf12b23e9942bcf7311
+  speakeasyVersion: 1.213.0
+  generationVersion: 2.283.1
+  releaseVersion: 2.1.5
+  configChecksum: 960de1512fa9bd84ca8f850074686028
   repoURL: https://github.com/speakeasy-sdks/defacto-ts.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/defacto-ts
@@ -14,7 +14,7 @@ features:
   typescript:
     core: 3.4.8
     flattening: 2.81.1
-    globalSecurity: 2.82.4
+    globalSecurity: 2.82.5
     globalServerURLs: 2.82.2
     nameOverrides: 2.81.1
 generatedFiles:
