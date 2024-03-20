@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { BusinessIdentifier } from "./businessidentifier";
 import { Expose, Type } from "class-transformer";
 
-export enum BusinessEligibileParamsScenario {
+export enum Scenario {
     Ok = "OK",
     NotEligible = "NOT_ELIGIBLE",
 }
@@ -19,5 +19,5 @@ export class BusinessEligibileParams extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "scenario" })
-    scenario: BusinessEligibileParamsScenario;
+    scenario: Scenario;
 }

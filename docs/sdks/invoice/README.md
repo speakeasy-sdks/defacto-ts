@@ -1,4 +1,5 @@
-# invoice
+# Invoice
+(*invoice*)
 
 ### Available Operations
 
@@ -29,77 +30,60 @@ Create an invoice.
 
 ```typescript
 import { Defacto } from "defacto";
-import { CreateInvoiceResponse } from "defacto/dist/sdk/models/operations";
 import {
-  APIDraftableInvoiceCreationBuyerIdentifierType,
+  APIDraftableInvoiceCreationAccountNumberType,
+  APIDraftableInvoiceCreationBankIdentifierType,
   APIDraftableInvoiceCreationCurrency,
-  APIDraftableInvoiceCreationSellerIdentifierType,
-  APIDraftableInvoiceCreationToAccountAccountHolderIdentifierType,
-  APIDraftableInvoiceCreationToAccountAccountNumberType,
-  APIDraftableInvoiceCreationToAccountBankIdentifierType,
+  APIDraftableInvoiceCreationIdentifierType,
+  APIDraftableInvoiceCreationSchemasIdentifierType,
+  APIDraftableInvoiceCreationSchemasToAccountIdentifierType,
 } from "defacto/dist/sdk/models/shared";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
-
-sdk.invoice.create({
-  buyer: {
-    identifier: "dolorum",
-    identifierType: APIDraftableInvoiceCreationBuyerIdentifierType.Cif,
-    name: "Angel Wolff II",
-    vatNumber: "cumque",
-  },
-  currency: APIDraftableInvoiceCreationCurrency.Gbp,
-  document: "ea",
-  dueAt: new Date("2022-04-29T11:09:12.937Z"),
-  invoiceNumber: "accusamus",
-  isDraft: false,
-  issuedAt: new Date("2022-06-02T20:02:58.167Z"),
-  metadata: {
-    "enim": "accusamus",
-  },
-  netAmount: 965417,
-  seller: {
-    identifier: "quidem",
-    identifierType: APIDraftableInvoiceCreationSellerIdentifierType.Bsn,
-    name: "Lynn Kuvalis",
-    vatNumber: "amet",
-  },
-  taxAmount: 643990,
-  toAccount: {
-    accountHolder: {
-      identifier: "nisi",
-      identifierType: APIDraftableInvoiceCreationToAccountAccountHolderIdentifierType.Cif,
+async function run() {
+  const sdk = new Defacto({
+    security: {
+      bearer: "<YOUR_API_KEY_HERE>",
     },
-    accountNumber: "natus",
-    accountNumberType: APIDraftableInvoiceCreationToAccountAccountNumberType.AccountNumber,
-    bankIdentifier: "molestiae",
-    bankIdentifierType: APIDraftableInvoiceCreationToAccountBankIdentifierType.Bic,
-  },
-  toPayAmount: 470132,
-  totalAmount: 301575,
-}).then((res: CreateInvoiceResponse) => {
+  });
+
+  const res = await sdk.invoice.create({
+    buyer: {},
+    metadata: {
+      "key": "<value>",
+    },
+    seller: {},
+    toAccount: {
+      accountHolder: {
+        identifier: "<value>",
+      },
+      accountNumber: "<value>",
+    },
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [shared.APIDraftableInvoiceCreation](../../models/shared/apidraftableinvoicecreation.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [shared.APIDraftableInvoiceCreation](../../sdk/models/shared/apidraftableinvoicecreation.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
 ### Response
 
-**Promise<[operations.CreateInvoiceResponse](../../models/operations/createinvoiceresponse.md)>**
+**Promise<[operations.CreateInvoiceResponse](../../sdk/models/operations/createinvoiceresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## delete
 
@@ -109,20 +93,24 @@ Delete an invoice by id
 
 ```typescript
 import { Defacto } from "defacto";
-import { DeleteInvoiceRequest, DeleteInvoiceResponse } from "defacto/dist/sdk/models/operations";
+import { DeleteInvoiceRequest } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
-const invoiceId: string = "distinctio";
+async function run() {
+  const sdk = new Defacto({
+    security: {
+      bearer: "<YOUR_API_KEY_HERE>",
+    },
+  });
+const invoiceId: string = "<value>";
 
-sdk.invoice.delete(invoiceId).then((res: DeleteInvoiceResponse) => {
+  const res = await sdk.invoice.delete(invoiceId);
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
@@ -135,8 +123,12 @@ sdk.invoice.delete(invoiceId).then((res: DeleteInvoiceResponse) => {
 
 ### Response
 
-**Promise<[operations.DeleteInvoiceResponse](../../models/operations/deleteinvoiceresponse.md)>**
+**Promise<[operations.DeleteInvoiceResponse](../../sdk/models/operations/deleteinvoiceresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## get
 
@@ -146,20 +138,24 @@ Get an invoice by id
 
 ```typescript
 import { Defacto } from "defacto";
-import { GetInvoiceRequest, GetInvoiceResponse } from "defacto/dist/sdk/models/operations";
+import { GetInvoiceRequest } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
-const invoiceId: string = "id";
+async function run() {
+  const sdk = new Defacto({
+    security: {
+      bearer: "<YOUR_API_KEY_HERE>",
+    },
+  });
+const invoiceId: string = "<value>";
 
-sdk.invoice.get(invoiceId).then((res: GetInvoiceResponse) => {
+  const res = await sdk.invoice.get(invoiceId);
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
@@ -172,8 +168,12 @@ sdk.invoice.get(invoiceId).then((res: GetInvoiceResponse) => {
 
 ### Response
 
-**Promise<[operations.GetInvoiceResponse](../../models/operations/getinvoiceresponse.md)>**
+**Promise<[operations.GetInvoiceResponse](../../sdk/models/operations/getinvoiceresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## list
 
@@ -183,48 +183,54 @@ Get your invoices
 
 ```typescript
 import { Defacto } from "defacto";
-import { ListInvoicesResponse, ListInvoicesStatus } from "defacto/dist/sdk/models/operations";
+import { QueryParamStatus } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+async function run() {
+  const sdk = new Defacto({
+    security: {
+      bearer: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.invoice.list({
-  buyer: [
-    "labore",
-  ],
-  cursor: "labore",
-  invoiceId: [
-    "69b6e214-1959-4890-afa5-63e2516fe4c8",
-  ],
-  pageSize: 703889,
-  seller: [
-    "in",
-  ],
-  status: [
-    ListInvoicesStatus.ToSubmit,
-  ],
-}).then((res: ListInvoicesResponse) => {
+  const res = await sdk.invoice.list({
+    buyer: [
+      "<value>",
+    ],
+    invoiceId: [
+      "c184a429-302e-4aca-80db-f1718b882a50",
+    ],
+    seller: [
+      "<value>",
+    ],
+    status: [
+      QueryParamStatus.ToEdit,
+    ],
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `request`                                                                        | [operations.ListInvoicesRequest](../../models/operations/listinvoicesrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.ListInvoicesRequest](../../sdk/models/operations/listinvoicesrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
 
-**Promise<[operations.ListInvoicesResponse](../../models/operations/listinvoicesresponse.md)>**
+**Promise<[operations.ListInvoicesResponse](../../sdk/models/operations/listinvoicesresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## submit
 
@@ -237,83 +243,69 @@ If some data is missing prior to validating the invoice, a 422 error will be ret
 
 ```typescript
 import { Defacto } from "defacto";
-import { SubmitInvoiceRequest, SubmitInvoiceResponse } from "defacto/dist/sdk/models/operations";
+import { SubmitInvoiceRequest } from "defacto/dist/sdk/models/operations";
 import {
   APIPatchInvoice,
+  APIPatchInvoiceAccountHolder,
+  APIPatchInvoiceAccountNumberType,
+  APIPatchInvoiceBankIdentifierType,
   APIPatchInvoiceBuyer,
-  APIPatchInvoiceBuyerIdentifierType,
   APIPatchInvoiceCurrency,
+  APIPatchInvoiceIdentifierType,
+  APIPatchInvoiceSchemasIdentifierType,
+  APIPatchInvoiceSchemasToAccountIdentifierType,
   APIPatchInvoiceSeller,
-  APIPatchInvoiceSellerIdentifierType,
   APIPatchInvoiceToAccount,
-  APIPatchInvoiceToAccountAccountHolder,
-  APIPatchInvoiceToAccountAccountHolderIdentifierType,
-  APIPatchInvoiceToAccountAccountNumberType,
-  APIPatchInvoiceToAccountBankIdentifierType,
 } from "defacto/dist/sdk/models/shared";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
-const invoiceId: string = "architecto";
+async function run() {
+  const sdk = new Defacto({
+    security: {
+      bearer: "<YOUR_API_KEY_HERE>",
+    },
+  });
+const invoiceId: string = "<value>";
 const apiPatchInvoice: APIPatchInvoice = {
-  buyer: {
-    identifier: "repudiandae",
-    identifierType: APIPatchInvoiceBuyerIdentifierType.Nif,
-    name: "Jessie Zulauf",
-    vatNumber: "saepe",
-  },
-  currency: APIPatchInvoiceCurrency.LessThanNilGreaterThan,
-  dueAt: new Date("2022-11-02T16:33:42.080Z"),
-  invoiceNumber: "praesentium",
-  issuedAt: new Date("2022-09-01T04:49:52.515Z"),
+  buyer: {},
   metadata: {
-    "sunt": "quo",
+    "key": "<value>",
   },
-  netAmount: 848009,
-  seller: {
-    identifier: "pariatur",
-    identifierType: APIPatchInvoiceSellerIdentifierType.BelgiumRegistrationNumber,
-    name: "Miriam Connelly Jr.",
-    vatNumber: "maiores",
-  },
-  taxAmount: 697429,
+  seller: {},
   toAccount: {
     accountHolder: {
-      identifier: "ipsam",
-      identifierType: APIPatchInvoiceToAccountAccountHolderIdentifierType.Cif,
+      identifier: "<value>",
     },
-    accountNumber: "autem",
-    accountNumberType: APIPatchInvoiceToAccountAccountNumberType.InternalId,
-    bankIdentifier: "eaque",
-    bankIdentifierType: APIPatchInvoiceToAccountBankIdentifierType.Name,
+    accountNumber: "<value>",
   },
-  toPayAmount: 365496,
-  totalAmount: 975522,
 };
 
-sdk.invoice.submit(invoiceId, apiPatchInvoice).then((res: SubmitInvoiceResponse) => {
+  const res = await sdk.invoice.submit(invoiceId, apiPatchInvoice);
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                        | Type                                                             | Required                                                         | Description                                                      |
-| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
-| `invoiceId`                                                      | *string*                                                         | :heavy_check_mark:                                               | N/A                                                              |
-| `apiPatchInvoice`                                                | [shared.APIPatchInvoice](../../models/shared/apipatchinvoice.md) | :heavy_minus_sign:                                               | N/A                                                              |
-| `config`                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)     | :heavy_minus_sign:                                               | Available config options for making requests.                    |
+| Parameter                                                            | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `invoiceId`                                                          | *string*                                                             | :heavy_check_mark:                                                   | N/A                                                                  |
+| `apiPatchInvoice`                                                    | [shared.APIPatchInvoice](../../sdk/models/shared/apipatchinvoice.md) | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `config`                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)         | :heavy_minus_sign:                                                   | Available config options for making requests.                        |
 
 
 ### Response
 
-**Promise<[operations.SubmitInvoiceResponse](../../models/operations/submitinvoiceresponse.md)>**
+**Promise<[operations.SubmitInvoiceResponse](../../sdk/models/operations/submitinvoiceresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## update
 
@@ -323,83 +315,69 @@ Updates an invoice (with status TO_SUBMIT or TO_EDIT only)
 
 ```typescript
 import { Defacto } from "defacto";
-import { UpdateInvoiceRequest, UpdateInvoiceResponse } from "defacto/dist/sdk/models/operations";
+import { UpdateInvoiceRequest } from "defacto/dist/sdk/models/operations";
 import {
   APIPatchInvoice,
+  APIPatchInvoiceAccountHolder,
+  APIPatchInvoiceAccountNumberType,
+  APIPatchInvoiceBankIdentifierType,
   APIPatchInvoiceBuyer,
-  APIPatchInvoiceBuyerIdentifierType,
   APIPatchInvoiceCurrency,
+  APIPatchInvoiceIdentifierType,
+  APIPatchInvoiceSchemasIdentifierType,
+  APIPatchInvoiceSchemasToAccountIdentifierType,
   APIPatchInvoiceSeller,
-  APIPatchInvoiceSellerIdentifierType,
   APIPatchInvoiceToAccount,
-  APIPatchInvoiceToAccountAccountHolder,
-  APIPatchInvoiceToAccountAccountHolderIdentifierType,
-  APIPatchInvoiceToAccountAccountNumberType,
-  APIPatchInvoiceToAccountBankIdentifierType,
 } from "defacto/dist/sdk/models/shared";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
-const invoiceId: string = "perferendis";
+async function run() {
+  const sdk = new Defacto({
+    security: {
+      bearer: "<YOUR_API_KEY_HERE>",
+    },
+  });
+const invoiceId: string = "<value>";
 const apiPatchInvoice: APIPatchInvoice = {
-  buyer: {
-    identifier: "fugiat",
-    identifierType: APIPatchInvoiceBuyerIdentifierType.VatNumber,
-    name: "Erma Hessel",
-    vatNumber: "nobis",
-  },
-  currency: APIPatchInvoiceCurrency.Eur,
-  dueAt: new Date("2022-06-24T19:43:09.208Z"),
-  invoiceNumber: "dignissimos",
-  issuedAt: new Date("2022-08-30T06:29:24.707Z"),
+  buyer: {},
   metadata: {
-    "nesciunt": "eos",
+    "key": "<value>",
   },
-  netAmount: 18521,
-  seller: {
-    identifier: "dolores",
-    identifierType: APIPatchInvoiceSellerIdentifierType.BelgiumRegistrationNumber,
-    name: "Rosa Swift",
-    vatNumber: "recusandae",
-  },
-  taxAmount: 608253,
+  seller: {},
   toAccount: {
     accountHolder: {
-      identifier: "facilis",
-      identifierType: APIPatchInvoiceToAccountAccountHolderIdentifierType.Bsn,
+      identifier: "<value>",
     },
-    accountNumber: "voluptatem",
-    accountNumberType: APIPatchInvoiceToAccountAccountNumberType.InternalId,
-    bankIdentifier: "consequuntur",
-    bankIdentifierType: APIPatchInvoiceToAccountBankIdentifierType.RoutingNumber,
+    accountNumber: "<value>",
   },
-  toPayAmount: 621479,
-  totalAmount: 50370,
 };
 
-sdk.invoice.update(invoiceId, apiPatchInvoice).then((res: UpdateInvoiceResponse) => {
+  const res = await sdk.invoice.update(invoiceId, apiPatchInvoice);
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                        | Type                                                             | Required                                                         | Description                                                      |
-| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
-| `invoiceId`                                                      | *string*                                                         | :heavy_check_mark:                                               | N/A                                                              |
-| `apiPatchInvoice`                                                | [shared.APIPatchInvoice](../../models/shared/apipatchinvoice.md) | :heavy_minus_sign:                                               | N/A                                                              |
-| `config`                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)     | :heavy_minus_sign:                                               | Available config options for making requests.                    |
+| Parameter                                                            | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `invoiceId`                                                          | *string*                                                             | :heavy_check_mark:                                                   | N/A                                                                  |
+| `apiPatchInvoice`                                                    | [shared.APIPatchInvoice](../../sdk/models/shared/apipatchinvoice.md) | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `config`                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)         | :heavy_minus_sign:                                                   | Available config options for making requests.                        |
 
 
 ### Response
 
-**Promise<[operations.UpdateInvoiceResponse](../../models/operations/updateinvoiceresponse.md)>**
+**Promise<[operations.UpdateInvoiceResponse](../../sdk/models/operations/updateinvoiceresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## upload
 
@@ -409,21 +387,25 @@ Create an invoice entity from the PDF of an invoice. Send the file within a form
 
 ```typescript
 import { Defacto } from "defacto";
-import { UploadInvoicesRequest, UploadInvoicesResponse } from "defacto/dist/sdk/models/operations";
+import { UploadInvoicesRequest } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
-const buyer: string = "occaecati";
-const seller: string = "rerum";
+async function run() {
+  const sdk = new Defacto({
+    security: {
+      bearer: "<YOUR_API_KEY_HERE>",
+    },
+  });
+const buyer: string = "<value>";
+const seller: string = "<value>";
 
-sdk.invoice.upload(buyer, seller).then((res: UploadInvoicesResponse) => {
+  const res = await sdk.invoice.upload(buyer, seller);
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
@@ -437,5 +419,9 @@ sdk.invoice.upload(buyer, seller).then((res: UploadInvoicesResponse) => {
 
 ### Response
 
-**Promise<[operations.UploadInvoicesResponse](../../models/operations/uploadinvoicesresponse.md)>**
+**Promise<[operations.UploadInvoicesResponse](../../sdk/models/operations/uploadinvoicesresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |

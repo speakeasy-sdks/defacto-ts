@@ -1,9 +1,0 @@
-# SellerBusinessIdentifier
-
-
-## Fields
-
-| Field                                                                                                   | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `identifier`                                                                                            | *string*                                                                                                | :heavy_check_mark:                                                                                      | N/A                                                                                                     |
-| `identifierType`                                                                                        | [SellerBusinessIdentifierIdentifierType](../../models/shared/sellerbusinessidentifieridentifiertype.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |

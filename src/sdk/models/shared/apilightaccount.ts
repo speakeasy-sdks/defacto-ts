@@ -7,7 +7,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 /**
  * The type of account number (e.g. IBAN).
  */
-export enum APILightAccountAccountNumberType {
+export enum AccountNumberType {
     Iban = "iban",
     AccountNumber = "account_number",
     InternalId = "internal_id",
@@ -16,7 +16,7 @@ export enum APILightAccountAccountNumberType {
 /**
  * The type of bank identifier (e.g. BIC).
  */
-export enum APILightAccountBankIdentifierType {
+export enum BankIdentifierType {
     Bic = "bic",
     RoutingNumber = "routing_number",
     Name = "name",
@@ -39,7 +39,7 @@ export class APILightAccount extends SpeakeasyBase {
      * The type of account number (e.g. IBAN).
      */
     @SpeakeasyMetadata()
-    accountNumberType: APILightAccountAccountNumberType;
+    accountNumberType: AccountNumberType;
 
     /**
      * The identifier of the bank.
@@ -51,5 +51,5 @@ export class APILightAccount extends SpeakeasyBase {
      * The type of bank identifier (e.g. BIC).
      */
     @SpeakeasyMetadata()
-    bankIdentifierType: APILightAccountBankIdentifierType;
+    bankIdentifierType: BankIdentifierType;
 }

@@ -1,4 +1,5 @@
-# businessData
+# BusinessData
+(*businessData*)
 
 ### Available Operations
 
@@ -34,44 +35,51 @@ This endpoint doesn't support updates on data already uploaded.
 
 ```typescript
 import { Defacto } from "defacto";
-import { UploadAccountsResponse } from "defacto/dist/sdk/models/operations";
 import { APIPartnerBusinessAccountsIdentifierType } from "defacto/dist/sdk/models/shared";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
-
-sdk.businessData.uploadAccounts({
-  accounts: [
-    {
-      amount: 969810,
-      id: "aaa2352c-5955-4907-aff1-a3a2fa946773",
-      lastUpdatedAt: new Date("2022-09-06T22:51:09.401Z"),
+async function run() {
+  const sdk = new Defacto({
+    security: {
+      bearer: "<YOUR_API_KEY_HERE>",
     },
-  ],
-  identifier: "quis",
-  identifierType: APIPartnerBusinessAccountsIdentifierType.Siren,
-}).then((res: UploadAccountsResponse) => {
+  });
+
+  const res = await sdk.businessData.uploadAccounts({
+    accounts: [
+      {
+        amount: 79711,
+        id: "<id>",
+        lastUpdatedAt: new Date("2023-09-04T18:26:58.889Z"),
+      },
+    ],
+    identifier: "<value>",
+    identifierType: APIPartnerBusinessAccountsIdentifierType.Cif,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [shared.APIPartnerBusinessAccounts](../../models/shared/apipartnerbusinessaccounts.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [shared.APIPartnerBusinessAccounts](../../sdk/models/shared/apipartnerbusinessaccounts.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
 ### Response
 
-**Promise<[operations.UploadAccountsResponse](../../models/operations/uploadaccountsresponse.md)>**
+**Promise<[operations.UploadAccountsResponse](../../sdk/models/operations/uploadaccountsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## uploadInvoices
 
@@ -86,69 +94,68 @@ This endpoint doesn't support updates on data already uploaded.
 
 ```typescript
 import { Defacto } from "defacto";
-import { UploadInvoicesBusinessResponse } from "defacto/dist/sdk/models/operations";
 import {
   APIPartnerBusinessInvoiceCurrency,
-  APIPartnerBusinessInvoiceDirection,
-  APIPartnerBusinessInvoicePaymentMethod,
   APIPartnerBusinessInvoicesIdentifierType,
   BuyerBusinessIdentifierIdentifierType,
+  Direction,
+  PaymentMethod,
   SellerBusinessIdentifierIdentifierType,
 } from "defacto/dist/sdk/models/shared";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
-
-sdk.businessData.uploadInvoices({
-  identifier: "laborum",
-  identifierType: APIPartnerBusinessInvoicesIdentifierType.Bsn,
-  invoices: [
-    {
-      buyer: {
-        identifier: "enim",
-        identifierType: BuyerBusinessIdentifierIdentifierType.Siren,
-      },
-      currency: APIPartnerBusinessInvoiceCurrency.Gbp,
-      direction: APIPartnerBusinessInvoiceDirection.Customer,
-      dueAt: new Date("2021-11-23T05:54:08.890Z"),
-      firstPaymentAt: new Date("2021-05-11T16:11:54.761Z"),
-      invoiceNumber: "aut",
-      issuedAt: new Date("2022-05-18T15:52:05.226Z"),
-      lastPaymentAt: new Date("2020-12-24T08:13:29.299Z"),
-      netAmount: 96098,
-      paymentMethod: APIPartnerBusinessInvoicePaymentMethod.LessThanNilGreaterThan,
-      saltId: "voluptatibus",
-      seller: {
-        identifier: "vero",
-        identifierType: SellerBusinessIdentifierIdentifierType.Cif,
-      },
-      taxAmount: 509624,
-      toPayAmount: 976762,
-      totalAmount: 55714,
+async function run() {
+  const sdk = new Defacto({
+    security: {
+      bearer: "<YOUR_API_KEY_HERE>",
     },
-  ],
-}).then((res: UploadInvoicesBusinessResponse) => {
+  });
+
+  const res = await sdk.businessData.uploadInvoices({
+    identifier: "<value>",
+    identifierType: APIPartnerBusinessInvoicesIdentifierType.Cif,
+    invoices: [
+      {
+        buyer: {
+          identifier: "<value>",
+          identifierType: BuyerBusinessIdentifierIdentifierType.Kvk,
+        },
+        direction: Direction.Payable,
+        dueAt: new Date("2023-09-27T13:23:05.548Z"),
+        invoiceNumber: "<value>",
+        issuedAt: new Date("2024-10-20T07:55:13.065Z"),
+        netAmount: 569687,
+        seller: {
+          identifier: "<value>",
+          identifierType: SellerBusinessIdentifierIdentifierType.Siret,
+        },
+      },
+    ],
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [shared.APIPartnerBusinessInvoices](../../models/shared/apipartnerbusinessinvoices.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [shared.APIPartnerBusinessInvoices](../../sdk/models/shared/apipartnerbusinessinvoices.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
 ### Response
 
-**Promise<[operations.UploadInvoicesBusinessResponse](../../models/operations/uploadinvoicesbusinessresponse.md)>**
+**Promise<[operations.UploadInvoicesBusinessResponse](../../sdk/models/operations/uploadinvoicesbusinessresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## uploadTransactions
 
@@ -163,58 +170,53 @@ This endpoint doesn't support updates on data already uploaded.
 
 ```typescript
 import { Defacto } from "defacto";
-import { UploadTransactionsResponse } from "defacto/dist/sdk/models/operations";
 import {
   APIPartnerAccountTransactionCurrency,
-  APIPartnerAccountTransactionOperationType,
-  APIPartnerAccountTransactionSide,
   APIPartnerAccountTransactionsIdentifierType,
   APIPartnerAccountTransactionStatus,
+  OperationType,
+  Side,
 } from "defacto/dist/sdk/models/shared";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
-
-sdk.businessData.uploadTransactions({
-  endDate: new Date("2022-02-05T15:41:25.512Z"),
-  identifier: "cum",
-  identifierType: APIPartnerAccountTransactionsIdentifierType.Siret,
-  startDate: new Date("2022-07-23T18:36:43.822Z"),
-  transactions: [
-    {
-      account: "ut",
-      amount: 979587,
-      at: new Date("2022-08-22T19:15:58.586Z"),
-      category: "dolore",
-      counterpartyName: "iusto",
-      currency: APIPartnerAccountTransactionCurrency.Eur,
-      operationType: APIPartnerAccountTransactionOperationType.Recall,
-      reference: "enim",
-      saltId: "accusamus",
-      settledBalance: 414263,
-      side: APIPartnerAccountTransactionSide.LessThanNilGreaterThan,
-      status: APIPartnerAccountTransactionStatus.Pending,
+async function run() {
+  const sdk = new Defacto({
+    security: {
+      bearer: "<YOUR_API_KEY_HERE>",
     },
-  ],
-}).then((res: UploadTransactionsResponse) => {
+  });
+
+  const res = await sdk.businessData.uploadTransactions({
+    identifier: "<value>",
+    identifierType: APIPartnerAccountTransactionsIdentifierType.Name,
+    transactions: [
+      {
+        amount: 195960,
+        at: new Date("2023-03-26T02:38:16.395Z"),
+      },
+    ],
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [shared.APIPartnerAccountTransactions](../../models/shared/apipartneraccounttransactions.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `request`                                                                                        | [shared.APIPartnerAccountTransactions](../../sdk/models/shared/apipartneraccounttransactions.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
 
 
 ### Response
 
-**Promise<[operations.UploadTransactionsResponse](../../models/operations/uploadtransactionsresponse.md)>**
+**Promise<[operations.UploadTransactionsResponse](../../sdk/models/operations/uploadtransactionsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |

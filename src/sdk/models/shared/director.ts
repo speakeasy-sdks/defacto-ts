@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { RFCDate } from "../../types";
+import { RFCDate } from "../../../sdk/types";
 import { Expose, Transform, Type } from "class-transformer";
 
 /**
@@ -38,7 +38,7 @@ export class DirectorAddress extends SpeakeasyBase {
 /**
  * Birth place of the person.
  */
-export class DirectorBirthPlace extends SpeakeasyBase {
+export class BirthPlace extends SpeakeasyBase {
     /**
      * City where the person was born.
      */
@@ -68,6 +68,7 @@ export class Director extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "birth_date" })
+    @Type(() => String)
     @Transform(({ value }) => new RFCDate(value), { toClassOnly: true })
     birthDate?: RFCDate;
 
@@ -76,8 +77,8 @@ export class Director extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "birth_place" })
-    @Type(() => DirectorBirthPlace)
-    birthPlace?: DirectorBirthPlace;
+    @Type(() => BirthPlace)
+    birthPlace?: BirthPlace;
 
     @SpeakeasyMetadata()
     @Expose({ name: "business_email" })

@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { RFCDate } from "../../types";
+import { RFCDate } from "../../../sdk/types";
 
 /**
  * Address of the person.
@@ -45,10 +45,9 @@ export class EmployeeBirthPlace extends SpeakeasyBase {
     country?: string;
 }
 
-export enum EmployeeRole {
+export enum Role {
     Director = "DIRECTOR",
     NonDirector = "NON_DIRECTOR",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class Employee extends SpeakeasyBase {
@@ -101,7 +100,7 @@ export class Employee extends SpeakeasyBase {
     nationality?: string;
 
     @SpeakeasyMetadata()
-    role?: EmployeeRole;
+    role?: Role;
 
     /**
      * Title of the person (e.g. M., Dr., etc.)

@@ -1,9 +1,0 @@
-# BuyerBusinessIdentifier
-
-
-## Fields
-
-| Field                                                                                                 | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `identifier`                                                                                          | *string*                                                                                              | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
-| `identifierType`                                                                                      | [BuyerBusinessIdentifierIdentifierType](../../models/shared/buyerbusinessidentifieridentifiertype.md) | :heavy_check_mark:                                                                                    | N/A                                                                                                   |

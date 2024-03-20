@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
-export enum LoanApiEventEntityType {
+export enum EntityType {
     Business = "business",
     Account = "account",
     Loan = "loan",
@@ -41,7 +41,7 @@ export enum LoanApiEventStatus {
 
 export class LoanApiEvent extends SpeakeasyBase {
     @SpeakeasyMetadata()
-    entityType: LoanApiEventEntityType;
+    entityType: EntityType;
 
     @SpeakeasyMetadata()
     payload?: Record<string, any>;

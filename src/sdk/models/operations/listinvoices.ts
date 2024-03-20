@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 
-export enum ListInvoicesStatus {
+export enum QueryParamStatus {
     ToSubmit = "TO_SUBMIT",
     Submitted = "SUBMITTED",
     ToEdit = "TO_EDIT",
@@ -39,19 +39,28 @@ export class ListInvoicesRequest extends SpeakeasyBase {
      * TO_SUBMIT, SUBMITTED, TO_EDIT or VERIFIED TO_SUBMIT: the invoice is a draft, you can correct it and submit it when correct SUBMITTED: the invoice has been submitted and Defacto is verifying it TO_EDIT: the invoice has not been validated by Defacto. It should be edited before you can submit it again VERIFIED: the invoice has been verified by Defacto. A loan can now be requested for the invoice.
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=status" })
-    status?: ListInvoicesStatus[];
+    status?: QueryParamStatus[];
 }
 
 export class ListInvoicesResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     body?: Uint8Array;
 
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 }

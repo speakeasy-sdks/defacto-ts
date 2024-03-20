@@ -8,7 +8,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum AccountCreationAccountHolderIdentifierType {
+export enum AccountCreationIdentifierType {
     Siret = "siret",
     Siren = "siren",
     VatNumber = "vat_number",
@@ -20,13 +20,12 @@ export enum AccountCreationAccountHolderIdentifierType {
     HrNummer = "hr_nummer",
     BelgiumRegistrationNumber = "belgium_registration_number",
     Steuernummer = "steuernummer",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 /**
  * The business owning the account.
  */
-export class AccountCreationAccountHolder extends SpeakeasyBase {
+export class AccountHolder extends SpeakeasyBase {
     /**
      * Legal identifier of the business, such as its SIRET in France.
      */
@@ -39,7 +38,7 @@ export class AccountCreationAccountHolder extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "identifier_type" })
-    identifierType?: AccountCreationAccountHolderIdentifierType;
+    identifierType?: AccountCreationIdentifierType;
 }
 
 /**
@@ -66,8 +65,8 @@ export class AccountCreation extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "account_holder" })
-    @Type(() => AccountCreationAccountHolder)
-    accountHolder?: AccountCreationAccountHolder;
+    @Type(() => AccountHolder)
+    accountHolder?: AccountHolder;
 
     /**
      * The account identifier. Only IBANs are supported at the moment.

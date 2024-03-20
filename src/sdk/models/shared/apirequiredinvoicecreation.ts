@@ -17,7 +17,7 @@ export enum APIRequiredInvoiceCreationCurrency {
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum APIRequiredInvoiceCreationToAccountAccountHolderIdentifierType {
+export enum APIRequiredInvoiceCreationIdentifierType {
     Siret = "siret",
     Siren = "siren",
     VatNumber = "vat_number",
@@ -29,13 +29,12 @@ export enum APIRequiredInvoiceCreationToAccountAccountHolderIdentifierType {
     HrNummer = "hr_nummer",
     BelgiumRegistrationNumber = "belgium_registration_number",
     Steuernummer = "steuernummer",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 /**
  * The business owning the account.
  */
-export class APIRequiredInvoiceCreationToAccountAccountHolder extends SpeakeasyBase {
+export class APIRequiredInvoiceCreationAccountHolder extends SpeakeasyBase {
     /**
      * Legal identifier of the business, such as its SIRET in France.
      */
@@ -48,13 +47,13 @@ export class APIRequiredInvoiceCreationToAccountAccountHolder extends SpeakeasyB
      */
     @SpeakeasyMetadata()
     @Expose({ name: "identifier_type" })
-    identifierType?: APIRequiredInvoiceCreationToAccountAccountHolderIdentifierType;
+    identifierType?: APIRequiredInvoiceCreationIdentifierType;
 }
 
 /**
  * The type of account number (e.g. IBAN).
  */
-export enum APIRequiredInvoiceCreationToAccountAccountNumberType {
+export enum APIRequiredInvoiceCreationAccountNumberType {
     Iban = "iban",
     AccountNumber = "account_number",
     InternalId = "internal_id",
@@ -63,7 +62,7 @@ export enum APIRequiredInvoiceCreationToAccountAccountNumberType {
 /**
  * The type of bank identifier (e.g. BIC).
  */
-export enum APIRequiredInvoiceCreationToAccountBankIdentifierType {
+export enum APIRequiredInvoiceCreationBankIdentifierType {
     Bic = "bic",
     RoutingNumber = "routing_number",
     Name = "name",
@@ -78,8 +77,8 @@ export class APIRequiredInvoiceCreationToAccount extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "account_holder" })
-    @Type(() => APIRequiredInvoiceCreationToAccountAccountHolder)
-    accountHolder?: APIRequiredInvoiceCreationToAccountAccountHolder;
+    @Type(() => APIRequiredInvoiceCreationAccountHolder)
+    accountHolder?: APIRequiredInvoiceCreationAccountHolder;
 
     /**
      * The account identifier. Only IBANs are supported at the moment.
@@ -93,7 +92,7 @@ export class APIRequiredInvoiceCreationToAccount extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "account_number_type" })
-    accountNumberType?: APIRequiredInvoiceCreationToAccountAccountNumberType;
+    accountNumberType?: APIRequiredInvoiceCreationAccountNumberType;
 
     /**
      * The identifier of the bank.
@@ -107,7 +106,7 @@ export class APIRequiredInvoiceCreationToAccount extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "bank_identifier_type" })
-    bankIdentifierType?: APIRequiredInvoiceCreationToAccountBankIdentifierType;
+    bankIdentifierType?: APIRequiredInvoiceCreationBankIdentifierType;
 }
 
 export class APIRequiredInvoiceCreation extends SpeakeasyBase {

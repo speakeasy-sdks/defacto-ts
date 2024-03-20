@@ -8,7 +8,7 @@
   <!-- <a href="https://github.com/speakeasy-sdks/defacto-ts/releases"><img src="https://img.shields.io/github/v/release/speakeasy-sdks/defacto-ts?sort=semver&style=for-the-badge" /></a> -->
 </div>
 
-<!-- Start SDK Installation -->
+<!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
 ### NPM
@@ -22,47 +22,42 @@ npm add https://github.com/speakeasy-sdks/defacto-ts
 ```bash
 yarn add https://github.com/speakeasy-sdks/defacto-ts
 ```
-<!-- End SDK Installation -->
+<!-- End SDK Installation [installation] -->
 
+<!-- Start SDK Example Usage [usage] -->
 ## SDK Example Usage
-<!-- Start SDK Example Usage -->
 
+### Example
 
 ```typescript
 import { Defacto } from "defacto";
-import { ListBillsResponse, ListBillsStatus } from "defacto/dist/sdk/models/operations";
+import { Status } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+async function run() {
+    const sdk = new Defacto({
+        security: {
+            bearer: "<YOUR_API_KEY_HERE>",
+        },
+    });
 
-sdk.billing.listBills({
-  businessId: [
-    "89bd9d8d-69a6-474e-8f46-7cc8796ed151",
-  ],
-  businessIdentifier: [
-    "deserunt",
-  ],
-  cursor: "perferendis",
-  endDate: new Date("2022-03-03T02:15:00.468Z"),
-  pageSize: 957156,
-  startDate: new Date("2022-07-31T07:34:52.790Z"),
-  status: [
-    ListBillsStatus.Paid,
-  ],
-}).then((res: ListBillsResponse) => {
-  if (res.statusCode == 200) {
-    // handle response
-  }
-});
+    const res = await sdk.billing.listBills({
+        businessId: ["123e62b5-ef5d-43b3-825e-9f0f1d4ec684"],
+        businessIdentifier: ["<value>"],
+        status: [Status.SentToPayer],
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+}
+
+run();
+
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->
 
-<!-- Start SDK Available Operations -->
+<!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
-
 
 ### [billing](docs/sdks/billing/README.md)
 
@@ -78,6 +73,13 @@ This endpoint is useful only for partners who send the bill themselves.
 By default the bills are sent the the payers of the fees by Defacto.
 If you need to send them by yourself please get in touch with us.
 
+
+### [onboarding](docs/sdks/onboarding/README.md)
+
+* [deactivateBorrower](docs/sdks/onboarding/README.md#deactivateborrower)
+* [enrollBorrower](docs/sdks/onboarding/README.md#enrollborrower)
+* [listBorrowers](docs/sdks/onboarding/README.md#listborrowers) - List all your borrowers
+* [signBorrower](docs/sdks/onboarding/README.md#signborrower) - Register the date a new borrower accepted our T&Cs
 
 ### [businessData](docs/sdks/businessdata/README.md)
 
@@ -114,6 +116,43 @@ Ask for the eligibility of a buyer.
 * [requestElligibilityQuote](docs/sdks/eligibility/README.md#requestelligibilityquote) - Ask for the eligibility of a quote.
 * [requestElligibilitySeller](docs/sdks/eligibility/README.md#requestelligibilityseller) - 
 Ask for the eligibility of a seller.
+
+
+### [testing](docs/sdks/testing/README.md)
+
+* [generateBusiness](docs/sdks/testing/README.md#generatebusiness) - 
+Generate a fake business for you to use in your test.
+Important, this endpoint does not create the business but simply return the payload.
+Call `/borrowers` to register this business and generate loan for it
+Warning: these invoices and their IBANs will not work in production.
+
+* [generateIban](docs/sdks/testing/README.md#generateiban) - 
+Generate a new IBAN that will produce a given scenario on the sandbox, for example a rejected loan.
+Each IBAN can be used as the account of a single counterparty or borrower (a buyer or seller of yours).
+So, if you want to test the API for several of your counterparties, you will have to generate several of them.
+The BIC associated to these IBANs is FK2FACTO.
+Also, if you want to test another scenario on a given business, create a new IBAN and use it in the to_account field of the next invoice and loan that you create for this counterparty.
+For more information on the scenarios of the sandbox, please refer to the Testing Multiple Scenarios & Errors section.
+Warning: these IBANs will not work in production.
+
+* [generateInvoice](docs/sdks/testing/README.md#generateinvoice) - 
+!!! The documentation website is not able to display the full response of this endpoint. The use of the curl command is recommended. !!!
+
+Generate a fake invoice that will produce a given scenario on the sandbox, for example a rejected loan.
+The generation will not add the invoice to the list of your invoices. You must do this via API.
+To achieve this, you can copy the invoice_creation_payload into the payload of the invoice creation API.
+If you want to test another scenario on a given business, create another fake invoice.
+For more information on the scenarios of the sandbox, please refer to the Testing your integration section.
+Warning: these invoices and their IBANs will not work in production.
+
+* [hello](docs/sdks/testing/README.md#hello) - Make a first call to this endpoint to test your connection to Defacto API with your API Key
+* [setBusinessEligible](docs/sdks/testing/README.md#setbusinesseligible) - 
+This endpoint enables you to configure the eligibility of a business.
+Pass NOT_ELIGIBLE to make a business non-eligible.
+Then, you'll be able to test how the Defacto API behaves when requesting a loan for a non-eligible business.
+You can test multiple scenarios:
+(1) when the business is the borrower or
+(2) when the business is on the invoice to finance but is not the borrower.
 
 
 ### [invoice](docs/sdks/invoice/README.md)
@@ -155,53 +194,9 @@ This operation is not available when the loan is in another status.
 
 * [validate](docs/sdks/loan/README.md#validate) - Use this function to accept a loan proposal. Available for LoanStatus.TO_VALIDATE loans only.
 
-### [onboarding](docs/sdks/onboarding/README.md)
-
-* [deactivateBorrower](docs/sdks/onboarding/README.md#deactivateborrower)
-* [enrollBorrower](docs/sdks/onboarding/README.md#enrollborrower)
-* [listBorrowers](docs/sdks/onboarding/README.md#listborrowers) - List all your borrowers
-* [signBorrower](docs/sdks/onboarding/README.md#signborrower) - Register the date a new borrower accepted our T&Cs
-
 ### [payment](docs/sdks/payment/README.md)
 
 * [list](docs/sdks/payment/README.md#list) - Get payments related to loans
-
-### [testing](docs/sdks/testing/README.md)
-
-* [generateBusiness](docs/sdks/testing/README.md#generatebusiness) - 
-Generate a fake business for you to use in your test.
-Important, this endpoint does not create the business but simply return the payload.
-Call `/borrowers` to register this business and generate loan for it
-Warning: these invoices and their IBANs will not work in production.
-
-* [generateIban](docs/sdks/testing/README.md#generateiban) - 
-Generate a new IBAN that will produce a given scenario on the sandbox, for example a rejected loan.
-Each IBAN can be used as the account of a single counterparty or borrower (a buyer or seller of yours).
-So, if you want to test the API for several of your counterparties, you will have to generate several of them.
-The BIC associated to these IBANs is FK2FACTO.
-Also, if you want to test another scenario on a given business, create a new IBAN and use it in the to_account field of the next invoice and loan that you create for this counterparty.
-For more information on the scenarios of the sandbox, please refer to the Testing Multiple Scenarios & Errors section.
-Warning: these IBANs will not work in production.
-
-* [generateInvoice](docs/sdks/testing/README.md#generateinvoice) - 
-!!! The documentation website is not able to display the full response of this endpoint. The use of the curl command is recommended. !!!
-
-Generate a fake invoice that will produce a given scenario on the sandbox, for example a rejected loan.
-The generation will not add the invoice to the list of your invoices. You must do this via API.
-To achieve this, you can copy the invoice_creation_payload into the payload of the invoice creation API.
-If you want to test another scenario on a given business, create another fake invoice.
-For more information on the scenarios of the sandbox, please refer to the Testing your integration section.
-Warning: these invoices and their IBANs will not work in production.
-
-* [hello](docs/sdks/testing/README.md#hello) - Make a first call to this endpoint to test your connection to Defacto API with your API Key
-* [setBusinessEligible](docs/sdks/testing/README.md#setbusinesseligible) - 
-This endpoint enables you to configure the eligibility of a business.
-Pass NOT_ELIGIBLE to make a business non-eligible.
-Then, you'll be able to test how the Defacto API behaves when requesting a loan for a non-eligible business.
-You can test multiple scenarios:
-(1) when the business is the borrower or
-(2) when the business is on the invoice to finance but is not the borrower.
-
 
 ### [webhook](docs/sdks/webhook/README.md)
 
@@ -228,9 +223,197 @@ Update a webhook subscription.
 ⚠️ Our webhooks always call the POST method of the given url.
 
 For more information on webhooks such as how to secure them, you can refer to our guide.
+<!-- End Available Resources and Operations [operations] -->
 
 
-<!-- End SDK Available Operations -->
+
+
+
+<!-- Start Error Handling [errors] -->
+## Error Handling
+
+Handling errors in this SDK should largely match your expectations.  All operations return a response object or throw an error.  If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
+
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
+
+Example
+
+```typescript
+import { Defacto } from "defacto";
+import { Status } from "defacto/dist/sdk/models/operations";
+
+async function run() {
+    const sdk = new Defacto({
+        security: {
+            bearer: "<YOUR_API_KEY_HERE>",
+        },
+    });
+
+    let res;
+    try {
+        res = await sdk.billing.listBills({
+            businessId: ["123e62b5-ef5d-43b3-825e-9f0f1d4ec684"],
+            businessIdentifier: ["<value>"],
+            status: [Status.SentToPayer],
+        });
+    } catch (err) {
+        if (err instanceof errors.SDKError) {
+            console.error(err); // handle exception
+            throw err;
+        }
+    }
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+}
+
+run();
+
+```
+<!-- End Error Handling [errors] -->
+
+
+
+<!-- Start Server Selection [server] -->
+## Server Selection
+
+### Select Server by Index
+
+You can override the default server globally by passing a server index to the `serverIdx: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
+
+| # | Server | Variables |
+| - | ------ | --------- |
+| 0 | `https://api.getdefacto.com` | None |
+
+#### Example
+
+```typescript
+import { Defacto } from "defacto";
+import { Status } from "defacto/dist/sdk/models/operations";
+
+async function run() {
+    const sdk = new Defacto({
+        serverIdx: 0,
+        security: {
+            bearer: "<YOUR_API_KEY_HERE>",
+        },
+    });
+
+    const res = await sdk.billing.listBills({
+        businessId: ["123e62b5-ef5d-43b3-825e-9f0f1d4ec684"],
+        businessIdentifier: ["<value>"],
+        status: [Status.SentToPayer],
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+}
+
+run();
+
+```
+
+
+### Override Server URL Per-Client
+
+The default server can also be overridden globally by passing a URL to the `serverURL: str` optional parameter when initializing the SDK client instance. For example:
+```typescript
+import { Defacto } from "defacto";
+import { Status } from "defacto/dist/sdk/models/operations";
+
+async function run() {
+    const sdk = new Defacto({
+        serverURL: "https://api.getdefacto.com",
+        security: {
+            bearer: "<YOUR_API_KEY_HERE>",
+        },
+    });
+
+    const res = await sdk.billing.listBills({
+        businessId: ["123e62b5-ef5d-43b3-825e-9f0f1d4ec684"],
+        businessIdentifier: ["<value>"],
+        status: [Status.SentToPayer],
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+}
+
+run();
+
+```
+<!-- End Server Selection [server] -->
+
+
+
+<!-- Start Custom HTTP Client [http-client] -->
+## Custom HTTP Client
+
+The Typescript SDK makes API calls using the [axios](https://axios-http.com/docs/intro) HTTP library.  In order to provide a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration, you can initialize the SDK client with a custom `AxiosInstance` object.
+
+For example, you could specify a header for every request that your sdk makes as follows:
+
+```typescript
+import { defacto } from "Defacto";
+import axios from "axios";
+
+const httpClient = axios.create({
+    headers: {'x-custom-header': 'someValue'}
+})
+
+const sdk = new Defacto({defaultClient: httpClient});
+```
+<!-- End Custom HTTP Client [http-client] -->
+
+
+
+<!-- Start Authentication [security] -->
+## Authentication
+
+### Per-Client Security Schemes
+
+This SDK supports the following security scheme globally:
+
+| Name     | Type     | Scheme   |
+| -------- | -------- | -------- |
+| `bearer` | apiKey   | API key  |
+
+You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
+```typescript
+import { Defacto } from "defacto";
+import { Status } from "defacto/dist/sdk/models/operations";
+
+async function run() {
+    const sdk = new Defacto({
+        security: {
+            bearer: "<YOUR_API_KEY_HERE>",
+        },
+    });
+
+    const res = await sdk.billing.listBills({
+        businessId: ["123e62b5-ef5d-43b3-825e-9f0f1d4ec684"],
+        businessIdentifier: ["<value>"],
+        status: [Status.SentToPayer],
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+}
+
+run();
+
+```
+<!-- End Authentication [security] -->
+
+<!-- Placeholder for Future Speakeasy SDK Sections -->
+
+
 
 ### Maturity
 

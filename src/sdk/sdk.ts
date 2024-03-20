@@ -3,12 +3,12 @@
  */
 
 import * as utils from "../internal/utils";
+import * as shared from "../sdk/models/shared";
 import { Billing } from "./billing";
 import { BusinessData } from "./businessdata";
 import { Eligibility } from "./eligibility";
 import { Invoice } from "./invoice";
 import { Loan } from "./loan";
-import * as shared from "./models/shared";
 import { Onboarding } from "./onboarding";
 import { Payment } from "./payment";
 import { Testing } from "./testing";
@@ -29,6 +29,7 @@ export type SDKProps = {
      * The security details required to authenticate the SDK
      */
     security?: shared.Security | (() => Promise<shared.Security>);
+
     /**
      * Allows overriding the default axios client used by the SDK
      */
@@ -56,8 +57,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "v1.0.0";
-    sdkVersion = "1.25.1";
-    genVersion = "2.107.3";
+    sdkVersion = "2.1.5";
+    genVersion = "2.283.1";
+    userAgent = "speakeasy-sdk/typescript 2.1.5 2.283.1 v1.0.0 defacto";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -66,26 +68,29 @@ export class SDKConfiguration {
 
 export class Defacto {
     public billing: Billing;
+    public onboarding: Onboarding;
     public businessData: BusinessData;
     public eligibility: Eligibility;
+    public testing: Testing;
     public invoice: Invoice;
     public loan: Loan;
-    public onboarding: Onboarding;
     public payment: Payment;
-    public testing: Testing;
     public webhook: Webhook;
 
     private sdkConfiguration: SDKConfiguration;
 
     constructor(props?: SDKProps) {
         let serverURL = props?.serverURL;
-        const serverIdx = props?.serverIdx ?? 0;
 
         if (!serverURL) {
+            const serverIdx = props?.serverIdx ?? 0;
+            if (serverIdx < 0 || serverIdx >= ServerList.length) {
+                throw new Error(`Invalid server index ${serverIdx}`);
+            }
             serverURL = ServerList[serverIdx];
         }
 
-        const defaultClient = props?.defaultClient ?? axios.create({ baseURL: serverURL });
+        const defaultClient = props?.defaultClient ?? axios.create();
         this.sdkConfiguration = new SDKConfiguration({
             defaultClient: defaultClient,
             security: props?.security,
@@ -94,13 +99,13 @@ export class Defacto {
         });
 
         this.billing = new Billing(this.sdkConfiguration);
+        this.onboarding = new Onboarding(this.sdkConfiguration);
         this.businessData = new BusinessData(this.sdkConfiguration);
         this.eligibility = new Eligibility(this.sdkConfiguration);
+        this.testing = new Testing(this.sdkConfiguration);
         this.invoice = new Invoice(this.sdkConfiguration);
         this.loan = new Loan(this.sdkConfiguration);
-        this.onboarding = new Onboarding(this.sdkConfiguration);
         this.payment = new Payment(this.sdkConfiguration);
-        this.testing = new Testing(this.sdkConfiguration);
         this.webhook = new Webhook(this.sdkConfiguration);
     }
 }

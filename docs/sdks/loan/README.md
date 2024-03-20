@@ -1,4 +1,5 @@
-# loan
+# Loan
+(*loan*)
 
 ### Available Operations
 
@@ -30,20 +31,24 @@ Use this function to cancel a loan proposal. Available for LoanStatus.TO_VALIDAT
 
 ```typescript
 import { Defacto } from "defacto";
-import { CancelLoanRequest, CancelLoanResponse } from "defacto/dist/sdk/models/operations";
+import { CancelLoanRequest } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
-const loanId: string = "adipisci";
+async function run() {
+  const sdk = new Defacto({
+    security: {
+      bearer: "<YOUR_API_KEY_HERE>",
+    },
+  });
+const loanId: string = "<value>";
 
-sdk.loan.cancel(loanId).then((res: CancelLoanResponse) => {
+  const res = await sdk.loan.cancel(loanId);
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
@@ -56,8 +61,12 @@ sdk.loan.cancel(loanId).then((res: CancelLoanResponse) => {
 
 ### Response
 
-**Promise<[operations.CancelLoanResponse](../../models/operations/cancelloanresponse.md)>**
+**Promise<[operations.CancelLoanResponse](../../sdk/models/operations/cancelloanresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## get
 
@@ -67,20 +76,24 @@ Get a loan by id
 
 ```typescript
 import { Defacto } from "defacto";
-import { GetLoanRequest, GetLoanResponse } from "defacto/dist/sdk/models/operations";
+import { GetLoanRequest } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
-const loanId: string = "asperiores";
+async function run() {
+  const sdk = new Defacto({
+    security: {
+      bearer: "<YOUR_API_KEY_HERE>",
+    },
+  });
+const loanId: string = "<value>";
 
-sdk.loan.get(loanId).then((res: GetLoanResponse) => {
+  const res = await sdk.loan.get(loanId);
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
@@ -93,8 +106,12 @@ sdk.loan.get(loanId).then((res: GetLoanResponse) => {
 
 ### Response
 
-**Promise<[operations.GetLoanResponse](../../models/operations/getloanresponse.md)>**
+**Promise<[operations.GetLoanResponse](../../sdk/models/operations/getloanresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## getEvents
 
@@ -104,20 +121,24 @@ Get the activity log of a loan.
 
 ```typescript
 import { Defacto } from "defacto";
-import { GetLoanEventsRequest, GetLoanEventsResponse } from "defacto/dist/sdk/models/operations";
+import { GetLoanEventsRequest } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
-const loanId: string = "earum";
+async function run() {
+  const sdk = new Defacto({
+    security: {
+      bearer: "<YOUR_API_KEY_HERE>",
+    },
+  });
+const loanId: string = "<value>";
 
-sdk.loan.getEvents(loanId).then((res: GetLoanEventsResponse) => {
+  const res = await sdk.loan.getEvents(loanId);
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
@@ -130,8 +151,12 @@ sdk.loan.getEvents(loanId).then((res: GetLoanEventsResponse) => {
 
 ### Response
 
-**Promise<[operations.GetLoanEventsResponse](../../models/operations/getloaneventsresponse.md)>**
+**Promise<[operations.GetLoanEventsResponse](../../sdk/models/operations/getloaneventsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## list
 
@@ -141,55 +166,54 @@ List loans
 
 ```typescript
 import { Defacto } from "defacto";
-import { ListLoansLoanType, ListLoansResponse, ListLoansStatus } from "defacto/dist/sdk/models/operations";
+import { ListLoansQueryParamStatus, LoanType } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+async function run() {
+  const sdk = new Defacto({
+    security: {
+      bearer: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.loan.list({
-  borrower: [
-    "modi",
-  ],
-  cursor: "iste",
-  guaranteeCalled: false,
-  guarantor: "dolorum",
-  id: [
-    "8d9cbf48-6333-423f-9b77-f3a4100674eb",
-  ],
-  loanType: [
-    ListLoansLoanType.WalletFinancing,
-  ],
-  pageSize: 377752,
-  status: [
-    ListLoansStatus.ToRepayFees,
-  ],
-  toPayAtFrom: new Date("2022-06-16T23:42:38.113Z"),
-  toPayAtTo: new Date("2022-02-23T01:35:05.899Z"),
-  toRepayAtFrom: new Date("2022-04-04T12:00:33.616Z"),
-  toRepayAtTo: new Date("2022-01-16T14:59:31.978Z"),
-  toRepayAtWithinDays: 453697,
-}).then((res: ListLoansResponse) => {
+  const res = await sdk.loan.list({
+    borrower: [
+      "<value>",
+    ],
+    id: [
+      "c184a429-302e-4aca-80db-f1718b882a50",
+    ],
+    loanType: [
+      LoanType.WalletFinancing,
+    ],
+    status: [
+      ListLoansQueryParamStatus.Submitted,
+    ],
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `request`                                                                  | [operations.ListLoansRequest](../../models/operations/listloansrequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
-| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `request`                                                                      | [operations.ListLoansRequest](../../sdk/models/operations/listloansrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
 
 
 ### Response
 
-**Promise<[operations.ListLoansResponse](../../models/operations/listloansresponse.md)>**
+**Promise<[operations.ListLoansResponse](../../sdk/models/operations/listloansresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## request
 
@@ -204,121 +228,100 @@ Request a new loan. You can request a loan for only one invoice. At the moment, 
 
 ```typescript
 import { Defacto } from "defacto";
-import { RequestLoanResponse } from "defacto/dist/sdk/models/operations";
 import {
-  AccountCreationAccountHolderIdentifierType,
   AccountCreationAccountNumberType,
   AccountCreationBankIdentifierType,
-  APIPostLoanBorrowerIdentifierType,
+  AccountCreationIdentifierType,
   APIPostLoanCurrency,
-  APIPostLoanLoanType,
+  APIPostLoanIdentifierType,
+  APIRequiredInvoiceCreationAccountNumberType,
+  APIRequiredInvoiceCreationBankIdentifierType,
   APIRequiredInvoiceCreationCurrency,
-  APIRequiredInvoiceCreationToAccountAccountHolderIdentifierType,
-  APIRequiredInvoiceCreationToAccountAccountNumberType,
-  APIRequiredInvoiceCreationToAccountBankIdentifierType,
+  APIRequiredInvoiceCreationIdentifierType,
   CounterpartyCreationIdentifierType,
+  LoanType,
 } from "defacto/dist/sdk/models/shared";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+async function run() {
+  const sdk = new Defacto({
+    security: {
+      bearer: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.loan.request({
-  amount: 677082,
-  autoValidate: false,
-  borrower: {
-    identifier: "deleniti",
-    identifierType: APIPostLoanBorrowerIdentifierType.Bsn,
-  },
-  currency: APIPostLoanCurrency.Gbp,
-  invoiceIds: [
-    "bf737ae4-203c-4e5e-aa95-d8a0d446ce2a",
-  ],
-  invoices: [
-    {
-      buyer: {
-        identifier: "a",
-        identifierType: CounterpartyCreationIdentifierType.Cif,
-        name: "Tyrone Emard",
-        vatNumber: "amet",
-      },
-      currency: APIRequiredInvoiceCreationCurrency.Gbp,
-      document: "accusamus",
-      dueAt: new Date("2022-09-08T12:03:15.868Z"),
-      invoiceNumber: "dolorem",
-      issuedAt: new Date("2021-06-12T13:41:06.619Z"),
-      metadata: {
-        "nihil": "sit",
-      },
-      netAmount: 711584,
-      seller: {
-        identifier: "neque",
-        identifierType: CounterpartyCreationIdentifierType.Siren,
-        name: "Kelli Hintz",
-        vatNumber: "ipsum",
-      },
-      taxAmount: 277628,
-      toAccount: {
-        accountHolder: {
-          identifier: "qui",
-          identifierType: APIRequiredInvoiceCreationToAccountAccountHolderIdentifierType.Bsn,
+  const res = await sdk.loan.request({
+    amount: 193368,
+    borrower: {
+      identifier: "<value>",
+    },
+    invoiceIds: [
+      "12e6e103-56d1-4f09-9ae6-2352496ce763",
+    ],
+    invoices: [
+      {
+        buyer: {},
+        dueAt: new Date("2023-04-12T05:28:04.614Z"),
+        invoiceNumber: "<value>",
+        issuedAt: new Date("2023-06-01T07:28:09.115Z"),
+        metadata: {
+          "key": "<value>",
         },
-        accountNumber: "maxime",
-        accountNumberType: APIRequiredInvoiceCreationToAccountAccountNumberType.InternalId,
-        bankIdentifier: "soluta",
-        bankIdentifierType: APIRequiredInvoiceCreationToAccountBankIdentifierType.Bic,
+        seller: {},
+        toAccount: {
+          accountHolder: {
+            identifier: "<value>",
+          },
+          accountNumber: "<value>",
+        },
+        totalAmount: 143159,
       },
-      toPayAmount: 674848,
-      totalAmount: 517379,
+    ],
+    loanTo: {
+      accountHolder: {
+        identifier: "<value>",
+      },
+      accountNumber: "<value>",
     },
-  ],
-  loanTo: {
-    accountHolder: {
-      identifier: "incidunt",
-      identifierType: AccountCreationAccountHolderIdentifierType.Siren,
+    loanToReferences: [
+      "<value>",
+    ],
+    metadata: {
+      "key": "<value>",
     },
-    accountNumber: "dolores",
-    accountNumberType: AccountCreationAccountNumberType.InternalId,
-    bankIdentifier: "facilis",
-    bankIdentifierType: AccountCreationBankIdentifierType.RoutingNumber,
-  },
-  loanToReferences: [
-    "quam",
-  ],
-  loanType: APIPostLoanLoanType.WalletFinancing,
-  metadata: {
-    "temporibus": "qui",
-  },
-  notificationEmails: [
-    "Burdette.Cummerata@gmail.com",
-  ],
-  repaymentFromReferences: [
-    "ullam",
-  ],
-  saltId: "nam",
-  toPayAt: new Date("2022-11-28T15:41:44.846Z"),
-  toRepayAt: new Date("2020-10-05T00:59:28.911Z"),
-}).then((res: RequestLoanResponse) => {
+    notificationEmails: [
+      "Tony.Hauck15@gmail.com",
+    ],
+    repaymentFromReferences: [
+      "<value>",
+    ],
+    toPayAt: new Date("2023-02-09T18:49:05.936Z"),
+    toRepayAt: new Date("2023-06-07T23:46:39.127Z"),
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
 | Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `request`                                                    | [shared.APIPostLoan](../../models/shared/apipostloan.md)     | :heavy_check_mark:                                           | The request object to use for the request.                   |
+| `request`                                                    | [shared.APIPostLoan](../../sdk/models/shared/apipostloan.md) | :heavy_check_mark:                                           | The request object to use for the request.                   |
 | `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
 ### Response
 
-**Promise<[operations.RequestLoanResponse](../../models/operations/requestloanresponse.md)>**
+**Promise<[operations.RequestLoanResponse](../../sdk/models/operations/requestloanresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## update
 
@@ -335,54 +338,49 @@ This operation is not available when the loan is in another status.
 
 ```typescript
 import { Defacto } from "defacto";
-import { UpdateLoanRequest, UpdateLoanResponse } from "defacto/dist/sdk/models/operations";
+import { UpdateLoanRequest } from "defacto/dist/sdk/models/operations";
 import {
   PatchLoan,
+  PatchLoanAccountHolder,
+  PatchLoanAccountNumberType,
+  PatchLoanBankIdentifierType,
+  PatchLoanIdentifierType,
   PatchLoanLoanTo,
-  PatchLoanLoanToAccountHolder,
-  PatchLoanLoanToAccountHolderIdentifierType,
-  PatchLoanLoanToAccountNumberType,
-  PatchLoanLoanToBankIdentifierType,
 } from "defacto/dist/sdk/models/shared";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
-const loanId: string = "nobis";
+async function run() {
+  const sdk = new Defacto({
+    security: {
+      bearer: "<YOUR_API_KEY_HERE>",
+    },
+  });
+const loanId: string = "<value>";
 const patchLoan: PatchLoan = {
-  amount: 92596,
-  lenderId: "saepe",
   loanTo: {
     accountHolder: {
-      identifier: "ipsum",
-      identifierType: PatchLoanLoanToAccountHolderIdentifierType.Siren,
+      identifier: "<value>",
     },
-    accountNumber: "nobis",
-    accountNumberType: PatchLoanLoanToAccountNumberType.AccountNumber,
-    bankIdentifier: "tempore",
-    bankIdentifierType: PatchLoanLoanToBankIdentifierType.RoutingNumber,
+    accountNumber: "<value>",
   },
   loanToReferences: [
-    "aperiam",
+    "<value>",
   ],
   metadata: {
-    "delectus": "dolorem",
+    "key": "<value>",
   },
   repaymentToReferences: [
-    "dolore",
+    "<value>",
   ],
-  toPayAt: new Date("2022-10-05T02:20:22.923Z"),
-  toRepayAt: new Date("2022-10-19T18:50:59.428Z"),
-  transferContractUrl: "quae",
 };
 
-sdk.loan.update(loanId, patchLoan).then((res: UpdateLoanResponse) => {
+  const res = await sdk.loan.update(loanId, patchLoan);
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
@@ -390,14 +388,18 @@ sdk.loan.update(loanId, patchLoan).then((res: UpdateLoanResponse) => {
 | Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | `loanId`                                                     | *string*                                                     | :heavy_check_mark:                                           | N/A                                                          |
-| `patchLoan`                                                  | [shared.PatchLoan](../../models/shared/patchloan.md)         | :heavy_minus_sign:                                           | N/A                                                          |
+| `patchLoan`                                                  | [shared.PatchLoan](../../sdk/models/shared/patchloan.md)     | :heavy_minus_sign:                                           | N/A                                                          |
 | `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
 ### Response
 
-**Promise<[operations.UpdateLoanResponse](../../models/operations/updateloanresponse.md)>**
+**Promise<[operations.UpdateLoanResponse](../../sdk/models/operations/updateloanresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## validate
 
@@ -407,20 +409,24 @@ Use this function to accept a loan proposal. Available for LoanStatus.TO_VALIDAT
 
 ```typescript
 import { Defacto } from "defacto";
-import { ValidateLoanRequest, ValidateLoanResponse } from "defacto/dist/sdk/models/operations";
+import { ValidateLoanRequest } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
-const loanId: string = "aut";
+async function run() {
+  const sdk = new Defacto({
+    security: {
+      bearer: "<YOUR_API_KEY_HERE>",
+    },
+  });
+const loanId: string = "<value>";
 
-sdk.loan.validate(loanId).then((res: ValidateLoanResponse) => {
+  const res = await sdk.loan.validate(loanId);
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
@@ -433,5 +439,9 @@ sdk.loan.validate(loanId).then((res: ValidateLoanResponse) => {
 
 ### Response
 
-**Promise<[operations.ValidateLoanResponse](../../models/operations/validateloanresponse.md)>**
+**Promise<[operations.ValidateLoanResponse](../../sdk/models/operations/validateloanresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |

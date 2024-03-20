@@ -7,7 +7,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 /**
  * Unique code identifying the reason of a denial. Can be used to display an error message to your users.
  */
-export enum EligibilityDenialReasonCode {
+export enum Code {
     NoReason = "NO_REASON",
     MaxAmountExceeded = "MAX_AMOUNT_EXCEEDED",
     BusinessNotRegistered = "BUSINESS_NOT_REGISTERED",
@@ -33,7 +33,7 @@ export class EligibilityDenialReason extends SpeakeasyBase {
      * Unique code identifying the reason of a denial. Can be used to display an error message to your users.
      */
     @SpeakeasyMetadata()
-    code: EligibilityDenialReasonCode;
+    code: Code;
 
     /**
      * A human readable description of the denial reason, in english. Mainly returned for debug purpose.

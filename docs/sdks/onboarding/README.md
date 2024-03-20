@@ -1,4 +1,5 @@
-# onboarding
+# Onboarding
+(*onboarding*)
 
 ### Available Operations
 
@@ -13,20 +14,24 @@
 
 ```typescript
 import { Defacto } from "defacto";
-import { DeactivateBorrowerRequest, DeactivateBorrowerResponse } from "defacto/dist/sdk/models/operations";
+import { DeactivateBorrowerRequest } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
-const borrowerId: string = "quas";
+async function run() {
+  const sdk = new Defacto({
+    security: {
+      bearer: "<YOUR_API_KEY_HERE>",
+    },
+  });
+const borrowerId: string = "<value>";
 
-sdk.onboarding.deactivateBorrower(borrowerId).then((res: DeactivateBorrowerResponse) => {
+  const res = await sdk.onboarding.deactivateBorrower(borrowerId);
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
@@ -39,8 +44,12 @@ sdk.onboarding.deactivateBorrower(borrowerId).then((res: DeactivateBorrowerRespo
 
 ### Response
 
-**Promise<[operations.DeactivateBorrowerResponse](../../models/operations/deactivateborrowerresponse.md)>**
+**Promise<[operations.DeactivateBorrowerResponse](../../sdk/models/operations/deactivateborrowerresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## enrollBorrower
 
@@ -48,79 +57,61 @@ sdk.onboarding.deactivateBorrower(borrowerId).then((res: DeactivateBorrowerRespo
 
 ```typescript
 import { Defacto } from "defacto";
-import { EnrollBorrowerResponse } from "defacto/dist/sdk/models/operations";
 import { APIPostBorrowerIdentifierType } from "defacto/dist/sdk/models/shared";
 import { RFCDate } from "defacto/dist/sdk/types";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
-
-sdk.onboarding.enrollBorrower({
-  accountNumber: "itaque",
-  address: {
-    addressLine1: "consequatur",
-    addressLine2: "est",
-    city: "San Francisco",
-    country: "Western Sahara",
-    postalCode: "75105",
-    state: "odio",
-  },
-  directors: [
-    {
-      address: {
-        addressLine1: "occaecati",
-        addressLine2: "voluptatibus",
-        city: "Terrystead",
-        country: "Greenland",
-        postalCode: "94289",
-        state: "dignissimos",
-      },
-      birthDate: new RFCDate("2020-11-08"),
-      birthPlace: {
-        city: "Kuhicfurt",
-        country: "Pitcairn Islands",
-      },
-      businessEmail: "Jessica_Greenholt19@hotmail.com",
-      businessPhoneNumber: "natus",
-      firstName: "Oma",
-      lastName: "Ankunding",
-      nationality: "voluptatibus",
-      title: "Mrs.",
+async function run() {
+  const sdk = new Defacto({
+    security: {
+      bearer: "<YOUR_API_KEY_HERE>",
     },
-  ],
-  identifier: "nulla",
-  identifierType: APIPostBorrowerIdentifierType.Siren,
-  legalForm: "porro",
-  metadata: {
-    "maiores": "doloribus",
-  },
-  name: "Miss Vicky Kuphal",
-  preferredLanguage: "ipsam",
-  signedAt: new Date("2022-11-12T00:45:12.094Z"),
-  vatNumber: "vel",
-  waitForReady: false,
-}).then((res: EnrollBorrowerResponse) => {
+  });
+
+  const res = await sdk.onboarding.enrollBorrower({
+    address: {
+      addressLine1: "16063 Crona Burgs",
+      city: "Duncanport",
+      country: "Antarctica (the territory South of 60 deg S)",
+      postalCode: "01224",
+    },
+    directors: [
+      {
+        address: {
+          country: "Niue",
+        },
+        birthPlace: {},
+      },
+    ],
+    identifier: "<value>",
+    metadata: {
+      "key": "<value>",
+    },
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                        | Type                                                             | Required                                                         | Description                                                      |
-| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
-| `request`                                                        | [shared.APIPostBorrower](../../models/shared/apipostborrower.md) | :heavy_check_mark:                                               | The request object to use for the request.                       |
-| `config`                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)     | :heavy_minus_sign:                                               | Available config options for making requests.                    |
+| Parameter                                                            | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `request`                                                            | [shared.APIPostBorrower](../../sdk/models/shared/apipostborrower.md) | :heavy_check_mark:                                                   | The request object to use for the request.                           |
+| `config`                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)         | :heavy_minus_sign:                                                   | Available config options for making requests.                        |
 
 
 ### Response
 
-**Promise<[operations.EnrollBorrowerResponse](../../models/operations/enrollborrowerresponse.md)>**
+**Promise<[operations.EnrollBorrowerResponse](../../sdk/models/operations/enrollborrowerresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## listBorrowers
 
@@ -130,25 +121,29 @@ List all your borrowers
 
 ```typescript
 import { Defacto } from "defacto";
-import { ListBorrowersRequest, ListBorrowersResponse } from "defacto/dist/sdk/models/operations";
+import { ListBorrowersRequest } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+async function run() {
+  const sdk = new Defacto({
+    security: {
+      bearer: "<YOUR_API_KEY_HERE>",
+    },
+  });
 const borrowerId: string[] = [
-  "d436813f-16d9-4f5f-8e6c-556146c3e250",
+  "ea2a2e84-a3b5-41bb-9e07-36c532ce23cc",
 ];
-const borrowerIdentifier: string = "a";
-const cursor: string = "libero";
-const pageSize: number = 13948;
+const borrowerIdentifier: string = "<value>";
+const cursor: string = "<value>";
+const pageSize: number = 667100;
 
-sdk.onboarding.listBorrowers(borrowerId, borrowerIdentifier, cursor, pageSize).then((res: ListBorrowersResponse) => {
+  const res = await sdk.onboarding.listBorrowers(borrowerId, borrowerIdentifier, cursor, pageSize);
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
@@ -164,8 +159,12 @@ sdk.onboarding.listBorrowers(borrowerId, borrowerIdentifier, cursor, pageSize).t
 
 ### Response
 
-**Promise<[operations.ListBorrowersResponse](../../models/operations/listborrowersresponse.md)>**
+**Promise<[operations.ListBorrowersResponse](../../sdk/models/operations/listborrowersresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## signBorrower
 
@@ -175,25 +174,28 @@ Register the date a new borrower accepted our T&Cs
 
 ```typescript
 import { Defacto } from "defacto";
-import { SignBorrowerRequest, SignBorrowerResponse } from "defacto/dist/sdk/models/operations";
+import { SignBorrowerRequest } from "defacto/dist/sdk/models/operations";
 import { SignedInput } from "defacto/dist/sdk/models/shared";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
-const borrowerId: string = "aut";
+async function run() {
+  const sdk = new Defacto({
+    security: {
+      bearer: "<YOUR_API_KEY_HERE>",
+    },
+  });
+const borrowerId: string = "<value>";
 const signedInput: SignedInput = {
-  signedAt: new Date("2021-06-17T11:25:30.782Z"),
-  waitForReady: false,
+  signedAt: new Date("2022-05-26T08:33:07.925Z"),
 };
 
-sdk.onboarding.signBorrower(borrowerId, signedInput).then((res: SignBorrowerResponse) => {
+  const res = await sdk.onboarding.signBorrower(borrowerId, signedInput);
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
@@ -201,11 +203,15 @@ sdk.onboarding.signBorrower(borrowerId, signedInput).then((res: SignBorrowerResp
 | Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | `borrowerId`                                                 | *string*                                                     | :heavy_check_mark:                                           | N/A                                                          |
-| `signedInput`                                                | [shared.SignedInput](../../models/shared/signedinput.md)     | :heavy_minus_sign:                                           | N/A                                                          |
+| `signedInput`                                                | [shared.SignedInput](../../sdk/models/shared/signedinput.md) | :heavy_minus_sign:                                           | N/A                                                          |
 | `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
 ### Response
 
-**Promise<[operations.SignBorrowerResponse](../../models/operations/signborrowerresponse.md)>**
+**Promise<[operations.SignBorrowerResponse](../../sdk/models/operations/signborrowerresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |

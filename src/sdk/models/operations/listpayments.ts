@@ -5,13 +5,13 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 
-export enum ListPaymentsPaymentMethod {
+export enum PaymentMethod {
     DirectDebit = "DIRECT_DEBIT",
     Sct = "SCT",
     P2P = "P2P",
 }
 
-export enum ListPaymentsPaymentType {
+export enum PaymentType {
     LoanPayment = "LOAN_PAYMENT",
     RepaymentNominal = "REPAYMENT_NOMINAL",
     RepaymentFees = "REPAYMENT_FEES",
@@ -27,7 +27,7 @@ export enum ListPaymentsPaymentType {
     PaymentProviderFees = "PAYMENT_PROVIDER_FEES",
 }
 
-export enum ListPaymentsStatus {
+export enum ListPaymentsQueryParamStatus {
     Proposed = "PROPOSED",
     Scheduled = "SCHEDULED",
     Canceled = "CANCELED",
@@ -60,16 +60,16 @@ export class ListPaymentsRequest extends SpeakeasyBase {
     pageSize?: number;
 
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=payment_method" })
-    paymentMethod?: ListPaymentsPaymentMethod[];
+    paymentMethod?: PaymentMethod[];
 
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=payment_type" })
-    paymentType?: ListPaymentsPaymentType[];
+    paymentType?: PaymentType[];
 
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=references" })
     references?: string[];
 
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=status" })
-    status?: ListPaymentsStatus[];
+    status?: ListPaymentsQueryParamStatus[];
 
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=to_account_id" })
     toAccountId?: string;
@@ -82,12 +82,21 @@ export class ListPaymentsResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     body?: Uint8Array;
 
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 }

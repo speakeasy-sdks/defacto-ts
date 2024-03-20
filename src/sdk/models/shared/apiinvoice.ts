@@ -7,7 +7,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum APIInvoiceBuyerIdentifierType {
+export enum APIInvoiceIdentifierType {
     Siret = "siret",
     Siren = "siren",
     VatNumber = "vat_number",
@@ -19,7 +19,6 @@ export enum APIInvoiceBuyerIdentifierType {
     HrNummer = "hr_nummer",
     BelgiumRegistrationNumber = "belgium_registration_number",
     Steuernummer = "steuernummer",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class APIInvoiceBuyer extends SpeakeasyBase {
@@ -39,7 +38,7 @@ export class APIInvoiceBuyer extends SpeakeasyBase {
      * Type of legal business identifier of the business, such as the SIRET in France.
      */
     @SpeakeasyMetadata()
-    identifierType?: APIInvoiceBuyerIdentifierType;
+    identifierType?: APIInvoiceIdentifierType;
 
     /**
      * Legal name of the business.
@@ -65,7 +64,7 @@ export enum APIInvoiceCurrency {
 /**
  * Type of legal business identifier of the business, such as the SIRET in France.
  */
-export enum APIInvoiceSellerIdentifierType {
+export enum APIInvoiceSchemasIdentifierType {
     Siret = "siret",
     Siren = "siren",
     VatNumber = "vat_number",
@@ -77,7 +76,6 @@ export enum APIInvoiceSellerIdentifierType {
     HrNummer = "hr_nummer",
     BelgiumRegistrationNumber = "belgium_registration_number",
     Steuernummer = "steuernummer",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class APIInvoiceSeller extends SpeakeasyBase {
@@ -97,7 +95,7 @@ export class APIInvoiceSeller extends SpeakeasyBase {
      * Type of legal business identifier of the business, such as the SIRET in France.
      */
     @SpeakeasyMetadata()
-    identifierType?: APIInvoiceSellerIdentifierType;
+    identifierType?: APIInvoiceSchemasIdentifierType;
 
     /**
      * Legal name of the business.
@@ -126,7 +124,7 @@ export enum APIInvoiceStatus {
 /**
  * The type of account number (e.g. IBAN).
  */
-export enum APIInvoiceToAccountDetailsAccountNumberType {
+export enum APIInvoiceAccountNumberType {
     Iban = "iban",
     AccountNumber = "account_number",
     InternalId = "internal_id",
@@ -135,13 +133,13 @@ export enum APIInvoiceToAccountDetailsAccountNumberType {
 /**
  * The type of bank identifier (e.g. BIC).
  */
-export enum APIInvoiceToAccountDetailsBankIdentifierType {
+export enum APIInvoiceBankIdentifierType {
     Bic = "bic",
     RoutingNumber = "routing_number",
     Name = "name",
 }
 
-export class APIInvoiceToAccountDetails extends SpeakeasyBase {
+export class ToAccountDetails extends SpeakeasyBase {
     /**
      * The account identifier. Only IBANs are supported at the moment.
      */
@@ -152,7 +150,7 @@ export class APIInvoiceToAccountDetails extends SpeakeasyBase {
      * The type of account number (e.g. IBAN).
      */
     @SpeakeasyMetadata()
-    accountNumberType: APIInvoiceToAccountDetailsAccountNumberType;
+    accountNumberType: APIInvoiceAccountNumberType;
 
     /**
      * The identifier of the bank.
@@ -164,7 +162,7 @@ export class APIInvoiceToAccountDetails extends SpeakeasyBase {
      * The type of bank identifier (e.g. BIC).
      */
     @SpeakeasyMetadata()
-    bankIdentifierType: APIInvoiceToAccountDetailsBankIdentifierType;
+    bankIdentifierType: APIInvoiceBankIdentifierType;
 }
 
 export class APIInvoice extends SpeakeasyBase {
@@ -232,7 +230,7 @@ export class APIInvoice extends SpeakeasyBase {
     taxAmount?: number;
 
     @SpeakeasyMetadata()
-    toAccountDetails?: APIInvoiceToAccountDetails;
+    toAccountDetails?: ToAccountDetails;
 
     /**
      * Remaining amount due by buyer to seller, in cents. Set at 0 for fully paid invoices.

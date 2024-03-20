@@ -20,7 +20,6 @@ export enum APIBorrowerEligibilityIdentifierType {
     HrNummer = "hr_nummer",
     BelgiumRegistrationNumber = "belgium_registration_number",
     Steuernummer = "steuernummer",
-    LessThanNilGreaterThan = "<nil>",
 }
 
 export class APIBorrowerEligibility extends SpeakeasyBase {

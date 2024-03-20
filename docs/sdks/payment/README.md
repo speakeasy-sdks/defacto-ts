@@ -1,4 +1,5 @@
-# payment
+# Payment
+(*payment*)
 
 ### Available Operations
 
@@ -12,59 +13,54 @@ Get payments related to loans
 
 ```typescript
 import { Defacto } from "defacto";
-import {
-  ListPaymentsPaymentMethod,
-  ListPaymentsPaymentType,
-  ListPaymentsResponse,
-  ListPaymentsStatus,
-} from "defacto/dist/sdk/models/operations";
+import { ListPaymentsQueryParamStatus, PaymentMethod, PaymentType } from "defacto/dist/sdk/models/operations";
 
-const sdk = new Defacto({
-  security: {
-    bearer: "",
-  },
-});
+async function run() {
+  const sdk = new Defacto({
+    security: {
+      bearer: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.payment.list({
-  cursor: "aliquam",
-  fromAccountId: "fugit",
-  fromDate: new Date("2022-10-05T22:09:33.495Z"),
-  id: "41aac366-c8dd-46b1-8429-07474778a7bd",
-  isReconciled: false,
-  loanId: [
-    "ut",
-  ],
-  pageSize: 433439,
-  paymentMethod: [
-    ListPaymentsPaymentMethod.Sct,
-  ],
-  paymentType: [
-    ListPaymentsPaymentType.Chargeback,
-  ],
-  references: [
-    "eos",
-  ],
-  status: [
-    ListPaymentsStatus.Failed,
-  ],
-  toAccountId: "quisquam",
-  toDate: new Date("2022-12-11T06:00:38.230Z"),
-}).then((res: ListPaymentsResponse) => {
+  const res = await sdk.payment.list({
+    loanId: [
+      "<value>",
+    ],
+    paymentMethod: [
+      PaymentMethod.P2P,
+    ],
+    paymentType: [
+      PaymentType.RepaymentNominal,
+    ],
+    references: [
+      "<value>",
+    ],
+    status: [
+      ListPaymentsQueryParamStatus.Failed,
+    ],
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `request`                                                                        | [operations.ListPaymentsRequest](../../models/operations/listpaymentsrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.ListPaymentsRequest](../../sdk/models/operations/listpaymentsrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
 
-**Promise<[operations.ListPaymentsResponse](../../models/operations/listpaymentsresponse.md)>**
+**Promise<[operations.ListPaymentsResponse](../../sdk/models/operations/listpaymentsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
